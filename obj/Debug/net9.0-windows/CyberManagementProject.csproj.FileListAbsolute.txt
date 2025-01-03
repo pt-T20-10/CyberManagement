@@ -1,0 +1,17 @@
+D:\VStudio\Projects\CyberManagementProject\bin\Debug\net9.0-windows\CyberManagementProject.exe
+D:\VStudio\Projects\CyberManagementProject\bin\Debug\net9.0-windows\CyberManagementProject.deps.json
+D:\VStudio\Projects\CyberManagementProject\bin\Debug\net9.0-windows\CyberManagementProject.runtimeconfig.json
+D:\VStudio\Projects\CyberManagementProject\bin\Debug\net9.0-windows\CyberManagementProject.dll
+D:\VStudio\Projects\CyberManagementProject\bin\Debug\net9.0-windows\CyberManagementProject.pdb
+D:\VStudio\Projects\CyberManagementProject\obj\Debug\net9.0-windows\CyberManagementProject.frmLogin.resources
+D:\VStudio\Projects\CyberManagementProject\obj\Debug\net9.0-windows\CyberManagementProject.csproj.GenerateResource.cache
+D:\VStudio\Projects\CyberManagementProject\obj\Debug\net9.0-windows\CyberManagementProject.GeneratedMSBuildEditorConfig.editorconfig
+D:\VStudio\Projects\CyberManagementProject\obj\Debug\net9.0-windows\CyberManagementProject.AssemblyInfoInputs.cache
+D:\VStudio\Projects\CyberManagementProject\obj\Debug\net9.0-windows\CyberManagementProject.AssemblyInfo.cs
+D:\VStudio\Projects\CyberManagementProject\obj\Debug\net9.0-windows\CyberManagementProject.csproj.CoreCompileInputs.cache
+D:\VStudio\Projects\CyberManagementProject\obj\Debug\net9.0-windows\CyberManagementProject.sourcelink.json
+D:\VStudio\Projects\CyberManagementProject\obj\Debug\net9.0-windows\CyberManagementProject.dll
+D:\VStudio\Projects\CyberManagementProject\obj\Debug\net9.0-windows\refint\CyberManagementProject.dll
+D:\VStudio\Projects\CyberManagementProject\obj\Debug\net9.0-windows\CyberManagementProject.pdb
+D:\VStudio\Projects\CyberManagementProject\obj\Debug\net9.0-windows\CyberManagementProject.genruntimeconfig.cache
+D:\VStudio\Projects\CyberManagementProject\obj\Debug\net9.0-windows\ref\CyberManagementProject.dll
