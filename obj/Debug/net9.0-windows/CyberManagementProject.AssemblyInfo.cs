@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CyberManagementProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+93ea7236ff4685483f88c081e131cf8153efbb4d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d389711559ed95de752068ab0e6ebd9433c23693")]
 [assembly: System.Reflection.AssemblyProductAttribute("CyberManagementProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CyberManagementProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
