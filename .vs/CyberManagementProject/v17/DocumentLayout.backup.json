@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\VStudio\\Projects\\CyberManagementProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{86C608BA-7DA1-4621-B915-3E7516DA0EE8}|CyberManagementProject.csproj|d:\\vstudio\\projects\\cybermanagementproject\\dto\\customtabcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{86C608BA-7DA1-4621-B915-3E7516DA0EE8}|CyberManagementProject.csproj|solutionrelative:dto\\customtabcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{86C608BA-7DA1-4621-B915-3E7516DA0EE8}|CyberManagementProject.csproj|d:\\vstudio\\projects\\cybermanagementproject\\cybermanagementproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{86C608BA-7DA1-4621-B915-3E7516DA0EE8}|CyberManagementProject.csproj|solutionrelative:cybermanagementproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{86C608BA-7DA1-4621-B915-3E7516DA0EE8}|CyberManagementProject.csproj|d:\\vstudio\\projects\\cybermanagementproject\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -17,6 +17,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{86C608BA-7DA1-4621-B915-3E7516DA0EE8}|CyberManagementProject.csproj|d:\\vstudio\\projects\\cybermanagementproject\\frmmain.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{86C608BA-7DA1-4621-B915-3E7516DA0EE8}|CyberManagementProject.csproj|solutionrelative:frmmain.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86C608BA-7DA1-4621-B915-3E7516DA0EE8}|CyberManagementProject.csproj|d:\\vstudio\\projects\\cybermanagementproject\\dto\\customtabcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86C608BA-7DA1-4621-B915-3E7516DA0EE8}|CyberManagementProject.csproj|solutionrelative:dto\\customtabcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{86C608BA-7DA1-4621-B915-3E7516DA0EE8}|CyberManagementProject.csproj|d:\\vstudio\\projects\\cybermanagementproject\\dao\\utilize.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,14 +55,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CustomTabControl.cs",
-              "DocumentMoniker": "D:\\VStudio\\Projects\\CyberManagementProject\\DTO\\CustomTabControl.cs",
-              "RelativeDocumentMoniker": "DTO\\CustomTabControl.cs",
-              "ToolTip": "D:\\VStudio\\Projects\\CyberManagementProject\\DTO\\CustomTabControl.cs",
-              "RelativeToolTip": "DTO\\CustomTabControl.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T02:39:23.877Z",
+              "Title": "CyberManagementProject",
+              "DocumentMoniker": "D:\\VStudio\\Projects\\CyberManagementProject\\CyberManagementProject.csproj",
+              "RelativeDocumentMoniker": "CyberManagementProject.csproj",
+              "ToolTip": "D:\\VStudio\\Projects\\CyberManagementProject\\CyberManagementProject.csproj",
+              "RelativeToolTip": "CyberManagementProject.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-01-09T09:23:29.808Z",
               "EditorCaption": ""
             },
             {
@@ -67,11 +71,23 @@
               "Title": "frmMain.cs [Design]",
               "DocumentMoniker": "D:\\VStudio\\Projects\\CyberManagementProject\\frmMain.cs",
               "RelativeDocumentMoniker": "frmMain.cs",
-              "ToolTip": "D:\\VStudio\\Projects\\CyberManagementProject\\frmMain.cs [Design]*",
-              "RelativeToolTip": "frmMain.cs [Design]*",
+              "ToolTip": "D:\\VStudio\\Projects\\CyberManagementProject\\frmMain.cs [Design]",
+              "RelativeToolTip": "frmMain.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T01:50:08.1Z",
+              "WhenOpened": "2025-01-08T02:41:48.133Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CustomTabControl.cs",
+              "DocumentMoniker": "D:\\VStudio\\Projects\\CyberManagementProject\\DTO\\CustomTabControl.cs",
+              "RelativeDocumentMoniker": "DTO\\CustomTabControl.cs",
+              "ToolTip": "D:\\VStudio\\Projects\\CyberManagementProject\\DTO\\CustomTabControl.cs",
+              "RelativeToolTip": "DTO\\CustomTabControl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T02:39:23.877Z"
             },
             {
               "$type": "Document",
@@ -79,9 +95,9 @@
               "Title": "frmMain.Designer.cs",
               "DocumentMoniker": "D:\\VStudio\\Projects\\CyberManagementProject\\frmMain.Designer.cs",
               "RelativeDocumentMoniker": "frmMain.Designer.cs",
-              "ToolTip": "D:\\VStudio\\Projects\\CyberManagementProject\\frmMain.Designer.cs*",
-              "RelativeToolTip": "frmMain.Designer.cs*",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAIwEYAAAAlAAAAAAAAAA==",
+              "ToolTip": "D:\\VStudio\\Projects\\CyberManagementProject\\frmMain.Designer.cs",
+              "RelativeToolTip": "frmMain.Designer.cs",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAAAHEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-08T01:10:34.386Z",
               "EditorCaption": ""
@@ -92,16 +108,16 @@
               "Title": "frmMain.cs",
               "DocumentMoniker": "D:\\VStudio\\Projects\\CyberManagementProject\\frmMain.cs",
               "RelativeDocumentMoniker": "frmMain.cs",
-              "ToolTip": "D:\\VStudio\\Projects\\CyberManagementProject\\frmMain.cs*",
-              "RelativeToolTip": "frmMain.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAvAAAAAAAAAA==",
+              "ToolTip": "D:\\VStudio\\Projects\\CyberManagementProject\\frmMain.cs",
+              "RelativeToolTip": "frmMain.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAD4vzQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-08T01:16:40.108Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Utilize.cs",
               "DocumentMoniker": "D:\\VStudio\\Projects\\CyberManagementProject\\DAO\\Utilize.cs",
               "RelativeDocumentMoniker": "DAO\\Utilize.cs",
@@ -109,8 +125,7 @@
               "RelativeToolTip": "DAO\\Utilize.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T01:12:15.124Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-08T01:12:15.124Z"
             }
           ]
         }
