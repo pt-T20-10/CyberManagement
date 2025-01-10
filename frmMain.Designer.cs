@@ -32,6 +32,21 @@ namespace CyberManagementProject
         {
             components = new System.ComponentModel.Container();
             pnlLeft = new Panel();
+            panel17 = new Panel();
+            pictureBox12 = new PictureBox();
+            label31 = new Label();
+            panel16 = new Panel();
+            pictureBox11 = new PictureBox();
+            label30 = new Label();
+            panel15 = new Panel();
+            pictureBox10 = new PictureBox();
+            label29 = new Label();
+            panel14 = new Panel();
+            pictureBox9 = new PictureBox();
+            label28 = new Label();
+            panel13 = new Panel();
+            pictureBox8 = new PictureBox();
+            label27 = new Label();
             panel2 = new Panel();
             btnToggleMenu = new Button();
             timerToggle = new System.Windows.Forms.Timer(components);
@@ -41,6 +56,29 @@ namespace CyberManagementProject
             tblMain = new DTO.CustomTabControl();
             tbpComputer = new TabPage();
             pnComputerControl = new Panel();
+            button2 = new Button();
+            button6 = new Button();
+            button5 = new Button();
+            button4 = new Button();
+            button3 = new Button();
+            button1 = new Button();
+            groupBox1 = new GroupBox();
+            listView1 = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            panel12 = new Panel();
+            label26 = new Label();
+            textBox4 = new TextBox();
+            panel11 = new Panel();
+            label25 = new Label();
+            textBox3 = new TextBox();
+            panel10 = new Panel();
+            label23 = new Label();
+            textBox2 = new TextBox();
+            panel9 = new Panel();
+            label24 = new Label();
+            textBox1 = new TextBox();
             flpComputer = new FlowLayoutPanel();
             panel1 = new Panel();
             label4 = new Label();
@@ -77,34 +115,26 @@ namespace CyberManagementProject
             label21 = new Label();
             label22 = new Label();
             pictureBox7 = new PictureBox();
-            groupBox1 = new GroupBox();
-            textBox1 = new TextBox();
-            label24 = new Label();
-            panel9 = new Panel();
-            panel10 = new Panel();
-            label23 = new Label();
-            textBox2 = new TextBox();
-            panel11 = new Panel();
-            label25 = new Label();
-            textBox3 = new TextBox();
-            panel12 = new Panel();
-            label26 = new Label();
-            textBox4 = new TextBox();
-            listView1 = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
             pnlLeft.SuspendLayout();
+            panel17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
+            panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
+            panel15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             pnlTitleBar.SuspendLayout();
             tblMain.SuspendLayout();
             tbpComputer.SuspendLayout();
             pnComputerControl.SuspendLayout();
+            groupBox1.SuspendLayout();
+            panel12.SuspendLayout();
+            panel11.SuspendLayout();
+            panel10.SuspendLayout();
+            panel9.SuspendLayout();
             flpComputer.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -120,21 +150,161 @@ namespace CyberManagementProject
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
-            groupBox1.SuspendLayout();
-            panel9.SuspendLayout();
-            panel10.SuspendLayout();
-            panel11.SuspendLayout();
-            panel12.SuspendLayout();
             SuspendLayout();
             // 
             // pnlLeft
             // 
             pnlLeft.BackColor = Color.LightCyan;
+            pnlLeft.Controls.Add(panel17);
+            pnlLeft.Controls.Add(panel16);
+            pnlLeft.Controls.Add(panel15);
+            pnlLeft.Controls.Add(panel14);
+            pnlLeft.Controls.Add(panel13);
             pnlLeft.Controls.Add(panel2);
             pnlLeft.Location = new Point(0, 56);
             pnlLeft.Name = "pnlLeft";
             pnlLeft.Size = new Size(240, 672);
             pnlLeft.TabIndex = 0;
+            // 
+            // panel17
+            // 
+            panel17.Controls.Add(pictureBox12);
+            panel17.Controls.Add(label31);
+            panel17.Location = new Point(8, 552);
+            panel17.Name = "panel17";
+            panel17.Size = new Size(224, 80);
+            panel17.TabIndex = 3;
+            // 
+            // pictureBox12
+            // 
+            pictureBox12.Image = Properties.Resources.bill;
+            pictureBox12.Location = new Point(8, 16);
+            pictureBox12.Name = "pictureBox12";
+            pictureBox12.Size = new Size(50, 50);
+            pictureBox12.TabIndex = 5;
+            pictureBox12.TabStop = false;
+            // 
+            // label31
+            // 
+            label31.AutoSize = true;
+            label31.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label31.Location = new Point(56, 24);
+            label31.Name = "label31";
+            label31.Size = new Size(116, 32);
+            label31.TabIndex = 4;
+            label31.Text = "Thống kê";
+            // 
+            // panel16
+            // 
+            panel16.Controls.Add(pictureBox11);
+            panel16.Controls.Add(label30);
+            panel16.Location = new Point(8, 416);
+            panel16.Name = "panel16";
+            panel16.Size = new Size(224, 80);
+            panel16.TabIndex = 3;
+            // 
+            // pictureBox11
+            // 
+            pictureBox11.Image = Properties.Resources.staff;
+            pictureBox11.Location = new Point(8, 16);
+            pictureBox11.Name = "pictureBox11";
+            pictureBox11.Size = new Size(50, 50);
+            pictureBox11.TabIndex = 5;
+            pictureBox11.TabStop = false;
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label30.Location = new Point(56, 24);
+            label30.Name = "label30";
+            label30.Size = new Size(125, 32);
+            label30.TabIndex = 4;
+            label30.Text = "Nhân viên";
+            // 
+            // panel15
+            // 
+            panel15.Controls.Add(pictureBox10);
+            panel15.Controls.Add(label29);
+            panel15.Location = new Point(8, 280);
+            panel15.Name = "panel15";
+            panel15.Size = new Size(224, 80);
+            panel15.TabIndex = 3;
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.Image = Properties.Resources.food;
+            pictureBox10.Location = new Point(8, 16);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(50, 50);
+            pictureBox10.TabIndex = 5;
+            pictureBox10.TabStop = false;
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label29.Location = new Point(56, 24);
+            label29.Name = "label29";
+            label29.Size = new Size(95, 32);
+            label29.TabIndex = 4;
+            label29.Text = "Dịch vụ";
+            // 
+            // panel14
+            // 
+            panel14.Controls.Add(pictureBox9);
+            panel14.Controls.Add(label28);
+            panel14.Location = new Point(8, 144);
+            panel14.Name = "panel14";
+            panel14.Size = new Size(224, 80);
+            panel14.TabIndex = 3;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.Image = Properties.Resources.useracount;
+            pictureBox9.Location = new Point(8, 16);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(50, 50);
+            pictureBox9.TabIndex = 5;
+            pictureBox9.TabStop = false;
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label28.Location = new Point(64, 24);
+            label28.Name = "label28";
+            label28.Size = new Size(119, 32);
+            label28.TabIndex = 4;
+            label28.Text = "Tài khoản";
+            // 
+            // panel13
+            // 
+            panel13.Controls.Add(pictureBox8);
+            panel13.Controls.Add(label27);
+            panel13.Location = new Point(8, 8);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(224, 80);
+            panel13.TabIndex = 3;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.Image = Properties.Resources.monitor;
+            pictureBox8.Location = new Point(8, 16);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new Size(50, 50);
+            pictureBox8.TabIndex = 5;
+            pictureBox8.TabStop = false;
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label27.Location = new Point(72, 24);
+            label27.Name = "label27";
+            label27.Size = new Size(111, 32);
+            label27.TabIndex = 4;
+            label27.Text = "Máy tính";
             // 
             // panel2
             // 
@@ -222,6 +392,220 @@ namespace CyberManagementProject
             pnComputerControl.Name = "pnComputerControl";
             pnComputerControl.Size = new Size(312, 672);
             pnComputerControl.TabIndex = 1;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(168, 456);
+            button2.Name = "button2";
+            button2.Size = new Size(128, 48);
+            button2.TabIndex = 1;
+            button2.Text = "Nạp tiền";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(168, 576);
+            button6.Name = "button6";
+            button6.Size = new Size(128, 48);
+            button6.TabIndex = 1;
+            button6.Text = "Quản lý";
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(16, 576);
+            button5.Name = "button5";
+            button5.Size = new Size(128, 48);
+            button5.TabIndex = 1;
+            button5.Text = "Theo dõi";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(168, 512);
+            button4.Name = "button4";
+            button4.Size = new Size(128, 48);
+            button4.TabIndex = 1;
+            button4.Text = "Tắt máy";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(16, 512);
+            button3.Name = "button3";
+            button3.Size = new Size(128, 48);
+            button3.TabIndex = 1;
+            button3.Text = "Thêm dịch vụ";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(16, 456);
+            button1.Name = "button1";
+            button1.Size = new Size(128, 48);
+            button1.TabIndex = 1;
+            button1.Text = "Đóng ứng dụng";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(listView1);
+            groupBox1.Controls.Add(panel12);
+            groupBox1.Controls.Add(panel11);
+            groupBox1.Controls.Add(panel10);
+            groupBox1.Controls.Add(panel9);
+            groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(8, 8);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(288, 440);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Máy tính 01";
+            // 
+            // listView1
+            // 
+            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
+            listView1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            listView1.Location = new Point(8, 264);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(272, 160);
+            listView1.TabIndex = 4;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = View.Details;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Món ăn";
+            columnHeader1.Width = 100;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Giá";
+            columnHeader2.Width = 88;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Số lượng";
+            columnHeader3.Width = 80;
+            // 
+            // panel12
+            // 
+            panel12.Controls.Add(label26);
+            panel12.Controls.Add(textBox4);
+            panel12.Location = new Point(8, 200);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(272, 48);
+            panel12.TabIndex = 3;
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label26.Location = new Point(0, 16);
+            label26.Name = "label26";
+            label26.Size = new Size(82, 20);
+            label26.TabIndex = 2;
+            label26.Text = "Trạng thái:";
+            // 
+            // textBox4
+            // 
+            textBox4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox4.Location = new Point(96, 8);
+            textBox4.Name = "textBox4";
+            textBox4.ReadOnly = true;
+            textBox4.RightToLeft = RightToLeft.No;
+            textBox4.Size = new Size(168, 25);
+            textBox4.TabIndex = 1;
+            textBox4.Text = "Đang sử dụng\r\n\r\n";
+            // 
+            // panel11
+            // 
+            panel11.Controls.Add(label25);
+            panel11.Controls.Add(textBox3);
+            panel11.Location = new Point(8, 144);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(272, 48);
+            panel11.TabIndex = 3;
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label25.Location = new Point(0, 16);
+            label25.Name = "label25";
+            label25.Size = new Size(93, 20);
+            label25.TabIndex = 2;
+            label25.Text = "Tiền đã nạp:";
+            // 
+            // textBox3
+            // 
+            textBox3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox3.Location = new Point(96, 8);
+            textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
+            textBox3.RightToLeft = RightToLeft.No;
+            textBox3.Size = new Size(168, 25);
+            textBox3.TabIndex = 1;
+            textBox3.Text = "70.000đ";
+            textBox3.TextAlign = HorizontalAlignment.Right;
+            // 
+            // panel10
+            // 
+            panel10.Controls.Add(label23);
+            panel10.Controls.Add(textBox2);
+            panel10.Location = new Point(8, 88);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(272, 48);
+            panel10.TabIndex = 3;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label23.Location = new Point(0, 16);
+            label23.Name = "label23";
+            label23.Size = new Size(77, 20);
+            label23.TabIndex = 2;
+            label23.Text = "Thời gian:";
+            // 
+            // textBox2
+            // 
+            textBox2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox2.Location = new Point(96, 8);
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new Size(168, 25);
+            textBox2.TabIndex = 1;
+            textBox2.Text = "1:30:52";
+            // 
+            // panel9
+            // 
+            panel9.Controls.Add(label24);
+            panel9.Controls.Add(textBox1);
+            panel9.Location = new Point(8, 32);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(272, 48);
+            panel9.TabIndex = 3;
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label24.Location = new Point(0, 16);
+            label24.Name = "label24";
+            label24.Size = new Size(96, 20);
+            label24.TabIndex = 2;
+            label24.Text = "Người dùng:";
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(96, 8);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(168, 29);
+            textBox1.TabIndex = 1;
+            textBox1.Text = "User01";
             // 
             // flpComputer
             // 
@@ -609,221 +993,6 @@ namespace CyberManagementProject
             pictureBox7.TabIndex = 0;
             pictureBox7.TabStop = false;
             // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(listView1);
-            groupBox1.Controls.Add(panel12);
-            groupBox1.Controls.Add(panel11);
-            groupBox1.Controls.Add(panel10);
-            groupBox1.Controls.Add(panel9);
-            groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(8, 8);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(288, 440);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Máy tính 01";
-   
-            // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(96, 8);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(168, 29);
-            textBox1.TabIndex = 1;
-            textBox1.Text = "User01";
-            // 
-            // label24
-            // 
-            label24.AutoSize = true;
-            label24.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label24.Location = new Point(0, 16);
-            label24.Name = "label24";
-            label24.Size = new Size(96, 20);
-            label24.TabIndex = 2;
-            label24.Text = "Người dùng:";
-            // 
-            // panel9
-            // 
-            panel9.Controls.Add(label24);
-            panel9.Controls.Add(textBox1);
-            panel9.Location = new Point(8, 32);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(272, 48);
-            panel9.TabIndex = 3;
-            // 
-            // panel10
-            // 
-            panel10.Controls.Add(label23);
-            panel10.Controls.Add(textBox2);
-            panel10.Location = new Point(8, 88);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(272, 48);
-            panel10.TabIndex = 3;
-            // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label23.Location = new Point(0, 16);
-            label23.Name = "label23";
-            label23.Size = new Size(77, 20);
-            label23.TabIndex = 2;
-            label23.Text = "Thời gian:";
-            // 
-            // textBox2
-            // 
-            textBox2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(96, 8);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(168, 25);
-            textBox2.TabIndex = 1;
-            textBox2.Text = "1:30:52";
-            // 
-            // panel11
-            // 
-            panel11.Controls.Add(label25);
-            panel11.Controls.Add(textBox3);
-            panel11.Location = new Point(8, 144);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(272, 48);
-            panel11.TabIndex = 3;
-            // 
-            // label25
-            // 
-            label25.AutoSize = true;
-            label25.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label25.Location = new Point(0, 16);
-            label25.Name = "label25";
-            label25.Size = new Size(93, 20);
-            label25.TabIndex = 2;
-            label25.Text = "Tiền đã nạp:";
-            // 
-            // textBox3
-            // 
-            textBox3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(96, 8);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.RightToLeft = RightToLeft.No;
-            textBox3.Size = new Size(168, 25);
-            textBox3.TabIndex = 1;
-            textBox3.Text = "70.000đ";
-            textBox3.TextAlign = HorizontalAlignment.Right;
-            // 
-            // panel12
-            // 
-            panel12.Controls.Add(label26);
-            panel12.Controls.Add(textBox4);
-            panel12.Location = new Point(8, 200);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(272, 48);
-            panel12.TabIndex = 3;
-            // 
-            // label26
-            // 
-            label26.AutoSize = true;
-            label26.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label26.Location = new Point(0, 16);
-            label26.Name = "label26";
-            label26.Size = new Size(82, 20);
-            label26.TabIndex = 2;
-            label26.Text = "Trạng thái:";
-            // 
-            // textBox4
-            // 
-            textBox4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox4.Location = new Point(96, 8);
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.RightToLeft = RightToLeft.No;
-            textBox4.Size = new Size(168, 25);
-            textBox4.TabIndex = 1;
-            textBox4.Text = "Đang sử dụng\r\n\r\n";
-            // 
-            // listView1
-            // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
-            listView1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            listView1.Location = new Point(8, 264);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(272, 160);
-            listView1.TabIndex = 4;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "Món ăn";
-            columnHeader1.Width = 100;
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "Giá";
-            columnHeader2.Width = 88;
-            // 
-            // columnHeader3
-            // 
-            columnHeader3.Text = "Số lượng";
-            columnHeader3.Width = 80;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(16, 456);
-            button1.Name = "button1";
-            button1.Size = new Size(128, 48);
-            button1.TabIndex = 1;
-            button1.Text = "Đóng ứng dụng";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(168, 456);
-            button2.Name = "button2";
-            button2.Size = new Size(128, 48);
-            button2.TabIndex = 1;
-            button2.Text = "Nạp tiền";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(16, 512);
-            button3.Name = "button3";
-            button3.Size = new Size(128, 48);
-            button3.TabIndex = 1;
-            button3.Text = "Thêm dịch vụ";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(168, 512);
-            button4.Name = "button4";
-            button4.Size = new Size(128, 48);
-            button4.TabIndex = 1;
-            button4.Text = "Tắt máy";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(16, 576);
-            button5.Name = "button5";
-            button5.Size = new Size(128, 48);
-            button5.TabIndex = 1;
-            button5.Text = "Theo dõi";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            button6.Location = new Point(168, 576);
-            button6.Name = "button6";
-            button6.Size = new Size(128, 48);
-            button6.TabIndex = 1;
-            button6.Text = "Quản lý";
-            button6.UseVisualStyleBackColor = true;
-            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -837,11 +1006,35 @@ namespace CyberManagementProject
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmMain";
             pnlLeft.ResumeLayout(false);
+            panel17.ResumeLayout(false);
+            panel17.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
+            panel16.ResumeLayout(false);
+            panel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
+            panel15.ResumeLayout(false);
+            panel15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            panel14.ResumeLayout(false);
+            panel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            panel13.ResumeLayout(false);
+            panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             pnlTitleBar.ResumeLayout(false);
             pnlTitleBar.PerformLayout();
             tblMain.ResumeLayout(false);
             tbpComputer.ResumeLayout(false);
             pnComputerControl.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            panel12.ResumeLayout(false);
+            panel12.PerformLayout();
+            panel11.ResumeLayout(false);
+            panel11.PerformLayout();
+            panel10.ResumeLayout(false);
+            panel10.PerformLayout();
+            panel9.ResumeLayout(false);
+            panel9.PerformLayout();
             flpComputer.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -864,15 +1057,6 @@ namespace CyberManagementProject
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
-            groupBox1.ResumeLayout(false);
-            panel9.ResumeLayout(false);
-            panel9.PerformLayout();
-            panel10.ResumeLayout(false);
-            panel10.PerformLayout();
-            panel11.ResumeLayout(false);
-            panel11.PerformLayout();
-            panel12.ResumeLayout(false);
-            panel12.PerformLayout();
             ResumeLayout(false);
         }
         #endregion
@@ -946,5 +1130,20 @@ namespace CyberManagementProject
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
+        private Panel panel17;
+        private Label label31;
+        private Panel panel16;
+        private Label label30;
+        private Panel panel15;
+        private Label label29;
+        private Panel panel14;
+        private Label label28;
+        private Panel panel13;
+        private Label label27;
+        private PictureBox pictureBox12;
+        private PictureBox pictureBox11;
+        private PictureBox pictureBox10;
+        private PictureBox pictureBox9;
+        private PictureBox pictureBox8;
     }
 }
