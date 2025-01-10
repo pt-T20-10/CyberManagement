@@ -16,3 +16,4 @@ D:\VStudio\Projects\CyberManagementProject\obj\Debug\net8.0-windows\refint\Cyber
 D:\VStudio\Projects\CyberManagementProject\obj\Debug\net8.0-windows\CyberManagementProject.pdb
 D:\VStudio\Projects\CyberManagementProject\obj\Debug\net8.0-windows\CyberManagementProject.genruntimeconfig.cache
 D:\VStudio\Projects\CyberManagementProject\obj\Debug\net8.0-windows\ref\CyberManagementProject.dll
+D:\VStudio\Projects\CyberManagementProject\obj\Debug\net8.0-windows\CyberManagementProject.Properties.Resources.resources

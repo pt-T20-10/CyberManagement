@@ -47,7 +47,5 @@ namespace CyberManagementProject
         {
             timerToggle.Start();
         }
-
-        
     }
 }
