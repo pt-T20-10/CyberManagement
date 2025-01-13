@@ -18,7 +18,31 @@ namespace CyberManagementProject
             InitializeComponent();
         }
 
+        #region Hoàng Nghĩa
+        //
+        #endregion
 
+        #region Trung Nghĩa
+        //
+        #endregion
+
+        #region Hoàng Lễ
+        //
+        #endregion
+
+
+        #region Trọng Thoại
+        #region Events
+        private void btnForceStop_Click(object sender, EventArgs e)
+        {
+            // Hiển thị MessageBox hỏi người dùng có muốn thoát hay không
+            DialogResult result = MessageBox.Show(
+                "Đóng ứng dụng máy 1?",
+                "Đóng ứng dụng",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+        }
         private void timerToggle_Tick(object sender, EventArgs e)
         {
             if (Utilize.isCollapsed)
@@ -47,5 +71,12 @@ namespace CyberManagementProject
         {
             timerToggle.Start();
         }
+        #endregion
+        #region Method
+        #endregion
+
+        #endregion
+
+
     }
 }

@@ -56,29 +56,30 @@ namespace CyberManagementProject
             tblMain = new DTO.CustomTabControl();
             tbpComputer = new TabPage();
             pnComputerControl = new Panel();
-            button2 = new Button();
-            button6 = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            button3 = new Button();
-            button1 = new Button();
-            groupBox1 = new GroupBox();
-            listView1 = new ListView();
+            gbxComputerInfor = new GroupBox();
+            lvServices = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
             panel12 = new Panel();
             label26 = new Label();
-            textBox4 = new TextBox();
+            tbxComputerStatus = new TextBox();
             panel11 = new Panel();
             label25 = new Label();
-            textBox3 = new TextBox();
+            tbxMoneyCost = new TextBox();
             panel10 = new Panel();
             label23 = new Label();
-            textBox2 = new TextBox();
+            tbxTimeLeft = new TextBox();
             panel9 = new Panel();
             label24 = new Label();
-            textBox1 = new TextBox();
+            tbxUserAccount = new TextBox();
+            pnComputerButton = new Panel();
+            btnExtraMoney = new Button();
+            btnManageComputer = new Button();
+            btnTrackComputer = new Button();
+            btnShutDownComputer = new Button();
+            btnAddServices = new Button();
+            btnForceStop = new Button();
             flpComputer = new FlowLayoutPanel();
             panel1 = new Panel();
             label4 = new Label();
@@ -115,6 +116,10 @@ namespace CyberManagementProject
             label21 = new Label();
             label22 = new Label();
             pictureBox7 = new PictureBox();
+            tbpAccount = new TabPage();
+            tbpServices = new TabPage();
+            tbpStaff = new TabPage();
+            tbpStatictical = new TabPage();
             pnlLeft.SuspendLayout();
             panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -130,11 +135,12 @@ namespace CyberManagementProject
             tblMain.SuspendLayout();
             tbpComputer.SuspendLayout();
             pnComputerControl.SuspendLayout();
-            groupBox1.SuspendLayout();
+            gbxComputerInfor.SuspendLayout();
             panel12.SuspendLayout();
             panel11.SuspendLayout();
             panel10.SuspendLayout();
             panel9.SuspendLayout();
+            pnComputerButton.SuspendLayout();
             flpComputer.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -360,6 +366,10 @@ namespace CyberManagementProject
             // tblMain
             // 
             tblMain.Controls.Add(tbpComputer);
+            tblMain.Controls.Add(tbpAccount);
+            tblMain.Controls.Add(tbpServices);
+            tblMain.Controls.Add(tbpStaff);
+            tblMain.Controls.Add(tbpStatictical);
             tblMain.Location = new Point(240, 56);
             tblMain.Name = "tblMain";
             tblMain.SelectedIndex = 0;
@@ -381,97 +391,38 @@ namespace CyberManagementProject
             // pnComputerControl
             // 
             pnComputerControl.BorderStyle = BorderStyle.FixedSingle;
-            pnComputerControl.Controls.Add(button2);
-            pnComputerControl.Controls.Add(button6);
-            pnComputerControl.Controls.Add(button5);
-            pnComputerControl.Controls.Add(button4);
-            pnComputerControl.Controls.Add(button3);
-            pnComputerControl.Controls.Add(button1);
-            pnComputerControl.Controls.Add(groupBox1);
+            pnComputerControl.Controls.Add(gbxComputerInfor);
+            pnComputerControl.Controls.Add(pnComputerButton);
             pnComputerControl.Location = new Point(800, 0);
             pnComputerControl.Name = "pnComputerControl";
             pnComputerControl.Size = new Size(312, 672);
             pnComputerControl.TabIndex = 1;
             // 
-            // button2
+            // gbxComputerInfor
             // 
-            button2.Location = new Point(168, 456);
-            button2.Name = "button2";
-            button2.Size = new Size(128, 48);
-            button2.TabIndex = 1;
-            button2.Text = "Nạp tiền";
-            button2.UseVisualStyleBackColor = true;
+            gbxComputerInfor.Controls.Add(lvServices);
+            gbxComputerInfor.Controls.Add(panel12);
+            gbxComputerInfor.Controls.Add(panel11);
+            gbxComputerInfor.Controls.Add(panel10);
+            gbxComputerInfor.Controls.Add(panel9);
+            gbxComputerInfor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            gbxComputerInfor.Location = new Point(8, 8);
+            gbxComputerInfor.Name = "gbxComputerInfor";
+            gbxComputerInfor.Size = new Size(288, 440);
+            gbxComputerInfor.TabIndex = 0;
+            gbxComputerInfor.TabStop = false;
+            gbxComputerInfor.Text = "Máy tính 01";
             // 
-            // button6
+            // lvServices
             // 
-            button6.Location = new Point(168, 576);
-            button6.Name = "button6";
-            button6.Size = new Size(128, 48);
-            button6.TabIndex = 1;
-            button6.Text = "Quản lý";
-            button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(16, 576);
-            button5.Name = "button5";
-            button5.Size = new Size(128, 48);
-            button5.TabIndex = 1;
-            button5.Text = "Theo dõi";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(168, 512);
-            button4.Name = "button4";
-            button4.Size = new Size(128, 48);
-            button4.TabIndex = 1;
-            button4.Text = "Tắt máy";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(16, 512);
-            button3.Name = "button3";
-            button3.Size = new Size(128, 48);
-            button3.TabIndex = 1;
-            button3.Text = "Thêm dịch vụ";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(16, 456);
-            button1.Name = "button1";
-            button1.Size = new Size(128, 48);
-            button1.TabIndex = 1;
-            button1.Text = "Đóng ứng dụng";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(listView1);
-            groupBox1.Controls.Add(panel12);
-            groupBox1.Controls.Add(panel11);
-            groupBox1.Controls.Add(panel10);
-            groupBox1.Controls.Add(panel9);
-            groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(8, 8);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(288, 440);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Máy tính 01";
-            // 
-            // listView1
-            // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
-            listView1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            listView1.Location = new Point(8, 264);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(272, 160);
-            listView1.TabIndex = 4;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            lvServices.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
+            lvServices.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lvServices.Location = new Point(8, 264);
+            lvServices.Name = "lvServices";
+            lvServices.Size = new Size(272, 160);
+            lvServices.TabIndex = 4;
+            lvServices.UseCompatibleStateImageBehavior = false;
+            lvServices.View = View.Details;
             // 
             // columnHeader1
             // 
@@ -491,7 +442,7 @@ namespace CyberManagementProject
             // panel12
             // 
             panel12.Controls.Add(label26);
-            panel12.Controls.Add(textBox4);
+            panel12.Controls.Add(tbxComputerStatus);
             panel12.Location = new Point(8, 200);
             panel12.Name = "panel12";
             panel12.Size = new Size(272, 48);
@@ -507,21 +458,21 @@ namespace CyberManagementProject
             label26.TabIndex = 2;
             label26.Text = "Trạng thái:";
             // 
-            // textBox4
+            // tbxComputerStatus
             // 
-            textBox4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox4.Location = new Point(96, 8);
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.RightToLeft = RightToLeft.No;
-            textBox4.Size = new Size(168, 25);
-            textBox4.TabIndex = 1;
-            textBox4.Text = "Đang sử dụng\r\n\r\n";
+            tbxComputerStatus.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxComputerStatus.Location = new Point(96, 8);
+            tbxComputerStatus.Name = "tbxComputerStatus";
+            tbxComputerStatus.ReadOnly = true;
+            tbxComputerStatus.RightToLeft = RightToLeft.No;
+            tbxComputerStatus.Size = new Size(168, 25);
+            tbxComputerStatus.TabIndex = 1;
+            tbxComputerStatus.Text = "Đang sử dụng\r\n\r\n";
             // 
             // panel11
             // 
             panel11.Controls.Add(label25);
-            panel11.Controls.Add(textBox3);
+            panel11.Controls.Add(tbxMoneyCost);
             panel11.Location = new Point(8, 144);
             panel11.Name = "panel11";
             panel11.Size = new Size(272, 48);
@@ -537,22 +488,22 @@ namespace CyberManagementProject
             label25.TabIndex = 2;
             label25.Text = "Tiền đã nạp:";
             // 
-            // textBox3
+            // tbxMoneyCost
             // 
-            textBox3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(96, 8);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.RightToLeft = RightToLeft.No;
-            textBox3.Size = new Size(168, 25);
-            textBox3.TabIndex = 1;
-            textBox3.Text = "70.000đ";
-            textBox3.TextAlign = HorizontalAlignment.Right;
+            tbxMoneyCost.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxMoneyCost.Location = new Point(96, 8);
+            tbxMoneyCost.Name = "tbxMoneyCost";
+            tbxMoneyCost.ReadOnly = true;
+            tbxMoneyCost.RightToLeft = RightToLeft.No;
+            tbxMoneyCost.Size = new Size(168, 25);
+            tbxMoneyCost.TabIndex = 1;
+            tbxMoneyCost.Text = "70.000đ";
+            tbxMoneyCost.TextAlign = HorizontalAlignment.Right;
             // 
             // panel10
             // 
             panel10.Controls.Add(label23);
-            panel10.Controls.Add(textBox2);
+            panel10.Controls.Add(tbxTimeLeft);
             panel10.Location = new Point(8, 88);
             panel10.Name = "panel10";
             panel10.Size = new Size(272, 48);
@@ -568,20 +519,20 @@ namespace CyberManagementProject
             label23.TabIndex = 2;
             label23.Text = "Thời gian:";
             // 
-            // textBox2
+            // tbxTimeLeft
             // 
-            textBox2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(96, 8);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(168, 25);
-            textBox2.TabIndex = 1;
-            textBox2.Text = "1:30:52";
+            tbxTimeLeft.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxTimeLeft.Location = new Point(96, 8);
+            tbxTimeLeft.Name = "tbxTimeLeft";
+            tbxTimeLeft.ReadOnly = true;
+            tbxTimeLeft.Size = new Size(168, 25);
+            tbxTimeLeft.TabIndex = 1;
+            tbxTimeLeft.Text = "1:30:52";
             // 
             // panel9
             // 
             panel9.Controls.Add(label24);
-            panel9.Controls.Add(textBox1);
+            panel9.Controls.Add(tbxUserAccount);
             panel9.Location = new Point(8, 32);
             panel9.Name = "panel9";
             panel9.Size = new Size(272, 48);
@@ -597,15 +548,83 @@ namespace CyberManagementProject
             label24.TabIndex = 2;
             label24.Text = "Người dùng:";
             // 
-            // textBox1
+            // tbxUserAccount
             // 
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(96, 8);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(168, 29);
-            textBox1.TabIndex = 1;
-            textBox1.Text = "User01";
+            tbxUserAccount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxUserAccount.Location = new Point(88, 8);
+            tbxUserAccount.Name = "tbxUserAccount";
+            tbxUserAccount.ReadOnly = true;
+            tbxUserAccount.Size = new Size(168, 29);
+            tbxUserAccount.TabIndex = 1;
+            tbxUserAccount.Text = "User01";
+            // 
+            // pnComputerButton
+            // 
+            pnComputerButton.Controls.Add(btnExtraMoney);
+            pnComputerButton.Controls.Add(btnManageComputer);
+            pnComputerButton.Controls.Add(btnTrackComputer);
+            pnComputerButton.Controls.Add(btnShutDownComputer);
+            pnComputerButton.Controls.Add(btnAddServices);
+            pnComputerButton.Controls.Add(btnForceStop);
+            pnComputerButton.Location = new Point(8, 448);
+            pnComputerButton.Name = "pnComputerButton";
+            pnComputerButton.Size = new Size(288, 216);
+            pnComputerButton.TabIndex = 7;
+            // 
+            // btnExtraMoney
+            // 
+            btnExtraMoney.Location = new Point(152, 16);
+            btnExtraMoney.Name = "btnExtraMoney";
+            btnExtraMoney.Size = new Size(128, 48);
+            btnExtraMoney.TabIndex = 2;
+            btnExtraMoney.Text = "Nạp tiền";
+            btnExtraMoney.UseVisualStyleBackColor = true;
+            // 
+            // btnManageComputer
+            // 
+            btnManageComputer.Location = new Point(152, 152);
+            btnManageComputer.Name = "btnManageComputer";
+            btnManageComputer.Size = new Size(128, 48);
+            btnManageComputer.TabIndex = 3;
+            btnManageComputer.Text = "Quản lý";
+            btnManageComputer.UseVisualStyleBackColor = true;
+            // 
+            // btnTrackComputer
+            // 
+            btnTrackComputer.Location = new Point(0, 152);
+            btnTrackComputer.Name = "btnTrackComputer";
+            btnTrackComputer.Size = new Size(128, 48);
+            btnTrackComputer.TabIndex = 4;
+            btnTrackComputer.Text = "Theo dõi";
+            btnTrackComputer.UseVisualStyleBackColor = true;
+            // 
+            // btnShutDownComputer
+            // 
+            btnShutDownComputer.Location = new Point(152, 80);
+            btnShutDownComputer.Name = "btnShutDownComputer";
+            btnShutDownComputer.Size = new Size(128, 48);
+            btnShutDownComputer.TabIndex = 5;
+            btnShutDownComputer.Text = "Tắt máy";
+            btnShutDownComputer.UseVisualStyleBackColor = true;
+            // 
+            // btnAddServices
+            // 
+            btnAddServices.Location = new Point(0, 80);
+            btnAddServices.Name = "btnAddServices";
+            btnAddServices.Size = new Size(128, 48);
+            btnAddServices.TabIndex = 6;
+            btnAddServices.Text = "Thêm dịch vụ";
+            btnAddServices.UseVisualStyleBackColor = true;
+            // 
+            // btnForceStop
+            // 
+            btnForceStop.Location = new Point(0, 16);
+            btnForceStop.Name = "btnForceStop";
+            btnForceStop.Size = new Size(128, 48);
+            btnForceStop.TabIndex = 7;
+            btnForceStop.Text = "Đóng ứng dụng";
+            btnForceStop.UseVisualStyleBackColor = true;
+            btnForceStop.Click += btnForceStop_Click;
             // 
             // flpComputer
             // 
@@ -993,6 +1012,46 @@ namespace CyberManagementProject
             pictureBox7.TabIndex = 0;
             pictureBox7.TabStop = false;
             // 
+            // tbpAccount
+            // 
+            tbpAccount.Location = new Point(0, 0);
+            tbpAccount.Name = "tbpAccount";
+            tbpAccount.Padding = new Padding(3);
+            tbpAccount.Size = new Size(1112, 672);
+            tbpAccount.TabIndex = 1;
+            tbpAccount.Text = "tabPage1";
+            tbpAccount.UseVisualStyleBackColor = true;
+            // 
+            // tbpServices
+            // 
+            tbpServices.Location = new Point(0, 0);
+            tbpServices.Name = "tbpServices";
+            tbpServices.Padding = new Padding(3);
+            tbpServices.Size = new Size(1112, 672);
+            tbpServices.TabIndex = 2;
+            tbpServices.Text = "tabPage1";
+            tbpServices.UseVisualStyleBackColor = true;
+            // 
+            // tbpStaff
+            // 
+            tbpStaff.Location = new Point(0, 0);
+            tbpStaff.Name = "tbpStaff";
+            tbpStaff.Padding = new Padding(3);
+            tbpStaff.Size = new Size(1112, 672);
+            tbpStaff.TabIndex = 3;
+            tbpStaff.Text = "tabPage1";
+            tbpStaff.UseVisualStyleBackColor = true;
+            // 
+            // tbpStatictical
+            // 
+            tbpStatictical.Location = new Point(0, 0);
+            tbpStatictical.Name = "tbpStatictical";
+            tbpStatictical.Padding = new Padding(3);
+            tbpStatictical.Size = new Size(1112, 672);
+            tbpStatictical.TabIndex = 4;
+            tbpStatictical.Text = "tabPage1";
+            tbpStatictical.UseVisualStyleBackColor = true;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1026,7 +1085,7 @@ namespace CyberManagementProject
             tblMain.ResumeLayout(false);
             tbpComputer.ResumeLayout(false);
             pnComputerControl.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
+            gbxComputerInfor.ResumeLayout(false);
             panel12.ResumeLayout(false);
             panel12.PerformLayout();
             panel11.ResumeLayout(false);
@@ -1035,6 +1094,7 @@ namespace CyberManagementProject
             panel10.PerformLayout();
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
+            pnComputerButton.ResumeLayout(false);
             flpComputer.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -1107,26 +1167,20 @@ namespace CyberManagementProject
         private Label label21;
         private Label label22;
         private PictureBox pictureBox7;
-        private GroupBox groupBox1;
+        private GroupBox gbxComputerInfor;
         private Panel panel10;
         private Label label23;
-        private TextBox textBox2;
+        private TextBox tbxTimeLeft;
         private Panel panel9;
         private Label label24;
-        private TextBox textBox1;
-        private ListView listView1;
+        private TextBox tbxUserAccount;
+        private ListView lvServices;
         private Panel panel12;
         private Label label26;
-        private TextBox textBox4;
+        private TextBox tbxComputerStatus;
         private Panel panel11;
         private Label label25;
-        private TextBox textBox3;
-        private Button button2;
-        private Button button6;
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private Button button1;
+        private TextBox tbxMoneyCost;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
@@ -1145,5 +1199,16 @@ namespace CyberManagementProject
         private PictureBox pictureBox10;
         private PictureBox pictureBox9;
         private PictureBox pictureBox8;
+        private Panel pnComputerButton;
+        private Button btnExtraMoney;
+        private Button btnManageComputer;
+        private Button btnTrackComputer;
+        private Button btnShutDownComputer;
+        private Button btnAddServices;
+        private Button btnForceStop;
+        private TabPage tbpAccount;
+        private TabPage tbpServices;
+        private TabPage tbpStaff;
+        private TabPage tbpStatictical;
     }
 }
