@@ -1,3 +1,7 @@
+using System;
+using System.Windows.Forms;
+using CyberManagementProject;
+
 namespace CyberManagementProject
 {
     internal static class Program

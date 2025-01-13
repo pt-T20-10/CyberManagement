@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyQuanNet;
 
 namespace CyberManagementProject
 {
@@ -20,6 +21,11 @@ namespace CyberManagementProject
 
         #region Hoàng Nghĩa
         //
+        private void lblNhanVien_Click(object sender, EventArgs e)
+        {
+            frmQuanLyNhanVien f = new frmQuanLyNhanVien();  
+            f.ShowDialog();
+        }
         #endregion
 
         #region Trung Nghĩa
@@ -77,6 +83,6 @@ namespace CyberManagementProject
 
         #endregion
 
-
+        
     }
 }

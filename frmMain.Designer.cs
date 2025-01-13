@@ -37,7 +37,7 @@ namespace CyberManagementProject
             label31 = new Label();
             panel16 = new Panel();
             pictureBox11 = new PictureBox();
-            label30 = new Label();
+            lblNhanVien = new Label();
             panel15 = new Panel();
             pictureBox10 = new PictureBox();
             label29 = new Label();
@@ -203,7 +203,7 @@ namespace CyberManagementProject
             // panel16
             // 
             panel16.Controls.Add(pictureBox11);
-            panel16.Controls.Add(label30);
+            panel16.Controls.Add(lblNhanVien);
             panel16.Location = new Point(8, 416);
             panel16.Name = "panel16";
             panel16.Size = new Size(224, 80);
@@ -218,15 +218,16 @@ namespace CyberManagementProject
             pictureBox11.TabIndex = 5;
             pictureBox11.TabStop = false;
             // 
-            // label30
+            // lblNhanVien
             // 
-            label30.AutoSize = true;
-            label30.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label30.Location = new Point(56, 24);
-            label30.Name = "label30";
-            label30.Size = new Size(125, 32);
-            label30.TabIndex = 4;
-            label30.Text = "Nhân viên";
+            lblNhanVien.AutoSize = true;
+            lblNhanVien.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNhanVien.Location = new Point(56, 24);
+            lblNhanVien.Name = "lblNhanVien";
+            lblNhanVien.Size = new Size(125, 32);
+            lblNhanVien.TabIndex = 4;
+            lblNhanVien.Text = "Nhân viên";
+            lblNhanVien.Click += lblNhanVien_Click;
             // 
             // panel15
             // 
@@ -1187,7 +1188,7 @@ namespace CyberManagementProject
         private Panel panel17;
         private Label label31;
         private Panel panel16;
-        private Label label30;
+        private Label lblNhanVien;
         private Panel panel15;
         private Label label29;
         private Panel panel14;
