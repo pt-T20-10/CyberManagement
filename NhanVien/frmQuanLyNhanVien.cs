@@ -61,19 +61,6 @@ namespace QuanLyQuanNet
             //toolTip.SetToolTip(pbxAddNhanVien, "Thêm nhân viên mới");
         }
 
-        private void pbxEditNhanVien_Click(object sender, EventArgs e)
-        {
-            frmNhanVienEdit Edit = new frmNhanVienEdit();
-            Edit.ShowDialog();
-        }
-
-        private void pbxDeleteNhanVien_Click(object sender, EventArgs e)
-        {
-            frmNhanVienDelete delete = new frmNhanVienDelete();
-            delete.ShowDialog();
-        }
-
-
         private void btnThemMoi_Click(object sender, EventArgs e)
         {
             frmThemNhanVien Add = new frmThemNhanVien();

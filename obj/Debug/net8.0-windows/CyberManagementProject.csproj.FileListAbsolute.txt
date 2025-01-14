@@ -39,10 +39,13 @@ D:\LapTrinhNet\TEST_PULL_PUSH\obj\Debug\net8.0-windows\ref\CyberManagementProjec
 D:\LapTrinhNet\TEST_PULL_PUSH\obj\Debug\net8.0-windows\QuanLyQuanNet.KhachHang.frmKhachHang_Add.resources
 D:\LapTrinhNet\TEST_PULL_PUSH\obj\Debug\net8.0-windows\QuanLyQuanNet.Customer.frmKhachHang_Details.resources
 D:\LapTrinhNet\TEST_PULL_PUSH\obj\Debug\net8.0-windows\QuanLyQuanNet.KhachHang.frmKhachHang_Main.resources
-D:\LapTrinhNet\TEST_PULL_PUSH\obj\Debug\net8.0-windows\QuanLyQuanNet.Event.frmHoatDongNgay_LOL.resources
-D:\LapTrinhNet\TEST_PULL_PUSH\obj\Debug\net8.0-windows\QuanLyQuanNet.frmNhanVienDelete.resources
 D:\LapTrinhNet\TEST_PULL_PUSH\obj\Debug\net8.0-windows\QuanLyQuanNet.frmNhanVienDetail.resources
-D:\LapTrinhNet\TEST_PULL_PUSH\obj\Debug\net8.0-windows\QuanLyQuanNet.frmNhanVienEdit.resources
 D:\LapTrinhNet\TEST_PULL_PUSH\obj\Debug\net8.0-windows\QuanLyQuanNet.frmQuanLyNhanVien.resources
 D:\LapTrinhNet\TEST_PULL_PUSH\obj\Debug\net8.0-windows\QuanLyQuanNet.frmThemNhanVien.resources
-D:\LapTrinhNet\TEST_PULL_PUSH\obj\Debug\net8.0-windows\CyberManagementProject.QuanLyQuanNet.QuanLyQuanNet.Properties.Resources.resources
+D:\LapTrinhNet\TEST_PULL_PUSH\obj\Debug\net8.0-windows\CyberManagementProject.NhanVien.Properties.Resources.resources
+D:\LapTrinhNet\TEST_PULL_PUSH\bin\Debug\net8.0-windows\Interop.WMPLib.dll
+D:\LapTrinhNet\TEST_PULL_PUSH\bin\Debug\net8.0-windows\AxInterop.WMPLib.dll
+D:\LapTrinhNet\TEST_PULL_PUSH\obj\Debug\net8.0-windows\Interop.WMPLib.dll
+D:\LapTrinhNet\TEST_PULL_PUSH\obj\Debug\net8.0-windows\AxInterop.WMPLib.dll
+D:\LapTrinhNet\TEST_PULL_PUSH\obj\Debug\net8.0-windows\CyberManagementProject.csproj.ResolveComReference.cache
+D:\LapTrinhNet\TEST_PULL_PUSH\obj\Debug\net8.0-windows\CyberManagementProject.Music.frmMusic.resources
