@@ -32,19 +32,19 @@ namespace CyberManagementProject
         {
             components = new System.ComponentModel.Container();
             pnlLeft = new Panel();
-            panel17 = new Panel();
+            pnStatistical = new Panel();
             pictureBox12 = new PictureBox();
             label31 = new Label();
-            panel16 = new Panel();
+            pnStaff = new Panel();
             pictureBox11 = new PictureBox();
             label30 = new Label();
-            panel15 = new Panel();
+            pnServices = new Panel();
             pictureBox10 = new PictureBox();
             label29 = new Label();
-            panel14 = new Panel();
+            pnAccount = new Panel();
             pictureBox9 = new PictureBox();
             label28 = new Label();
-            panel13 = new Panel();
+            pnComputer = new Panel();
             pictureBox8 = new PictureBox();
             label27 = new Label();
             panel2 = new Panel();
@@ -121,15 +121,15 @@ namespace CyberManagementProject
             tbpStaff = new TabPage();
             tbpStatictical = new TabPage();
             pnlLeft.SuspendLayout();
-            panel17.SuspendLayout();
+            pnStatistical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
-            panel16.SuspendLayout();
+            pnStaff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
-            panel15.SuspendLayout();
+            pnServices.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
-            panel14.SuspendLayout();
+            pnAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
-            panel13.SuspendLayout();
+            pnComputer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             pnlTitleBar.SuspendLayout();
             tblMain.SuspendLayout();
@@ -161,25 +161,25 @@ namespace CyberManagementProject
             // pnlLeft
             // 
             pnlLeft.BackColor = Color.LightCyan;
-            pnlLeft.Controls.Add(panel17);
-            pnlLeft.Controls.Add(panel16);
-            pnlLeft.Controls.Add(panel15);
-            pnlLeft.Controls.Add(panel14);
-            pnlLeft.Controls.Add(panel13);
+            pnlLeft.Controls.Add(pnStatistical);
+            pnlLeft.Controls.Add(pnStaff);
+            pnlLeft.Controls.Add(pnServices);
+            pnlLeft.Controls.Add(pnAccount);
+            pnlLeft.Controls.Add(pnComputer);
             pnlLeft.Controls.Add(panel2);
             pnlLeft.Location = new Point(0, 56);
             pnlLeft.Name = "pnlLeft";
             pnlLeft.Size = new Size(240, 672);
             pnlLeft.TabIndex = 0;
             // 
-            // panel17
+            // pnStatistical
             // 
-            panel17.Controls.Add(pictureBox12);
-            panel17.Controls.Add(label31);
-            panel17.Location = new Point(8, 552);
-            panel17.Name = "panel17";
-            panel17.Size = new Size(224, 80);
-            panel17.TabIndex = 3;
+            pnStatistical.Controls.Add(pictureBox12);
+            pnStatistical.Controls.Add(label31);
+            pnStatistical.Location = new Point(8, 552);
+            pnStatistical.Name = "pnStatistical";
+            pnStatistical.Size = new Size(224, 80);
+            pnStatistical.TabIndex = 3;
             // 
             // pictureBox12
             // 
@@ -200,14 +200,14 @@ namespace CyberManagementProject
             label31.TabIndex = 4;
             label31.Text = "Thống kê";
             // 
-            // panel16
+            // pnStaff
             // 
-            panel16.Controls.Add(pictureBox11);
-            panel16.Controls.Add(label30);
-            panel16.Location = new Point(8, 416);
-            panel16.Name = "panel16";
-            panel16.Size = new Size(224, 80);
-            panel16.TabIndex = 3;
+            pnStaff.Controls.Add(pictureBox11);
+            pnStaff.Controls.Add(label30);
+            pnStaff.Location = new Point(8, 416);
+            pnStaff.Name = "pnStaff";
+            pnStaff.Size = new Size(224, 80);
+            pnStaff.TabIndex = 3;
             // 
             // pictureBox11
             // 
@@ -228,14 +228,14 @@ namespace CyberManagementProject
             label30.TabIndex = 4;
             label30.Text = "Nhân viên";
             // 
-            // panel15
+            // pnServices
             // 
-            panel15.Controls.Add(pictureBox10);
-            panel15.Controls.Add(label29);
-            panel15.Location = new Point(8, 280);
-            panel15.Name = "panel15";
-            panel15.Size = new Size(224, 80);
-            panel15.TabIndex = 3;
+            pnServices.Controls.Add(pictureBox10);
+            pnServices.Controls.Add(label29);
+            pnServices.Location = new Point(8, 280);
+            pnServices.Name = "pnServices";
+            pnServices.Size = new Size(224, 80);
+            pnServices.TabIndex = 3;
             // 
             // pictureBox10
             // 
@@ -256,14 +256,14 @@ namespace CyberManagementProject
             label29.TabIndex = 4;
             label29.Text = "Dịch vụ";
             // 
-            // panel14
+            // pnAccount
             // 
-            panel14.Controls.Add(pictureBox9);
-            panel14.Controls.Add(label28);
-            panel14.Location = new Point(8, 144);
-            panel14.Name = "panel14";
-            panel14.Size = new Size(224, 80);
-            panel14.TabIndex = 3;
+            pnAccount.Controls.Add(pictureBox9);
+            pnAccount.Controls.Add(label28);
+            pnAccount.Location = new Point(8, 144);
+            pnAccount.Name = "pnAccount";
+            pnAccount.Size = new Size(224, 80);
+            pnAccount.TabIndex = 3;
             // 
             // pictureBox9
             // 
@@ -284,14 +284,14 @@ namespace CyberManagementProject
             label28.TabIndex = 4;
             label28.Text = "Tài khoản";
             // 
-            // panel13
+            // pnComputer
             // 
-            panel13.Controls.Add(pictureBox8);
-            panel13.Controls.Add(label27);
-            panel13.Location = new Point(8, 8);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(224, 80);
-            panel13.TabIndex = 3;
+            pnComputer.Controls.Add(pictureBox8);
+            pnComputer.Controls.Add(label27);
+            pnComputer.Location = new Point(8, 8);
+            pnComputer.Name = "pnComputer";
+            pnComputer.Size = new Size(224, 80);
+            pnComputer.TabIndex = 3;
             // 
             // pictureBox8
             // 
@@ -551,7 +551,7 @@ namespace CyberManagementProject
             // tbxUserAccount
             // 
             tbxUserAccount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbxUserAccount.Location = new Point(88, 8);
+            tbxUserAccount.Location = new Point(96, 8);
             tbxUserAccount.Name = "tbxUserAccount";
             tbxUserAccount.ReadOnly = true;
             tbxUserAccount.Size = new Size(168, 29);
@@ -1065,20 +1065,20 @@ namespace CyberManagementProject
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmMain";
             pnlLeft.ResumeLayout(false);
-            panel17.ResumeLayout(false);
-            panel17.PerformLayout();
+            pnStatistical.ResumeLayout(false);
+            pnStatistical.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
-            panel16.ResumeLayout(false);
-            panel16.PerformLayout();
+            pnStaff.ResumeLayout(false);
+            pnStaff.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
-            panel15.ResumeLayout(false);
-            panel15.PerformLayout();
+            pnServices.ResumeLayout(false);
+            pnServices.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
-            panel14.ResumeLayout(false);
-            panel14.PerformLayout();
+            pnAccount.ResumeLayout(false);
+            pnAccount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
-            panel13.ResumeLayout(false);
-            panel13.PerformLayout();
+            pnComputer.ResumeLayout(false);
+            pnComputer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             pnlTitleBar.ResumeLayout(false);
             pnlTitleBar.PerformLayout();
@@ -1184,15 +1184,15 @@ namespace CyberManagementProject
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
-        private Panel panel17;
+        private Panel pnStatistical;
         private Label label31;
-        private Panel panel16;
+        private Panel pnStaff;
         private Label label30;
-        private Panel panel15;
+        private Panel pnServices;
         private Label label29;
-        private Panel panel14;
+        private Panel pnAccount;
         private Label label28;
-        private Panel panel13;
+        private Panel pnComputer;
         private Label label27;
         private PictureBox pictureBox12;
         private PictureBox pictureBox11;
