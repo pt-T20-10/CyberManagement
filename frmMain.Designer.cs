@@ -117,6 +117,11 @@ namespace CyberManagementProject
             label21 = new Label();
             label22 = new Label();
             pictureBox7 = new PictureBox();
+            panel13 = new Panel();
+            label34 = new Label();
+            label35 = new Label();
+            label36 = new Label();
+            pictureBox14 = new PictureBox();
             tbpAccount = new TabPage();
             panel23 = new Panel();
             btnThemKhachHang = new Button();
@@ -175,11 +180,6 @@ namespace CyberManagementProject
             btnXuatFile = new Button();
             btn_ThongKe = new Button();
             tbpStatictical = new TabPage();
-            panel13 = new Panel();
-            label34 = new Label();
-            label35 = new Label();
-            label36 = new Label();
-            pictureBox14 = new PictureBox();
             pnlLeft.SuspendLayout();
             pnStatictical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -216,6 +216,8 @@ namespace CyberManagementProject
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
             tbpAccount.SuspendLayout();
             panel23.SuspendLayout();
             panel24.SuspendLayout();
@@ -236,8 +238,6 @@ namespace CyberManagementProject
             panel20.SuspendLayout();
             panel21.SuspendLayout();
             panel22.SuspendLayout();
-            panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
             SuspendLayout();
             // 
             // pnlLeft
@@ -1100,6 +1100,59 @@ namespace CyberManagementProject
             pictureBox7.TabIndex = 0;
             pictureBox7.TabStop = false;
             // 
+            // panel13
+            // 
+            panel13.BackColor = Color.WhiteSmoke;
+            panel13.BorderStyle = BorderStyle.FixedSingle;
+            panel13.Controls.Add(label34);
+            panel13.Controls.Add(label35);
+            panel13.Controls.Add(label36);
+            panel13.Controls.Add(pictureBox14);
+            panel13.Location = new Point(313, 222);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(149, 213);
+            panel13.TabIndex = 7;
+            // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label34.Location = new Point(48, 184);
+            label34.Name = "label34";
+            label34.Size = new Size(52, 20);
+            label34.TabIndex = 3;
+            label34.Text = "user01";
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label35.Location = new Point(48, 160);
+            label35.Name = "label35";
+            label35.Size = new Size(55, 20);
+            label35.TabIndex = 2;
+            label35.Text = "1:30:52";
+            // 
+            // label36
+            // 
+            label36.AutoSize = true;
+            label36.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label36.Location = new Point(32, 136);
+            label36.Name = "label36";
+            label36.Size = new Size(90, 20);
+            label36.TabIndex = 1;
+            label36.Text = "Máy tính 03";
+            // 
+            // pictureBox14
+            // 
+            pictureBox14.Image = Properties.Resources.Online;
+            pictureBox14.Location = new Point(16, 8);
+            pictureBox14.Name = "pictureBox14";
+            pictureBox14.Size = new Size(120, 120);
+            pictureBox14.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox14.TabIndex = 0;
+            pictureBox14.TabStop = false;
+            // 
             // tbpAccount
             // 
             tbpAccount.Controls.Add(panel23);
@@ -1728,59 +1781,6 @@ namespace CyberManagementProject
             tbpStatictical.Text = "tabPage1";
             tbpStatictical.UseVisualStyleBackColor = true;
             // 
-            // panel13
-            // 
-            panel13.BackColor = Color.WhiteSmoke;
-            panel13.BorderStyle = BorderStyle.FixedSingle;
-            panel13.Controls.Add(label34);
-            panel13.Controls.Add(label35);
-            panel13.Controls.Add(label36);
-            panel13.Controls.Add(pictureBox14);
-            panel13.Location = new Point(313, 222);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(149, 213);
-            panel13.TabIndex = 7;
-            // 
-            // label34
-            // 
-            label34.AutoSize = true;
-            label34.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label34.Location = new Point(48, 184);
-            label34.Name = "label34";
-            label34.Size = new Size(52, 20);
-            label34.TabIndex = 3;
-            label34.Text = "user01";
-            // 
-            // label35
-            // 
-            label35.AutoSize = true;
-            label35.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label35.Location = new Point(48, 160);
-            label35.Name = "label35";
-            label35.Size = new Size(55, 20);
-            label35.TabIndex = 2;
-            label35.Text = "1:30:52";
-            // 
-            // label36
-            // 
-            label36.AutoSize = true;
-            label36.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label36.Location = new Point(32, 136);
-            label36.Name = "label36";
-            label36.Size = new Size(90, 20);
-            label36.TabIndex = 1;
-            label36.Text = "Máy tính 03";
-            // 
-            // pictureBox14
-            // 
-            pictureBox14.Image = Properties.Resources.Online;
-            pictureBox14.Location = new Point(16, 8);
-            pictureBox14.Name = "pictureBox14";
-            pictureBox14.Size = new Size(120, 120);
-            pictureBox14.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox14.TabIndex = 0;
-            pictureBox14.TabStop = false;
-            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1846,6 +1846,9 @@ namespace CyberManagementProject
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            panel13.ResumeLayout(false);
+            panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
             tbpAccount.ResumeLayout(false);
             panel23.ResumeLayout(false);
             panel24.ResumeLayout(false);
@@ -1872,9 +1875,6 @@ namespace CyberManagementProject
             panel21.ResumeLayout(false);
             panel21.PerformLayout();
             panel22.ResumeLayout(false);
-            panel13.ResumeLayout(false);
-            panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
             ResumeLayout(false);
         }
         #endregion
