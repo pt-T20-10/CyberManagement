@@ -2,6 +2,7 @@ using System;
 using System.Windows.Forms;
 using CyberManagementProject;
 using CyberManagementProject.Music;
+using QuanLyQuanNet;
 
 namespace CyberManagementProject
 {

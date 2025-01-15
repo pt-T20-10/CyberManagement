@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using CyberManagementProject;
 
 namespace QuanLyQuanNet.KhachHang
 {
@@ -88,9 +89,9 @@ namespace QuanLyQuanNet.KhachHang
 
         private void lblHome_Click(object sender, EventArgs e)
         {
-            //frmMain f = new frmMain();
+            frmMain f = new frmMain();
             this.Close();
-            //f.show();
+            f.Show();
         }
     }
 }
