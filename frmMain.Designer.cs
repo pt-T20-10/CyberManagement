@@ -120,6 +120,7 @@ namespace CyberManagementProject
             tbpServices = new TabPage();
             tbpStaff = new TabPage();
             tbpStatictical = new TabPage();
+            panel18 = new Panel();
             pnlLeft.SuspendLayout();
             panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -156,6 +157,7 @@ namespace CyberManagementProject
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            tbpServices.SuspendLayout();
             SuspendLayout();
             // 
             // pnlLeft
@@ -1076,6 +1078,7 @@ namespace CyberManagementProject
             // 
             // tbpServices
             // 
+            tbpServices.Controls.Add(panel18);
             tbpServices.Location = new Point(0, 0);
             tbpServices.Margin = new Padding(3, 4, 3, 4);
             tbpServices.Name = "tbpServices";
@@ -1106,6 +1109,13 @@ namespace CyberManagementProject
             tbpStatictical.TabIndex = 4;
             tbpStatictical.Text = "tabPage1";
             tbpStatictical.UseVisualStyleBackColor = true;
+            // 
+            // panel18
+            // 
+            panel18.Location = new Point(0, 0);
+            panel18.Name = "panel18";
+            panel18.Size = new Size(250, 288);
+            panel18.TabIndex = 0;
             // 
             // frmMain
             // 
@@ -1173,6 +1183,7 @@ namespace CyberManagementProject
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            tbpServices.ResumeLayout(false);
             ResumeLayout(false);
         }
         #endregion
@@ -1266,5 +1277,6 @@ namespace CyberManagementProject
         private TabPage tbpServices;
         private TabPage tbpStaff;
         private TabPage tbpStatictical;
+        private Panel panel18;
     }
 }
