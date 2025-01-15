@@ -1,5 +1,3 @@
 ﻿# CyberManagement
 
-Final test 1 1
-
-HoangNghia
+Trung Nghia da dai o day
