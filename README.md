@@ -1,3 +1,3 @@
 ﻿# CyberManagement
 
-Trung Nghia da dai o day
+Hoang Le
