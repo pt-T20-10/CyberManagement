@@ -1,3 +1,8 @@
+using System;
+using System.Windows.Forms;
+using CyberManagementProject;
+using CyberManagementProject.Music;
+
 namespace CyberManagementProject
 {
     internal static class Program
@@ -11,7 +16,7 @@ namespace CyberManagementProject
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new frmMain());
+            Application.Run(new frmMusic());
         }
     }
 }

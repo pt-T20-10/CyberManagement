@@ -129,5 +129,194 @@ namespace CyberManagementProject.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+
+        #region Hoàng Nghĩa
+        //
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap add
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap add_icon_free_vector
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("add-icon-free-vector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap add_icon_free_vector1
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("add-icon-free-vector1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delete
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delete1
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("delete1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_search
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("icon_search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("images", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images1
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("images1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_clipart_league_of_legends_character_league_of_legends_female_character_games_league_of_legends
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("png-clipart-league-of-legends-character-league-of-legends-female-character-games-" +
+                        "league-of-legends", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_clipart_league_of_legends_character_league_of_legends_female_character_games_league_of_legends1
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("png-clipart-league-of-legends-character-league-of-legends-female-character-games-" +
+                        "league-of-legends1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_clipart_league_of_legends_riot_games_rocket_mouse_mats_video_game_league_of_legends_video_game_fictional_character
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("png-clipart-league-of-legends-riot-games-rocket-mouse-mats-video-game-league-of-l" +
+                        "egends-video-game-fictional-character", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_clipart_league_of_legends_riot_games_rocket_mouse_mats_video_game_league_of_legends_video_game_fictional_character1
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("png-clipart-league-of-legends-riot-games-rocket-mouse-mats-video-game-league-of-l" +
+                        "egends-video-game-fictional-character1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_vector_add_icon_png_image_956621
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("pngtree-vector-add-icon-png-image_956621", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sample_User_Icon
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Sample_User_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        #endregion
+
+
     }
 }

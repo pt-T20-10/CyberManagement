@@ -1,5 +1,4 @@
 ﻿using CyberManagementProject.DAO;
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyQuanNet;
 
 namespace CyberManagementProject
 {
@@ -21,15 +21,15 @@ namespace CyberManagementProject
 
         #region Hoàng Nghĩa
         //
+        private void lblNhanVien_Click(object sender, EventArgs e)
+        {
+            frmQuanLyNhanVien f = new frmQuanLyNhanVien();  
+            f.ShowDialog();
+        }
         #endregion
 
         #region Trung Nghĩa
         //
-
-
-
-
-
         #endregion
 
         #region Hoàng Lễ
@@ -77,16 +77,12 @@ namespace CyberManagementProject
         {
             timerToggle.Start();
         }
-
-
         #endregion
         #region Method
         #endregion
+
         #endregion
 
-        private void label29_Click(object sender, EventArgs e)
-        {
-            
-        }
+        
     }
 }

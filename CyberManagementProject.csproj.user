@@ -10,5 +10,29 @@
     <Compile Update="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="KhachHang\frmKhachHang_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="KhachHang\frmKhachHang_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="KhachHang\frmKhachHang_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Music\frmMusic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NhanVien\frmNhanVienDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NhanVien\frmQuanLyNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NhanVien\frmThemNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NhanVien\ParallelogramPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
