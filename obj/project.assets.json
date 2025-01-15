@@ -1687,23 +1687,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nghia\\.nuget\\packages\\": {},
+    "C:\\Users\\pntoa\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\LapTrinhNet\\CodeThoai\\CyberManagementProject.csproj",
+      "projectUniqueName": "D:\\VStudio\\Projects\\CyberManagementProject\\CyberManagementProject.csproj",
       "projectName": "CyberManagementProject",
-      "projectPath": "C:\\LapTrinhNet\\CodeThoai\\CyberManagementProject.csproj",
-      "packagesPath": "C:\\Users\\Nghia\\.nuget\\packages\\",
-      "outputPath": "C:\\LapTrinhNet\\CodeThoai\\obj\\",
+      "projectPath": "D:\\VStudio\\Projects\\CyberManagementProject\\CyberManagementProject.csproj",
+      "packagesPath": "C:\\Users\\pntoa\\.nuget\\packages\\",
+      "outputPath": "D:\\VStudio\\Projects\\CyberManagementProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Nghia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pntoa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
