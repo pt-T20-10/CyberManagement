@@ -21,12 +21,16 @@ namespace CyberManagementProject
 
         #region Hoàng Nghĩa
         //
-       
+
         #endregion
 
         #region Trung Nghĩa
         //
         #endregion
+        private void label29_Click(object sender, EventArgs e)
+        {
+
+        }
 
         #region Hoàng Lễ
         //
@@ -106,6 +110,9 @@ namespace CyberManagementProject
 
 
 
+      
+
+ 
     }
 
 }

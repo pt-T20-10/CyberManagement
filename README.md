@@ -1,3 +1,2 @@
 ﻿# CyberManagement
-
-Hoang Le
+Thêm Đồ Ăn, Ăn Không Được Thì Biến
