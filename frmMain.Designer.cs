@@ -1079,7 +1079,7 @@ namespace CyberManagementProject
             tbpStaff.Padding = new Padding(3);
             tbpStaff.Size = new Size(1112, 672);
             tbpStaff.TabIndex = 3;
-            tbpStaff.Text = "tabPage1";
+            tbpStaff.Text = "git b";
             tbpStaff.UseVisualStyleBackColor = true;
             // 
             // panel18
