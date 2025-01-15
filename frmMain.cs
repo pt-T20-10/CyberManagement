@@ -23,7 +23,7 @@ namespace CyberManagementProject
         //
         private void lblNhanVien_Click(object sender, EventArgs e)
         {
-            frmQuanLyNhanVien f = new frmQuanLyNhanVien();  
+            frmQuanLyNhanVien f = new frmQuanLyNhanVien();
             f.ShowDialog();
         }
         #endregion
@@ -83,6 +83,6 @@ namespace CyberManagementProject
 
         #endregion
 
-        
+
     }
 }
