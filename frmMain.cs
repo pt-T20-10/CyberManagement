@@ -21,11 +21,7 @@ namespace CyberManagementProject
 
         #region Hoàng Nghĩa
         //
-        private void lblNhanVien_Click(object sender, EventArgs e)
-        {
-            frmQuanLyNhanVien f = new frmQuanLyNhanVien();  
-            f.ShowDialog();
-        }
+       
         #endregion
 
         #region Trung Nghĩa
@@ -72,10 +68,32 @@ namespace CyberManagementProject
                 }
             }
         }
-
         private void btnToggleMenu_Click(object sender, EventArgs e)
         {
             timerToggle.Start();
+        }
+        private void pnComputer_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpComputer;
+        }
+
+        private void pnStaff_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpStaff;
+        }
+        private void pnAccount_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpAccount;
+        }
+
+        private void pnServices_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpServices;
+        }
+
+        private void pnStatictical_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpStatictical;
         }
         #endregion
         #region Method
@@ -83,6 +101,11 @@ namespace CyberManagementProject
 
         #endregion
 
-        
+
+
+
+
+
     }
+
 }

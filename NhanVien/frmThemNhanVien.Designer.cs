@@ -271,7 +271,7 @@
             btnCancelThemNhanVien.TabIndex = 15;
             btnCancelThemNhanVien.Text = "Huỷ bỏ";
             btnCancelThemNhanVien.UseVisualStyleBackColor = true;
-            btnCancelThemNhanVien.Click += btnCancelThemNhanVien_Click_1;
+
             // 
             // btnAcceptThemNhanVien
             // 

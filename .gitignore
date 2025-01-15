@@ -364,3 +364,15 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+# Bỏ qua thư mục build output
+bin/
+obj/
+
+# Bỏ qua thư mục Visual Studio
+.vs/
+
+# Bỏ qua các file cấu hình tạm thời
+*.user
+*.suo
+*.tmp
+*.log

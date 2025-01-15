@@ -143,7 +143,7 @@
             btnHuyBo.TabIndex = 4;
             btnHuyBo.Text = "Huỷ Bỏ";
             btnHuyBo.UseVisualStyleBackColor = true;
-            btnHuyBo.Click += btnHuyBo_Click;
+  
             // 
             // btnXoaNhanVien
             // 

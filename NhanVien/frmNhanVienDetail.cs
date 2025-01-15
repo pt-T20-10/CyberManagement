@@ -27,12 +27,5 @@ namespace QuanLyQuanNet
         {
             MessageBox.Show("Ban co muon xoa Nhan vien nay?");
         }
-
-        private void btnHuyBo_Click(object sender, EventArgs e)
-        {
-            frmQuanLyNhanVien f = new frmQuanLyNhanVien();
-            this.Close();
-            f.ShowDialog();
-        }
     }
 }

@@ -40,12 +40,7 @@ namespace QuanLyQuanNet
             }
         }
 
-        private void btnCancelThemNhanVien_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-            frmQuanLyNhanVien f = new frmQuanLyNhanVien();
-            f.ShowDialog();
-        }
+       
 
         private void btnChonAnh_Click(object sender, EventArgs e)
         {
