@@ -24,7 +24,7 @@ namespace CyberManagementProject.Music
 
         private void btnChooseMusic_Click(object sender, EventArgs e)
         {
-            string folderPath = @"D:\LapTrinhNet\TEST_PULL_PUSH\Music\Music";
+            string folderPath = @"D:\LapTrinhNet\CyberManagement\Music\Music";
 
             // Kiểm tra thư mục có tồn tại không
             if (!Directory.Exists(folderPath))
