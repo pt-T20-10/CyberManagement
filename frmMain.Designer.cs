@@ -118,9 +118,46 @@ namespace CyberManagementProject
             pictureBox7 = new PictureBox();
             tbpAccount = new TabPage();
             tbpServices = new TabPage();
+            panel19 = new Panel();
+            textBox1 = new TextBox();
+            btnSearch = new Button();
+            panel20 = new Panel();
+            btnViewFood = new Button();
+            btnRepairFood = new Button();
+            btnDeleteFood = new Button();
+            btnAddFood = new Button();
+            panel21 = new Panel();
+            panel22 = new Panel();
+            btnBanhTran = new Button();
+            btnKem = new Button();
+            btnDoUong = new Button();
+            btnAddCategory = new Button();
+            btnDoAnNhe = new Button();
+            btnBanhMi = new Button();
+            btnPhoBunMi = new Button();
+            btnCom = new Button();
+            btnAllFood = new Button();
+            panel23 = new Panel();
+            label33 = new Label();
+            textBox4 = new TextBox();
+            panel24 = new Panel();
+            dataGridView2 = new DataGridView();
+            panel25 = new Panel();
+            comboBox1 = new ComboBox();
+            label34 = new Label();
+            panel26 = new Panel();
+            numericUpDown1 = new NumericUpDown();
+            label35 = new Label();
+            panel27 = new Panel();
+            textBox3 = new TextBox();
+            label36 = new Label();
+            btnReset = new Button();
+            btnXacNhan = new Button();
+            panel28 = new Panel();
+            textBox2 = new TextBox();
+            label37 = new Label();
             tbpStaff = new TabPage();
             tbpStatictical = new TabPage();
-            panel18 = new Panel();
             pnlLeft.SuspendLayout();
             panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -158,6 +195,18 @@ namespace CyberManagementProject
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             tbpServices.SuspendLayout();
+            panel19.SuspendLayout();
+            panel20.SuspendLayout();
+            panel21.SuspendLayout();
+            panel22.SuspendLayout();
+            panel23.SuspendLayout();
+            panel24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            panel25.SuspendLayout();
+            panel26.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            panel27.SuspendLayout();
+            panel28.SuspendLayout();
             SuspendLayout();
             // 
             // pnlLeft
@@ -264,6 +313,7 @@ namespace CyberManagementProject
             label29.Size = new Size(120, 41);
             label29.TabIndex = 4;
             label29.Text = "Dịch vụ";
+            label29.Click += label29_Click;
             // 
             // panel14
             // 
@@ -1078,7 +1128,10 @@ namespace CyberManagementProject
             // 
             // tbpServices
             // 
-            tbpServices.Controls.Add(panel18);
+            tbpServices.Controls.Add(panel19);
+            tbpServices.Controls.Add(panel20);
+            tbpServices.Controls.Add(panel21);
+            tbpServices.Controls.Add(panel23);
             tbpServices.Location = new Point(0, 0);
             tbpServices.Margin = new Padding(3, 4, 3, 4);
             tbpServices.Name = "tbpServices";
@@ -1087,6 +1140,367 @@ namespace CyberManagementProject
             tbpServices.TabIndex = 2;
             tbpServices.Text = "tabPage1";
             tbpServices.UseVisualStyleBackColor = true;
+            // 
+            // panel19
+            // 
+            panel19.Controls.Add(textBox1);
+            panel19.Controls.Add(btnSearch);
+            panel19.Location = new Point(896, 0);
+            panel19.Name = "panel19";
+            panel19.Size = new Size(369, 35);
+            panel19.TabIndex = 9;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(3, 4);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(246, 27);
+            textBox1.TabIndex = 1;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(255, 2);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(76, 29);
+            btnSearch.TabIndex = 0;
+            btnSearch.Text = "Tìm";
+            btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // panel20
+            // 
+            panel20.Controls.Add(btnViewFood);
+            panel20.Controls.Add(btnRepairFood);
+            panel20.Controls.Add(btnDeleteFood);
+            panel20.Controls.Add(btnAddFood);
+            panel20.Location = new Point(0, 0);
+            panel20.Name = "panel20";
+            panel20.Size = new Size(803, 41);
+            panel20.TabIndex = 8;
+            // 
+            // btnViewFood
+            // 
+            btnViewFood.BackColor = SystemColors.ActiveBorder;
+            btnViewFood.Location = new Point(664, 8);
+            btnViewFood.Name = "btnViewFood";
+            btnViewFood.Size = new Size(136, 29);
+            btnViewFood.TabIndex = 0;
+            btnViewFood.Text = "Xem";
+            btnViewFood.UseVisualStyleBackColor = false;
+            // 
+            // btnRepairFood
+            // 
+            btnRepairFood.BackColor = SystemColors.ActiveBorder;
+            btnRepairFood.Location = new Point(488, 8);
+            btnRepairFood.Name = "btnRepairFood";
+            btnRepairFood.Size = new Size(136, 29);
+            btnRepairFood.TabIndex = 0;
+            btnRepairFood.Text = "Sửa";
+            btnRepairFood.UseVisualStyleBackColor = false;
+            // 
+            // btnDeleteFood
+            // 
+            btnDeleteFood.BackColor = SystemColors.ActiveBorder;
+            btnDeleteFood.Location = new Point(312, 8);
+            btnDeleteFood.Name = "btnDeleteFood";
+            btnDeleteFood.Size = new Size(136, 29);
+            btnDeleteFood.TabIndex = 0;
+            btnDeleteFood.Text = "Xóa";
+            btnDeleteFood.UseVisualStyleBackColor = false;
+            // 
+            // btnAddFood
+            // 
+            btnAddFood.BackColor = SystemColors.ActiveBorder;
+            btnAddFood.Location = new Point(136, 8);
+            btnAddFood.Name = "btnAddFood";
+            btnAddFood.Size = new Size(136, 29);
+            btnAddFood.TabIndex = 0;
+            btnAddFood.Text = "Thêm Món";
+            btnAddFood.UseVisualStyleBackColor = false;
+            // 
+            // panel21
+            // 
+            panel21.Controls.Add(panel22);
+            panel21.Location = new Point(0, 38);
+            panel21.Name = "panel21";
+            panel21.Size = new Size(896, 858);
+            panel21.TabIndex = 7;
+            // 
+            // panel22
+            // 
+            panel22.BorderStyle = BorderStyle.FixedSingle;
+            panel22.Controls.Add(btnBanhTran);
+            panel22.Controls.Add(btnKem);
+            panel22.Controls.Add(btnDoUong);
+            panel22.Controls.Add(btnAddCategory);
+            panel22.Controls.Add(btnDoAnNhe);
+            panel22.Controls.Add(btnBanhMi);
+            panel22.Controls.Add(btnPhoBunMi);
+            panel22.Controls.Add(btnCom);
+            panel22.Controls.Add(btnAllFood);
+            panel22.Location = new Point(0, 8);
+            panel22.Name = "panel22";
+            panel22.Size = new Size(104, 848);
+            panel22.TabIndex = 1;
+            // 
+            // btnBanhTran
+            // 
+            btnBanhTran.Location = new Point(8, 512);
+            btnBanhTran.Name = "btnBanhTran";
+            btnBanhTran.Size = new Size(88, 48);
+            btnBanhTran.TabIndex = 0;
+            btnBanhTran.Text = "Bánh Trán";
+            btnBanhTran.UseVisualStyleBackColor = true;
+            // 
+            // btnKem
+            // 
+            btnKem.Location = new Point(8, 432);
+            btnKem.Name = "btnKem";
+            btnKem.Size = new Size(88, 48);
+            btnKem.TabIndex = 0;
+            btnKem.Text = "Kem";
+            btnKem.UseVisualStyleBackColor = true;
+            // 
+            // btnDoUong
+            // 
+            btnDoUong.Location = new Point(8, 360);
+            btnDoUong.Name = "btnDoUong";
+            btnDoUong.Size = new Size(88, 48);
+            btnDoUong.TabIndex = 0;
+            btnDoUong.Text = "Đồ Uống";
+            btnDoUong.UseVisualStyleBackColor = true;
+            // 
+            // btnAddCategory
+            // 
+            btnAddCategory.BackColor = SystemColors.ActiveBorder;
+            btnAddCategory.Location = new Point(0, 808);
+            btnAddCategory.Name = "btnAddCategory";
+            btnAddCategory.Size = new Size(104, 29);
+            btnAddCategory.TabIndex = 0;
+            btnAddCategory.Text = "Thêm Loại";
+            btnAddCategory.UseVisualStyleBackColor = false;
+            // 
+            // btnDoAnNhe
+            // 
+            btnDoAnNhe.Location = new Point(8, 280);
+            btnDoAnNhe.Name = "btnDoAnNhe";
+            btnDoAnNhe.Size = new Size(88, 48);
+            btnDoAnNhe.TabIndex = 0;
+            btnDoAnNhe.Text = "Đồ Ăn Nhẹ";
+            btnDoAnNhe.UseVisualStyleBackColor = true;
+            // 
+            // btnBanhMi
+            // 
+            btnBanhMi.Location = new Point(8, 200);
+            btnBanhMi.Name = "btnBanhMi";
+            btnBanhMi.Size = new Size(88, 48);
+            btnBanhMi.TabIndex = 0;
+            btnBanhMi.Text = "Bánh Mì";
+            btnBanhMi.UseVisualStyleBackColor = true;
+            // 
+            // btnPhoBunMi
+            // 
+            btnPhoBunMi.Location = new Point(8, 112);
+            btnPhoBunMi.Name = "btnPhoBunMi";
+            btnPhoBunMi.Size = new Size(88, 48);
+            btnPhoBunMi.TabIndex = 0;
+            btnPhoBunMi.Text = "Phơ Bún Mỳ";
+            btnPhoBunMi.UseVisualStyleBackColor = true;
+            // 
+            // btnCom
+            // 
+            btnCom.Location = new Point(8, 592);
+            btnCom.Name = "btnCom";
+            btnCom.Size = new Size(88, 48);
+            btnCom.TabIndex = 0;
+            btnCom.Text = "Cơm";
+            btnCom.UseVisualStyleBackColor = true;
+            // 
+            // btnAllFood
+            // 
+            btnAllFood.Location = new Point(8, 32);
+            btnAllFood.Name = "btnAllFood";
+            btnAllFood.Size = new Size(88, 48);
+            btnAllFood.TabIndex = 0;
+            btnAllFood.Text = "Tất Cả";
+            btnAllFood.UseVisualStyleBackColor = true;
+            // 
+            // panel23
+            // 
+            panel23.BackColor = SystemColors.Control;
+            panel23.Controls.Add(label33);
+            panel23.Controls.Add(textBox4);
+            panel23.Controls.Add(panel24);
+            panel23.Controls.Add(panel25);
+            panel23.Controls.Add(panel26);
+            panel23.Controls.Add(panel27);
+            panel23.Controls.Add(btnReset);
+            panel23.Controls.Add(btnXacNhan);
+            panel23.Controls.Add(panel28);
+            panel23.Location = new Point(896, 37);
+            panel23.Name = "panel23";
+            panel23.Size = new Size(368, 859);
+            panel23.TabIndex = 6;
+            // 
+            // label33
+            // 
+            label33.Location = new Point(160, 720);
+            label33.Name = "label33";
+            label33.Size = new Size(43, 24);
+            label33.TabIndex = 4;
+            label33.Text = "Tổng";
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(224, 720);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(136, 27);
+            textBox4.TabIndex = 3;
+            // 
+            // panel24
+            // 
+            panel24.Controls.Add(dataGridView2);
+            panel24.Location = new Point(24, 184);
+            panel24.Name = "panel24";
+            panel24.Size = new Size(328, 520);
+            panel24.TabIndex = 2;
+            // 
+            // dataGridView2
+            // 
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(0, 0);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 51;
+            dataGridView2.Size = new Size(331, 512);
+            dataGridView2.TabIndex = 0;
+            // 
+            // panel25
+            // 
+            panel25.Controls.Add(comboBox1);
+            panel25.Controls.Add(label34);
+            panel25.Location = new Point(24, 96);
+            panel25.Name = "panel25";
+            panel25.Size = new Size(328, 36);
+            panel25.TabIndex = 1;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(89, 8);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(239, 28);
+            comboBox1.TabIndex = 1;
+            // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.Font = new Font("Arial", 10F, FontStyle.Bold);
+            label34.ForeColor = SystemColors.ControlText;
+            label34.Location = new Point(4, 10);
+            label34.Name = "label34";
+            label34.Size = new Size(87, 19);
+            label34.TabIndex = 0;
+            label34.Text = "Danh Mục";
+            // 
+            // panel26
+            // 
+            panel26.Controls.Add(numericUpDown1);
+            panel26.Controls.Add(label35);
+            panel26.Location = new Point(24, 144);
+            panel26.Name = "panel26";
+            panel26.Size = new Size(330, 36);
+            panel26.TabIndex = 1;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(91, 9);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(236, 27);
+            numericUpDown1.TabIndex = 1;
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.Font = new Font("Arial", 10F, FontStyle.Bold);
+            label35.ForeColor = SystemColors.ControlText;
+            label35.Location = new Point(4, 10);
+            label35.Name = "label35";
+            label35.Size = new Size(35, 19);
+            label35.TabIndex = 0;
+            label35.Text = "Giá";
+            // 
+            // panel27
+            // 
+            panel27.Controls.Add(textBox3);
+            panel27.Controls.Add(label36);
+            panel27.Location = new Point(24, 48);
+            panel27.Name = "panel27";
+            panel27.Size = new Size(328, 36);
+            panel27.TabIndex = 1;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(89, 8);
+            textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
+            textBox3.Size = new Size(236, 27);
+            textBox3.TabIndex = 1;
+            // 
+            // label36
+            // 
+            label36.AutoSize = true;
+            label36.Font = new Font("Arial", 10F, FontStyle.Bold);
+            label36.ForeColor = SystemColors.ControlText;
+            label36.Location = new Point(4, 10);
+            label36.Name = "label36";
+            label36.Size = new Size(38, 19);
+            label36.TabIndex = 0;
+            label36.Text = "Tên";
+            // 
+            // btnReset
+            // 
+            btnReset.Location = new Point(48, 784);
+            btnReset.Name = "btnReset";
+            btnReset.Size = new Size(136, 29);
+            btnReset.TabIndex = 0;
+            btnReset.Text = "Reset";
+            btnReset.UseVisualStyleBackColor = true;
+            // 
+            // btnXacNhan
+            // 
+            btnXacNhan.Location = new Point(224, 784);
+            btnXacNhan.Name = "btnXacNhan";
+            btnXacNhan.Size = new Size(136, 29);
+            btnXacNhan.TabIndex = 0;
+            btnXacNhan.Text = "Xác Nhận";
+            btnXacNhan.UseVisualStyleBackColor = true;
+            // 
+            // panel28
+            // 
+            panel28.Controls.Add(textBox2);
+            panel28.Controls.Add(label37);
+            panel28.Location = new Point(24, 0);
+            panel28.Name = "panel28";
+            panel28.Size = new Size(328, 37);
+            panel28.TabIndex = 1;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(89, 10);
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new Size(236, 27);
+            textBox2.TabIndex = 1;
+            // 
+            // label37
+            // 
+            label37.AutoSize = true;
+            label37.Font = new Font("Arial", 10F, FontStyle.Bold);
+            label37.ForeColor = SystemColors.ControlText;
+            label37.Location = new Point(4, 10);
+            label37.Name = "label37";
+            label37.Size = new Size(36, 19);
+            label37.TabIndex = 0;
+            label37.Text = "ID: ";
             // 
             // tbpStaff
             // 
@@ -1109,13 +1523,6 @@ namespace CyberManagementProject
             tbpStatictical.TabIndex = 4;
             tbpStatictical.Text = "tabPage1";
             tbpStatictical.UseVisualStyleBackColor = true;
-            // 
-            // panel18
-            // 
-            panel18.Location = new Point(0, 0);
-            panel18.Name = "panel18";
-            panel18.Size = new Size(250, 288);
-            panel18.TabIndex = 0;
             // 
             // frmMain
             // 
@@ -1184,6 +1591,24 @@ namespace CyberManagementProject
             panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             tbpServices.ResumeLayout(false);
+            panel19.ResumeLayout(false);
+            panel19.PerformLayout();
+            panel20.ResumeLayout(false);
+            panel21.ResumeLayout(false);
+            panel22.ResumeLayout(false);
+            panel23.ResumeLayout(false);
+            panel23.PerformLayout();
+            panel24.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            panel25.ResumeLayout(false);
+            panel25.PerformLayout();
+            panel26.ResumeLayout(false);
+            panel26.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            panel27.ResumeLayout(false);
+            panel27.PerformLayout();
+            panel28.ResumeLayout(false);
+            panel28.PerformLayout();
             ResumeLayout(false);
         }
         #endregion
@@ -1277,6 +1702,43 @@ namespace CyberManagementProject
         private TabPage tbpServices;
         private TabPage tbpStaff;
         private TabPage tbpStatictical;
-        private Panel panel18;
+        private Panel panel19;
+        private TextBox textBox1;
+        private Button btnSearch;
+        private Panel panel20;
+        private Button btnViewFood;
+        private Button btnRepairFood;
+        private Button btnDeleteFood;
+        private Button btnAddFood;
+        private Panel panel21;
+        private Panel panel22;
+        private Button btnBanhTran;
+        private Button btnKem;
+        private Button btnDoUong;
+        private Button btnAddCategory;
+        private Button btnDoAnNhe;
+        private Button btnBanhMi;
+        private Button btnPhoBunMi;
+        private Button btnCom;
+        private Button btnAllFood;
+        private Panel panel23;
+        private Label label33;
+        private TextBox textBox4;
+        private Panel panel24;
+        private DataGridView dataGridView2;
+        private Panel panel25;
+        private ComboBox comboBox1;
+        private Label label34;
+        private Panel panel26;
+        private NumericUpDown numericUpDown1;
+        private Label label35;
+        private Panel panel27;
+        private TextBox textBox3;
+        private Label label36;
+        private Button btnReset;
+        private Button btnXacNhan;
+        private Panel panel28;
+        private TextBox textBox2;
+        private Label label37;
     }
 }

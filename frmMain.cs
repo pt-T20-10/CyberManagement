@@ -1,4 +1,5 @@
 ﻿using CyberManagementProject.DAO;
+using QuanLyQuanNet;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -76,12 +77,13 @@ namespace CyberManagementProject
         {
             timerToggle.Start();
         }
-        #endregion
-        #region Method
-        #endregion
 
         #endregion
+        #endregion
 
-
+        private void label29_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
