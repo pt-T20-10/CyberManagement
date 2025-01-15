@@ -2,6 +2,7 @@ using System;
 using System.Windows.Forms;
 using CyberManagementProject;
 using CyberManagementProject.Music;
+using QuanLyQuanNet;
 
 namespace CyberManagementProject
 {
@@ -16,7 +17,7 @@ namespace CyberManagementProject
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new frmMusic());
+            Application.Run(new frmMain());
         }
     }
 }

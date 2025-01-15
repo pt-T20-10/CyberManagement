@@ -146,6 +146,35 @@ namespace CyberManagementProject
             btnXuatFile = new Button();
             btn_ThongKe = new Button();
             tbpStatictical = new TabPage();
+            panel23 = new Panel();
+            btnThemKhachHang = new Button();
+            btnNhap = new Button();
+            button2 = new Button();
+            btnLoc = new Button();
+            btn_TroChuyen = new Button();
+            panel24 = new Panel();
+            label32 = new Label();
+            label33 = new Label();
+            grbKhachHang = new GroupBox();
+            panel25 = new Panel();
+            panel26 = new Panel();
+            textBox1 = new TextBox();
+            button5 = new Button();
+            button6 = new Button();
+            pictureBox13 = new PictureBox();
+            textBox3 = new TextBox();
+            panel27 = new Panel();
+            dataGridView1 = new DataGridView();
+            flpLoc = new FlowLayoutPanel();
+            checkBox1 = new CheckBox();
+            checkBox2 = new CheckBox();
+            checkBox3 = new CheckBox();
+            checkBox4 = new CheckBox();
+            checkBox5 = new CheckBox();
+            checkBox6 = new CheckBox();
+            checkBox7 = new CheckBox();
+            checkBox8 = new CheckBox();
+            checkBox9 = new CheckBox();
             pnlLeft.SuspendLayout();
             panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -182,6 +211,7 @@ namespace CyberManagementProject
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            tbpAccount.SuspendLayout();
             tbpStaff.SuspendLayout();
             panel18.SuspendLayout();
             grbQuanLyNhanVien.SuspendLayout();
@@ -192,6 +222,15 @@ namespace CyberManagementProject
             panel20.SuspendLayout();
             panel21.SuspendLayout();
             panel22.SuspendLayout();
+            panel23.SuspendLayout();
+            panel24.SuspendLayout();
+            grbKhachHang.SuspendLayout();
+            panel25.SuspendLayout();
+            panel26.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
+            panel27.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            flpLoc.SuspendLayout();
             SuspendLayout();
             // 
             // pnlLeft
@@ -1051,6 +1090,9 @@ namespace CyberManagementProject
             // 
             // tbpAccount
             // 
+            tbpAccount.Controls.Add(panel23);
+            tbpAccount.Controls.Add(panel24);
+            tbpAccount.Controls.Add(grbKhachHang);
             tbpAccount.Location = new Point(0, 0);
             tbpAccount.Name = "tbpAccount";
             tbpAccount.Padding = new Padding(3);
@@ -1180,7 +1222,6 @@ namespace CyberManagementProject
             pbxTimKiem.BackColor = Color.White;
             pbxTimKiem.BackgroundImageLayout = ImageLayout.Center;
             pbxTimKiem.BorderStyle = BorderStyle.FixedSingle;
-            pbxTimKiem.Image = (Image)resources.GetObject("pbxTimKiem.Image");
             pbxTimKiem.Location = new Point(530, 3);
             pbxTimKiem.Name = "pbxTimKiem";
             pbxTimKiem.Size = new Size(45, 39);
@@ -1356,6 +1397,325 @@ namespace CyberManagementProject
             tbpStatictical.Text = "tabPage1";
             tbpStatictical.UseVisualStyleBackColor = true;
             // 
+            // panel23
+            // 
+            panel23.Controls.Add(btnThemKhachHang);
+            panel23.Controls.Add(btnNhap);
+            panel23.Controls.Add(button2);
+            panel23.Controls.Add(btnLoc);
+            panel23.Controls.Add(btn_TroChuyen);
+            panel23.Location = new Point(388, 0);
+            panel23.Name = "panel23";
+            panel23.Size = new Size(712, 56);
+            panel23.TabIndex = 10;
+            // 
+            // btnThemKhachHang
+            // 
+            btnThemKhachHang.BackColor = Color.FromArgb(192, 255, 255);
+            btnThemKhachHang.FlatStyle = FlatStyle.Flat;
+            btnThemKhachHang.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThemKhachHang.Location = new Point(40, 16);
+            btnThemKhachHang.Name = "btnThemKhachHang";
+            btnThemKhachHang.Size = new Size(128, 31);
+            btnThemKhachHang.TabIndex = 3;
+            btnThemKhachHang.Text = "➕ Thêm Mới";
+            btnThemKhachHang.UseVisualStyleBackColor = false;
+            // 
+            // btnNhap
+            // 
+            btnNhap.BackColor = Color.FromArgb(192, 255, 255);
+            btnNhap.FlatStyle = FlatStyle.Flat;
+            btnNhap.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnNhap.Location = new Point(192, 16);
+            btnNhap.Name = "btnNhap";
+            btnNhap.Size = new Size(112, 31);
+            btnNhap.TabIndex = 3;
+            btnNhap.Text = "Nhập File";
+            btnNhap.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(192, 255, 255);
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Location = new Point(328, 16);
+            button2.Name = "button2";
+            button2.Size = new Size(112, 31);
+            button2.TabIndex = 3;
+            button2.Text = "Xuất File";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // btnLoc
+            // 
+            btnLoc.BackColor = Color.FromArgb(192, 255, 255);
+            btnLoc.FlatStyle = FlatStyle.Flat;
+            btnLoc.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLoc.Location = new Point(600, 16);
+            btnLoc.Name = "btnLoc";
+            btnLoc.Size = new Size(112, 31);
+            btnLoc.TabIndex = 3;
+            btnLoc.Text = "Lọc ⟱";
+            btnLoc.UseVisualStyleBackColor = false;
+            // 
+            // btn_TroChuyen
+            // 
+            btn_TroChuyen.BackColor = Color.FromArgb(192, 255, 255);
+            btn_TroChuyen.FlatStyle = FlatStyle.Flat;
+            btn_TroChuyen.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_TroChuyen.Location = new Point(464, 16);
+            btn_TroChuyen.Name = "btn_TroChuyen";
+            btn_TroChuyen.Size = new Size(112, 31);
+            btn_TroChuyen.TabIndex = 3;
+            btn_TroChuyen.Text = "Trò Chuyện";
+            btn_TroChuyen.UseVisualStyleBackColor = false;
+            // 
+            // panel24
+            // 
+            panel24.Controls.Add(label32);
+            panel24.Controls.Add(label33);
+            panel24.Location = new Point(12, 0);
+            panel24.Name = "panel24";
+            panel24.Size = new Size(288, 48);
+            panel24.TabIndex = 9;
+            // 
+            // label32
+            // 
+            label32.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label32.Location = new Point(96, 16);
+            label32.Name = "label32";
+            label32.Size = new Size(176, 23);
+            label32.TabIndex = 6;
+            label32.Text = "Quản lý khách hàng";
+            // 
+            // label33
+            // 
+            label33.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label33.Location = new Point(8, 16);
+            label33.Name = "label33";
+            label33.Size = new Size(88, 23);
+            label33.TabIndex = 6;
+            label33.Text = "⟲ Home >";
+            // 
+            // grbKhachHang
+            // 
+            grbKhachHang.Controls.Add(panel25);
+            grbKhachHang.Controls.Add(panel27);
+            grbKhachHang.Controls.Add(flpLoc);
+            grbKhachHang.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            grbKhachHang.Location = new Point(12, 80);
+            grbKhachHang.Name = "grbKhachHang";
+            grbKhachHang.Size = new Size(1088, 592);
+            grbKhachHang.TabIndex = 11;
+            grbKhachHang.TabStop = false;
+            grbKhachHang.Text = "Quản Lý Khách Hàng";
+            // 
+            // panel25
+            // 
+            panel25.Controls.Add(panel26);
+            panel25.Controls.Add(pictureBox13);
+            panel25.Controls.Add(textBox3);
+            panel25.Location = new Point(8, 40);
+            panel25.Name = "panel25";
+            panel25.Size = new Size(1080, 48);
+            panel25.TabIndex = 8;
+            // 
+            // panel26
+            // 
+            panel26.Controls.Add(textBox1);
+            panel26.Controls.Add(button5);
+            panel26.Controls.Add(button6);
+            panel26.Location = new Point(448, 2);
+            panel26.Name = "panel26";
+            panel26.Size = new Size(212, 45);
+            panel26.TabIndex = 3;
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(64, 8);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(53, 31);
+            textBox1.TabIndex = 1;
+            textBox1.TextAlign = HorizontalAlignment.Center;
+            // 
+            // button5
+            // 
+            button5.Font = new Font("Segoe UI", 14.25F);
+            button5.Location = new Point(128, 8);
+            button5.Name = "button5";
+            button5.Size = new Size(46, 32);
+            button5.TabIndex = 1;
+            button5.Text = ">>";
+            button5.TextAlign = ContentAlignment.TopCenter;
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Font = new Font("Segoe UI", 14.25F);
+            button6.Location = new Point(8, 8);
+            button6.Name = "button6";
+            button6.Size = new Size(46, 32);
+            button6.TabIndex = 1;
+            button6.Text = "<<";
+            button6.TextAlign = ContentAlignment.TopCenter;
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox13
+            // 
+            pictureBox13.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox13.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox13.Image = (Image)resources.GetObject("pictureBox13.Image");
+            pictureBox13.Location = new Point(376, 8);
+            pictureBox13.Name = "pictureBox13";
+            pictureBox13.Size = new Size(45, 32);
+            pictureBox13.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox13.TabIndex = 2;
+            pictureBox13.TabStop = false;
+            // 
+            // textBox3
+            // 
+            textBox3.BorderStyle = BorderStyle.FixedSingle;
+            textBox3.Location = new Point(8, 8);
+            textBox3.Multiline = true;
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(360, 31);
+            textBox3.TabIndex = 1;
+            // 
+            // panel27
+            // 
+            panel27.Controls.Add(dataGridView1);
+            panel27.Location = new Point(8, 96);
+            panel27.Name = "panel27";
+            panel27.Size = new Size(1073, 560);
+            panel27.TabIndex = 7;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(8, 8);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(1056, 488);
+            dataGridView1.TabIndex = 0;
+            // 
+            // flpLoc
+            // 
+            flpLoc.Controls.Add(checkBox1);
+            flpLoc.Controls.Add(checkBox2);
+            flpLoc.Controls.Add(checkBox3);
+            flpLoc.Controls.Add(checkBox4);
+            flpLoc.Controls.Add(checkBox5);
+            flpLoc.Controls.Add(checkBox6);
+            flpLoc.Controls.Add(checkBox7);
+            flpLoc.Controls.Add(checkBox8);
+            flpLoc.Controls.Add(checkBox9);
+            flpLoc.Location = new Point(872, -32);
+            flpLoc.Margin = new Padding(20);
+            flpLoc.Name = "flpLoc";
+            flpLoc.Size = new Size(216, 296);
+            flpLoc.TabIndex = 0;
+            flpLoc.Visible = false;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            checkBox1.Location = new Point(3, 3);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(102, 25);
+            checkBox1.TabIndex = 0;
+            checkBox1.Text = "checkBox1";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            checkBox2.Location = new Point(111, 3);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new Size(102, 25);
+            checkBox2.TabIndex = 0;
+            checkBox2.Text = "checkBox1";
+            checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            checkBox3.AutoSize = true;
+            checkBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            checkBox3.Location = new Point(3, 34);
+            checkBox3.Name = "checkBox3";
+            checkBox3.Size = new Size(102, 25);
+            checkBox3.TabIndex = 0;
+            checkBox3.Text = "checkBox1";
+            checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            checkBox4.AutoSize = true;
+            checkBox4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            checkBox4.Location = new Point(111, 34);
+            checkBox4.Name = "checkBox4";
+            checkBox4.Size = new Size(102, 25);
+            checkBox4.TabIndex = 0;
+            checkBox4.Text = "checkBox1";
+            checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox5
+            // 
+            checkBox5.AutoSize = true;
+            checkBox5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            checkBox5.Location = new Point(3, 65);
+            checkBox5.Name = "checkBox5";
+            checkBox5.Size = new Size(102, 25);
+            checkBox5.TabIndex = 0;
+            checkBox5.Text = "checkBox1";
+            checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // checkBox6
+            // 
+            checkBox6.AutoSize = true;
+            checkBox6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            checkBox6.Location = new Point(111, 65);
+            checkBox6.Name = "checkBox6";
+            checkBox6.Size = new Size(102, 25);
+            checkBox6.TabIndex = 0;
+            checkBox6.Text = "checkBox1";
+            checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // checkBox7
+            // 
+            checkBox7.AutoSize = true;
+            checkBox7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            checkBox7.Location = new Point(3, 96);
+            checkBox7.Name = "checkBox7";
+            checkBox7.Size = new Size(102, 25);
+            checkBox7.TabIndex = 0;
+            checkBox7.Text = "checkBox1";
+            checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // checkBox8
+            // 
+            checkBox8.AutoSize = true;
+            checkBox8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            checkBox8.Location = new Point(111, 96);
+            checkBox8.Name = "checkBox8";
+            checkBox8.Size = new Size(102, 25);
+            checkBox8.TabIndex = 0;
+            checkBox8.Text = "checkBox1";
+            checkBox8.UseVisualStyleBackColor = true;
+            // 
+            // checkBox9
+            // 
+            checkBox9.AutoSize = true;
+            checkBox9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            checkBox9.Location = new Point(3, 127);
+            checkBox9.Name = "checkBox9";
+            checkBox9.Size = new Size(102, 25);
+            checkBox9.TabIndex = 0;
+            checkBox9.Text = "checkBox1";
+            checkBox9.UseVisualStyleBackColor = true;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1421,6 +1781,7 @@ namespace CyberManagementProject
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            tbpAccount.ResumeLayout(false);
             tbpStaff.ResumeLayout(false);
             panel18.ResumeLayout(false);
             grbQuanLyNhanVien.ResumeLayout(false);
@@ -1434,6 +1795,18 @@ namespace CyberManagementProject
             panel21.ResumeLayout(false);
             panel21.PerformLayout();
             panel22.ResumeLayout(false);
+            panel23.ResumeLayout(false);
+            panel24.ResumeLayout(false);
+            grbKhachHang.ResumeLayout(false);
+            panel25.ResumeLayout(false);
+            panel25.PerformLayout();
+            panel26.ResumeLayout(false);
+            panel26.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
+            panel27.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            flpLoc.ResumeLayout(false);
+            flpLoc.PerformLayout();
             ResumeLayout(false);
         }
         #endregion
@@ -1552,5 +1925,34 @@ namespace CyberManagementProject
         private Button btnThemMoi;
         private Button btnXuatFile;
         private Button btn_ThongKe;
+        private Panel panel23;
+        private Button btnThemKhachHang;
+        private Button btnNhap;
+        private Button button2;
+        private Button btnLoc;
+        private Button btn_TroChuyen;
+        private Panel panel24;
+        private Label label32;
+        private Label label33;
+        private GroupBox grbKhachHang;
+        private Panel panel25;
+        private Panel panel26;
+        private TextBox textBox1;
+        private Button button5;
+        private Button button6;
+        private PictureBox pictureBox13;
+        private TextBox textBox3;
+        private Panel panel27;
+        private DataGridView dataGridView1;
+        private FlowLayoutPanel flpLoc;
+        private CheckBox checkBox1;
+        private CheckBox checkBox2;
+        private CheckBox checkBox3;
+        private CheckBox checkBox4;
+        private CheckBox checkBox5;
+        private CheckBox checkBox6;
+        private CheckBox checkBox7;
+        private CheckBox checkBox8;
+        private CheckBox checkBox9;
     }
 }
