@@ -1,3 +1,4 @@
 ﻿# CyberManagement
 
-Trung Nghia da dai o day
+Thêm Đồ Ăn, Ăn Không Được Thì Biến
+
