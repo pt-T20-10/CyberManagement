@@ -1746,6 +1746,7 @@ namespace CyberManagementProject
             btnThemMoi.TabIndex = 3;
             btnThemMoi.Text = "➕ Thêm Mới";
             btnThemMoi.UseVisualStyleBackColor = false;
+            btnThemMoi.Click += btnThemMoi_Click;
             // 
             // btnXuatFile
             // 

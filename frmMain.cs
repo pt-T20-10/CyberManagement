@@ -21,7 +21,11 @@ namespace CyberManagementProject
 
         #region Hoàng Nghĩa
         //
-       
+        private void btnThemMoi_Click(object sender, EventArgs e)
+        {
+            frmThemNhanVien f = new frmThemNhanVien();
+            f.ShowDialog();
+        }
         #endregion
 
         #region Trung Nghĩa
@@ -106,6 +110,7 @@ namespace CyberManagementProject
 
 
 
+        
     }
 
 }
