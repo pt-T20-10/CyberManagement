@@ -37,6 +37,9 @@
     <Compile Update="NhanVien\ParallelogramPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="ThongKe\frmStatictical.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Music\frmMusic.resx">
