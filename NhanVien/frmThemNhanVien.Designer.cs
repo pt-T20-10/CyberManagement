@@ -265,13 +265,13 @@
             // btnCancelThemNhanVien
             // 
             btnCancelThemNhanVien.Font = new Font("Segoe UI", 14.25F);
-            btnCancelThemNhanVien.Location = new Point(409, 274);
+            btnCancelThemNhanVien.Location = new Point(408, 274);
             btnCancelThemNhanVien.Name = "btnCancelThemNhanVien";
             btnCancelThemNhanVien.Size = new Size(122, 39);
             btnCancelThemNhanVien.TabIndex = 15;
             btnCancelThemNhanVien.Text = "Huỷ bỏ";
             btnCancelThemNhanVien.UseVisualStyleBackColor = true;
-
+            btnCancelThemNhanVien.Click += btnCancelThemNhanVien_Click_1;
             // 
             // btnAcceptThemNhanVien
             // 
