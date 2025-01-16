@@ -40,7 +40,7 @@ namespace QuanLyQuanNet
             }
         }
 
-       
+
 
         private void btnChonAnh_Click(object sender, EventArgs e)
         {
@@ -83,6 +83,11 @@ namespace QuanLyQuanNet
                 MessageBox.Show($"Không thể mở thư mục. Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void btnCancelThemNhanVien_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

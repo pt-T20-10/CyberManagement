@@ -673,7 +673,7 @@ namespace CyberManagementProject
             tbpComputer.Controls.Add(flpComputer);
             tbpComputer.Location = new Point(0, 0);
             tbpComputer.Name = "tbpComputer";
-            tbpComputer.Padding = new Padding(3, 3, 3, 3);
+            tbpComputer.Padding = new Padding(3);
             tbpComputer.Size = new Size(1112, 672);
             tbpComputer.TabIndex = 0;
             tbpComputer.Text = "tabPage1";
@@ -1364,7 +1364,7 @@ namespace CyberManagementProject
             tbpAccount.Controls.Add(grbKhachHang);
             tbpAccount.Location = new Point(0, 0);
             tbpAccount.Name = "tbpAccount";
-            tbpAccount.Padding = new Padding(3, 3, 3, 3);
+            tbpAccount.Padding = new Padding(3);
             tbpAccount.Size = new Size(1112, 672);
             tbpAccount.TabIndex = 1;
             tbpAccount.Text = "tabPage1";
@@ -1393,6 +1393,7 @@ namespace CyberManagementProject
             btnThemKhachHang.TabIndex = 3;
             btnThemKhachHang.Text = "➕ Thêm Mới";
             btnThemKhachHang.UseVisualStyleBackColor = false;
+            btnThemKhachHang.Click += btnThemKhachHang_Click;
             // 
             // btnNhap
             // 
@@ -1585,7 +1586,7 @@ namespace CyberManagementProject
             flpLoc.Controls.Add(checkBox8);
             flpLoc.Controls.Add(checkBox9);
             flpLoc.Location = new Point(872, -32);
-            flpLoc.Margin = new Padding(20, 20, 20, 20);
+            flpLoc.Margin = new Padding(20);
             flpLoc.Name = "flpLoc";
             flpLoc.Size = new Size(216, 296);
             flpLoc.TabIndex = 0;
@@ -1698,7 +1699,7 @@ namespace CyberManagementProject
             tbpServices.Controls.Add(panel28);
             tbpServices.Location = new Point(0, 0);
             tbpServices.Name = "tbpServices";
-            tbpServices.Padding = new Padding(3, 3, 3, 3);
+            tbpServices.Padding = new Padding(3);
             tbpServices.Size = new Size(1112, 672);
             tbpServices.TabIndex = 2;
             tbpServices.Text = "tabPage1";
@@ -2570,7 +2571,7 @@ namespace CyberManagementProject
             tbpStaff.Controls.Add(panel22);
             tbpStaff.Location = new Point(0, 0);
             tbpStaff.Name = "tbpStaff";
-            tbpStaff.Padding = new Padding(3, 3, 3, 3);
+            tbpStaff.Padding = new Padding(3);
             tbpStaff.Size = new Size(1112, 672);
             tbpStaff.TabIndex = 3;
             tbpStaff.Text = "git b";
@@ -2815,6 +2816,7 @@ namespace CyberManagementProject
             btnThemMoi.TabIndex = 3;
             btnThemMoi.Text = "➕ Thêm Mới";
             btnThemMoi.UseVisualStyleBackColor = false;
+            btnThemMoi.Click += btnThemMoi_Click;
             // 
             // btnXuatFile
             // 
@@ -2845,7 +2847,7 @@ namespace CyberManagementProject
             tbpStatictical.Controls.Add(pnJob);
             tbpStatictical.Location = new Point(0, 0);
             tbpStatictical.Name = "tbpStatictical";
-            tbpStatictical.Padding = new Padding(3, 3, 3, 3);
+            tbpStatictical.Padding = new Padding(3);
             tbpStatictical.Size = new Size(1112, 672);
             tbpStatictical.TabIndex = 4;
             tbpStatictical.Text = "tabPage1";
@@ -2857,7 +2859,7 @@ namespace CyberManagementProject
             pnJob.Controls.Add(tclThongKe);
             pnJob.Dock = DockStyle.Fill;
             pnJob.Location = new Point(3, 3);
-            pnJob.Margin = new Padding(2, 2, 2, 2);
+            pnJob.Margin = new Padding(2);
             pnJob.Name = "pnJob";
             pnJob.Size = new Size(1106, 666);
             pnJob.TabIndex = 4;
@@ -2868,7 +2870,7 @@ namespace CyberManagementProject
             tclThongKe.Controls.Add(tbNhanVien);
             tclThongKe.Controls.Add(tpKhachHang);
             tclThongKe.Location = new Point(15, 14);
-            tclThongKe.Margin = new Padding(2, 2, 2, 2);
+            tclThongKe.Margin = new Padding(2);
             tclThongKe.Name = "tclThongKe";
             tclThongKe.SelectedIndex = 0;
             tclThongKe.Size = new Size(1072, 608);
@@ -2881,9 +2883,9 @@ namespace CyberManagementProject
             tbDoanhThu.Controls.Add(pnDoanhThu);
             tbDoanhThu.Controls.Add(pnDate);
             tbDoanhThu.Location = new Point(4, 24);
-            tbDoanhThu.Margin = new Padding(2, 2, 2, 2);
+            tbDoanhThu.Margin = new Padding(2);
             tbDoanhThu.Name = "tbDoanhThu";
-            tbDoanhThu.Padding = new Padding(2, 2, 2, 2);
+            tbDoanhThu.Padding = new Padding(2);
             tbDoanhThu.Size = new Size(1064, 580);
             tbDoanhThu.TabIndex = 0;
             tbDoanhThu.Text = "Doanh Thu";
@@ -2899,7 +2901,7 @@ namespace CyberManagementProject
             pnCongViec.Controls.Add(panel49);
             pnCongViec.Controls.Add(panel50);
             pnCongViec.Location = new Point(689, 10);
-            pnCongViec.Margin = new Padding(2, 2, 2, 2);
+            pnCongViec.Margin = new Padding(2);
             pnCongViec.Name = "pnCongViec";
             pnCongViec.Size = new Size(368, 566);
             pnCongViec.TabIndex = 2;
@@ -2909,7 +2911,7 @@ namespace CyberManagementProject
             rbtYear.AutoSize = true;
             rbtYear.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             rbtYear.Location = new Point(11, 380);
-            rbtYear.Margin = new Padding(2, 2, 2, 2);
+            rbtYear.Margin = new Padding(2);
             rbtYear.Name = "rbtYear";
             rbtYear.Size = new Size(101, 24);
             rbtYear.TabIndex = 4;
@@ -2922,7 +2924,7 @@ namespace CyberManagementProject
             rbtMonth.AutoSize = true;
             rbtMonth.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             rbtMonth.Location = new Point(11, 200);
-            rbtMonth.Margin = new Padding(2, 2, 2, 2);
+            rbtMonth.Margin = new Padding(2);
             rbtMonth.Name = "rbtMonth";
             rbtMonth.Size = new Size(111, 24);
             rbtMonth.TabIndex = 4;
@@ -2935,7 +2937,7 @@ namespace CyberManagementProject
             rbtDate.AutoSize = true;
             rbtDate.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             rbtDate.Location = new Point(11, 12);
-            rbtDate.Margin = new Padding(2, 2, 2, 2);
+            rbtDate.Margin = new Padding(2);
             rbtDate.Name = "rbtDate";
             rbtDate.Size = new Size(104, 24);
             rbtDate.TabIndex = 4;
@@ -2951,7 +2953,7 @@ namespace CyberManagementProject
             panel48.Controls.Add(lbNhapNam);
             panel48.Controls.Add(dtpNamDT);
             panel48.Location = new Point(11, 410);
-            panel48.Margin = new Padding(2, 2, 2, 2);
+            panel48.Margin = new Padding(2);
             panel48.Name = "panel48";
             panel48.Size = new Size(342, 115);
             panel48.TabIndex = 3;
@@ -2960,7 +2962,7 @@ namespace CyberManagementProject
             // 
             textBox8.Font = new Font("Segoe UI", 11F);
             textBox8.Location = new Point(126, 65);
-            textBox8.Margin = new Padding(2, 2, 2, 2);
+            textBox8.Margin = new Padding(2);
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(196, 27);
             textBox8.TabIndex = 2;
@@ -2991,7 +2993,7 @@ namespace CyberManagementProject
             // 
             dtpNamDT.Font = new Font("Segoe UI", 11F);
             dtpNamDT.Location = new Point(126, 25);
-            dtpNamDT.Margin = new Padding(2, 2, 2, 2);
+            dtpNamDT.Margin = new Padding(2);
             dtpNamDT.Name = "dtpNamDT";
             dtpNamDT.Size = new Size(196, 27);
             dtpNamDT.TabIndex = 0;
@@ -3004,7 +3006,7 @@ namespace CyberManagementProject
             panel49.Controls.Add(lbNhapThang);
             panel49.Controls.Add(dtpThangDT);
             panel49.Location = new Point(11, 227);
-            panel49.Margin = new Padding(2, 2, 2, 2);
+            panel49.Margin = new Padding(2);
             panel49.Name = "panel49";
             panel49.Size = new Size(342, 115);
             panel49.TabIndex = 2;
@@ -3013,7 +3015,7 @@ namespace CyberManagementProject
             // 
             textBox9.Font = new Font("Segoe UI", 11F);
             textBox9.Location = new Point(126, 68);
-            textBox9.Margin = new Padding(2, 2, 2, 2);
+            textBox9.Margin = new Padding(2);
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(196, 27);
             textBox9.TabIndex = 2;
@@ -3044,7 +3046,7 @@ namespace CyberManagementProject
             // 
             dtpThangDT.Font = new Font("Segoe UI", 11F);
             dtpThangDT.Location = new Point(126, 28);
-            dtpThangDT.Margin = new Padding(2, 2, 2, 2);
+            dtpThangDT.Margin = new Padding(2);
             dtpThangDT.Name = "dtpThangDT";
             dtpThangDT.Size = new Size(196, 27);
             dtpThangDT.TabIndex = 0;
@@ -3057,7 +3059,7 @@ namespace CyberManagementProject
             panel50.Controls.Add(lbNhapNgay);
             panel50.Controls.Add(dtpNgayDT);
             panel50.Location = new Point(11, 41);
-            panel50.Margin = new Padding(2, 2, 2, 2);
+            panel50.Margin = new Padding(2);
             panel50.Name = "panel50";
             panel50.Size = new Size(342, 115);
             panel50.TabIndex = 1;
@@ -3066,7 +3068,7 @@ namespace CyberManagementProject
             // 
             textBox10.Font = new Font("Segoe UI", 11F);
             textBox10.Location = new Point(126, 68);
-            textBox10.Margin = new Padding(2, 2, 2, 2);
+            textBox10.Margin = new Padding(2);
             textBox10.Name = "textBox10";
             textBox10.Size = new Size(196, 27);
             textBox10.TabIndex = 2;
@@ -3097,7 +3099,7 @@ namespace CyberManagementProject
             // 
             dtpNgayDT.Font = new Font("Segoe UI", 11F);
             dtpNgayDT.Location = new Point(126, 22);
-            dtpNgayDT.Margin = new Padding(2, 2, 2, 2);
+            dtpNgayDT.Margin = new Padding(2);
             dtpNgayDT.Name = "dtpNgayDT";
             dtpNgayDT.Size = new Size(196, 27);
             dtpNgayDT.TabIndex = 0;
@@ -3106,7 +3108,7 @@ namespace CyberManagementProject
             // 
             pnDoanhThu.Controls.Add(dgvDoanhThu);
             pnDoanhThu.Location = new Point(13, 95);
-            pnDoanhThu.Margin = new Padding(2, 2, 2, 2);
+            pnDoanhThu.Margin = new Padding(2);
             pnDoanhThu.Name = "pnDoanhThu";
             pnDoanhThu.Size = new Size(672, 479);
             pnDoanhThu.TabIndex = 1;
@@ -3116,7 +3118,7 @@ namespace CyberManagementProject
             dgvDoanhThu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDoanhThu.Dock = DockStyle.Fill;
             dgvDoanhThu.Location = new Point(0, 0);
-            dgvDoanhThu.Margin = new Padding(2, 2, 2, 2);
+            dgvDoanhThu.Margin = new Padding(2);
             dgvDoanhThu.Name = "dgvDoanhThu";
             dgvDoanhThu.RowHeadersWidth = 62;
             dgvDoanhThu.Size = new Size(672, 479);
@@ -3131,7 +3133,7 @@ namespace CyberManagementProject
             pnDate.Controls.Add(dtpEnd);
             pnDate.Controls.Add(dtpStart);
             pnDate.Location = new Point(13, 10);
-            pnDate.Margin = new Padding(2, 2, 2, 2);
+            pnDate.Margin = new Padding(2);
             pnDate.Name = "pnDate";
             pnDate.Size = new Size(673, 75);
             pnDate.TabIndex = 0;
@@ -3140,7 +3142,7 @@ namespace CyberManagementProject
             // 
             btnShow.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnShow.Location = new Point(484, 12);
-            btnShow.Margin = new Padding(2, 2, 2, 2);
+            btnShow.Margin = new Padding(2);
             btnShow.Name = "btnShow";
             btnShow.Size = new Size(156, 47);
             btnShow.TabIndex = 4;
@@ -3173,7 +3175,7 @@ namespace CyberManagementProject
             // 
             dtpEnd.Font = new Font("Segoe UI", 11F);
             dtpEnd.Location = new Point(168, 41);
-            dtpEnd.Margin = new Padding(2, 2, 2, 2);
+            dtpEnd.Margin = new Padding(2);
             dtpEnd.Name = "dtpEnd";
             dtpEnd.Size = new Size(291, 27);
             dtpEnd.TabIndex = 1;
@@ -3182,7 +3184,7 @@ namespace CyberManagementProject
             // 
             dtpStart.Font = new Font("Segoe UI", 11F);
             dtpStart.Location = new Point(168, 12);
-            dtpStart.Margin = new Padding(2, 2, 2, 2);
+            dtpStart.Margin = new Padding(2);
             dtpStart.Name = "dtpStart";
             dtpStart.Size = new Size(291, 27);
             dtpStart.TabIndex = 0;
@@ -3191,9 +3193,9 @@ namespace CyberManagementProject
             // 
             tbNhanVien.Controls.Add(pnNhanVien);
             tbNhanVien.Location = new Point(4, 24);
-            tbNhanVien.Margin = new Padding(2, 2, 2, 2);
+            tbNhanVien.Margin = new Padding(2);
             tbNhanVien.Name = "tbNhanVien";
-            tbNhanVien.Padding = new Padding(2, 2, 2, 2);
+            tbNhanVien.Padding = new Padding(2);
             tbNhanVien.Size = new Size(1064, 580);
             tbNhanVien.TabIndex = 1;
             tbNhanVien.Text = "Nhân Viên";
@@ -3207,7 +3209,7 @@ namespace CyberManagementProject
             pnNhanVien.Controls.Add(pnThongKeNhanVien);
             pnNhanVien.Dock = DockStyle.Fill;
             pnNhanVien.Location = new Point(2, 2);
-            pnNhanVien.Margin = new Padding(2, 2, 2, 2);
+            pnNhanVien.Margin = new Padding(2);
             pnNhanVien.Name = "pnNhanVien";
             pnNhanVien.Size = new Size(1060, 576);
             pnNhanVien.TabIndex = 0;
@@ -3220,7 +3222,7 @@ namespace CyberManagementProject
             pnLenhNV.Controls.Add(pnKhungNamNV);
             pnLenhNV.Controls.Add(pnKhungThangNV);
             pnLenhNV.Location = new Point(711, 46);
-            pnLenhNV.Margin = new Padding(2, 2, 2, 2);
+            pnLenhNV.Margin = new Padding(2);
             pnLenhNV.Name = "pnLenhNV";
             pnLenhNV.Size = new Size(340, 523);
             pnLenhNV.TabIndex = 2;
@@ -3230,7 +3232,7 @@ namespace CyberManagementProject
             rbtTitleNamNV.AutoSize = true;
             rbtTitleNamNV.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             rbtTitleNamNV.Location = new Point(12, 223);
-            rbtTitleNamNV.Margin = new Padding(2, 2, 2, 2);
+            rbtTitleNamNV.Margin = new Padding(2);
             rbtTitleNamNV.Name = "rbtTitleNamNV";
             rbtTitleNamNV.Size = new Size(167, 24);
             rbtTitleNamNV.TabIndex = 5;
@@ -3243,7 +3245,7 @@ namespace CyberManagementProject
             rbtTitleThangNV.AutoSize = true;
             rbtTitleThangNV.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             rbtTitleThangNV.Location = new Point(12, 17);
-            rbtTitleThangNV.Margin = new Padding(2, 2, 2, 2);
+            rbtTitleThangNV.Margin = new Padding(2);
             rbtTitleThangNV.Name = "rbtTitleThangNV";
             rbtTitleThangNV.Size = new Size(177, 24);
             rbtTitleThangNV.TabIndex = 5;
@@ -3258,7 +3260,7 @@ namespace CyberManagementProject
             pnKhungNamNV.Controls.Add(lbNamNV);
             pnKhungNamNV.Controls.Add(dtpNamNV);
             pnKhungNamNV.Location = new Point(12, 251);
-            pnKhungNamNV.Margin = new Padding(2, 2, 2, 2);
+            pnKhungNamNV.Margin = new Padding(2);
             pnKhungNamNV.Name = "pnKhungNamNV";
             pnKhungNamNV.Size = new Size(316, 116);
             pnKhungNamNV.TabIndex = 4;
@@ -3267,7 +3269,7 @@ namespace CyberManagementProject
             // 
             btnNamNV.Font = new Font("Segoe UI", 12F);
             btnNamNV.Location = new Point(182, 74);
-            btnNamNV.Margin = new Padding(2, 2, 2, 2);
+            btnNamNV.Margin = new Padding(2);
             btnNamNV.Name = "btnNamNV";
             btnNamNV.Size = new Size(119, 27);
             btnNamNV.TabIndex = 2;
@@ -3289,7 +3291,7 @@ namespace CyberManagementProject
             // 
             dtpNamNV.Font = new Font("Segoe UI", 11F);
             dtpNamNV.Location = new Point(70, 30);
-            dtpNamNV.Margin = new Padding(2, 2, 2, 2);
+            dtpNamNV.Margin = new Padding(2);
             dtpNamNV.Name = "dtpNamNV";
             dtpNamNV.Size = new Size(232, 27);
             dtpNamNV.TabIndex = 0;
@@ -3301,7 +3303,7 @@ namespace CyberManagementProject
             pnKhungThangNV.Controls.Add(lbThangNV);
             pnKhungThangNV.Controls.Add(dtpThangNV);
             pnKhungThangNV.Location = new Point(12, 45);
-            pnKhungThangNV.Margin = new Padding(2, 2, 2, 2);
+            pnKhungThangNV.Margin = new Padding(2);
             pnKhungThangNV.Name = "pnKhungThangNV";
             pnKhungThangNV.Size = new Size(316, 116);
             pnKhungThangNV.TabIndex = 2;
@@ -3310,7 +3312,7 @@ namespace CyberManagementProject
             // 
             btnThangNV.Font = new Font("Segoe UI", 12F);
             btnThangNV.Location = new Point(182, 72);
-            btnThangNV.Margin = new Padding(2, 2, 2, 2);
+            btnThangNV.Margin = new Padding(2);
             btnThangNV.Name = "btnThangNV";
             btnThangNV.Size = new Size(119, 27);
             btnThangNV.TabIndex = 2;
@@ -3332,7 +3334,7 @@ namespace CyberManagementProject
             // 
             dtpThangNV.Font = new Font("Segoe UI", 11F);
             dtpThangNV.Location = new Point(70, 32);
-            dtpThangNV.Margin = new Padding(2, 2, 2, 2);
+            dtpThangNV.Margin = new Padding(2);
             dtpThangNV.Name = "dtpThangNV";
             dtpThangNV.Size = new Size(232, 27);
             dtpThangNV.TabIndex = 0;
@@ -3354,7 +3356,7 @@ namespace CyberManagementProject
             pnThongKeNhanVien.BorderStyle = BorderStyle.FixedSingle;
             pnThongKeNhanVien.Controls.Add(dgvNhanVien);
             pnThongKeNhanVien.Location = new Point(13, 46);
-            pnThongKeNhanVien.Margin = new Padding(2, 2, 2, 2);
+            pnThongKeNhanVien.Margin = new Padding(2);
             pnThongKeNhanVien.Name = "pnThongKeNhanVien";
             pnThongKeNhanVien.Size = new Size(695, 523);
             pnThongKeNhanVien.TabIndex = 0;
@@ -3364,7 +3366,7 @@ namespace CyberManagementProject
             dgvNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvNhanVien.Dock = DockStyle.Fill;
             dgvNhanVien.Location = new Point(0, 0);
-            dgvNhanVien.Margin = new Padding(2, 2, 2, 2);
+            dgvNhanVien.Margin = new Padding(2);
             dgvNhanVien.Name = "dgvNhanVien";
             dgvNhanVien.RowHeadersWidth = 62;
             dgvNhanVien.Size = new Size(693, 521);
@@ -3374,9 +3376,9 @@ namespace CyberManagementProject
             // 
             tpKhachHang.Controls.Add(pnKhachHang);
             tpKhachHang.Location = new Point(4, 24);
-            tpKhachHang.Margin = new Padding(2, 2, 2, 2);
+            tpKhachHang.Margin = new Padding(2);
             tpKhachHang.Name = "tpKhachHang";
-            tpKhachHang.Padding = new Padding(2, 2, 2, 2);
+            tpKhachHang.Padding = new Padding(2);
             tpKhachHang.Size = new Size(1064, 580);
             tpKhachHang.TabIndex = 2;
             tpKhachHang.Text = "Khách hàng";
@@ -3391,7 +3393,7 @@ namespace CyberManagementProject
             pnKhachHang.Controls.Add(pnThongKeKH);
             pnKhachHang.Dock = DockStyle.Fill;
             pnKhachHang.Location = new Point(2, 2);
-            pnKhachHang.Margin = new Padding(2, 2, 2, 2);
+            pnKhachHang.Margin = new Padding(2);
             pnKhachHang.Name = "pnKhachHang";
             pnKhachHang.Size = new Size(1060, 576);
             pnKhachHang.TabIndex = 1;
@@ -3402,7 +3404,7 @@ namespace CyberManagementProject
             pnKHVip.Controls.Add(btnXemKHTop);
             pnKHVip.Controls.Add(lbKHVip);
             pnKHVip.Location = new Point(701, 46);
-            pnKHVip.Margin = new Padding(2, 2, 2, 2);
+            pnKHVip.Margin = new Padding(2);
             pnKHVip.Name = "pnKHVip";
             pnKHVip.Size = new Size(351, 68);
             pnKHVip.TabIndex = 3;
@@ -3411,7 +3413,7 @@ namespace CyberManagementProject
             // 
             btnXemKHTop.Font = new Font("Segoe UI", 11F);
             btnXemKHTop.Location = new Point(176, 17);
-            btnXemKHTop.Margin = new Padding(2, 2, 2, 2);
+            btnXemKHTop.Margin = new Padding(2);
             btnXemKHTop.Name = "btnXemKHTop";
             btnXemKHTop.Size = new Size(146, 28);
             btnXemKHTop.TabIndex = 2;
@@ -3435,7 +3437,7 @@ namespace CyberManagementProject
             pnLenhKH.Controls.Add(pnKhungThangKH);
             pnLenhKH.Controls.Add(lbTittleThangKH);
             pnLenhKH.Location = new Point(701, 117);
-            pnLenhKH.Margin = new Padding(2, 2, 2, 2);
+            pnLenhKH.Margin = new Padding(2);
             pnLenhKH.Name = "pnLenhKH";
             pnLenhKH.Size = new Size(351, 294);
             pnLenhKH.TabIndex = 2;
@@ -3449,7 +3451,7 @@ namespace CyberManagementProject
             pnKhungThangKH.Controls.Add(dtpEndKH);
             pnKhungThangKH.Controls.Add(dtpStartKH);
             pnKhungThangKH.Location = new Point(9, 64);
-            pnKhungThangKH.Margin = new Padding(2, 2, 2, 2);
+            pnKhungThangKH.Margin = new Padding(2);
             pnKhungThangKH.Name = "pnKhungThangKH";
             pnKhungThangKH.Size = new Size(330, 155);
             pnKhungThangKH.TabIndex = 2;
@@ -3458,7 +3460,7 @@ namespace CyberManagementProject
             // 
             btnXemKH.Font = new Font("Segoe UI", 11F);
             btnXemKH.Location = new Point(167, 110);
-            btnXemKH.Margin = new Padding(2, 2, 2, 2);
+            btnXemKH.Margin = new Padding(2);
             btnXemKH.Name = "btnXemKH";
             btnXemKH.Size = new Size(146, 29);
             btnXemKH.TabIndex = 2;
@@ -3491,7 +3493,7 @@ namespace CyberManagementProject
             // 
             dtpEndKH.Font = new Font("Segoe UI", 11F);
             dtpEndKH.Location = new Point(104, 70);
-            dtpEndKH.Margin = new Padding(2, 2, 2, 2);
+            dtpEndKH.Margin = new Padding(2);
             dtpEndKH.Name = "dtpEndKH";
             dtpEndKH.Size = new Size(210, 27);
             dtpEndKH.TabIndex = 0;
@@ -3500,7 +3502,7 @@ namespace CyberManagementProject
             // 
             dtpStartKH.Font = new Font("Segoe UI", 11F);
             dtpStartKH.Location = new Point(104, 25);
-            dtpStartKH.Margin = new Padding(2, 2, 2, 2);
+            dtpStartKH.Margin = new Padding(2);
             dtpStartKH.Name = "dtpStartKH";
             dtpStartKH.Size = new Size(210, 27);
             dtpStartKH.TabIndex = 0;
@@ -3533,7 +3535,7 @@ namespace CyberManagementProject
             pnThongKeKH.BorderStyle = BorderStyle.FixedSingle;
             pnThongKeKH.Controls.Add(dgvThongKeKH);
             pnThongKeKH.Location = new Point(13, 46);
-            pnThongKeKH.Margin = new Padding(2, 2, 2, 2);
+            pnThongKeKH.Margin = new Padding(2);
             pnThongKeKH.Name = "pnThongKeKH";
             pnThongKeKH.Size = new Size(684, 523);
             pnThongKeKH.TabIndex = 0;
@@ -3543,7 +3545,7 @@ namespace CyberManagementProject
             dgvThongKeKH.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvThongKeKH.Dock = DockStyle.Fill;
             dgvThongKeKH.Location = new Point(0, 0);
-            dgvThongKeKH.Margin = new Padding(2, 2, 2, 2);
+            dgvThongKeKH.Margin = new Padding(2);
             dgvThongKeKH.Name = "dgvThongKeKH";
             dgvThongKeKH.RowHeadersWidth = 62;
             dgvThongKeKH.Size = new Size(682, 521);

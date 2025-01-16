@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyQuanNet;
+using QuanLyQuanNet.KhachHang;
 
 namespace CyberManagementProject
 {
@@ -22,6 +23,19 @@ namespace CyberManagementProject
         #region Hoàng Nghĩa
         //
 
+        //thêm nhân viên mới
+        private void btnThemMoi_Click(object sender, EventArgs e)
+        {
+            frmThemNhanVien f = new frmThemNhanVien();
+            f.ShowDialog();
+        }
+
+        //thêm khách hàng mới
+        private void btnThemKhachHang_Click(object sender, EventArgs e)
+        {
+            frmKhachHang_Add f = new frmKhachHang_Add();
+            f.ShowDialog();
+        }
         #endregion
 
         #region Trung Nghĩa
@@ -106,13 +120,6 @@ namespace CyberManagementProject
         #endregion
 
 
-
-
-
-
-      
-
- 
     }
 
 }
