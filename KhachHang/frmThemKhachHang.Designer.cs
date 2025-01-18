@@ -1,6 +1,6 @@
-﻿namespace CyberManagementProject.NhanVien
+﻿namespace QuanLyQuanNet.KhachHang
 {
-    partial class frmThemNhanVien
+    partial class frmThemKhachHang
     {
         /// <summary>
         /// Required designer variable.
@@ -49,9 +49,9 @@
             gbxThemKhachHang.Location = new Point(8, 8);
             gbxThemKhachHang.Name = "gbxThemKhachHang";
             gbxThemKhachHang.Size = new Size(432, 288);
-            gbxThemKhachHang.TabIndex = 1;
+            gbxThemKhachHang.TabIndex = 0;
             gbxThemKhachHang.TabStop = false;
-            gbxThemKhachHang.Text = "Thêm Nhân Viên";
+            gbxThemKhachHang.Text = "Thêm Khách Hàng";
             // 
             // btnHuyBo
             // 
@@ -95,8 +95,8 @@
             txtTaiKhoan.Name = "txtTaiKhoan";
             txtTaiKhoan.Size = new Size(392, 40);
             txtTaiKhoan.TabIndex = 1;
-            txtTaiKhoan.Enter += txtTaiKhoan_Enter;
-            txtTaiKhoan.Leave += txtTaiKhoan_Leave;
+            txtTaiKhoan.Enter += txtTenKhachHang_Enter;
+            txtTaiKhoan.Leave += txtTenKhachHang_Leave;
             // 
             // txtID
             // 
@@ -107,15 +107,15 @@
             txtID.Size = new Size(392, 40);
             txtID.TabIndex = 0;
             // 
-            // frmThemNhanVien
+            // frmThemKhachHang
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(446, 309);
             Controls.Add(gbxThemKhachHang);
-            Name = "frmThemNhanVien";
+            Name = "frmThemKhachHang";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmThemNhanVien";
+            Text = "frmThemKhachHang";
             gbxThemKhachHang.ResumeLayout(false);
             gbxThemKhachHang.PerformLayout();
             ResumeLayout(false);
@@ -124,10 +124,10 @@
         #endregion
 
         private GroupBox gbxThemKhachHang;
-        private Button btnHuyBo;
-        private Button btnDongY;
+        private TextBox txtID;
         private TextBox txtMatKhau;
         private TextBox txtTaiKhoan;
-        private TextBox txtID;
+        private Button btnDongY;
+        private Button btnHuyBo;
     }
 }

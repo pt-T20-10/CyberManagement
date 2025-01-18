@@ -1,5 +1,4 @@
-﻿using QuanLyQuanNet.KhachHang;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace CyberManagementProject.NhanVien
+namespace QuanLyQuanNet.KhachHang
 {
-    public partial class frmThemNhanVien : Form
+    public partial class frmThemKhachHang : Form
     {
-        public frmThemNhanVien()
+        public frmThemKhachHang()
         {
             InitializeComponent();
 
@@ -22,13 +22,13 @@ namespace CyberManagementProject.NhanVien
             txtTaiKhoan.Text = "Tài khoản";
             txtTaiKhoan.ForeColor = Color.Gray;
 
-
             txtMatKhau.PasswordChar = '\0';
             txtMatKhau.Text = "Mật khẩu";
             txtMatKhau.ForeColor = Color.Gray;
+
         }
 
-        private void txtTaiKhoan_Enter(object sender, EventArgs e)
+        private void txtTenKhachHang_Enter(object sender, EventArgs e)
         {
             if (txtTaiKhoan.Text == "Tài khoản")
             {
@@ -37,7 +37,7 @@ namespace CyberManagementProject.NhanVien
             }
         }
 
-        private void txtTaiKhoan_Leave(object sender, EventArgs e)
+        private void txtTenKhachHang_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtTaiKhoan.Text)) //Kiểm tra ô textbox rỗng
             {
@@ -81,6 +81,9 @@ namespace CyberManagementProject.NhanVien
             {
 
             }
+
         }
+
+       
     }
 }

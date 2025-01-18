@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyQuanNet.Customer
 {
-    public partial class frmKhachHang_Details : Form
+    public partial class frmThongTinKhachHang : Form
     {
-        public frmKhachHang_Details()
+        public frmThongTinKhachHang()
         {
             InitializeComponent();
         }

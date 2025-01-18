@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyQuanNet;
 using QuanLyQuanNet.KhachHang;
+using CyberManagementProject.NhanVien;
 
 namespace CyberManagementProject
 {
@@ -33,9 +34,22 @@ namespace CyberManagementProject
         //thêm khách hàng mới
         private void btnThemKhachHang_Click(object sender, EventArgs e)
         {
-            frmKhachHang_Add f = new frmKhachHang_Add();
+            frmThemKhachHang f = new frmThemKhachHang();
             f.ShowDialog();
         }
+
+        //Back Home
+        private void lblHome_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpComputer;
+        }
+        private void label33_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpComputer;
+        }
+
+        //Loc Khach Hang
+
         #endregion
 
         #region Trung Nghĩa
@@ -113,13 +127,11 @@ namespace CyberManagementProject
         {
             tblMain.SelectedTab = tbpStatictical;
         }
+
         #endregion
         #region Method
         #endregion
-
         #endregion
-
-
     }
 
 }

@@ -83,7 +83,7 @@ namespace QuanLyQuanNet.KhachHang
 
         private void btnThemKhachHang_Click(object sender, EventArgs e)
         {
-            frmKhachHang_Add f = new frmKhachHang_Add();
+            frmThemKhachHang f = new frmThemKhachHang();
             f.ShowDialog();
         }
 

@@ -1,6 +1,6 @@
-﻿namespace QuanLyQuanNet.KhachHang
+﻿namespace QuanLyQuanNet.Customer
 {
-    partial class frmKhachHang_Add
+    partial class frmThongTinKhachHang
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,9 @@
         {
             gbxThemKhachHang = new GroupBox();
             cbxLoaiKhach = new ComboBox();
-            btnHuyBo = new Button();
-            btnDongY = new Button();
+            btnDong = new Button();
+            btnXoa = new Button();
+            btnCapNhat = new Button();
             txtDiaChi = new TextBox();
             txtEmail = new TextBox();
             txtSoDT = new TextBox();
@@ -43,8 +44,9 @@
             // gbxThemKhachHang
             // 
             gbxThemKhachHang.Controls.Add(cbxLoaiKhach);
-            gbxThemKhachHang.Controls.Add(btnHuyBo);
-            gbxThemKhachHang.Controls.Add(btnDongY);
+            gbxThemKhachHang.Controls.Add(btnDong);
+            gbxThemKhachHang.Controls.Add(btnXoa);
+            gbxThemKhachHang.Controls.Add(btnCapNhat);
             gbxThemKhachHang.Controls.Add(txtDiaChi);
             gbxThemKhachHang.Controls.Add(txtEmail);
             gbxThemKhachHang.Controls.Add(txtSoDT);
@@ -52,12 +54,11 @@
             gbxThemKhachHang.Controls.Add(txtID);
             gbxThemKhachHang.FlatStyle = FlatStyle.Flat;
             gbxThemKhachHang.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            gbxThemKhachHang.Location = new Point(8, 8);
+            gbxThemKhachHang.Location = new Point(7, 4);
             gbxThemKhachHang.Name = "gbxThemKhachHang";
             gbxThemKhachHang.Size = new Size(432, 496);
-            gbxThemKhachHang.TabIndex = 0;
+            gbxThemKhachHang.TabIndex = 1;
             gbxThemKhachHang.TabStop = false;
-            gbxThemKhachHang.Text = "Thêm Khách Hàng";
             // 
             // cbxLoaiKhach
             // 
@@ -67,29 +68,36 @@
             cbxLoaiKhach.Name = "cbxLoaiKhach";
             cbxLoaiKhach.Size = new Size(392, 33);
             cbxLoaiKhach.TabIndex = 5;
-            cbxLoaiKhach.Enter += cbxLoaiKhach_Enter;
-            cbxLoaiKhach.Leave += cbxLoaiKhach_Leave;
             // 
-            // btnHuyBo
+            // btnDong
             // 
-            btnHuyBo.Font = new Font("Segoe UI", 14.25F);
-            btnHuyBo.Location = new Point(240, 392);
-            btnHuyBo.Name = "btnHuyBo";
-            btnHuyBo.Size = new Size(112, 40);
-            btnHuyBo.TabIndex = 7;
-            btnHuyBo.Text = "Huỷ Bỏ";
-            btnHuyBo.UseVisualStyleBackColor = true;
-            btnHuyBo.Click += btnHuyBo_Click;
+            btnDong.Font = new Font("Segoe UI", 14.25F);
+            btnDong.Location = new Point(296, 400);
+            btnDong.Name = "btnDong";
+            btnDong.Size = new Size(112, 40);
+            btnDong.TabIndex = 8;
+            btnDong.Text = "Đóng";
+            btnDong.UseVisualStyleBackColor = true;
             // 
-            // btnDongY
+            // btnXoa
             // 
-            btnDongY.Font = new Font("Segoe UI", 14.25F);
-            btnDongY.Location = new Point(72, 392);
-            btnDongY.Name = "btnDongY";
-            btnDongY.Size = new Size(112, 40);
-            btnDongY.TabIndex = 6;
-            btnDongY.Text = "Đồng Ý";
-            btnDongY.UseVisualStyleBackColor = true;
+            btnXoa.Font = new Font("Segoe UI", 14.25F);
+            btnXoa.Location = new Point(160, 400);
+            btnXoa.Name = "btnXoa";
+            btnXoa.Size = new Size(112, 40);
+            btnXoa.TabIndex = 7;
+            btnXoa.Text = "Xoá";
+            btnXoa.UseVisualStyleBackColor = true;
+            // 
+            // btnCapNhat
+            // 
+            btnCapNhat.Font = new Font("Segoe UI", 14.25F);
+            btnCapNhat.Location = new Point(24, 400);
+            btnCapNhat.Name = "btnCapNhat";
+            btnCapNhat.Size = new Size(112, 40);
+            btnCapNhat.TabIndex = 6;
+            btnCapNhat.Text = "Cập Nhật";
+            btnCapNhat.UseVisualStyleBackColor = true;
             // 
             // txtDiaChi
             // 
@@ -99,8 +107,6 @@
             txtDiaChi.Name = "txtDiaChi";
             txtDiaChi.Size = new Size(392, 40);
             txtDiaChi.TabIndex = 4;
-            txtDiaChi.Enter += txtDiaChi_Enter;
-            txtDiaChi.Leave += txtDiaChi_Leave;
             // 
             // txtEmail
             // 
@@ -110,8 +116,6 @@
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(392, 40);
             txtEmail.TabIndex = 3;
-            txtEmail.Enter += txtEmail_Enter;
-            txtEmail.Leave += txtEmail_Leave;
             // 
             // txtSoDT
             // 
@@ -121,8 +125,6 @@
             txtSoDT.Name = "txtSoDT";
             txtSoDT.Size = new Size(392, 40);
             txtSoDT.TabIndex = 2;
-            txtSoDT.Enter += txtSoDT_Enter;
-            txtSoDT.Leave += txtSoDT_Leave;
             // 
             // txtTenKhachHang
             // 
@@ -133,9 +135,6 @@
             txtTenKhachHang.Name = "txtTenKhachHang";
             txtTenKhachHang.Size = new Size(392, 40);
             txtTenKhachHang.TabIndex = 1;
-            txtTenKhachHang.TextChanged += txtTenKhachHang_TextChanged;
-            txtTenKhachHang.Enter += txtTenKhachHang_Enter;
-            txtTenKhachHang.Leave += txtTenKhachHang_Leave;
             // 
             // txtID
             // 
@@ -146,15 +145,14 @@
             txtID.Size = new Size(392, 40);
             txtID.TabIndex = 0;
             // 
-            // frmKhachHang_Add
+            // frmThongTinKhachHang
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(447, 505);
             Controls.Add(gbxThemKhachHang);
-            Name = "frmKhachHang_Add";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmKhachHang_Add";
+            Name = "frmThongTinKhachHang";
+            Text = "Thông Tin Khách Hàng";
             gbxThemKhachHang.ResumeLayout(false);
             gbxThemKhachHang.PerformLayout();
             ResumeLayout(false);
@@ -163,13 +161,14 @@
         #endregion
 
         private GroupBox gbxThemKhachHang;
-        private TextBox txtID;
+        private ComboBox cbxLoaiKhach;
+        private Button btnDong;
+        private Button btnCapNhat;
         private TextBox txtDiaChi;
         private TextBox txtEmail;
         private TextBox txtSoDT;
         private TextBox txtTenKhachHang;
-        private Button btnDongY;
-        private Button btnHuyBo;
-        private ComboBox cbxLoaiKhach;
+        private TextBox txtID;
+        private Button btnXoa;
     }
 }
