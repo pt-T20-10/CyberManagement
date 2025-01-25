@@ -31,9 +31,9 @@
             gbxThemKhachHang = new GroupBox();
             btnHuyBo = new Button();
             btnDongY = new Button();
-            txtMatKhau = new TextBox();
-            txtTaiKhoan = new TextBox();
-            txtID = new TextBox();
+            txtMatKhauKhachHang = new TextBox();
+            txtTaiKhoanKhachHang = new TextBox();
+            txtIDKhachHang = new TextBox();
             gbxThemKhachHang.SuspendLayout();
             SuspendLayout();
             // 
@@ -41,9 +41,9 @@
             // 
             gbxThemKhachHang.Controls.Add(btnHuyBo);
             gbxThemKhachHang.Controls.Add(btnDongY);
-            gbxThemKhachHang.Controls.Add(txtMatKhau);
-            gbxThemKhachHang.Controls.Add(txtTaiKhoan);
-            gbxThemKhachHang.Controls.Add(txtID);
+            gbxThemKhachHang.Controls.Add(txtMatKhauKhachHang);
+            gbxThemKhachHang.Controls.Add(txtTaiKhoanKhachHang);
+            gbxThemKhachHang.Controls.Add(txtIDKhachHang);
             gbxThemKhachHang.FlatStyle = FlatStyle.Flat;
             gbxThemKhachHang.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbxThemKhachHang.Location = new Point(8, 8);
@@ -73,39 +73,40 @@
             btnDongY.TabIndex = 6;
             btnDongY.Text = "Đồng Ý";
             btnDongY.UseVisualStyleBackColor = true;
+            btnDongY.Click += btnDongY_Click;
             // 
-            // txtMatKhau
+            // txtMatKhauKhachHang
             // 
-            txtMatKhau.Font = new Font("Segoe UI", 14.25F);
-            txtMatKhau.Location = new Point(24, 160);
-            txtMatKhau.Multiline = true;
-            txtMatKhau.Name = "txtMatKhau";
-            txtMatKhau.PasswordChar = '*';
-            txtMatKhau.Size = new Size(392, 40);
-            txtMatKhau.TabIndex = 2;
-            txtMatKhau.Enter += txtMatKhau_Enter;
-            txtMatKhau.Leave += txtMatKhau_Leave;
+            txtMatKhauKhachHang.Font = new Font("Segoe UI", 14.25F);
+            txtMatKhauKhachHang.Location = new Point(24, 160);
+            txtMatKhauKhachHang.Multiline = true;
+            txtMatKhauKhachHang.Name = "txtMatKhauKhachHang";
+            txtMatKhauKhachHang.PasswordChar = '*';
+            txtMatKhauKhachHang.Size = new Size(392, 40);
+            txtMatKhauKhachHang.TabIndex = 2;
+            txtMatKhauKhachHang.Enter += txtMatKhau_Enter;
+            txtMatKhauKhachHang.Leave += txtMatKhau_Leave;
             // 
-            // txtTaiKhoan
+            // txtTaiKhoanKhachHang
             // 
-            txtTaiKhoan.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTaiKhoan.ForeColor = Color.FromArgb(224, 224, 224);
-            txtTaiKhoan.Location = new Point(24, 104);
-            txtTaiKhoan.Multiline = true;
-            txtTaiKhoan.Name = "txtTaiKhoan";
-            txtTaiKhoan.Size = new Size(392, 40);
-            txtTaiKhoan.TabIndex = 1;
-            txtTaiKhoan.Enter += txtTenKhachHang_Enter;
-            txtTaiKhoan.Leave += txtTenKhachHang_Leave;
+            txtTaiKhoanKhachHang.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtTaiKhoanKhachHang.ForeColor = Color.FromArgb(224, 224, 224);
+            txtTaiKhoanKhachHang.Location = new Point(24, 104);
+            txtTaiKhoanKhachHang.Multiline = true;
+            txtTaiKhoanKhachHang.Name = "txtTaiKhoanKhachHang";
+            txtTaiKhoanKhachHang.Size = new Size(392, 40);
+            txtTaiKhoanKhachHang.TabIndex = 1;
+            txtTaiKhoanKhachHang.Enter += txtTenKhachHang_Enter;
+            txtTaiKhoanKhachHang.Leave += txtTenKhachHang_Leave;
             // 
-            // txtID
+            // txtIDKhachHang
             // 
-            txtID.Location = new Point(24, 48);
-            txtID.Multiline = true;
-            txtID.Name = "txtID";
-            txtID.ReadOnly = true;
-            txtID.Size = new Size(392, 40);
-            txtID.TabIndex = 0;
+            txtIDKhachHang.Location = new Point(24, 48);
+            txtIDKhachHang.Multiline = true;
+            txtIDKhachHang.Name = "txtIDKhachHang";
+            txtIDKhachHang.ReadOnly = true;
+            txtIDKhachHang.Size = new Size(392, 40);
+            txtIDKhachHang.TabIndex = 0;
             // 
             // frmThemKhachHang
             // 
@@ -124,9 +125,9 @@
         #endregion
 
         private GroupBox gbxThemKhachHang;
-        private TextBox txtID;
-        private TextBox txtMatKhau;
-        private TextBox txtTaiKhoan;
+        private TextBox txtIDKhachHang;
+        private TextBox txtMatKhauKhachHang;
+        private TextBox txtTaiKhoanKhachHang;
         private Button btnDongY;
         private Button btnHuyBo;
     }

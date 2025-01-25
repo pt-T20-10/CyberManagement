@@ -32,9 +32,9 @@
             btnChonAnh = new Button();
             pbxAnhNhanVien = new PictureBox();
             panel2 = new Panel();
-            txtKieuLamNhanVien = new ComboBox();
-            txtChucVuNhanVien = new ComboBox();
-            txtBoPhanNhanVien = new ComboBox();
+            cbxKieuLamNhanVien = new ComboBox();
+            cbxChucVuNhanVien = new ComboBox();
+            cbxBoPhanNhanVien = new ComboBox();
             txtIDNhanVien = new TextBox();
             lblIDNhanVien = new Label();
             lblTenNhanVien = new Label();
@@ -48,29 +48,29 @@
             pnThongTinCoBanNhanVien = new Panel();
             panel4 = new Panel();
             btnHuy = new Button();
+            btnXoa = new Button();
             btnCapNhat = new Button();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
-            dateTimePicker3 = new DateTimePicker();
+            dtpNgayRaNhanVien = new DateTimePicker();
+            dtpNgayVaoNhanVien = new DateTimePicker();
+            dtpNgaySinhNhanVien = new DateTimePicker();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
+            txtDiaChiNhanVien = new TextBox();
+            txtGioiTinhNhanVien = new TextBox();
+            txtCCCDNhanVien = new TextBox();
+            txtEmailNhanVien = new TextBox();
+            txtTonGiaoNhanVien = new TextBox();
             label7 = new Label();
-            textBox6 = new TextBox();
+            txtSoDTNhanVien = new TextBox();
             label8 = new Label();
             label9 = new Label();
             btnCancelThemNhanVien = new Button();
             btnAcceptThemNhanVien = new Button();
             tpThongTinKhacNhanVien = new TabPage();
-            btnXoa = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbxAnhNhanVien).BeginInit();
             panel2.SuspendLayout();
@@ -111,9 +111,9 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(txtKieuLamNhanVien);
-            panel2.Controls.Add(txtChucVuNhanVien);
-            panel2.Controls.Add(txtBoPhanNhanVien);
+            panel2.Controls.Add(cbxKieuLamNhanVien);
+            panel2.Controls.Add(cbxChucVuNhanVien);
+            panel2.Controls.Add(cbxBoPhanNhanVien);
             panel2.Controls.Add(txtIDNhanVien);
             panel2.Controls.Add(lblIDNhanVien);
             panel2.Controls.Add(lblTenNhanVien);
@@ -126,29 +126,29 @@
             panel2.Size = new Size(553, 227);
             panel2.TabIndex = 1;
             // 
-            // txtKieuLamNhanVien
+            // cbxKieuLamNhanVien
             // 
-            txtKieuLamNhanVien.FormattingEnabled = true;
-            txtKieuLamNhanVien.Location = new Point(128, 176);
-            txtKieuLamNhanVien.Name = "txtKieuLamNhanVien";
-            txtKieuLamNhanVien.Size = new Size(416, 23);
-            txtKieuLamNhanVien.TabIndex = 7;
+            cbxKieuLamNhanVien.FormattingEnabled = true;
+            cbxKieuLamNhanVien.Location = new Point(128, 176);
+            cbxKieuLamNhanVien.Name = "cbxKieuLamNhanVien";
+            cbxKieuLamNhanVien.Size = new Size(416, 23);
+            cbxKieuLamNhanVien.TabIndex = 7;
             // 
-            // txtChucVuNhanVien
+            // cbxChucVuNhanVien
             // 
-            txtChucVuNhanVien.FormattingEnabled = true;
-            txtChucVuNhanVien.Location = new Point(128, 136);
-            txtChucVuNhanVien.Name = "txtChucVuNhanVien";
-            txtChucVuNhanVien.Size = new Size(416, 23);
-            txtChucVuNhanVien.TabIndex = 6;
+            cbxChucVuNhanVien.FormattingEnabled = true;
+            cbxChucVuNhanVien.Location = new Point(128, 136);
+            cbxChucVuNhanVien.Name = "cbxChucVuNhanVien";
+            cbxChucVuNhanVien.Size = new Size(416, 23);
+            cbxChucVuNhanVien.TabIndex = 6;
             // 
-            // txtBoPhanNhanVien
+            // cbxBoPhanNhanVien
             // 
-            txtBoPhanNhanVien.FormattingEnabled = true;
-            txtBoPhanNhanVien.Location = new Point(128, 96);
-            txtBoPhanNhanVien.Name = "txtBoPhanNhanVien";
-            txtBoPhanNhanVien.Size = new Size(416, 23);
-            txtBoPhanNhanVien.TabIndex = 5;
+            cbxBoPhanNhanVien.FormattingEnabled = true;
+            cbxBoPhanNhanVien.Location = new Point(128, 96);
+            cbxBoPhanNhanVien.Name = "cbxBoPhanNhanVien";
+            cbxBoPhanNhanVien.Size = new Size(416, 23);
+            cbxBoPhanNhanVien.TabIndex = 5;
             // 
             // txtIDNhanVien
             // 
@@ -256,22 +256,22 @@
             panel4.Controls.Add(btnHuy);
             panel4.Controls.Add(btnXoa);
             panel4.Controls.Add(btnCapNhat);
-            panel4.Controls.Add(dateTimePicker1);
-            panel4.Controls.Add(dateTimePicker2);
-            panel4.Controls.Add(dateTimePicker3);
+            panel4.Controls.Add(dtpNgayRaNhanVien);
+            panel4.Controls.Add(dtpNgayVaoNhanVien);
+            panel4.Controls.Add(dtpNgaySinhNhanVien);
             panel4.Controls.Add(label1);
             panel4.Controls.Add(label2);
             panel4.Controls.Add(label3);
             panel4.Controls.Add(label4);
             panel4.Controls.Add(label5);
             panel4.Controls.Add(label6);
-            panel4.Controls.Add(textBox1);
-            panel4.Controls.Add(textBox2);
-            panel4.Controls.Add(textBox3);
-            panel4.Controls.Add(textBox4);
-            panel4.Controls.Add(textBox5);
+            panel4.Controls.Add(txtDiaChiNhanVien);
+            panel4.Controls.Add(txtGioiTinhNhanVien);
+            panel4.Controls.Add(txtCCCDNhanVien);
+            panel4.Controls.Add(txtEmailNhanVien);
+            panel4.Controls.Add(txtTonGiaoNhanVien);
             panel4.Controls.Add(label7);
-            panel4.Controls.Add(textBox6);
+            panel4.Controls.Add(txtSoDTNhanVien);
             panel4.Controls.Add(label8);
             panel4.Controls.Add(label9);
             panel4.Location = new Point(8, 8);
@@ -288,6 +288,18 @@
             btnHuy.TabIndex = 15;
             btnHuy.Text = "Huỷ bỏ";
             btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
+            // 
+            // btnXoa
+            // 
+            btnXoa.Font = new Font("Segoe UI", 14.25F);
+            btnXoa.Location = new Point(472, 272);
+            btnXoa.Name = "btnXoa";
+            btnXoa.Size = new Size(122, 39);
+            btnXoa.TabIndex = 14;
+            btnXoa.Text = "Xoá";
+            btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnCapNhat
             // 
@@ -298,27 +310,28 @@
             btnCapNhat.TabIndex = 14;
             btnCapNhat.Text = "Cập nhật";
             btnCapNhat.UseVisualStyleBackColor = true;
+            btnCapNhat.Click += btnCapNhat_Click;
             // 
-            // dateTimePicker1
+            // dtpNgayRaNhanVien
             // 
-            dateTimePicker1.Location = new Point(480, 210);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(256, 29);
-            dateTimePicker1.TabIndex = 13;
+            dtpNgayRaNhanVien.Location = new Point(480, 210);
+            dtpNgayRaNhanVien.Name = "dtpNgayRaNhanVien";
+            dtpNgayRaNhanVien.Size = new Size(256, 29);
+            dtpNgayRaNhanVien.TabIndex = 13;
             // 
-            // dateTimePicker2
+            // dtpNgayVaoNhanVien
             // 
-            dateTimePicker2.Location = new Point(480, 168);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(256, 29);
-            dateTimePicker2.TabIndex = 12;
+            dtpNgayVaoNhanVien.Location = new Point(480, 168);
+            dtpNgayVaoNhanVien.Name = "dtpNgayVaoNhanVien";
+            dtpNgayVaoNhanVien.Size = new Size(256, 29);
+            dtpNgayVaoNhanVien.TabIndex = 12;
             // 
-            // dateTimePicker3
+            // dtpNgaySinhNhanVien
             // 
-            dateTimePicker3.Location = new Point(480, 125);
-            dateTimePicker3.Name = "dateTimePicker3";
-            dateTimePicker3.Size = new Size(256, 29);
-            dateTimePicker3.TabIndex = 11;
+            dtpNgaySinhNhanVien.Location = new Point(480, 125);
+            dtpNgaySinhNhanVien.Name = "dtpNgaySinhNhanVien";
+            dtpNgaySinhNhanVien.Size = new Size(256, 29);
+            dtpNgaySinhNhanVien.TabIndex = 11;
             // 
             // label1
             // 
@@ -374,45 +387,45 @@
             label6.TabIndex = 1;
             label6.Text = "Email";
             // 
-            // textBox1
+            // txtDiaChiNhanVien
             // 
-            textBox1.Location = new Point(120, 24);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(643, 23);
-            textBox1.TabIndex = 5;
+            txtDiaChiNhanVien.Location = new Point(120, 24);
+            txtDiaChiNhanVien.Multiline = true;
+            txtDiaChiNhanVien.Name = "txtDiaChiNhanVien";
+            txtDiaChiNhanVien.Size = new Size(643, 23);
+            txtDiaChiNhanVien.TabIndex = 5;
             // 
-            // textBox2
+            // txtGioiTinhNhanVien
             // 
-            textBox2.Location = new Point(120, 208);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(190, 23);
-            textBox2.TabIndex = 9;
+            txtGioiTinhNhanVien.Location = new Point(120, 208);
+            txtGioiTinhNhanVien.Multiline = true;
+            txtGioiTinhNhanVien.Name = "txtGioiTinhNhanVien";
+            txtGioiTinhNhanVien.Size = new Size(190, 23);
+            txtGioiTinhNhanVien.TabIndex = 9;
             // 
-            // textBox3
+            // txtCCCDNhanVien
             // 
-            textBox3.Location = new Point(120, 168);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(190, 23);
-            textBox3.TabIndex = 8;
+            txtCCCDNhanVien.Location = new Point(120, 168);
+            txtCCCDNhanVien.Multiline = true;
+            txtCCCDNhanVien.Name = "txtCCCDNhanVien";
+            txtCCCDNhanVien.Size = new Size(190, 23);
+            txtCCCDNhanVien.TabIndex = 8;
             // 
-            // textBox4
+            // txtEmailNhanVien
             // 
-            textBox4.Location = new Point(120, 128);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(190, 23);
-            textBox4.TabIndex = 7;
+            txtEmailNhanVien.Location = new Point(120, 128);
+            txtEmailNhanVien.Multiline = true;
+            txtEmailNhanVien.Name = "txtEmailNhanVien";
+            txtEmailNhanVien.Size = new Size(190, 23);
+            txtEmailNhanVien.TabIndex = 7;
             // 
-            // textBox5
+            // txtTonGiaoNhanVien
             // 
-            textBox5.Location = new Point(480, 88);
-            textBox5.Multiline = true;
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(256, 23);
-            textBox5.TabIndex = 10;
+            txtTonGiaoNhanVien.Location = new Point(480, 88);
+            txtTonGiaoNhanVien.Multiline = true;
+            txtTonGiaoNhanVien.Name = "txtTonGiaoNhanVien";
+            txtTonGiaoNhanVien.Size = new Size(256, 23);
+            txtTonGiaoNhanVien.TabIndex = 10;
             // 
             // label7
             // 
@@ -423,13 +436,13 @@
             label7.TabIndex = 1;
             label7.Text = "Tôn giáo";
             // 
-            // textBox6
+            // txtSoDTNhanVien
             // 
-            textBox6.Location = new Point(120, 88);
-            textBox6.Multiline = true;
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(190, 23);
-            textBox6.TabIndex = 6;
+            txtSoDTNhanVien.Location = new Point(120, 88);
+            txtSoDTNhanVien.Multiline = true;
+            txtSoDTNhanVien.Name = "txtSoDTNhanVien";
+            txtSoDTNhanVien.Size = new Size(190, 23);
+            txtSoDTNhanVien.TabIndex = 6;
             // 
             // label8
             // 
@@ -481,16 +494,6 @@
             tpThongTinKhacNhanVien.Text = "Thông tin khác";
             tpThongTinKhacNhanVien.UseVisualStyleBackColor = true;
             // 
-            // btnXoa
-            // 
-            btnXoa.Font = new Font("Segoe UI", 14.25F);
-            btnXoa.Location = new Point(472, 272);
-            btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(122, 39);
-            btnXoa.TabIndex = 14;
-            btnXoa.Text = "Xoá";
-            btnXoa.UseVisualStyleBackColor = true;
-            // 
             // frmThongTinNhanVien
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -501,7 +504,7 @@
             Controls.Add(panel1);
             Name = "frmThongTinNhanVien";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "THÊM NHÂN VIÊN";
+            Text = "THÔNG TIN NHÂN VIÊN";
             Load += frmThemNhanVien_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbxAnhNhanVien).EndInit();
@@ -525,9 +528,9 @@
         private Label lblIDNhanVien;
         private TextBox txtIDNhanVien;
         private Button btnChonAnh;
-        private ComboBox txtKieuLamNhanVien;
-        private ComboBox txtChucVuNhanVien;
-        private ComboBox txtBoPhanNhanVien;
+        private ComboBox cbxKieuLamNhanVien;
+        private ComboBox cbxChucVuNhanVien;
+        private ComboBox cbxBoPhanNhanVien;
         private Label lblTenNhanVien;
         private Label lblKieuLamNhanVien;
         private TextBox txtTenNhanVien;
@@ -542,22 +545,22 @@
         private Panel panel4;
         private Button btnHuy;
         private Button btnCapNhat;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
-        private DateTimePicker dateTimePicker3;
+        private DateTimePicker dtpNgayRaNhanVien;
+        private DateTimePicker dtpNgayVaoNhanVien;
+        private DateTimePicker dtpNgaySinhNhanVien;
         private Label label1;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
         private Label label6;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
+        private TextBox txtDiaChiNhanVien;
+        private TextBox txtGioiTinhNhanVien;
+        private TextBox txtCCCDNhanVien;
+        private TextBox txtEmailNhanVien;
+        private TextBox txtTonGiaoNhanVien;
         private Label label7;
-        private TextBox textBox6;
+        private TextBox txtSoDTNhanVien;
         private Label label8;
         private Label label9;
         private Button btnXoa;

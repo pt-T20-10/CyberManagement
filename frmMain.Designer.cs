@@ -74,7 +74,7 @@ namespace CyberManagementProject
             button6 = new Button();
             pictureBox13 = new PictureBox();
             panel27 = new Panel();
-            dataGridView1 = new DataGridView();
+            flpKhachHang = new FlowLayoutPanel();
             flpLoc = new FlowLayoutPanel();
             checkBox1 = new CheckBox();
             checkBox2 = new CheckBox();
@@ -240,8 +240,6 @@ namespace CyberManagementProject
             lblHome = new Label();
             grbQuanLyNhanVien = new GroupBox();
             panel19 = new Panel();
-            dgvDanhSachNhanVien = new DataGridView();
-            button1 = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             txtTimKiem = new TextBox();
             pbxTimKiem = new PictureBox();
@@ -323,6 +321,7 @@ namespace CyberManagementProject
             lbTittleKH = new Label();
             pnThongKeKH = new Panel();
             dgvThongKeKH = new DataGridView();
+            flpNhanVien = new FlowLayoutPanel();
             pnlLeft.SuspendLayout();
             pnStatictical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -344,7 +343,6 @@ namespace CyberManagementProject
             panel26.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
             panel27.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             flpLoc.SuspendLayout();
             tbpComputer.SuspendLayout();
             pnComputerControl.SuspendLayout();
@@ -410,7 +408,6 @@ namespace CyberManagementProject
             panel18.SuspendLayout();
             grbQuanLyNhanVien.SuspendLayout();
             panel19.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDanhSachNhanVien).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbxTimKiem).BeginInit();
             panel20.SuspendLayout();
@@ -869,20 +866,19 @@ namespace CyberManagementProject
             // 
             // panel27
             // 
-            panel27.Controls.Add(dataGridView1);
+            panel27.Controls.Add(flpKhachHang);
             panel27.Location = new Point(8, 96);
             panel27.Name = "panel27";
             panel27.Size = new Size(1072, 560);
             panel27.TabIndex = 7;
             // 
-            // dataGridView1
+            // flpKhachHang
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(8, 8);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1056, 488);
-            dataGridView1.TabIndex = 0;
+            flpKhachHang.AutoScroll = true;
+            flpKhachHang.Location = new Point(8, 8);
+            flpKhachHang.Name = "flpKhachHang";
+            flpKhachHang.Size = new Size(1056, 504);
+            flpKhachHang.TabIndex = 0;
             // 
             // flpLoc
             // 
@@ -2620,33 +2616,11 @@ namespace CyberManagementProject
             // 
             // panel19
             // 
-            panel19.Controls.Add(dgvDanhSachNhanVien);
-            panel19.Controls.Add(button1);
+            panel19.Controls.Add(flpNhanVien);
             panel19.Location = new Point(6, 94);
             panel19.Name = "panel19";
             panel19.Size = new Size(1081, 524);
             panel19.TabIndex = 5;
-            // 
-            // dgvDanhSachNhanVien
-            // 
-            dgvDanhSachNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDanhSachNhanVien.Location = new Point(0, 0);
-            dgvDanhSachNhanVien.Name = "dgvDanhSachNhanVien";
-            dgvDanhSachNhanVien.RowHeadersWidth = 51;
-            dgvDanhSachNhanVien.Size = new Size(1081, 524);
-            dgvDanhSachNhanVien.TabIndex = 0;
-            // 
-            // button1
-            // 
-            button1.BackColor = SystemColors.ButtonHighlight;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(920, 64);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 39);
-            button1.TabIndex = 3;
-            button1.Text = "Quay lại";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = false;
             // 
             // flowLayoutPanel1
             // 
@@ -3552,6 +3526,13 @@ namespace CyberManagementProject
             dgvThongKeKH.Size = new Size(682, 521);
             dgvThongKeKH.TabIndex = 0;
             // 
+            // flpNhanVien
+            // 
+            flpNhanVien.Location = new Point(8, 8);
+            flpNhanVien.Name = "flpNhanVien";
+            flpNhanVien.Size = new Size(1064, 456);
+            flpNhanVien.TabIndex = 4;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -3593,7 +3574,6 @@ namespace CyberManagementProject
             panel26.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             panel27.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             flpLoc.ResumeLayout(false);
             flpLoc.PerformLayout();
             tbpComputer.ResumeLayout(false);
@@ -3692,7 +3672,6 @@ namespace CyberManagementProject
             panel18.ResumeLayout(false);
             grbQuanLyNhanVien.ResumeLayout(false);
             panel19.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvDanhSachNhanVien).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbxTimKiem).EndInit();
@@ -3836,8 +3815,6 @@ namespace CyberManagementProject
         private Label lblHome;
         private GroupBox grbQuanLyNhanVien;
         private Panel panel19;
-        private DataGridView dgvDanhSachNhanVien;
-        private Button button1;
         private FlowLayoutPanel flowLayoutPanel1;
         private TextBox txtTimKiem;
         private PictureBox pbxTimKiem;
@@ -3873,7 +3850,6 @@ namespace CyberManagementProject
         private Button button6;
         private PictureBox pictureBox13;
         private Panel panel27;
-        private DataGridView dataGridView1;
         private FlowLayoutPanel flpLoc;
         private CheckBox checkBox1;
         private CheckBox checkBox2;
@@ -4034,5 +4010,7 @@ namespace CyberManagementProject
         private Panel pnThongKeKH;
         private DataGridView dgvThongKeKH;
         private TextBox textBox11;
+        private FlowLayoutPanel flpKhachHang;
+        private FlowLayoutPanel flpNhanVien;
     }
 }

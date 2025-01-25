@@ -1,4 +1,5 @@
-﻿using QuanLyQuanNet.KhachHang;
+﻿using CyberManagementProject.DAO;
+using QuanLyQuanNet.KhachHang;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,50 +20,50 @@ namespace CyberManagementProject.NhanVien
 
             //khởi tạo text mặc định cho các ô textbox
 
-            txtTaiKhoan.Text = "Tài khoản";
-            txtTaiKhoan.ForeColor = Color.Gray;
+            txtTaiKhoanNhanVien.Text = "Tài khoản";
+            txtTaiKhoanNhanVien.ForeColor = Color.Gray;
 
 
-            txtMatKhau.PasswordChar = '\0';
-            txtMatKhau.Text = "Mật khẩu";
-            txtMatKhau.ForeColor = Color.Gray;
+            txtMatKhauNhanVien.PasswordChar = '\0';
+            txtMatKhauNhanVien.Text = "Mật khẩu";
+            txtMatKhauNhanVien.ForeColor = Color.Gray;
         }
 
         private void txtTaiKhoan_Enter(object sender, EventArgs e)
         {
-            if (txtTaiKhoan.Text == "Tài khoản")
+            if (txtTaiKhoanNhanVien.Text == "Tài khoản")
             {
-                txtTaiKhoan.Text = ""; // Xóa nội dung mặc định
-                txtTaiKhoan.ForeColor = Color.Black; // Đổi màu chữ thành đen
+                txtTaiKhoanNhanVien.Text = ""; // Xóa nội dung mặc định
+                txtTaiKhoanNhanVien.ForeColor = Color.Black; // Đổi màu chữ thành đen
             }
         }
 
         private void txtTaiKhoan_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtTaiKhoan.Text)) //Kiểm tra ô textbox rỗng
+            if (string.IsNullOrWhiteSpace(txtTaiKhoanNhanVien.Text)) //Kiểm tra ô textbox rỗng
             {
-                txtTaiKhoan.Text = "Tài khoản"; // Hiển thị lại nội dung mặc định
-                txtTaiKhoan.ForeColor = Color.Gray; // Đổi màu chữ thành mờ
+                txtTaiKhoanNhanVien.Text = "Tài khoản"; // Hiển thị lại nội dung mặc định
+                txtTaiKhoanNhanVien.ForeColor = Color.Gray; // Đổi màu chữ thành mờ
             }
         }
 
         private void txtMatKhau_Enter(object sender, EventArgs e)
         {
-            if (txtMatKhau.Text == "Mật khẩu")
+            if (txtMatKhauNhanVien.Text == "Mật khẩu")
             {
-                txtMatKhau.PasswordChar = '*';
-                txtMatKhau.Text = ""; // Xóa nội dung mặc định
-                txtMatKhau.ForeColor = Color.Black; // Đổi màu chữ thành đen
+                txtMatKhauNhanVien.PasswordChar = '*';
+                txtMatKhauNhanVien.Text = ""; // Xóa nội dung mặc định
+                txtMatKhauNhanVien.ForeColor = Color.Black; // Đổi màu chữ thành đen
             }
         }
 
         private void txtMatKhau_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtMatKhau.Text)) //Kiểm tra ô textbox rỗng
+            if (string.IsNullOrWhiteSpace(txtMatKhauNhanVien.Text)) //Kiểm tra ô textbox rỗng
             {
-                txtMatKhau.PasswordChar = '\0';
-                txtMatKhau.Text = "Mật khẩu"; // Hiển thị lại nội dung mặc định
-                txtMatKhau.ForeColor = Color.Gray; // Đổi màu chữ thành mờ
+                txtMatKhauNhanVien.PasswordChar = '\0';
+                txtMatKhauNhanVien.Text = "Mật khẩu"; // Hiển thị lại nội dung mặc định
+                txtMatKhauNhanVien.ForeColor = Color.Gray; // Đổi màu chữ thành mờ
             }
         }
 
@@ -82,5 +83,30 @@ namespace CyberManagementProject.NhanVien
 
             }
         }
+
+
+
+        //thủ tục thêm mới nhân viên
+        private void btnDongY_Click(object sender, EventArgs e)
+        {
+            string tkNhanVien = txtTaiKhoanNhanVien.Text;
+            string mkNhanVien = txtMatKhauNhanVien.Text;
+
+            if (NhanVienDAO.Instance.AddNhanVien(tkNhanVien, mkNhanVien))
+            {
+                MessageBox.Show("Thêm nhân viên thành công!");
+                // Cập nhật danh sách nhân viên ở Main
+                frmMain? mainForm = Application.OpenForms["frmMain"] as frmMain;
+                mainForm.LoadNhanVien(); // Gọi trước khi đóng form
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Thêm nhân viên thất bại!");
+            }
+        }
+
+
+
     }
 }
