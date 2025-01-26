@@ -132,7 +132,7 @@
             cbxKieuLamNhanVien.Location = new Point(128, 176);
             cbxKieuLamNhanVien.Name = "cbxKieuLamNhanVien";
             cbxKieuLamNhanVien.Size = new Size(416, 23);
-            cbxKieuLamNhanVien.TabIndex = 7;
+            cbxKieuLamNhanVien.TabIndex = 4;
             // 
             // cbxChucVuNhanVien
             // 
@@ -140,7 +140,7 @@
             cbxChucVuNhanVien.Location = new Point(128, 136);
             cbxChucVuNhanVien.Name = "cbxChucVuNhanVien";
             cbxChucVuNhanVien.Size = new Size(416, 23);
-            cbxChucVuNhanVien.TabIndex = 6;
+            cbxChucVuNhanVien.TabIndex = 3;
             // 
             // cbxBoPhanNhanVien
             // 
@@ -148,7 +148,7 @@
             cbxBoPhanNhanVien.Location = new Point(128, 96);
             cbxBoPhanNhanVien.Name = "cbxBoPhanNhanVien";
             cbxBoPhanNhanVien.Size = new Size(416, 23);
-            cbxBoPhanNhanVien.TabIndex = 5;
+            cbxBoPhanNhanVien.TabIndex = 2;
             // 
             // txtIDNhanVien
             // 
@@ -156,7 +156,7 @@
             txtIDNhanVien.Name = "txtIDNhanVien";
             txtIDNhanVien.ReadOnly = true;
             txtIDNhanVien.Size = new Size(195, 23);
-            txtIDNhanVien.TabIndex = 0;
+            txtIDNhanVien.TabIndex = 17;
             // 
             // lblIDNhanVien
             // 
@@ -296,7 +296,7 @@
             btnXoa.Location = new Point(472, 272);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(122, 39);
-            btnXoa.TabIndex = 14;
+            btnXoa.TabIndex = 16;
             btnXoa.Text = "Xoá";
             btnXoa.UseVisualStyleBackColor = true;
             btnXoa.Click += btnXoa_Click;
@@ -314,6 +314,7 @@
             // 
             // dtpNgayRaNhanVien
             // 
+            dtpNgayRaNhanVien.Format = DateTimePickerFormat.Custom;
             dtpNgayRaNhanVien.Location = new Point(480, 210);
             dtpNgayRaNhanVien.Name = "dtpNgayRaNhanVien";
             dtpNgayRaNhanVien.Size = new Size(256, 29);
@@ -321,6 +322,7 @@
             // 
             // dtpNgayVaoNhanVien
             // 
+            dtpNgayVaoNhanVien.Format = DateTimePickerFormat.Custom;
             dtpNgayVaoNhanVien.Location = new Point(480, 168);
             dtpNgayVaoNhanVien.Name = "dtpNgayVaoNhanVien";
             dtpNgayVaoNhanVien.Size = new Size(256, 29);
@@ -328,10 +330,12 @@
             // 
             // dtpNgaySinhNhanVien
             // 
+            dtpNgaySinhNhanVien.Format = DateTimePickerFormat.Custom;
             dtpNgaySinhNhanVien.Location = new Point(480, 125);
             dtpNgaySinhNhanVien.Name = "dtpNgaySinhNhanVien";
             dtpNgaySinhNhanVien.Size = new Size(256, 29);
             dtpNgaySinhNhanVien.TabIndex = 11;
+            dtpNgaySinhNhanVien.Value = new DateTime(2025, 1, 25, 20, 53, 2, 0);
             // 
             // label1
             // 

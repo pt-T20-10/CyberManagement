@@ -25,13 +25,24 @@ namespace CyberManagementProject
         {
             InitializeComponent();
 
-            LoadKhachHang(); //Hoang Nghia
+            LoadKhachHang(); //Load danh sách khách hàng khi frmMain load
 
-            LoadNhanVien();
+            LoadNhanVien(); //Load danh sách nhân viên khi frmMain load
+
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged; //Nút tìm kiếm khi frmMain được load
+
+            //Sự kiện cbxTrangThai khi frmMain được load
+            cbxTrangThai.Text = "Đang làm";
+            cbxTrangThai.ForeColor = Color.Gray;
+
+            LoadChucVuToComboBox(); // gọi phương thức load TenChucVu khi frmMain load
+
+            LoadNhomKhachToComboBox(); // gọi phương thức load NhomKhach khi frmMain load
+
         }
 
         #region Hoàng Nghĩa
-        
+
         #region Method
 
         //Load thong tin cua Khach Hang
@@ -42,9 +53,9 @@ namespace CyberManagementProject
 
             List<KhachHangDTO> khachHangList = KhachHangDAO.Instance.LoadKhachHangList();
 
-            foreach (KhachHangDTO item in khachHangList) 
+            foreach (KhachHangDTO item in khachHangList)
             {
-                Button btn = new Button() { Width = KhachHangDAO.KhachHangWidth, Height = KhachHangDAO.KhachHangHeight};
+                Button btn = new Button() { Width = KhachHangDAO.KhachHangWidth, Height = KhachHangDAO.KhachHangHeight };
 
                 //btn.Text = item.TKKhachHang + "\n" + item.NhomKhach;
                 btn.Name = "btnKhachHang_" + item.TKKhachHang;
@@ -96,6 +107,67 @@ namespace CyberManagementProject
             }
         }
 
+        //Tìm kiếm nhân viên theo TKNhanVien
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            string tuKhoa = txtTimKiem.Text.Trim().ToLower(); // Lấy từ khóa và chuyển thành chữ thường
+
+            foreach (Control control in flpNhanVien.Controls)
+            {
+                if (control is Button btn) // Kiểm tra nếu control là Button
+                {
+                    // Tách nội dung của Button (giả sử nội dung là "NV001\nPhục vụ")
+                    string[] noiDungButton = btn.Text.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    // Lấy TKNhanVien từ dòng đầu tiên
+                    string tkNhanVien = noiDungButton.Length > 0 ? noiDungButton[0].ToLower() : string.Empty;
+
+                    // Hiển thị hoặc ẩn Button dựa trên từ khóa
+                    btn.Visible = tkNhanVien.Contains(tuKhoa);
+                }
+            }
+        }
+
+        //Tìm kiếm khách hàng theo TKKhachHang
+        private void txtTimKiemKhachHang_TextChanged(object sender, EventArgs e)
+        {
+            string tuKhoa = txtTimKiemKhachHang.Text.Trim().ToLower(); // Lấy từ khóa và chuyển thành chữ thường
+
+            foreach (Control control in flpKhachHang.Controls)
+            {
+                if (control is Button btn) // Kiểm tra nếu control là Button
+                {
+                    // Tách nội dung của Button (giả sử nội dung là "KH001 \n VIP")
+                    string[] noiDungButton = btn.Text.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    // Lấy TKKhachHang từ dòng đầu tiên
+                    string tkKhachHang = noiDungButton.Length > 0 ? noiDungButton[0].ToLower() : string.Empty;
+
+                    // Hiển thị hoặc ẩn Button dựa trên từ khóa
+                    btn.Visible = tkKhachHang.Contains(tuKhoa);
+                }
+            }
+        }
+
+        //Phương thức load dữ liệu của trường TenChucVu (NhanVien) từ SQL
+        private void LoadChucVuToComboBox()
+        {
+            List<string> danhSachChucVu = NhanVienDAO.Instance.GetDanhSachChucVu();
+            cbxChucVu.Items.Clear();
+            cbxChucVu.Items.Add("Tất cả"); // Thêm tùy chọn để hiển thị tất cả
+            cbxChucVu.Items.AddRange(danhSachChucVu.ToArray());
+            cbxChucVu.SelectedIndex = 0; // Chọn mặc định là "Tất cả"
+        }
+
+        //Phương thức load dữ liệu của trường NhomKhach (NhanVien) từ SQL
+        private void LoadNhomKhachToComboBox()
+        {
+            List<string> danhSachNhomKhach = KhachHangDAO.Instance.GetDanhSachNhomKhach();
+            cbxNhomKhach.Items.Clear();
+            cbxNhomKhach.Items.Add("Tất cả"); // Thêm tùy chọn để hiển thị tất cả
+            cbxNhomKhach.Items.AddRange(danhSachNhomKhach.ToArray());
+            cbxNhomKhach.SelectedIndex = 0; // Chọn mặc định là "Tất cả"
+        }
         #endregion
         #region Events
         //thêm nhân viên mới
@@ -175,25 +247,66 @@ namespace CyberManagementProject
         }
 
 
-        ////button them moi nhan vien
-        //private void BtnNhanVien_Click(object sender, EventArgs e)
-        //{
-        //    Button btn = sender as Button;
-        //    string tkNhanVien = btn.Text;
+        //Sự kiện nút cbxChucVu
 
-        //    NhanVienDTO nhanVien = NhanVienDAO.Instance.GetNhanVienDetailsByUser(tkNhanVien);
+        private void cbxTrangThai_Enter(object sender, EventArgs e)
+        {
+            if (cbxTrangThai.Text == "Đang làm")
+            {
+                cbxTrangThai.Text = ""; // Xóa nội dung mặc định
+                cbxTrangThai.ForeColor = Color.Black; // Đổi màu chữ thành đen
+            }
+        }
+        private void cbxTrangThai_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cbxChucVu.Text)) //Kiểm tra ô textbox rỗng
+            {
+                cbxTrangThai.Text = "Đang làm"; // Hiển thị lại nội dung mặc định
+                cbxTrangThai.ForeColor = Color.Gray; // Đổi màu chữ thành mờ
+            }
+        }
 
-        //    if (nhanVien != null)
-        //    {
-        //        frmThongTinNhanVien frm = new frmThongTinNhanVien(nhanVien);
-        //        frm.ShowDialog();
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Không tìm thấy thông tin nhân viên!");
-        //    }
-        //}
+        //lọc nhân viên theo TenChucVu
+        private void cbxChucVu_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            string chucVuDuocChon = cbxChucVu.SelectedItem.ToString().ToLower();
 
+            foreach (Control control in flpNhanVien.Controls)
+            {
+                if (control is Button btn)
+                {
+                    // Tách nội dung của Button
+                    string[] noiDungButton = btn.Text.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    // Lấy TenChucVu từ dòng thứ hai
+                    string tenChucVu = noiDungButton.Length > 1 ? noiDungButton[1].ToLower() : string.Empty;
+
+                    // Hiển thị hoặc ẩn Button dựa trên chức vụ được chọn
+                    btn.Visible = chucVuDuocChon == "tất cả" || tenChucVu == chucVuDuocChon;
+                }
+            }
+        }
+
+        //lọc khách hàng theo NhomKhach
+        private void cbxNhomKhach_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string nhomKhachDuocChon = cbxNhomKhach.SelectedItem.ToString().ToLower();
+
+            foreach (Control control in flpKhachHang.Controls)
+            {
+                if (control is Button btn)
+                {
+                    // Tách nội dung của Button
+                    string[] noiDung = btn.Text.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    // Lấy nhomKhach từ dòng thứ hai
+                    string nhomKhach = noiDung.Length > 1 ? noiDung[1].ToLower() : string.Empty;
+
+                    // Hiển thị hoặc ẩn Button dựa trên chức vụ được chọn
+                    btn.Visible = nhomKhachDuocChon == "tất cả" || nhomKhach == nhomKhachDuocChon;
+                }
+            }
+        }
 
         #endregion
 
@@ -279,6 +392,8 @@ namespace CyberManagementProject
         #region Method
         #endregion
         #endregion
+
+        
     }
 
 }

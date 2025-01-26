@@ -59,7 +59,7 @@
             btnHuyBo.Location = new Point(216, 232);
             btnHuyBo.Name = "btnHuyBo";
             btnHuyBo.Size = new Size(112, 40);
-            btnHuyBo.TabIndex = 7;
+            btnHuyBo.TabIndex = 4;
             btnHuyBo.Text = "Huỷ Bỏ";
             btnHuyBo.UseVisualStyleBackColor = true;
             btnHuyBo.Click += btnHuyBo_Click;
@@ -70,7 +70,7 @@
             btnDongY.Location = new Point(72, 232);
             btnDongY.Name = "btnDongY";
             btnDongY.Size = new Size(112, 40);
-            btnDongY.TabIndex = 6;
+            btnDongY.TabIndex = 3;
             btnDongY.Text = "Đồng Ý";
             btnDongY.UseVisualStyleBackColor = true;
             btnDongY.Click += btnDongY_Click;

@@ -93,7 +93,7 @@ namespace QuanLyQuanNet.KhachHang
 
             if (KhachHangDAO.Instance.AddKhachHang(tkKhachHang, mkKhachHang))
             {
-                MessageBox.Show("Thêm nhân viên thành công!");
+                MessageBox.Show("Thêm khách hàng thành công!");
 
                 // Cập nhật danh sách nhân viên ở Main
                
@@ -103,7 +103,7 @@ namespace QuanLyQuanNet.KhachHang
             }
             else
             {
-                MessageBox.Show("Thêm nhân viên thất bại!");
+                MessageBox.Show("Thêm khách hàng thất bại!");
             }
         }
     }

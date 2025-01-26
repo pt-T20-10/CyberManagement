@@ -67,7 +67,8 @@ namespace CyberManagementProject
             label33 = new Label();
             grbKhachHang = new GroupBox();
             panel25 = new Panel();
-            textBox11 = new TextBox();
+            cbxNhomKhach = new ComboBox();
+            txtTimKiemKhachHang = new TextBox();
             panel26 = new Panel();
             textBox1 = new TextBox();
             button5 = new Button();
@@ -240,6 +241,7 @@ namespace CyberManagementProject
             lblHome = new Label();
             grbQuanLyNhanVien = new GroupBox();
             panel19 = new Panel();
+            flpNhanVien = new FlowLayoutPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             txtTimKiem = new TextBox();
             pbxTimKiem = new PictureBox();
@@ -321,7 +323,6 @@ namespace CyberManagementProject
             lbTittleKH = new Label();
             pnThongKeKH = new Panel();
             dgvThongKeKH = new DataGridView();
-            flpNhanVien = new FlowLayoutPanel();
             pnlLeft.SuspendLayout();
             pnStatictical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -793,7 +794,8 @@ namespace CyberManagementProject
             // 
             // panel25
             // 
-            panel25.Controls.Add(textBox11);
+            panel25.Controls.Add(cbxNhomKhach);
+            panel25.Controls.Add(txtTimKiemKhachHang);
             panel25.Controls.Add(panel26);
             panel25.Controls.Add(pictureBox13);
             panel25.Location = new Point(8, 40);
@@ -801,22 +803,33 @@ namespace CyberManagementProject
             panel25.Size = new Size(1079, 48);
             panel25.TabIndex = 8;
             // 
-            // textBox11
+            // cbxNhomKhach
             // 
-            textBox11.Location = new Point(8, 8);
-            textBox11.Multiline = true;
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(360, 32);
-            textBox11.TabIndex = 4;
+            cbxNhomKhach.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbxNhomKhach.Location = new Point(432, 8);
+            cbxNhomKhach.Name = "cbxNhomKhach";
+            cbxNhomKhach.Size = new Size(121, 33);
+            cbxNhomKhach.TabIndex = 5;
+            cbxNhomKhach.SelectedIndexChanged += cbxNhomKhach_SelectedIndexChanged;
+            // 
+            // txtTimKiemKhachHang
+            // 
+            txtTimKiemKhachHang.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtTimKiemKhachHang.Location = new Point(8, 8);
+            txtTimKiemKhachHang.Multiline = true;
+            txtTimKiemKhachHang.Name = "txtTimKiemKhachHang";
+            txtTimKiemKhachHang.Size = new Size(360, 32);
+            txtTimKiemKhachHang.TabIndex = 4;
+            txtTimKiemKhachHang.TextChanged += txtTimKiemKhachHang_TextChanged;
             // 
             // panel26
             // 
             panel26.Controls.Add(textBox1);
             panel26.Controls.Add(button5);
             panel26.Controls.Add(button6);
-            panel26.Location = new Point(448, 2);
+            panel26.Location = new Point(568, 0);
             panel26.Name = "panel26";
-            panel26.Size = new Size(211, 45);
+            panel26.Size = new Size(211, 48);
             panel26.TabIndex = 3;
             // 
             // textBox1
@@ -2622,6 +2635,13 @@ namespace CyberManagementProject
             panel19.Size = new Size(1081, 524);
             panel19.TabIndex = 5;
             // 
+            // flpNhanVien
+            // 
+            flpNhanVien.Location = new Point(8, 8);
+            flpNhanVien.Name = "flpNhanVien";
+            flpNhanVien.Size = new Size(1064, 456);
+            flpNhanVien.TabIndex = 4;
+            // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.BackColor = Color.FromArgb(128, 255, 255);
@@ -2640,11 +2660,13 @@ namespace CyberManagementProject
             // txtTimKiem
             // 
             txtTimKiem.BorderStyle = BorderStyle.FixedSingle;
+            txtTimKiem.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtTimKiem.Location = new Point(3, 3);
             txtTimKiem.Multiline = true;
             txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(521, 39);
+            txtTimKiem.Size = new Size(521, 37);
             txtTimKiem.TabIndex = 0;
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
             // pbxTimKiem
             // 
@@ -2653,25 +2675,27 @@ namespace CyberManagementProject
             pbxTimKiem.BorderStyle = BorderStyle.FixedSingle;
             pbxTimKiem.Location = new Point(530, 3);
             pbxTimKiem.Name = "pbxTimKiem";
-            pbxTimKiem.Size = new Size(45, 39);
+            pbxTimKiem.Size = new Size(45, 37);
             pbxTimKiem.SizeMode = PictureBoxSizeMode.Zoom;
             pbxTimKiem.TabIndex = 1;
             pbxTimKiem.TabStop = false;
             // 
             // cbxChucVu
             // 
-            cbxChucVu.FormattingEnabled = true;
+            cbxChucVu.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxChucVu.Location = new Point(581, 3);
             cbxChucVu.Name = "cbxChucVu";
-            cbxChucVu.Size = new Size(122, 40);
-            cbxChucVu.TabIndex = 0;
+            cbxChucVu.Size = new Size(115, 36);
+            cbxChucVu.TabIndex = 2;
+            cbxChucVu.SelectedIndexChanged += cbxChucVu_SelectedIndexChanged_1;
             // 
             // cbxTrangThai
             // 
+            cbxTrangThai.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxTrangThai.FormattingEnabled = true;
-            cbxTrangThai.Location = new Point(709, 3);
+            cbxTrangThai.Location = new Point(702, 3);
             cbxTrangThai.Name = "cbxTrangThai";
-            cbxTrangThai.Size = new Size(122, 40);
+            cbxTrangThai.Size = new Size(122, 36);
             cbxTrangThai.TabIndex = 0;
             // 
             // panel20
@@ -2679,9 +2703,9 @@ namespace CyberManagementProject
             panel20.Controls.Add(txtTrang);
             panel20.Controls.Add(btnNextTrang);
             panel20.Controls.Add(btnLuiTrang);
-            panel20.Location = new Point(837, 3);
+            panel20.Location = new Point(830, 3);
             panel20.Name = "panel20";
-            panel20.Size = new Size(239, 45);
+            panel20.Size = new Size(239, 48);
             panel20.TabIndex = 1;
             // 
             // txtTrang
@@ -2727,7 +2751,7 @@ namespace CyberManagementProject
             panel21.Controls.Add(button3);
             panel21.Controls.Add(textBox2);
             panel21.Controls.Add(label30);
-            panel21.Location = new Point(3, 54);
+            panel21.Location = new Point(3, 57);
             panel21.Name = "panel21";
             panel21.Size = new Size(241, 47);
             panel21.TabIndex = 2;
@@ -3526,13 +3550,6 @@ namespace CyberManagementProject
             dgvThongKeKH.Size = new Size(682, 521);
             dgvThongKeKH.TabIndex = 0;
             // 
-            // flpNhanVien
-            // 
-            flpNhanVien.Location = new Point(8, 8);
-            flpNhanVien.Name = "flpNhanVien";
-            flpNhanVien.Size = new Size(1064, 456);
-            flpNhanVien.TabIndex = 4;
-            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -4009,8 +4026,9 @@ namespace CyberManagementProject
         private Label lbTittleKH;
         private Panel pnThongKeKH;
         private DataGridView dgvThongKeKH;
-        private TextBox textBox11;
+        private TextBox txtTimKiemKhachHang;
         private FlowLayoutPanel flpKhachHang;
         private FlowLayoutPanel flpNhanVien;
+        private ComboBox cbxNhomKhach;
     }
 }

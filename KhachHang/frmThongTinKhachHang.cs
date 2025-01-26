@@ -165,7 +165,7 @@ namespace QuanLyQuanNet.Customer
 
 
                 // Gọi DAO để cập nhật thông tin
-                bool isUpdated = KhachHangDAO.Instance.UpdateKhachHang(ten, soDT, email, diaChi, nhomkhach, tkkh);
+                bool isUpdated = KhachHangDAO.Instance.UpdateKhachHang(tkkh, ten, soDT, email, diaChi, nhomkhach);
 
                 if (isUpdated)
                 {

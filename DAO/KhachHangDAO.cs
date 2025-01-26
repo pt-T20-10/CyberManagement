@@ -26,9 +26,7 @@ namespace CyberManagementProject.DAO
         {
             List<KhachHangDTO> khachhangList = new List<KhachHangDTO>();
 
-            DataTable data = DataProvider.Instance.ExcuteQuery(@" SELECT *
-                                                                  FROM KhachHang kh
-                                                                  INNER JOIN TKKhachHang tkkh ON kh.TKKhachHang = tkkh.TKKhachHang;");
+            DataTable data = DataProvider.Instance.ExcuteQuery(@" EXEC USP_DanhSachKhachHang ");
 
             foreach (DataRow item in data.Rows)
             {
@@ -47,15 +45,14 @@ namespace CyberManagementProject.DAO
             // Chuyển đổi mật khẩu (mkKhachHang) từ chuỗi thành mảng byte (varbinary)
             byte[] mkKhachHangBinary = Encoding.UTF8.GetBytes(mkKhachHang);  // Đổi mật khẩu thành mảng byte
             // Câu lệnh INSERT vào bảng TKKhachHang
-            string query = "INSERT INTO TKKhachHang ( TKKhachHang ,  MKKhachHang) VALUES ( @TKKhachHang  ,  @MKKhachHang )";
+            string query = " EXEC USP_ThemTKKhachHang @TKKhachHang , @MKKhachHang ";
             int result = DataProvider.Instance.ExcuteNonQuery(query, new object[] { TKKhachHang, mkKhachHangBinary });
 
             if (result > 0)
             {
                 // Sau khi thêm TKKhachHang vào bảng TKKhachHang ,  thêm vào bảng KhachHang
                 // Cung cấp các tham số mặc định cho các trường còn lại trong bảng KhachHang
-                string queryKhachHang = "INSERT INTO KhachHang ( TKKhachHang , NhomKhach) " +
-                                       "VALUES (  @TKKhachHang , @NhomKhach )";
+                string queryKhachHang = " EXEC USP_ThemKhachHang @TKKhachHang , @NhomKhach ";
                 string NhomKhach = "Thường"; 
 
                 // Thực hiện thêm dữ liệu vào bảng KhachHang
@@ -68,11 +65,7 @@ namespace CyberManagementProject.DAO
         //thực hiện thao tác hiển thị thông tin Khách hàng khi click vào button
         public KhachHangDTO GetKhachHangDetailsByUser(string TKKhachHang)
         { 
-            DataTable data = DataProvider.Instance.ExcuteQuery(@"
-                        SELECT *
-                        FROM KhachHang kh
-                        INNER JOIN TKKhachHang tkkh ON kh.TKKhachHang = tkkh.TKKhachHang
-                        WHERE kh.TKKhachHang = @TKKhachHang ", new object[] { TKKhachHang });
+            DataTable data = DataProvider.Instance.ExcuteQuery(@" EXEC USP_LayThongTinByTKKhachHang @TKKhachHang ", new object[] { TKKhachHang });
 
             
 
@@ -86,13 +79,11 @@ namespace CyberManagementProject.DAO
 
 
         //Update thông tin khách hàng
-        public bool UpdateKhachHang(string ten, string soDT, string email, string diachi , string nhomkhach , string tkkh)
+        public bool UpdateKhachHang(string tkkh , string ten, string soDT, string email, string diachi , string nhomkhach)
         { 
-            string query = "UPDATE KhachHang " +
-                           "SET Ten = @Ten , SoDT = @SoDT , Email = @Email , DiaChi = @DiaChi ,  NhomKhach = @NhomKhach " +
-                           "WHERE TKKhachHang = @TKKhachHang ";
+            string query = " EXEC USP_UpdateKhachHang @TKKhachHang , @Ten , @SoDT , @Email , @DiaChi , @NhomKhach ";
         int result = DataProvider.Instance.ExcuteNonQuery(query,
-                new object[] { ten, soDT, email, diachi, nhomkhach, tkkh });
+                new object[] { tkkh , ten, soDT, email, diachi, nhomkhach });
 
             return result > 0;
         }
@@ -103,16 +94,10 @@ namespace CyberManagementProject.DAO
         public bool DeleteKhachHangByTKKhachHang(string tkKhachHang)
         {
             // Câu lệnh xóa trong bảng KhachHang
-            string query_NV = @"
-                        DELETE FROM KhachHang
-                        WHERE TKKhachHang = @TKKhachHang ;
-                    ";
+            string query_NV = @" EXEC USP_XoaKhachHang @TKKhachHang ";
 
             // Câu lệnh xóa trong bảng TKKhachHang
-            string query_TKNV = @"
-                        DELETE FROM TKKhachHang
-                        WHERE TKKhachHang = @TKKhachHang ;
-                    ";
+            string query_TKNV = @" EXEC USP_XoaTKKhachHang @TKKhachHang ";
 
             try
             {
@@ -130,6 +115,20 @@ namespace CyberManagementProject.DAO
                 MessageBox.Show($"Lỗi khi xóa khách hàng: {ex.Message}");
                 return false;
             }
+        }
+
+        //phương thức load Nhóm khách từ SQL
+        public List<string> GetDanhSachNhomKhach()
+        {
+            string query = "SELECT DISTINCT NhomKhach FROM KhachHang WHERE NhomKhach IS NOT NULL";
+            DataTable data = DataProvider.Instance.ExcuteQuery(query);
+
+            List<string> danhSachNhomKhach = new List<string>();
+            foreach (DataRow row in data.Rows)
+            {
+                danhSachNhomKhach.Add(row["NhomKhach"].ToString());
+            }
+            return danhSachNhomKhach;
         }
     }
 }

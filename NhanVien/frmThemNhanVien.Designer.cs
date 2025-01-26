@@ -49,7 +49,7 @@
             gbxThemKhachHang.Location = new Point(8, 8);
             gbxThemKhachHang.Name = "gbxThemKhachHang";
             gbxThemKhachHang.Size = new Size(432, 288);
-            gbxThemKhachHang.TabIndex = 1;
+            gbxThemKhachHang.TabIndex = 0;
             gbxThemKhachHang.TabStop = false;
             gbxThemKhachHang.Text = "Thêm Nhân Viên";
             // 
@@ -59,7 +59,7 @@
             btnHuyBo.Location = new Point(216, 232);
             btnHuyBo.Name = "btnHuyBo";
             btnHuyBo.Size = new Size(112, 40);
-            btnHuyBo.TabIndex = 7;
+            btnHuyBo.TabIndex = 4;
             btnHuyBo.Text = "Huỷ Bỏ";
             btnHuyBo.UseVisualStyleBackColor = true;
             // 
@@ -69,7 +69,7 @@
             btnDongY.Location = new Point(72, 232);
             btnDongY.Name = "btnDongY";
             btnDongY.Size = new Size(112, 40);
-            btnDongY.TabIndex = 6;
+            btnDongY.TabIndex = 3;
             btnDongY.Text = "Đồng Ý";
             btnDongY.UseVisualStyleBackColor = true;
             btnDongY.Click += btnDongY_Click;
@@ -105,7 +105,7 @@
             txtIDNhanVien.Name = "txtIDNhanVien";
             txtIDNhanVien.ReadOnly = true;
             txtIDNhanVien.Size = new Size(392, 40);
-            txtIDNhanVien.TabIndex = 0;
+            txtIDNhanVien.TabIndex = 5;
             // 
             // frmThemNhanVien
             // 
