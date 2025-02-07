@@ -1,6 +1,6 @@
-﻿namespace CyberManagementProject.NhanVien
+﻿namespace QuanLyQuanNet.KhachHang
 {
-    partial class frmThemNhanVien
+    partial class frmThemKhachHang
     {
         /// <summary>
         /// Required designer variable.
@@ -31,9 +31,9 @@
             gbxThemKhachHang = new GroupBox();
             btnHuyBo = new Button();
             btnDongY = new Button();
-            txtMatKhauNhanVien = new TextBox();
-            txtTaiKhoanNhanVien = new TextBox();
-            txtIDNhanVien = new TextBox();
+            txtMatKhauKhachHang = new TextBox();
+            txtTaiKhoanKhachHang = new TextBox();
+            txtIDKhachHang = new TextBox();
             gbxThemKhachHang.SuspendLayout();
             SuspendLayout();
             // 
@@ -41,9 +41,9 @@
             // 
             gbxThemKhachHang.Controls.Add(btnHuyBo);
             gbxThemKhachHang.Controls.Add(btnDongY);
-            gbxThemKhachHang.Controls.Add(txtMatKhauNhanVien);
-            gbxThemKhachHang.Controls.Add(txtTaiKhoanNhanVien);
-            gbxThemKhachHang.Controls.Add(txtIDNhanVien);
+            gbxThemKhachHang.Controls.Add(txtMatKhauKhachHang);
+            gbxThemKhachHang.Controls.Add(txtTaiKhoanKhachHang);
+            gbxThemKhachHang.Controls.Add(txtIDKhachHang);
             gbxThemKhachHang.FlatStyle = FlatStyle.Flat;
             gbxThemKhachHang.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbxThemKhachHang.Location = new Point(8, 8);
@@ -51,7 +51,7 @@
             gbxThemKhachHang.Size = new Size(432, 288);
             gbxThemKhachHang.TabIndex = 0;
             gbxThemKhachHang.TabStop = false;
-            gbxThemKhachHang.Text = "Thêm Nhân Viên";
+            gbxThemKhachHang.Text = "Thêm Khách Hàng";
             // 
             // btnHuyBo
             // 
@@ -62,6 +62,7 @@
             btnHuyBo.TabIndex = 4;
             btnHuyBo.Text = "Huỷ Bỏ";
             btnHuyBo.UseVisualStyleBackColor = true;
+            btnHuyBo.Click += btnHuyBo_Click;
             // 
             // btnDongY
             // 
@@ -74,48 +75,48 @@
             btnDongY.UseVisualStyleBackColor = true;
             btnDongY.Click += btnDongY_Click;
             // 
-            // txtMatKhauNhanVien
+            // txtMatKhauKhachHang
             // 
-            txtMatKhauNhanVien.Font = new Font("Segoe UI", 14.25F);
-            txtMatKhauNhanVien.Location = new Point(24, 160);
-            txtMatKhauNhanVien.Multiline = true;
-            txtMatKhauNhanVien.Name = "txtMatKhauNhanVien";
-            txtMatKhauNhanVien.PasswordChar = '*';
-            txtMatKhauNhanVien.Size = new Size(392, 40);
-            txtMatKhauNhanVien.TabIndex = 2;
-            txtMatKhauNhanVien.Enter += txtMatKhau_Enter;
-            txtMatKhauNhanVien.Leave += txtMatKhau_Leave;
+            txtMatKhauKhachHang.Font = new Font("Segoe UI", 14.25F);
+            txtMatKhauKhachHang.Location = new Point(24, 160);
+            txtMatKhauKhachHang.Multiline = true;
+            txtMatKhauKhachHang.Name = "txtMatKhauKhachHang";
+            txtMatKhauKhachHang.PasswordChar = '*';
+            txtMatKhauKhachHang.Size = new Size(392, 40);
+            txtMatKhauKhachHang.TabIndex = 2;
+            txtMatKhauKhachHang.Enter += txtMatKhau_Enter;
+            txtMatKhauKhachHang.Leave += txtMatKhau_Leave;
             // 
-            // txtTaiKhoanNhanVien
+            // txtTaiKhoanKhachHang
             // 
-            txtTaiKhoanNhanVien.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTaiKhoanNhanVien.ForeColor = Color.FromArgb(224, 224, 224);
-            txtTaiKhoanNhanVien.Location = new Point(24, 104);
-            txtTaiKhoanNhanVien.Multiline = true;
-            txtTaiKhoanNhanVien.Name = "txtTaiKhoanNhanVien";
-            txtTaiKhoanNhanVien.Size = new Size(392, 40);
-            txtTaiKhoanNhanVien.TabIndex = 1;
-            txtTaiKhoanNhanVien.Enter += txtTaiKhoan_Enter;
-            txtTaiKhoanNhanVien.Leave += txtTaiKhoan_Leave;
+            txtTaiKhoanKhachHang.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtTaiKhoanKhachHang.ForeColor = Color.FromArgb(224, 224, 224);
+            txtTaiKhoanKhachHang.Location = new Point(24, 104);
+            txtTaiKhoanKhachHang.Multiline = true;
+            txtTaiKhoanKhachHang.Name = "txtTaiKhoanKhachHang";
+            txtTaiKhoanKhachHang.Size = new Size(392, 40);
+            txtTaiKhoanKhachHang.TabIndex = 1;
+            txtTaiKhoanKhachHang.Enter += txtTenKhachHang_Enter;
+            txtTaiKhoanKhachHang.Leave += txtTenKhachHang_Leave;
             // 
-            // txtIDNhanVien
+            // txtIDKhachHang
             // 
-            txtIDNhanVien.Location = new Point(24, 48);
-            txtIDNhanVien.Multiline = true;
-            txtIDNhanVien.Name = "txtIDNhanVien";
-            txtIDNhanVien.ReadOnly = true;
-            txtIDNhanVien.Size = new Size(392, 40);
-            txtIDNhanVien.TabIndex = 5;
+            txtIDKhachHang.Location = new Point(24, 48);
+            txtIDKhachHang.Multiline = true;
+            txtIDKhachHang.Name = "txtIDKhachHang";
+            txtIDKhachHang.ReadOnly = true;
+            txtIDKhachHang.Size = new Size(392, 40);
+            txtIDKhachHang.TabIndex = 0;
             // 
-            // frmThemNhanVien
+            // frmThemKhachHang
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(446, 309);
             Controls.Add(gbxThemKhachHang);
-            Name = "frmThemNhanVien";
+            Name = "frmThemKhachHang";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmThemNhanVien";
+            Text = "frmThemKhachHang";
             gbxThemKhachHang.ResumeLayout(false);
             gbxThemKhachHang.PerformLayout();
             ResumeLayout(false);
@@ -124,10 +125,10 @@
         #endregion
 
         private GroupBox gbxThemKhachHang;
-        private Button btnHuyBo;
+        private TextBox txtIDKhachHang;
+        private TextBox txtMatKhauKhachHang;
+        private TextBox txtTaiKhoanKhachHang;
         private Button btnDongY;
-        private TextBox txtMatKhauNhanVien;
-        private TextBox txtTaiKhoanNhanVien;
-        private TextBox txtIDNhanVien;
+        private Button btnHuyBo;
     }
 }

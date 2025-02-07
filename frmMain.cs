@@ -10,19 +10,166 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyQuanNet;
 using QuanLyQuanNet.KhachHang;
+using CyberManagementProject.NhanVien;
+using CyberManagementProject.DTO;
+using Microsoft.Data.SqlClient;
+using System.Collections;
+using QuanLyQuanNet.Customer;
 
 namespace CyberManagementProject
 {
     public partial class frmMain : Form
     {
+
         public frmMain()
         {
             InitializeComponent();
+
+            LoadKhachHang(); //Load danh sách khách hàng khi frmMain load
+
+            LoadNhanVien(); //Load danh sách nhân viên khi frmMain load
+
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;//Nút tìm kiếm khi frmMain được load
+
+            //Sự kiện cbxTrangThai khi frmMain được load
+            cbxTrangThai.Text = "Đang làm";
+            cbxTrangThai.ForeColor = Color.Gray;
+
+            LoadChucVuToComboBox(); // gọi phương thức load TenChucVu khi frmMain load
+
+            LoadNhomKhachToComboBox(); // gọi phương thức load NhomKhach khi frmMain load
+
         }
 
         #region Hoàng Nghĩa
-        //
 
+        #region Method
+
+        //Load thong tin cua Khach Hang
+        public void LoadKhachHang()
+        {
+            // Xóa tất cả các button hiện tại trong flpKhachHangtrước khi thêm mới
+            flpKhachHang.Controls.Clear();
+
+            List<KhachHangDTO> khachHangList = KhachHangDAO.Instance.LoadKhachHangList();
+
+            foreach (KhachHangDTO item in khachHangList)
+            {
+                Button btn = new Button() { Width = KhachHangDAO.KhachHangWidth, Height = KhachHangDAO.KhachHangHeight };
+
+                //btn.Text = item.TKKhachHang + "\n" + item.NhomKhach;
+                btn.Name = "btnKhachHang_" + item.TKKhachHang;
+                btn.Text = item.TKKhachHang + "\n" + item.NhomKhach;
+                btn.Font = new Font(btn.Font.FontFamily, 8, FontStyle.Regular);
+
+                switch (item.NhomKhach)
+                {
+                    case "Vip":
+                        btn.BackColor = Color.Aqua; break;
+                    default:
+                        btn.BackColor = Color.White; break;
+                }
+
+                flpKhachHang.Controls.Add(btn);
+                btn.Click += btnKhachHang_Click;
+
+            }
+        }
+
+        //Load thong tin cua Nhan Vien
+        public void LoadNhanVien()
+        {
+            // Xóa tất cả các button hiện tại trong flpNhanVien trước khi thêm mới
+            flpNhanVien.Controls.Clear();
+
+            List<NhanVienDTO> nhanvienList = NhanVienDAO.Instance.LoadNhanVienList();
+
+            foreach (NhanVienDTO item in nhanvienList)
+            {
+                Button btn = new Button() { Width = NhanVienDAO.NhanVienWidth, Height = NhanVienDAO.NhanVienHeight };
+
+                //btn.Text = item.TKKhachHang + "\n" + item.NhomKhach;
+                btn.Name = "btnNhanVien_" + item.TKNhanVien;
+                btn.Text = item.TKNhanVien + "\n" + item.TenChucVu;
+                btn.Font = new Font(btn.Font.FontFamily, 8, FontStyle.Regular);
+
+                switch (item.TenChucVu)
+                {
+                    case "Quản lý":
+                        btn.BackColor = Color.Aqua; break;
+                    default:
+                        btn.BackColor = Color.White; break;
+                }
+
+                flpNhanVien.Controls.Add(btn);
+                btn.Click += btnNhanVien_Click;
+
+            }
+        }
+
+        //Tìm kiếm nhân viên theo TKNhanVien
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            string tuKhoa = txtTimKiem.Text.Trim().ToLower(); // Lấy từ khóa và chuyển thành chữ thường
+
+            foreach (Control control in flpNhanVien.Controls)
+            {
+                if (control is Button btn) // Kiểm tra nếu control là Button
+                {
+                    // Tách nội dung của Button (giả sử nội dung là "NV001\nPhục vụ")
+                    string[] noiDungButton = btn.Text.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    // Lấy TKNhanVien từ dòng đầu tiên
+                    string tkNhanVien = noiDungButton.Length > 0 ? noiDungButton[0].ToLower() : string.Empty;
+
+                    // Hiển thị hoặc ẩn Button dựa trên từ khóa
+                    btn.Visible = tkNhanVien.Contains(tuKhoa);
+                }
+            }
+        }
+
+        //Tìm kiếm khách hàng theo TKKhachHang
+        private void txtTimKiemKhachHang_TextChanged(object sender, EventArgs e)
+        {
+            string tuKhoa = txtTimKiemKhachHang.Text.Trim().ToLower(); // Lấy từ khóa và chuyển thành chữ thường
+
+            foreach (Control control in flpKhachHang.Controls)
+            {
+                if (control is Button btn) // Kiểm tra nếu control là Button
+                {
+                    // Tách nội dung của Button (giả sử nội dung là "KH001 \n VIP")
+                    string[] noiDungButton = btn.Text.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    // Lấy TKKhachHang từ dòng đầu tiên
+                    string tkKhachHang = noiDungButton.Length > 0 ? noiDungButton[0].ToLower() : string.Empty;
+
+                    // Hiển thị hoặc ẩn Button dựa trên từ khóa
+                    btn.Visible = tkKhachHang.Contains(tuKhoa);
+                }
+            }
+        }
+
+        //Phương thức load dữ liệu của trường TenChucVu (NhanVien) từ SQL
+        private void LoadChucVuToComboBox()
+        {
+            List<string> danhSachChucVu = NhanVienDAO.Instance.GetDanhSachChucVu();
+            cbxChucVu.Items.Clear();
+            cbxChucVu.Items.Add("Tất cả"); // Thêm tùy chọn để hiển thị tất cả
+            cbxChucVu.Items.AddRange(danhSachChucVu.ToArray());
+            cbxChucVu.SelectedIndex = 0; // Chọn mặc định là "Tất cả"
+        }
+
+        //Phương thức load dữ liệu của trường NhomKhach (NhanVien) từ SQL
+        private void LoadNhomKhachToComboBox()
+        {
+            List<string> danhSachNhomKhach = KhachHangDAO.Instance.GetDanhSachNhomKhach();
+            cbxNhomKhach.Items.Clear();
+            cbxNhomKhach.Items.Add("Tất cả"); // Thêm tùy chọn để hiển thị tất cả
+            cbxNhomKhach.Items.AddRange(danhSachNhomKhach.ToArray());
+            cbxNhomKhach.SelectedIndex = 0; // Chọn mặc định là "Tất cả"
+        }
+        #endregion
+        #region Events
         //thêm nhân viên mới
         private void btnThemMoi_Click(object sender, EventArgs e)
         {
@@ -33,9 +180,136 @@ namespace CyberManagementProject
         //thêm khách hàng mới
         private void btnThemKhachHang_Click(object sender, EventArgs e)
         {
-            frmKhachHang_Add f = new frmKhachHang_Add();
+            frmThemKhachHang f = new frmThemKhachHang();
             f.ShowDialog();
         }
+
+        //Back Home
+        private void lblHome_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpComputer;
+        }
+        private void label33_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpComputer;
+        }
+
+        //Loc Khach Hang
+
+
+        //button Show Khach Hang
+        private void btnKhachHang_Click(object sender, EventArgs e)
+        {
+            // Lấy thông tin khách hàng từ button đã click
+            Button btn = sender as Button;
+            // Tách TKKhachHang và NhomKhach từ button text
+            string[] buttonText = btn.Text.Split('\n');
+            string tkKhachHang = buttonText[0]; // TKKhachHang là dòng đầu tiên trên button
+
+            // Tạo một đối tượng DTO từ TKKhachHang
+            KhachHangDTO khachHang = KhachHangDAO.Instance.GetKhachHangDetailsByUser(tkKhachHang);
+
+            // Nếu lấy được khách hàng, mở form chi tiết và truyền thông tin khách hàng vào
+            if (khachHang != null)
+            {
+                frmThongTinKhachHang frm = new frmThongTinKhachHang(khachHang);
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy khách hàng!");
+            }
+        }
+
+
+        //button Show Nhan Vien
+        private void btnNhanVien_Click(object sender, EventArgs e)
+        {
+            // Lấy thông tin khách hàng từ button đã click
+            Button btn = sender as Button;
+            // Tách TKNhanVien va TenChucVu từ button text
+            string[] buttonText = btn.Text.Split('\n');
+            string tkNhanVien = buttonText[0]; // TKNhanVien là dòng đầu tiên trên button
+
+            // Tạo một đối tượng DTO từ TKKhachHang
+            NhanVienDTO nhanvien = NhanVienDAO.Instance.GetNhanVienDetailsByUser(tkNhanVien);
+
+            // Nếu lấy được khách hàng, mở form chi tiết và truyền thông tin khách hàng vào
+            if (nhanvien != null)
+            {
+                frmThongTinNhanVien frm = new frmThongTinNhanVien(nhanvien);
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Khong tim thay nhan vien!");
+            }
+        }
+
+
+        //Sự kiện nút cbxChucVu
+
+        private void cbxTrangThai_Enter(object sender, EventArgs e)
+        {
+            if (cbxTrangThai.Text == "Đang làm")
+            {
+                cbxTrangThai.Text = ""; // Xóa nội dung mặc định
+                cbxTrangThai.ForeColor = Color.Black; // Đổi màu chữ thành đen
+            }
+        }
+        private void cbxTrangThai_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cbxChucVu.Text)) //Kiểm tra ô textbox rỗng
+            {
+                cbxTrangThai.Text = "Đang làm"; // Hiển thị lại nội dung mặc định
+                cbxTrangThai.ForeColor = Color.Gray; // Đổi màu chữ thành mờ
+            }
+        }
+
+        //lọc nhân viên theo TenChucVu
+        private void cbxChucVu_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            string chucVuDuocChon = cbxChucVu.SelectedItem.ToString().ToLower();
+
+            foreach (Control control in flpNhanVien.Controls)
+            {
+                if (control is Button btn)
+                {
+                    // Tách nội dung của Button
+                    string[] noiDungButton = btn.Text.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    // Lấy TenChucVu từ dòng thứ hai
+                    string tenChucVu = noiDungButton.Length > 1 ? noiDungButton[1].ToLower() : string.Empty;
+
+                    // Hiển thị hoặc ẩn Button dựa trên chức vụ được chọn
+                    btn.Visible = chucVuDuocChon == "tất cả" || tenChucVu == chucVuDuocChon;
+                }
+            }
+        }
+
+        //lọc khách hàng theo NhomKhach
+        private void cbxNhomKhach_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string nhomKhachDuocChon = cbxNhomKhach.SelectedItem.ToString().ToLower();
+
+            foreach (Control control in flpKhachHang.Controls)
+            {
+                if (control is Button btn)
+                {
+                    // Tách nội dung của Button
+                    string[] noiDung = btn.Text.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    // Lấy nhomKhach từ dòng thứ hai
+                    string nhomKhach = noiDung.Length > 1 ? noiDung[1].ToLower() : string.Empty;
+
+                    // Hiển thị hoặc ẩn Button dựa trên chức vụ được chọn
+                    btn.Visible = nhomKhachDuocChon == "tất cả" || nhomKhach == nhomKhachDuocChon;
+                }
+            }
+        }
+
+        #endregion
+
         #endregion
 
         #region Trung Nghĩa
@@ -113,13 +387,13 @@ namespace CyberManagementProject
         {
             tblMain.SelectedTab = tbpStatictical;
         }
+
         #endregion
         #region Method
         #endregion
-
         #endregion
 
-
+        
     }
 
 }

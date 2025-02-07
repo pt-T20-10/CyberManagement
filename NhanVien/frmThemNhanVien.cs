@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CyberManagementProject.DAO;
+using QuanLyQuanNet.KhachHang;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,30 +10,72 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyQuanNet
+namespace CyberManagementProject.NhanVien
 {
     public partial class frmThemNhanVien : Form
     {
         public frmThemNhanVien()
         {
             InitializeComponent();
+
+            //khởi tạo text mặc định cho các ô textbox
+
+            txtTaiKhoanNhanVien.Text = "Tài khoản";
+            txtTaiKhoanNhanVien.ForeColor = Color.Gray;
+
+
+            txtMatKhauNhanVien.PasswordChar = '\0';
+            txtMatKhauNhanVien.Text = "Mật khẩu";
+            txtMatKhauNhanVien.ForeColor = Color.Gray;
         }
 
-        private void frmThemNhanVien_Load(object sender, EventArgs e)
+        private void txtTaiKhoan_Enter(object sender, EventArgs e)
         {
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCancelThemNhanVien_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Ban co chac chan muon thoat chuong trinh khong?", "Thong bao", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.OK)
+            if (txtTaiKhoanNhanVien.Text == "Tài khoản")
             {
-                MessageBox.Show("Hen gap lai ban");
+                txtTaiKhoanNhanVien.Text = ""; // Xóa nội dung mặc định
+                txtTaiKhoanNhanVien.ForeColor = Color.Black; // Đổi màu chữ thành đen
+            }
+        }
+
+        private void txtTaiKhoan_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtTaiKhoanNhanVien.Text)) //Kiểm tra ô textbox rỗng
+            {
+                txtTaiKhoanNhanVien.Text = "Tài khoản"; // Hiển thị lại nội dung mặc định
+                txtTaiKhoanNhanVien.ForeColor = Color.Gray; // Đổi màu chữ thành mờ
+            }
+        }
+
+        private void txtMatKhau_Enter(object sender, EventArgs e)
+        {
+            if (txtMatKhauNhanVien.Text == "Mật khẩu")
+            {
+                txtMatKhauNhanVien.PasswordChar = '*';
+                txtMatKhauNhanVien.Text = ""; // Xóa nội dung mặc định
+                txtMatKhauNhanVien.ForeColor = Color.Black; // Đổi màu chữ thành đen
+            }
+        }
+
+        private void txtMatKhau_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMatKhauNhanVien.Text)) //Kiểm tra ô textbox rỗng
+            {
+                txtMatKhauNhanVien.PasswordChar = '\0';
+                txtMatKhauNhanVien.Text = "Mật khẩu"; // Hiển thị lại nội dung mặc định
+                txtMatKhauNhanVien.ForeColor = Color.Gray; // Đổi màu chữ thành mờ
+            }
+        }
+
+        private void btnHuyBo_Click(object sender, EventArgs e)
+        {
+            frmKhachHang_Main f = new frmKhachHang_Main();
+            DialogResult dialog = MessageBox.Show("Ban co muon thoat?",
+                            "Thong Bao",
+                            MessageBoxButtons.OKCancel,
+                            MessageBoxIcon.Question);
+            if (dialog == DialogResult.OK)
+            {
                 this.Close();
             }
             else
@@ -42,52 +86,27 @@ namespace QuanLyQuanNet
 
 
 
-        private void btnChonAnh_Click(object sender, EventArgs e)
+        //thủ tục thêm mới nhân viên
+        private void btnDongY_Click(object sender, EventArgs e)
         {
-            string folderPath = @"D:\LapTrinhNet\TEST_PULL_PUSH\Picture";
+            string tkNhanVien = txtTaiKhoanNhanVien.Text;
+            string mkNhanVien = txtMatKhauNhanVien.Text;
 
-            // Kiểm tra thư mục có tồn tại không
-            if (!Directory.Exists(folderPath))
+            if (NhanVienDAO.Instance.AddNhanVien(tkNhanVien, mkNhanVien))
             {
-                MessageBox.Show("Thư mục không tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show("Thêm nhân viên thành công!");
+                // Cập nhật danh sách nhân viên ở Main
+                frmMain? mainForm = Application.OpenForms["frmMain"] as frmMain;
+                mainForm.LoadNhanVien(); // Gọi trước khi đóng form
+                this.Close();
             }
-
-            try
+            else
             {
-                // Tạo hộp thoại chọn file
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-
-                // Thiết lập thư mục mở ban đầu
-                openFileDialog.InitialDirectory = folderPath;
-
-                // Bộ lọc file (chỉ hiện các file ảnh)
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-
-                // Tiêu đề của hộp thoại
-                openFileDialog.Title = "Chọn ảnh";
-
-                // Hiển thị hộp thoại và kiểm tra nếu người dùng nhấn OK
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    // Lấy đường dẫn file đã chọn
-                    string selectedFilePath = openFileDialog.FileName;
-
-                    // Hiển thị ảnh trong PictureBox
-                    pbxAnhNhanVien.Image = Image.FromFile(selectedFilePath);
-                    pbxAnhNhanVien.SizeMode = PictureBoxSizeMode.StretchImage; // Co giãn ảnh vừa với khung
-                }
+                MessageBox.Show("Thêm nhân viên thất bại!");
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Không thể mở thư mục. Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
 
-        private void btnCancelThemNhanVien_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
+
     }
 }
