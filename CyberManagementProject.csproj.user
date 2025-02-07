@@ -42,6 +42,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="frmMain.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Update="Music\frmMusic.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>

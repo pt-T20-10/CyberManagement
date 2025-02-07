@@ -368,7 +368,7 @@ FodyWeavers.xsd
 # Bỏ qua thư mục build output
 bin/
 obj/
-
+*.DataProvider.cs
 # Bỏ qua các file cấu hình tạm thời
 *.user
 *.suo
