@@ -806,7 +806,7 @@ namespace CyberManagementProject
             // cbxNhomKhach
             // 
             cbxNhomKhach.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbxNhomKhach.Location = new Point(432, 8);
+            cbxNhomKhach.Location = new Point(440, 8);
             cbxNhomKhach.Name = "cbxNhomKhach";
             cbxNhomKhach.Size = new Size(121, 33);
             cbxNhomKhach.TabIndex = 5;

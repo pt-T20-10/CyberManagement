@@ -49,12 +49,6 @@ namespace QuanLyQuanNet
                 MessageBox.Show("Khong tim thay nhan vien.");
 
         }
-        private AddNewNhanVienDTO nhanVien;
-
-        public frmThongTinNhanVien(AddNewNhanVienDTO nhanVien)
-        {
-            this.nhanVien = nhanVien;
-        }
 
         private void frmThemNhanVien_Load(object sender, EventArgs e)
         {

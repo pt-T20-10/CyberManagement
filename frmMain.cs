@@ -29,7 +29,7 @@ namespace CyberManagementProject
 
             LoadNhanVien(); //Load danh sách nhân viên khi frmMain load
 
-            txtTimKiem.TextChanged += txtTimKiem_TextChanged; //Nút tìm kiếm khi frmMain được load
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;//Nút tìm kiếm khi frmMain được load
 
             //Sự kiện cbxTrangThai khi frmMain được load
             cbxTrangThai.Text = "Đang làm";
