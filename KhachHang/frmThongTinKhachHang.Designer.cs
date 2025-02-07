@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             gbxThemKhachHang = new GroupBox();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
             cbxLoaiKhachHang = new ComboBox();
             btnDong = new Button();
             btnXoa = new Button();
@@ -38,12 +44,6 @@
             txtSoDTKhachHang = new TextBox();
             txtTenKhachHang = new TextBox();
             txtIDKhachHang = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
             gbxThemKhachHang.SuspendLayout();
             SuspendLayout();
             // 
@@ -72,10 +72,64 @@
             gbxThemKhachHang.TabIndex = 1;
             gbxThemKhachHang.TabStop = false;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(32, 328);
+            label6.Name = "label6";
+            label6.Size = new Size(75, 30);
+            label6.TabIndex = 9;
+            label6.Text = "Nhóm";
+            // 
+            // label5
+            // 
+            label5.Location = new Point(24, 280);
+            label5.Name = "label5";
+            label5.Size = new Size(88, 30);
+            label5.TabIndex = 9;
+            label5.Text = "Địa chỉ";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(40, 224);
+            label4.Name = "label4";
+            label4.Size = new Size(66, 30);
+            label4.TabIndex = 9;
+            label4.Text = "Email";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(40, 168);
+            label3.Name = "label3";
+            label3.Size = new Size(71, 30);
+            label3.TabIndex = 9;
+            label3.Text = "Số ĐT";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(64, 112);
+            label2.Name = "label2";
+            label2.Size = new Size(47, 30);
+            label2.TabIndex = 9;
+            label2.Text = "Tên";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(72, 56);
+            label1.Name = "label1";
+            label1.Size = new Size(35, 30);
+            label1.TabIndex = 9;
+            label1.Text = "ID";
+            // 
             // cbxLoaiKhachHang
             // 
             cbxLoaiKhachHang.Font = new Font("Segoe UI", 14.25F);
             cbxLoaiKhachHang.FormattingEnabled = true;
+            cbxLoaiKhachHang.Items.AddRange(new object[] { "VIP", "Thường" });
             cbxLoaiKhachHang.Location = new Point(120, 328);
             cbxLoaiKhachHang.Name = "cbxLoaiKhachHang";
             cbxLoaiKhachHang.Size = new Size(296, 33);
@@ -169,59 +223,6 @@
             txtIDKhachHang.ReadOnly = true;
             txtIDKhachHang.Size = new Size(296, 40);
             txtIDKhachHang.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(72, 56);
-            label1.Name = "label1";
-            label1.Size = new Size(35, 30);
-            label1.TabIndex = 9;
-            label1.Text = "ID";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(64, 112);
-            label2.Name = "label2";
-            label2.Size = new Size(47, 30);
-            label2.TabIndex = 9;
-            label2.Text = "Tên";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(40, 168);
-            label3.Name = "label3";
-            label3.Size = new Size(71, 30);
-            label3.TabIndex = 9;
-            label3.Text = "Số ĐT";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(40, 224);
-            label4.Name = "label4";
-            label4.Size = new Size(66, 30);
-            label4.TabIndex = 9;
-            label4.Text = "Email";
-            // 
-            // label5
-            // 
-            label5.Location = new Point(24, 280);
-            label5.Name = "label5";
-            label5.Size = new Size(88, 30);
-            label5.TabIndex = 9;
-            label5.Text = "Địa chỉ";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(32, 328);
-            label6.Name = "label6";
-            label6.Size = new Size(75, 30);
-            label6.TabIndex = 9;
-            label6.Text = "Nhóm";
             // 
             // frmThongTinKhachHang
             // 
