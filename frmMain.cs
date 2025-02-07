@@ -315,10 +315,6 @@ namespace CyberManagementProject
         #region Trung Nghĩa
         //
         #endregion
-        private void label29_Click(object sender, EventArgs e)
-        {
-
-        }
 
         #region Hoàng Lễ
         //
@@ -387,13 +383,57 @@ namespace CyberManagementProject
         {
             tblMain.SelectedTab = tbpStatictical;
         }
+        private void label27_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpComputer;
+        }
 
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpComputer;
+        }
+        private void label28_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpAccount;
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpAccount;
+        }
+        private void label29_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpServices;
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpServices;
+        }
+        private void lblNhanVien_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpStaff;
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpStaff;
+        }
+        private void label31_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpStatictical;
+        }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpStatictical;
+        }
         #endregion
         #region Method
         #endregion
         #endregion
 
-        
+
     }
 
 }

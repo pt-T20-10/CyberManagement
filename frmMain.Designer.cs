@@ -444,6 +444,7 @@ namespace CyberManagementProject
             pictureBox12.Size = new Size(50, 50);
             pictureBox12.TabIndex = 5;
             pictureBox12.TabStop = false;
+            pictureBox12.Click += pictureBox12_Click;
             // 
             // label31
             // 
@@ -454,6 +455,7 @@ namespace CyberManagementProject
             label31.Size = new Size(116, 32);
             label31.TabIndex = 4;
             label31.Text = "Thống kê";
+            label31.Click += label31_Click;
             // 
             // pnStaff
             // 
@@ -473,6 +475,7 @@ namespace CyberManagementProject
             pictureBox11.Size = new Size(50, 50);
             pictureBox11.TabIndex = 5;
             pictureBox11.TabStop = false;
+            pictureBox11.Click += pictureBox11_Click;
             // 
             // lblNhanVien
             // 
@@ -483,6 +486,7 @@ namespace CyberManagementProject
             lblNhanVien.Size = new Size(125, 32);
             lblNhanVien.TabIndex = 4;
             lblNhanVien.Text = "Nhân viên";
+            lblNhanVien.Click += lblNhanVien_Click;
             // 
             // pnServices
             // 
@@ -502,6 +506,7 @@ namespace CyberManagementProject
             pictureBox10.Size = new Size(50, 50);
             pictureBox10.TabIndex = 5;
             pictureBox10.TabStop = false;
+            pictureBox10.Click += pictureBox10_Click;
             // 
             // label29
             // 
@@ -532,6 +537,7 @@ namespace CyberManagementProject
             pictureBox9.Size = new Size(50, 50);
             pictureBox9.TabIndex = 5;
             pictureBox9.TabStop = false;
+            pictureBox9.Click += pictureBox9_Click;
             // 
             // label28
             // 
@@ -542,6 +548,7 @@ namespace CyberManagementProject
             label28.Size = new Size(119, 32);
             label28.TabIndex = 4;
             label28.Text = "Tài khoản";
+            label28.Click += label28_Click;
             // 
             // pnComputer
             // 
@@ -561,6 +568,7 @@ namespace CyberManagementProject
             pictureBox8.Size = new Size(50, 50);
             pictureBox8.TabIndex = 5;
             pictureBox8.TabStop = false;
+            pictureBox8.Click += pictureBox8_Click;
             // 
             // label27
             // 
@@ -571,6 +579,7 @@ namespace CyberManagementProject
             label27.Size = new Size(111, 32);
             label27.TabIndex = 4;
             label27.Text = "Máy tính";
+            label27.Click += label27_Click;
             // 
             // panel2
             // 
@@ -744,7 +753,7 @@ namespace CyberManagementProject
             grbKhachHang.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             grbKhachHang.Location = new Point(13, 64);
             grbKhachHang.Name = "grbKhachHang";
-            grbKhachHang.Size = new Size(1088, 608);
+            grbKhachHang.Size = new Size(1088, 600);
             grbKhachHang.TabIndex = 11;
             grbKhachHang.TabStop = false;
             grbKhachHang.Text = "Quản Lý Khách Hàng";
@@ -826,7 +835,7 @@ namespace CyberManagementProject
             panel27.Controls.Add(flpKhachHang);
             panel27.Location = new Point(8, 96);
             panel27.Name = "panel27";
-            panel27.Size = new Size(1072, 560);
+            panel27.Size = new Size(1072, 512);
             panel27.TabIndex = 7;
             // 
             // flpKhachHang
@@ -834,7 +843,7 @@ namespace CyberManagementProject
             flpKhachHang.AutoScroll = true;
             flpKhachHang.Location = new Point(8, 8);
             flpKhachHang.Name = "flpKhachHang";
-            flpKhachHang.Size = new Size(1056, 504);
+            flpKhachHang.Size = new Size(1056, 488);
             flpKhachHang.TabIndex = 0;
             // 
             // tbpComputer
