@@ -21,6 +21,8 @@ namespace QuanLyQuanNet.Customer
         {
             InitializeComponent();
 
+            LoadLoaiKhach();
+
             // Hiển thị thông tin khách hàng vào các control trên form
             if (khachHang != null)
             {
@@ -217,6 +219,29 @@ namespace QuanLyQuanNet.Customer
                 {
                     MessageBox.Show($"Lỗi: {ex.Message}");
                 }
+            }
+        }
+
+        private void cbxLoaiKhachHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            frmMain? mainForm = Application.OpenForms["frmMain"] as frmMain;
+            mainForm.LoadKhachHang(); 
+        }
+
+        private void LoadLoaiKhach()
+        {
+            cbxLoaiKhachHang.Items.Clear(); // Xóa dữ liệu cũ
+
+            List<string> danhSachNhomKhach = KhachHangDAO.Instance.GetDanhSachNhomKhach();
+
+            foreach (string nhomKhach in danhSachNhomKhach)
+            {
+                cbxLoaiKhachHang.Items.Add(nhomKhach);
+            }
+
+            if (cbxLoaiKhachHang.Items.Count > 0)
+            {
+                cbxLoaiKhachHang.SelectedIndex = 0; // Chọn mặc định dòng đầu tiên
             }
         }
     }

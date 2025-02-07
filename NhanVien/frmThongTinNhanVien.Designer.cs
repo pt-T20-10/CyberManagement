@@ -134,6 +134,7 @@
             cbxKieuLamNhanVien.Name = "cbxKieuLamNhanVien";
             cbxKieuLamNhanVien.Size = new Size(416, 23);
             cbxKieuLamNhanVien.TabIndex = 4;
+            cbxKieuLamNhanVien.SelectedIndexChanged += cbxKieuLamNhanVien_SelectedIndexChanged;
             // 
             // cbxChucVuNhanVien
             // 
@@ -143,6 +144,7 @@
             cbxChucVuNhanVien.Name = "cbxChucVuNhanVien";
             cbxChucVuNhanVien.Size = new Size(416, 23);
             cbxChucVuNhanVien.TabIndex = 3;
+            cbxChucVuNhanVien.SelectedIndexChanged += cbxChucVuNhanVien_SelectedIndexChanged;
             // 
             // cbxBoPhanNhanVien
             // 
@@ -152,6 +154,7 @@
             cbxBoPhanNhanVien.Name = "cbxBoPhanNhanVien";
             cbxBoPhanNhanVien.Size = new Size(416, 23);
             cbxBoPhanNhanVien.TabIndex = 2;
+            cbxBoPhanNhanVien.SelectedIndexChanged += cbxBoPhanNhanVien_SelectedIndexChanged;
             // 
             // txtIDNhanVien
             // 

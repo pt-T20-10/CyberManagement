@@ -207,5 +207,41 @@ namespace QuanLyQuanNet
                 }
             }
         }
+
+        private void cbxBoPhanNhanVien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            frmMain? mainForm = Application.OpenForms["frmMain"] as frmMain;
+            mainForm.LoadNhanVien();
+        }
+
+        private void cbxChucVuNhanVien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            frmMain? mainForm = Application.OpenForms["frmMain"] as frmMain;
+            mainForm.LoadKhachHang();
+        }
+
+        private void cbxKieuLamNhanVien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            frmMain? mainForm = Application.OpenForms["frmMain"] as frmMain;
+            mainForm.LoadKhachHang();
+        }
+
+        private void LoadChucVu()
+        {
+            cbxChucVuNhanVien.Items.Clear(); // Xóa dữ liệu cũ
+
+            List<string> danhSachNhomKhach = NhanVienDAO.Instance.GetDanhSachChucVu();
+
+            foreach (string nhomKhach in danhSachNhomKhach)
+            {
+                cbxChucVuNhanVien.Items.Add(nhomKhach);
+            }
+
+            if (cbxChucVuNhanVien.Items.Count > 0)
+            {
+                cbxChucVuNhanVien.SelectedIndex = 0; // Chọn mặc định dòng đầu tiên
+            }
+        }
     }
 }
