@@ -76,16 +76,6 @@ namespace CyberManagementProject
             pictureBox13 = new PictureBox();
             panel27 = new Panel();
             flpKhachHang = new FlowLayoutPanel();
-            flpLoc = new FlowLayoutPanel();
-            checkBox1 = new CheckBox();
-            checkBox2 = new CheckBox();
-            checkBox3 = new CheckBox();
-            checkBox4 = new CheckBox();
-            checkBox5 = new CheckBox();
-            checkBox6 = new CheckBox();
-            checkBox7 = new CheckBox();
-            checkBox8 = new CheckBox();
-            checkBox9 = new CheckBox();
             tbpComputer = new TabPage();
             pnComputerControl = new Panel();
             gbxComputerInfor = new GroupBox();
@@ -344,7 +334,6 @@ namespace CyberManagementProject
             panel26.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
             panel27.SuspendLayout();
-            flpLoc.SuspendLayout();
             tbpComputer.SuspendLayout();
             pnComputerControl.SuspendLayout();
             gbxComputerInfor.SuspendLayout();
@@ -473,6 +462,7 @@ namespace CyberManagementProject
             pictureBox12.Size = new Size(50, 50);
             pictureBox12.TabIndex = 5;
             pictureBox12.TabStop = false;
+            pictureBox12.Click += pictureBox12_Click;
             // 
             // label31
             // 
@@ -483,6 +473,7 @@ namespace CyberManagementProject
             label31.Size = new Size(116, 32);
             label31.TabIndex = 4;
             label31.Text = "Thống kê";
+            label31.Click += label31_Click;
             // 
             // pnStaff
             // 
@@ -502,6 +493,7 @@ namespace CyberManagementProject
             pictureBox11.Size = new Size(50, 50);
             pictureBox11.TabIndex = 5;
             pictureBox11.TabStop = false;
+            pictureBox11.Click += pictureBox11_Click;
             // 
             // lblNhanVien
             // 
@@ -512,6 +504,7 @@ namespace CyberManagementProject
             lblNhanVien.Size = new Size(125, 32);
             lblNhanVien.TabIndex = 4;
             lblNhanVien.Text = "Nhân viên";
+            lblNhanVien.Click += lblNhanVien_Click;
             // 
             // pnServices
             // 
@@ -531,6 +524,7 @@ namespace CyberManagementProject
             pictureBox10.Size = new Size(50, 50);
             pictureBox10.TabIndex = 5;
             pictureBox10.TabStop = false;
+            pictureBox10.Click += pictureBox10_Click;
             // 
             // label29
             // 
@@ -561,6 +555,7 @@ namespace CyberManagementProject
             pictureBox9.Size = new Size(50, 50);
             pictureBox9.TabIndex = 5;
             pictureBox9.TabStop = false;
+            pictureBox9.Click += pictureBox9_Click;
             // 
             // label28
             // 
@@ -571,6 +566,7 @@ namespace CyberManagementProject
             label28.Size = new Size(119, 32);
             label28.TabIndex = 4;
             label28.Text = "Tài khoản";
+            label28.Click += label28_Click;
             // 
             // pnComputer
             // 
@@ -590,6 +586,7 @@ namespace CyberManagementProject
             pictureBox8.Size = new Size(50, 50);
             pictureBox8.TabIndex = 5;
             pictureBox8.TabStop = false;
+            pictureBox8.Click += pictureBox8_Click;
             // 
             // label27
             // 
@@ -600,6 +597,7 @@ namespace CyberManagementProject
             label27.Size = new Size(111, 32);
             label27.TabIndex = 4;
             label27.Text = "Máy tính";
+            label27.Click += label27_Click;
             // 
             // panel2
             // 
@@ -783,11 +781,10 @@ namespace CyberManagementProject
             // 
             grbKhachHang.Controls.Add(panel25);
             grbKhachHang.Controls.Add(panel27);
-            grbKhachHang.Controls.Add(flpLoc);
             grbKhachHang.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             grbKhachHang.Location = new Point(13, 64);
             grbKhachHang.Name = "grbKhachHang";
-            grbKhachHang.Size = new Size(1088, 608);
+            grbKhachHang.Size = new Size(1088, 600);
             grbKhachHang.TabIndex = 11;
             grbKhachHang.TabStop = false;
             grbKhachHang.Text = "Quản Lý Khách Hàng";
@@ -882,7 +879,7 @@ namespace CyberManagementProject
             panel27.Controls.Add(flpKhachHang);
             panel27.Location = new Point(8, 96);
             panel27.Name = "panel27";
-            panel27.Size = new Size(1072, 560);
+            panel27.Size = new Size(1072, 512);
             panel27.TabIndex = 7;
             // 
             // flpKhachHang
@@ -890,125 +887,8 @@ namespace CyberManagementProject
             flpKhachHang.AutoScroll = true;
             flpKhachHang.Location = new Point(8, 8);
             flpKhachHang.Name = "flpKhachHang";
-            flpKhachHang.Size = new Size(1056, 504);
+            flpKhachHang.Size = new Size(1056, 488);
             flpKhachHang.TabIndex = 0;
-            // 
-            // flpLoc
-            // 
-            flpLoc.Controls.Add(checkBox1);
-            flpLoc.Controls.Add(checkBox2);
-            flpLoc.Controls.Add(checkBox3);
-            flpLoc.Controls.Add(checkBox4);
-            flpLoc.Controls.Add(checkBox5);
-            flpLoc.Controls.Add(checkBox6);
-            flpLoc.Controls.Add(checkBox7);
-            flpLoc.Controls.Add(checkBox8);
-            flpLoc.Controls.Add(checkBox9);
-            flpLoc.Location = new Point(872, -32);
-            flpLoc.Margin = new Padding(20);
-            flpLoc.Name = "flpLoc";
-            flpLoc.Size = new Size(216, 296);
-            flpLoc.TabIndex = 0;
-            flpLoc.Visible = false;
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox1.Location = new Point(3, 3);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(102, 25);
-            checkBox1.TabIndex = 0;
-            checkBox1.Text = "checkBox1";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            checkBox2.AutoSize = true;
-            checkBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox2.Location = new Point(111, 3);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(102, 25);
-            checkBox2.TabIndex = 0;
-            checkBox2.Text = "checkBox1";
-            checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            checkBox3.AutoSize = true;
-            checkBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox3.Location = new Point(3, 34);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(102, 25);
-            checkBox3.TabIndex = 0;
-            checkBox3.Text = "checkBox1";
-            checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            checkBox4.AutoSize = true;
-            checkBox4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox4.Location = new Point(111, 34);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Size = new Size(102, 25);
-            checkBox4.TabIndex = 0;
-            checkBox4.Text = "checkBox1";
-            checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            checkBox5.AutoSize = true;
-            checkBox5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox5.Location = new Point(3, 65);
-            checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(102, 25);
-            checkBox5.TabIndex = 0;
-            checkBox5.Text = "checkBox1";
-            checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox6
-            // 
-            checkBox6.AutoSize = true;
-            checkBox6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox6.Location = new Point(111, 65);
-            checkBox6.Name = "checkBox6";
-            checkBox6.Size = new Size(102, 25);
-            checkBox6.TabIndex = 0;
-            checkBox6.Text = "checkBox1";
-            checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            checkBox7.AutoSize = true;
-            checkBox7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox7.Location = new Point(3, 96);
-            checkBox7.Name = "checkBox7";
-            checkBox7.Size = new Size(102, 25);
-            checkBox7.TabIndex = 0;
-            checkBox7.Text = "checkBox1";
-            checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            checkBox8.AutoSize = true;
-            checkBox8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox8.Location = new Point(111, 96);
-            checkBox8.Name = "checkBox8";
-            checkBox8.Size = new Size(102, 25);
-            checkBox8.TabIndex = 0;
-            checkBox8.Text = "checkBox1";
-            checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // checkBox9
-            // 
-            checkBox9.AutoSize = true;
-            checkBox9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox9.Location = new Point(3, 127);
-            checkBox9.Name = "checkBox9";
-            checkBox9.Size = new Size(102, 25);
-            checkBox9.TabIndex = 0;
-            checkBox9.Text = "checkBox1";
-            checkBox9.UseVisualStyleBackColor = true;
             // 
             // tbpComputer
             // 
@@ -3591,8 +3471,6 @@ namespace CyberManagementProject
             panel26.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             panel27.ResumeLayout(false);
-            flpLoc.ResumeLayout(false);
-            flpLoc.PerformLayout();
             tbpComputer.ResumeLayout(false);
             pnComputerControl.ResumeLayout(false);
             gbxComputerInfor.ResumeLayout(false);
@@ -3867,16 +3745,6 @@ namespace CyberManagementProject
         private Button button6;
         private PictureBox pictureBox13;
         private Panel panel27;
-        private FlowLayoutPanel flpLoc;
-        private CheckBox checkBox1;
-        private CheckBox checkBox2;
-        private CheckBox checkBox3;
-        private CheckBox checkBox4;
-        private CheckBox checkBox5;
-        private CheckBox checkBox6;
-        private CheckBox checkBox7;
-        private CheckBox checkBox8;
-        private CheckBox checkBox9;
         private Panel panel13;
         private Label label34;
         private Label label35;
