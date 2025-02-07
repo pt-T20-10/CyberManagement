@@ -129,6 +129,7 @@
             // cbxKieuLamNhanVien
             // 
             cbxKieuLamNhanVien.FormattingEnabled = true;
+            cbxKieuLamNhanVien.Items.AddRange(new object[] { "Parttime ", "Fulltime" });
             cbxKieuLamNhanVien.Location = new Point(128, 176);
             cbxKieuLamNhanVien.Name = "cbxKieuLamNhanVien";
             cbxKieuLamNhanVien.Size = new Size(416, 23);
@@ -137,6 +138,7 @@
             // cbxChucVuNhanVien
             // 
             cbxChucVuNhanVien.FormattingEnabled = true;
+            cbxChucVuNhanVien.Items.AddRange(new object[] { "Thu ngân", "Phục vụ", "Quản lý" });
             cbxChucVuNhanVien.Location = new Point(128, 136);
             cbxChucVuNhanVien.Name = "cbxChucVuNhanVien";
             cbxChucVuNhanVien.Size = new Size(416, 23);
@@ -145,6 +147,7 @@
             // cbxBoPhanNhanVien
             // 
             cbxBoPhanNhanVien.FormattingEnabled = true;
+            cbxBoPhanNhanVien.Items.AddRange(new object[] { "Nhân sự", "Kế toán", "Kỹ thuật", "Bảo vệ" });
             cbxBoPhanNhanVien.Location = new Point(128, 96);
             cbxBoPhanNhanVien.Name = "cbxBoPhanNhanVien";
             cbxBoPhanNhanVien.Size = new Size(416, 23);
