@@ -24,7 +24,16 @@ namespace CyberManagementProject
         public frmMain()
         {
             InitializeComponent();
+            Load();
+          
 
+        }
+
+        #region Hoàng Nghĩa
+
+        #region Method
+        void Load()
+        {
             LoadKhachHang(); //Load danh sách khách hàng khi frmMain load
 
             LoadNhanVien(); //Load danh sách nhân viên khi frmMain load
@@ -38,13 +47,7 @@ namespace CyberManagementProject
             LoadChucVuToComboBox(); // gọi phương thức load TenChucVu khi frmMain load
 
             LoadNhomKhachToComboBox(); // gọi phương thức load NhomKhach khi frmMain load
-
         }
-
-        #region Hoàng Nghĩa
-
-        #region Method
-
         //Load thong tin cua Khach Hang
         public void LoadKhachHang()
         {
