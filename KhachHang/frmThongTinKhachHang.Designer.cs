@@ -129,11 +129,11 @@
             // 
             cbxLoaiKhachHang.Font = new Font("Segoe UI", 14.25F);
             cbxLoaiKhachHang.FormattingEnabled = true;
-            cbxLoaiKhachHang.Items.AddRange(new object[] { "VIP", "Thường" });
             cbxLoaiKhachHang.Location = new Point(120, 328);
             cbxLoaiKhachHang.Name = "cbxLoaiKhachHang";
             cbxLoaiKhachHang.Size = new Size(296, 33);
             cbxLoaiKhachHang.TabIndex = 5;
+            cbxLoaiKhachHang.SelectedIndexChanged += cbxLoaiKhachHang_SelectedIndexChanged;
             cbxLoaiKhachHang.Enter += cbxLoaiKhachHang_Enter;
             cbxLoaiKhachHang.Leave += cbxLoaiKhachHang_Leave;
             // 
