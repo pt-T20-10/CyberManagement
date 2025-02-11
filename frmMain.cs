@@ -313,7 +313,22 @@ namespace CyberManagementProject
         #endregion
 
         #region Trung Nghĩa
-        //
+        //Thêm Food
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fAddFood f = new fAddFood();
+            f.ShowDialog();
+        }
+
+        //Xem Food
+        private void button4_Click(object sender, EventArgs e)
+        {
+            fViewFood f = new fViewFood();
+            f.ShowDialog();
+        }
+
+    
+
         #endregion
 
         #region Hoàng Lễ
@@ -434,6 +449,9 @@ namespace CyberManagementProject
         #endregion
 
 
+
+
+       
     }
 
 }

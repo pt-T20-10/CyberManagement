@@ -31,18 +31,18 @@
             panel1 = new Panel();
             btnExt = new Button();
             btnAdd = new Button();
-            comboBox1 = new ComboBox();
-            textBox4 = new TextBox();
-            textBox2 = new TextBox();
+            cbLoai = new ComboBox();
+            txbSoLuong = new TextBox();
+            txbGia = new TextBox();
+            txbTenMonAn = new TextBox();
             textBox1 = new TextBox();
+            label6 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label5 = new Label();
             label1 = new Label();
             ptFood = new PictureBox();
-            label6 = new Label();
-            textBox3 = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ptFood).BeginInit();
             SuspendLayout();
@@ -51,10 +51,10 @@
             // 
             panel1.Controls.Add(btnExt);
             panel1.Controls.Add(btnAdd);
-            panel1.Controls.Add(comboBox1);
-            panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(textBox4);
-            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(cbLoai);
+            panel1.Controls.Add(txbSoLuong);
+            panel1.Controls.Add(txbGia);
+            panel1.Controls.Add(txbTenMonAn);
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label4);
@@ -87,30 +87,36 @@
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
             // 
-            // comboBox1
+            // cbLoai
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(360, 88);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(336, 28);
-            comboBox1.TabIndex = 3;
+            cbLoai.FormattingEnabled = true;
+            cbLoai.Location = new Point(360, 88);
+            cbLoai.Name = "cbLoai";
+            cbLoai.Size = new Size(336, 28);
+            cbLoai.TabIndex = 3;
             // 
-            // textBox4
+            // txbSoLuong
             // 
-            textBox4.Location = new Point(360, 128);
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.Size = new Size(333, 27);
-            textBox4.TabIndex = 4;
-            textBox4.TextChanged += textBox4_TextChanged;
+            txbSoLuong.Location = new Point(360, 168);
+            txbSoLuong.Name = "txbSoLuong";
+            txbSoLuong.Size = new Size(333, 27);
+            txbSoLuong.TabIndex = 4;
+            txbSoLuong.TextChanged += textBox4_TextChanged;
             // 
-            // textBox2
+            // txbGia
             // 
-            textBox2.Location = new Point(360, 48);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(333, 27);
-            textBox2.TabIndex = 2;
+            txbGia.Location = new Point(360, 128);
+            txbGia.Name = "txbGia";
+            txbGia.Size = new Size(333, 27);
+            txbGia.TabIndex = 4;
+            txbGia.TextChanged += textBox4_TextChanged;
+            // 
+            // txbTenMonAn
+            // 
+            txbTenMonAn.Location = new Point(360, 48);
+            txbTenMonAn.Name = "txbTenMonAn";
+            txbTenMonAn.Size = new Size(333, 27);
+            txbTenMonAn.TabIndex = 2;
             // 
             // textBox1
             // 
@@ -119,6 +125,15 @@
             textBox1.ReadOnly = true;
             textBox1.Size = new Size(333, 27);
             textBox1.TabIndex = 1;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(248, 176);
+            label6.Name = "label6";
+            label6.Size = new Size(72, 20);
+            label6.TabIndex = 1;
+            label6.Text = "Số Lượng";
             // 
             // label4
             // 
@@ -177,24 +192,6 @@
             ptFood.TabIndex = 0;
             ptFood.TabStop = false;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(248, 176);
-            label6.Name = "label6";
-            label6.Size = new Size(72, 20);
-            label6.TabIndex = 1;
-            label6.Text = "Số Lượng";
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(360, 168);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(333, 27);
-            textBox3.TabIndex = 4;
-            textBox3.TextChanged += textBox4_TextChanged;
-            // 
             // fAddFood
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -220,13 +217,13 @@
         private Label label1;
         private PictureBox ptFood;
         private Label label5;
-        private TextBox textBox4;
-        private TextBox textBox2;
+        private TextBox txbGia;
+        private TextBox txbTenMonAn;
         private TextBox textBox1;
         private Button btnExt;
         private Button btnAdd;
-        private ComboBox comboBox1;
+        private ComboBox cbLoai;
         private Label label6;
-        private TextBox textBox3;
+        private TextBox txbSoLuong;
     }
 }
