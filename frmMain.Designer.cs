@@ -143,12 +143,6 @@ namespace CyberManagementProject
             panel15 = new Panel();
             label30 = new Label();
             label37 = new Label();
-            groupBox1 = new GroupBox();
-            comboBox1 = new ComboBox();
-            panel14 = new Panel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            comboBox2 = new ComboBox();
-            textBox2 = new TextBox();
             tbpStaff = new TabPage();
             panel18 = new Panel();
             lblQuanLyNhanVien = new Label();
@@ -230,6 +224,16 @@ namespace CyberManagementProject
             label1 = new Label();
             flpListComputer = new FlowLayoutPanel();
             pnlTitleBar = new Panel();
+            groupBox1 = new GroupBox();
+            panel14 = new Panel();
+            comboBox1 = new ComboBox();
+            textBox2 = new TextBox();
+            panel17 = new Panel();
+            textBox3 = new TextBox();
+            button3 = new Button();
+            button7 = new Button();
+            panel20 = new Panel();
+            flpFoodList = new FlowLayoutPanel();
             pnlLeft.SuspendLayout();
             pnStatictical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -277,8 +281,6 @@ namespace CyberManagementProject
             tbpServices.SuspendLayout();
             panel16.SuspendLayout();
             panel15.SuspendLayout();
-            groupBox1.SuspendLayout();
-            panel14.SuspendLayout();
             tbpStaff.SuspendLayout();
             panel18.SuspendLayout();
             grbQuanLyNhanVien.SuspendLayout();
@@ -310,6 +312,10 @@ namespace CyberManagementProject
             pnThongKeKH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvThongKeKH).BeginInit();
             pnlTitleBar.SuspendLayout();
+            groupBox1.SuspendLayout();
+            panel14.SuspendLayout();
+            panel17.SuspendLayout();
+            panel20.SuspendLayout();
             SuspendLayout();
             // 
             // pnlLeft
@@ -1467,9 +1473,9 @@ namespace CyberManagementProject
             // 
             // tbpServices
             // 
+            tbpServices.Controls.Add(groupBox1);
             tbpServices.Controls.Add(panel16);
             tbpServices.Controls.Add(panel15);
-            tbpServices.Controls.Add(groupBox1);
             tbpServices.Location = new Point(0, 0);
             tbpServices.Margin = new Padding(3, 4, 3, 4);
             tbpServices.Name = "tbpServices";
@@ -1486,7 +1492,7 @@ namespace CyberManagementProject
             panel16.Location = new Point(432, 0);
             panel16.Margin = new Padding(3, 4, 3, 4);
             panel16.Name = "panel16";
-            panel16.Size = new Size(815, 75);
+            panel16.Size = new Size(816, 75);
             panel16.TabIndex = 10;
             // 
             // button1
@@ -1534,7 +1540,7 @@ namespace CyberManagementProject
             label30.Name = "label30";
             label30.Size = new Size(192, 31);
             label30.TabIndex = 6;
-            label30.Text = "Quản lý nhân viên";
+            label30.Text = "Quản lý Thức Ăn";
             // 
             // label37
             // 
@@ -1544,69 +1550,6 @@ namespace CyberManagementProject
             label37.Size = new Size(101, 31);
             label37.TabIndex = 6;
             label37.Text = "⟲ Home >";
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(comboBox1);
-            groupBox1.Controls.Add(panel14);
-            groupBox1.Controls.Add(comboBox2);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.FlatStyle = FlatStyle.System;
-            groupBox1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(8, 80);
-            groupBox1.Margin = new Padding(3, 4, 3, 4);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(928, 812);
-            groupBox1.TabIndex = 7;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Quản Lý Thức Ăn";
-            // 
-            // comboBox1
-            // 
-            comboBox1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox1.Location = new Point(622, 53);
-            comboBox1.Margin = new Padding(3, 4, 3, 4);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(131, 43);
-            comboBox1.TabIndex = 2;
-            // 
-            // panel14
-            // 
-            panel14.Controls.Add(flowLayoutPanel1);
-            panel14.Location = new Point(7, 125);
-            panel14.Margin = new Padding(3, 4, 3, 4);
-            panel14.Name = "panel14";
-            panel14.Size = new Size(1235, 675);
-            panel14.TabIndex = 5;
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Location = new Point(9, 11);
-            flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(903, 651);
-            flowLayoutPanel1.TabIndex = 4;
-            // 
-            // comboBox2
-            // 
-            comboBox2.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(768, 53);
-            comboBox2.Margin = new Padding(3, 4, 3, 4);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(139, 43);
-            comboBox2.TabIndex = 0;
-            // 
-            // textBox2
-            // 
-            textBox2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(9, 53);
-            textBox2.Margin = new Padding(3, 4, 3, 4);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(595, 48);
-            textBox2.TabIndex = 0;
             // 
             // tbpStaff
             // 
@@ -2519,6 +2462,115 @@ namespace CyberManagementProject
             pnlTitleBar.Size = new Size(1545, 75);
             pnlTitleBar.TabIndex = 1;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(panel14);
+            groupBox1.Controls.Add(panel20);
+            groupBox1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(8, 72);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(1240, 800);
+            groupBox1.TabIndex = 12;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Quản Lý Thức Ăn";
+            // 
+            // panel14
+            // 
+            panel14.Controls.Add(comboBox1);
+            panel14.Controls.Add(textBox2);
+            panel14.Controls.Add(panel17);
+            panel14.Location = new Point(9, 53);
+            panel14.Margin = new Padding(3, 4, 3, 4);
+            panel14.Name = "panel14";
+            panel14.Size = new Size(1233, 64);
+            panel14.TabIndex = 8;
+            // 
+            // comboBox1
+            // 
+            comboBox1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comboBox1.Location = new Point(503, 11);
+            comboBox1.Margin = new Padding(3, 4, 3, 4);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(138, 40);
+            comboBox1.TabIndex = 5;
+            // 
+            // textBox2
+            // 
+            textBox2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox2.Location = new Point(9, 11);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(484, 41);
+            textBox2.TabIndex = 4;
+            // 
+            // panel17
+            // 
+            panel17.Controls.Add(textBox3);
+            panel17.Controls.Add(button3);
+            panel17.Controls.Add(button7);
+            panel17.Location = new Point(649, 0);
+            panel17.Margin = new Padding(3, 4, 3, 4);
+            panel17.Name = "panel17";
+            panel17.Size = new Size(241, 64);
+            panel17.TabIndex = 3;
+            // 
+            // textBox3
+            // 
+            textBox3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox3.Location = new Point(73, 11);
+            textBox3.Margin = new Padding(3, 4, 3, 4);
+            textBox3.Multiline = true;
+            textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
+            textBox3.Size = new Size(60, 40);
+            textBox3.TabIndex = 1;
+            textBox3.TextAlign = HorizontalAlignment.Center;
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Segoe UI", 14.25F);
+            button3.Location = new Point(145, 11);
+            button3.Margin = new Padding(3, 4, 3, 4);
+            button3.Name = "button3";
+            button3.Size = new Size(53, 43);
+            button3.TabIndex = 1;
+            button3.Text = ">>";
+            button3.TextAlign = ContentAlignment.TopCenter;
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            button7.Font = new Font("Segoe UI", 14.25F);
+            button7.Location = new Point(9, 11);
+            button7.Margin = new Padding(3, 4, 3, 4);
+            button7.Name = "button7";
+            button7.Size = new Size(53, 43);
+            button7.TabIndex = 1;
+            button7.Text = "<<";
+            button7.TextAlign = ContentAlignment.TopCenter;
+            button7.UseVisualStyleBackColor = true;
+            // 
+            // panel20
+            // 
+            panel20.Controls.Add(flpFoodList);
+            panel20.Location = new Point(9, 128);
+            panel20.Margin = new Padding(3, 4, 3, 4);
+            panel20.Name = "panel20";
+            panel20.Size = new Size(1225, 683);
+            panel20.TabIndex = 7;
+            // 
+            // flpFoodList
+            // 
+            flpFoodList.AutoScroll = true;
+            flpFoodList.Location = new Point(9, 11);
+            flpFoodList.Margin = new Padding(3, 4, 3, 4);
+            flpFoodList.Name = "flpFoodList";
+            flpFoodList.Size = new Size(1207, 651);
+            flpFoodList.TabIndex = 0;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -2598,9 +2650,6 @@ namespace CyberManagementProject
             tbpServices.ResumeLayout(false);
             panel16.ResumeLayout(false);
             panel15.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            panel14.ResumeLayout(false);
             tbpStaff.ResumeLayout(false);
             panel18.ResumeLayout(false);
             grbQuanLyNhanVien.ResumeLayout(false);
@@ -2647,6 +2696,12 @@ namespace CyberManagementProject
             ((System.ComponentModel.ISupportInitialize)dgvThongKeKH).EndInit();
             pnlTitleBar.ResumeLayout(false);
             pnlTitleBar.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            panel14.ResumeLayout(false);
+            panel14.PerformLayout();
+            panel17.ResumeLayout(false);
+            panel17.PerformLayout();
+            panel20.ResumeLayout(false);
             ResumeLayout(false);
         }
         #endregion
@@ -2838,17 +2893,21 @@ namespace CyberManagementProject
         private Label label1;
         private FlowLayoutPanel flpListComputer;
         private Panel pnlTitleBar;
-        private GroupBox groupBox1;
-        private ComboBox comboBox1;
-        private Panel panel14;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private ComboBox comboBox2;
-        private TextBox textBox2;
         private Panel panel16;
         private Button button1;
         private Button button4;
         private Panel panel15;
         private Label label30;
         private Label label37;
+        private GroupBox groupBox1;
+        private Panel panel14;
+        private ComboBox comboBox1;
+        private TextBox textBox2;
+        private Panel panel17;
+        private TextBox textBox3;
+        private Button button3;
+        private Button button7;
+        private Panel panel20;
+        private FlowLayoutPanel flpFoodList;
     }
 }

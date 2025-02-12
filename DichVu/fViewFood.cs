@@ -29,6 +29,7 @@ namespace CyberManagementProject
         {
             fAddFood f = new fAddFood();
             f.ShowDialog();
+            LoadFoodList();
         }
     }
 

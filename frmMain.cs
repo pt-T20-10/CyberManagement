@@ -327,7 +327,70 @@ namespace CyberManagementProject
             f.ShowDialog();
         }
 
-    
+        //Tạo Danh Sách Thức Ăn
+        public void AddFoodToFlowLayout(DoAnDTO food)
+        {
+            if (food == null) return;
+
+            // Tạo panel chứa món ăn
+            Panel panel = new Panel
+            {
+                Width = 200,  // Giảm bề rộng để hiển thị đẹp hơn
+                Height = 180, // Tăng chiều cao để ảnh không bị chật
+                BorderStyle = BorderStyle.FixedSingle,
+                BackColor = Color.White,
+                Padding = new Padding(5),
+                Margin = new Padding(10) // Tạo khoảng cách giữa các món ăn
+            };
+
+            // Hình ảnh món ăn
+            PictureBox pictureBox = new PictureBox
+            {
+                Width = 180,
+                Height = 100,
+                SizeMode = PictureBoxSizeMode.Zoom,
+                Location = new Point(10, 10)
+            };
+
+            if (File.Exists(food.HinhAnh))
+                pictureBox.Image = Image.FromFile(food.HinhAnh);
+            else
+                pictureBox.Image = Properties.Resources.default_image;
+
+            // Tên món ăn
+            Label lblTen = new Label
+            {
+                Text = food.TenDoAn,
+                AutoSize = false,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Top,
+                Font = new Font("Arial", 10, FontStyle.Bold)
+            };
+
+            // Giá món ăn
+            Label lblGia = new Label
+            {
+                Text = $"Giá: {food.Gia:#,##0} VND",
+                AutoSize = false,
+                ForeColor = Color.Red,
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Bottom
+            };
+
+            // Thêm vào panel
+            panel.Controls.Add(lblTen);
+            panel.Controls.Add(pictureBox);
+            panel.Controls.Add(lblGia);
+
+            // Thêm vào FlowLayoutPanel
+            flpFoodList.Controls.Add(panel);
+            flpFoodList.Refresh();
+        }
+
+
+
+
 
         #endregion
 

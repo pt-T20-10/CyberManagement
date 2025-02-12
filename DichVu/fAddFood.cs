@@ -60,14 +60,14 @@ namespace QuanLyQuanNet
         }
 
 
+        public event Action<string, decimal, string> OnFoodAdded; // Sự kiện gửi dữ liệu
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            // Lấy dữ liệu từ các TextBox và ComboBox
             string tenMonAn = txbTenMonAn.Text;
             decimal gia;
             int idLoai;
 
-            // Kiểm tra nhập liệu
             if (string.IsNullOrWhiteSpace(tenMonAn))
             {
                 MessageBox.Show("Vui lòng nhập tên món ăn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -86,13 +86,30 @@ namespace QuanLyQuanNet
                 return;
             }
 
+            // Lưu hình ảnh nếu có chọn
+            string hinhAnh = "default.png"; // Hình ảnh mặc định nếu không chọn
+            if (ptFood.Image != null)
+            {
+                string folderPath = "Images";
+
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                string imagePath = Path.Combine(folderPath, $"{Guid.NewGuid()}.jpg");
+
+                ptFood.Image.Save(imagePath);
+                hinhAnh = imagePath;
+            }
+
             // Tạo DTO cho món ăn mới
             DoAnDTO newFood = new DoAnDTO
             {
                 TenDoAn = tenMonAn,
                 Gia = gia,
                 IDLoai = idLoai,
-                HinhAnh = "Chưa cập nhật hình ảnh"
+                HinhAnh = hinhAnh
             };
 
             // Gọi DAO để thêm món ăn
@@ -104,14 +121,21 @@ namespace QuanLyQuanNet
                 {
                     MessageBox.Show("Thêm món ăn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Cập nhật danh sách món ăn ở form fViewFood
+                    // Cập nhật danh sách món ăn ở fViewFood
                     var viewFoodForm = (fViewFood)Application.OpenForms["fViewFood"];
                     if (viewFoodForm != null)
                     {
-                        viewFoodForm.LoadFoodList(); // Gọi phương thức cập nhật danh sách món ăn
+                        viewFoodForm.LoadFoodList();
                     }
 
-                    this.Close(); // Đóng form thêm món ăn
+                    // Cập nhật danh sách món ăn ở fMain
+                    var mainForm = (frmMain)Application.OpenForms["frmMain"];
+                    if (mainForm != null)
+                    {
+                        mainForm.AddFoodToFlowLayout(newFood);
+                    }
+
+                    this.Close();
                 }
                 else
                 {
@@ -123,6 +147,10 @@ namespace QuanLyQuanNet
                 MessageBox.Show("Lỗi khi thêm món ăn: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
+
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
