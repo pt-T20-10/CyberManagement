@@ -30,7 +30,7 @@ namespace CyberManagementProject.DAO
         {
             List<NhanVienDTO> nhanvienList = new List<NhanVienDTO>();
 
-            DataTable data = DataProvider.Instance.ExcuteQuery(@" EXEC USP_DanhSachNhanVien ");
+            DataTable data = DataProvider.Instance.ExcuteQuery(@" EXEC USP_DanhSachNha  nVien ");
 
             foreach (DataRow item in data.Rows)
             {

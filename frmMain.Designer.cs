@@ -620,9 +620,9 @@ namespace CyberManagementProject
             pnlTitleBar.Controls.Add(flpListComputer);
             pnlTitleBar.Controls.Add(label1);
             pnlTitleBar.Controls.Add(btnToggleMenu);
-            pnlTitleBar.Location = new Point(32, 0);
+            pnlTitleBar.Location = new Point(0, 0);
             pnlTitleBar.Name = "pnlTitleBar";
-            pnlTitleBar.Size = new Size(1320, 56);
+            pnlTitleBar.Size = new Size(1352, 56);
             pnlTitleBar.TabIndex = 1;
             // 
             // flpListComputer
@@ -2509,6 +2509,8 @@ namespace CyberManagementProject
             cbxTrangThai.Name = "cbxTrangThai";
             cbxTrangThai.Size = new Size(122, 36);
             cbxTrangThai.TabIndex = 0;
+            cbxTrangThai.Enter += cbxTrangThai_Enter_1;
+            cbxTrangThai.Leave += cbxTrangThai_Leave_1;
             // 
             // txtTimKiem
             // 

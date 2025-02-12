@@ -253,7 +253,7 @@ namespace CyberManagementProject
 
         //Sự kiện nút cbxChucVu
 
-        private void cbxTrangThai_Enter(object sender, EventArgs e)
+        private void cbxTrangThai_Enter_1(object sender, EventArgs e)
         {
             if (cbxTrangThai.Text == "Đang làm")
             {
@@ -261,7 +261,8 @@ namespace CyberManagementProject
                 cbxTrangThai.ForeColor = Color.Black; // Đổi màu chữ thành đen
             }
         }
-        private void cbxTrangThai_Leave(object sender, EventArgs e)
+
+        private void cbxTrangThai_Leave_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(cbxChucVu.Text)) //Kiểm tra ô textbox rỗng
             {
@@ -379,6 +380,12 @@ namespace CyberManagementProject
             {
                 tblMain.SelectedTab = tbpComputer;
             }
+        }
+
+        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmLogin flogin = new frmLogin();
+            flogin.Show();
         }
         #endregion
 
@@ -502,17 +509,9 @@ namespace CyberManagementProject
         }
 
         #endregion
-        #region Method
-        #endregion
         #endregion
 
-
-
-        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            frmLogin flogin = new frmLogin();
-            flogin.Show();
-        }
+        
     }
 
 }
