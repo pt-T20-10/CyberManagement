@@ -1,6 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="Computer\frmAddUserToComputer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Computer\frmNapTien.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="DichVu\DichVu.cs">
       <SubType>Form</SubType>
     </Compile>

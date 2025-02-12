@@ -823,6 +823,7 @@ namespace CyberManagementProject
             btnExtraMoney.TabIndex = 2;
             btnExtraMoney.Text = "Nạp tiền";
             btnExtraMoney.UseVisualStyleBackColor = true;
+            btnExtraMoney.Click += btnExtraMoney_Click;
             // 
             // btnManageComputer
             // 
@@ -832,6 +833,7 @@ namespace CyberManagementProject
             btnManageComputer.TabIndex = 3;
             btnManageComputer.Text = "Quản lý";
             btnManageComputer.UseVisualStyleBackColor = true;
+            btnManageComputer.Click += btnManageComputer_Click;
             // 
             // btnTrackComputer
             // 
