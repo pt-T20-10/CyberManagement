@@ -428,12 +428,9 @@ namespace CyberManagementProject
         {
             tblMain.SelectedTab = tbpStatictical;
         }
-        #endregion
-        #region Method
-        #endregion
-        #endregion
 
-
+#endregion
+#endregion
     }
 
 }
