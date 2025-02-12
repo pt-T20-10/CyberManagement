@@ -55,25 +55,6 @@ namespace CyberManagementProject
             flpListComputer = new FlowLayoutPanel();
             label1 = new Label();
             tblMain = new DTO.CustomTabControl();
-            tbpAccount = new TabPage();
-            panel23 = new Panel();
-            btnThemKhachHang = new Button();
-            btnNhap = new Button();
-            button2 = new Button();
-            btn_TroChuyen = new Button();
-            panel24 = new Panel();
-            label32 = new Label();
-            label33 = new Label();
-            grbKhachHang = new GroupBox();
-            panel25 = new Panel();
-            cbxNhomKhach = new ComboBox();
-            txtTimKiemKhachHang = new TextBox();
-            panel26 = new Panel();
-            textBox1 = new TextBox();
-            button5 = new Button();
-            button6 = new Button();
-            panel27 = new Panel();
-            flpKhachHang = new FlowLayoutPanel();
             tbpComputer = new TabPage();
             pnComputerControl = new Panel();
             gbxComputerInfor = new GroupBox();
@@ -101,11 +82,11 @@ namespace CyberManagementProject
             btnAddServices = new Button();
             btnForceStop = new Button();
             flpComputer = new FlowLayoutPanel();
-            panel1 = new Panel();
+            pnCom = new Panel();
             label4 = new Label();
             label3 = new Label();
-            label2 = new Label();
-            pictureBox1 = new PictureBox();
+            lbComName = new Label();
+            pbxMayTinh = new PictureBox();
             panel3 = new Panel();
             label5 = new Label();
             label6 = new Label();
@@ -116,31 +97,25 @@ namespace CyberManagementProject
             label9 = new Label();
             label10 = new Label();
             pictureBox3 = new PictureBox();
-            panel5 = new Panel();
-            label11 = new Label();
-            label12 = new Label();
-            label13 = new Label();
-            pictureBox4 = new PictureBox();
-            panel6 = new Panel();
-            label14 = new Label();
-            label15 = new Label();
-            label16 = new Label();
-            pictureBox5 = new PictureBox();
-            panel7 = new Panel();
-            label17 = new Label();
-            label18 = new Label();
-            label19 = new Label();
-            pictureBox6 = new PictureBox();
-            panel8 = new Panel();
-            label20 = new Label();
-            label21 = new Label();
-            label22 = new Label();
-            pictureBox7 = new PictureBox();
-            panel13 = new Panel();
-            label34 = new Label();
-            label35 = new Label();
-            label36 = new Label();
-            pictureBox14 = new PictureBox();
+            tbpAccount = new TabPage();
+            panel23 = new Panel();
+            btnThemKhachHang = new Button();
+            btnNhap = new Button();
+            button2 = new Button();
+            btn_TroChuyen = new Button();
+            panel24 = new Panel();
+            label32 = new Label();
+            label33 = new Label();
+            grbKhachHang = new GroupBox();
+            panel25 = new Panel();
+            cbxNhomKhach = new ComboBox();
+            txtTimKiemKhachHang = new TextBox();
+            panel26 = new Panel();
+            textBox1 = new TextBox();
+            button5 = new Button();
+            button6 = new Button();
+            panel27 = new Panel();
+            flpKhachHang = new FlowLayoutPanel();
             tbpServices = new TabPage();
             panel14 = new Panel();
             textBox4 = new TextBox();
@@ -321,13 +296,6 @@ namespace CyberManagementProject
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             pnlTitleBar.SuspendLayout();
             tblMain.SuspendLayout();
-            tbpAccount.SuspendLayout();
-            panel23.SuspendLayout();
-            panel24.SuspendLayout();
-            grbKhachHang.SuspendLayout();
-            panel25.SuspendLayout();
-            panel26.SuspendLayout();
-            panel27.SuspendLayout();
             tbpComputer.SuspendLayout();
             pnComputerControl.SuspendLayout();
             gbxComputerInfor.SuspendLayout();
@@ -337,22 +305,19 @@ namespace CyberManagementProject
             panel9.SuspendLayout();
             pnComputerButton.SuspendLayout();
             flpComputer.SuspendLayout();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pnCom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbxMayTinh).BeginInit();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
-            panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
+            tbpAccount.SuspendLayout();
+            panel23.SuspendLayout();
+            panel24.SuspendLayout();
+            grbKhachHang.SuspendLayout();
+            panel25.SuspendLayout();
+            panel26.SuspendLayout();
+            panel27.SuspendLayout();
             tbpServices.SuspendLayout();
             panel14.SuspendLayout();
             panel15.SuspendLayout();
@@ -644,8 +609,8 @@ namespace CyberManagementProject
             // 
             // tblMain
             // 
-            tblMain.Controls.Add(tbpAccount);
             tblMain.Controls.Add(tbpComputer);
+            tblMain.Controls.Add(tbpAccount);
             tblMain.Controls.Add(tbpServices);
             tblMain.Controls.Add(tbpStaff);
             tblMain.Controls.Add(tbpStatictical);
@@ -654,208 +619,6 @@ namespace CyberManagementProject
             tblMain.SelectedIndex = 0;
             tblMain.Size = new Size(1112, 672);
             tblMain.TabIndex = 2;
-            // 
-            // tbpAccount
-            // 
-            tbpAccount.Controls.Add(panel23);
-            tbpAccount.Controls.Add(panel24);
-            tbpAccount.Controls.Add(grbKhachHang);
-            tbpAccount.Location = new Point(0, 0);
-            tbpAccount.Name = "tbpAccount";
-            tbpAccount.Padding = new Padding(3);
-            tbpAccount.Size = new Size(1112, 672);
-            tbpAccount.TabIndex = 1;
-            tbpAccount.Text = "tabPage1";
-            tbpAccount.UseVisualStyleBackColor = true;
-            // 
-            // panel23
-            // 
-            panel23.Controls.Add(btnThemKhachHang);
-            panel23.Controls.Add(btnNhap);
-            panel23.Controls.Add(button2);
-            panel23.Controls.Add(btn_TroChuyen);
-            panel23.Location = new Point(388, 0);
-            panel23.Name = "panel23";
-            panel23.Size = new Size(713, 56);
-            panel23.TabIndex = 10;
-            // 
-            // btnThemKhachHang
-            // 
-            btnThemKhachHang.BackColor = Color.FromArgb(192, 255, 255);
-            btnThemKhachHang.FlatStyle = FlatStyle.Flat;
-            btnThemKhachHang.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnThemKhachHang.Location = new Point(192, 16);
-            btnThemKhachHang.Name = "btnThemKhachHang";
-            btnThemKhachHang.Size = new Size(127, 31);
-            btnThemKhachHang.TabIndex = 3;
-            btnThemKhachHang.Text = "➕ Thêm Mới";
-            btnThemKhachHang.UseVisualStyleBackColor = false;
-            btnThemKhachHang.Click += btnThemKhachHang_Click;
-            // 
-            // btnNhap
-            // 
-            btnNhap.BackColor = Color.FromArgb(192, 255, 255);
-            btnNhap.FlatStyle = FlatStyle.Flat;
-            btnNhap.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnNhap.Location = new Point(336, 16);
-            btnNhap.Name = "btnNhap";
-            btnNhap.Size = new Size(112, 31);
-            btnNhap.TabIndex = 3;
-            btnNhap.Text = "Nhập File";
-            btnNhap.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.FromArgb(192, 255, 255);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(464, 16);
-            button2.Name = "button2";
-            button2.Size = new Size(112, 31);
-            button2.TabIndex = 3;
-            button2.Text = "Xuất File";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // btn_TroChuyen
-            // 
-            btn_TroChuyen.BackColor = Color.FromArgb(192, 255, 255);
-            btn_TroChuyen.FlatStyle = FlatStyle.Flat;
-            btn_TroChuyen.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_TroChuyen.Location = new Point(592, 16);
-            btn_TroChuyen.Name = "btn_TroChuyen";
-            btn_TroChuyen.Size = new Size(112, 31);
-            btn_TroChuyen.TabIndex = 3;
-            btn_TroChuyen.Text = "Trò Chuyện";
-            btn_TroChuyen.UseVisualStyleBackColor = false;
-            // 
-            // panel24
-            // 
-            panel24.Controls.Add(label32);
-            panel24.Controls.Add(label33);
-            panel24.Location = new Point(13, 0);
-            panel24.Name = "panel24";
-            panel24.Size = new Size(288, 48);
-            panel24.TabIndex = 9;
-            // 
-            // label32
-            // 
-            label32.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label32.Location = new Point(97, 16);
-            label32.Name = "label32";
-            label32.Size = new Size(176, 23);
-            label32.TabIndex = 6;
-            label32.Text = "Quản lý khách hàng";
-            // 
-            // label33
-            // 
-            label33.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label33.Location = new Point(8, 16);
-            label33.Name = "label33";
-            label33.Size = new Size(88, 23);
-            label33.TabIndex = 6;
-            label33.Text = "⟲ Home >";
-            label33.Click += label33_Click;
-            // 
-            // grbKhachHang
-            // 
-            grbKhachHang.Controls.Add(panel25);
-            grbKhachHang.Controls.Add(panel27);
-            grbKhachHang.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            grbKhachHang.Location = new Point(13, 64);
-            grbKhachHang.Name = "grbKhachHang";
-            grbKhachHang.Size = new Size(1088, 600);
-            grbKhachHang.TabIndex = 11;
-            grbKhachHang.TabStop = false;
-            grbKhachHang.Text = "Quản Lý Khách Hàng";
-            // 
-            // panel25
-            // 
-            panel25.Controls.Add(cbxNhomKhach);
-            panel25.Controls.Add(txtTimKiemKhachHang);
-            panel25.Controls.Add(panel26);
-            panel25.Location = new Point(8, 40);
-            panel25.Name = "panel25";
-            panel25.Size = new Size(1079, 48);
-            panel25.TabIndex = 8;
-            // 
-            // cbxNhomKhach
-            // 
-            cbxNhomKhach.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbxNhomKhach.Location = new Point(440, 8);
-            cbxNhomKhach.Name = "cbxNhomKhach";
-            cbxNhomKhach.Size = new Size(121, 33);
-            cbxNhomKhach.TabIndex = 5;
-            cbxNhomKhach.SelectedIndexChanged += cbxNhomKhach_SelectedIndexChanged;
-            // 
-            // txtTimKiemKhachHang
-            // 
-            txtTimKiemKhachHang.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTimKiemKhachHang.Location = new Point(8, 8);
-            txtTimKiemKhachHang.Multiline = true;
-            txtTimKiemKhachHang.Name = "txtTimKiemKhachHang";
-            txtTimKiemKhachHang.Size = new Size(424, 32);
-            txtTimKiemKhachHang.TabIndex = 4;
-            txtTimKiemKhachHang.TextChanged += txtTimKiemKhachHang_TextChanged;
-            // 
-            // panel26
-            // 
-            panel26.Controls.Add(textBox1);
-            panel26.Controls.Add(button5);
-            panel26.Controls.Add(button6);
-            panel26.Location = new Point(568, 0);
-            panel26.Name = "panel26";
-            panel26.Size = new Size(211, 48);
-            panel26.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(64, 8);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(53, 31);
-            textBox1.TabIndex = 1;
-            textBox1.TextAlign = HorizontalAlignment.Center;
-            // 
-            // button5
-            // 
-            button5.Font = new Font("Segoe UI", 14.25F);
-            button5.Location = new Point(127, 8);
-            button5.Name = "button5";
-            button5.Size = new Size(46, 32);
-            button5.TabIndex = 1;
-            button5.Text = ">>";
-            button5.TextAlign = ContentAlignment.TopCenter;
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            button6.Font = new Font("Segoe UI", 14.25F);
-            button6.Location = new Point(8, 8);
-            button6.Name = "button6";
-            button6.Size = new Size(46, 32);
-            button6.TabIndex = 1;
-            button6.Text = "<<";
-            button6.TextAlign = ContentAlignment.TopCenter;
-            button6.UseVisualStyleBackColor = true;
-            // 
-            // panel27
-            // 
-            panel27.Controls.Add(flpKhachHang);
-            panel27.Location = new Point(8, 96);
-            panel27.Name = "panel27";
-            panel27.Size = new Size(1072, 512);
-            panel27.TabIndex = 7;
-            // 
-            // flpKhachHang
-            // 
-            flpKhachHang.AutoScroll = true;
-            flpKhachHang.Location = new Point(8, 8);
-            flpKhachHang.Name = "flpKhachHang";
-            flpKhachHang.Size = new Size(1056, 488);
-            flpKhachHang.TabIndex = 0;
-            flpKhachHang.MouseDown += flpKhachHang_MouseDown;
             // 
             // tbpComputer
             // 
@@ -1110,31 +873,26 @@ namespace CyberManagementProject
             // flpComputer
             // 
             flpComputer.BorderStyle = BorderStyle.FixedSingle;
-            flpComputer.Controls.Add(panel1);
+            flpComputer.Controls.Add(pnCom);
             flpComputer.Controls.Add(panel3);
             flpComputer.Controls.Add(panel4);
-            flpComputer.Controls.Add(panel5);
-            flpComputer.Controls.Add(panel6);
-            flpComputer.Controls.Add(panel7);
-            flpComputer.Controls.Add(panel8);
-            flpComputer.Controls.Add(panel13);
             flpComputer.Location = new Point(0, 0);
             flpComputer.Name = "flpComputer";
             flpComputer.Size = new Size(800, 672);
             flpComputer.TabIndex = 0;
             // 
-            // panel1
+            // pnCom
             // 
-            panel1.BackColor = Color.WhiteSmoke;
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(3, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(149, 213);
-            panel1.TabIndex = 0;
+            pnCom.BackColor = Color.WhiteSmoke;
+            pnCom.BorderStyle = BorderStyle.FixedSingle;
+            pnCom.Controls.Add(label4);
+            pnCom.Controls.Add(label3);
+            pnCom.Controls.Add(lbComName);
+            pnCom.Controls.Add(pbxMayTinh);
+            pnCom.Location = new Point(3, 3);
+            pnCom.Name = "pnCom";
+            pnCom.Size = new Size(150, 215);
+            pnCom.TabIndex = 0;
             // 
             // label4
             // 
@@ -1156,25 +914,25 @@ namespace CyberManagementProject
             label3.TabIndex = 2;
             label3.Text = "1:30:52";
             // 
-            // label2
+            // lbComName
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(32, 136);
-            label2.Name = "label2";
-            label2.Size = new Size(88, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Máy tính 01";
+            lbComName.AutoSize = true;
+            lbComName.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbComName.Location = new Point(32, 136);
+            lbComName.Name = "lbComName";
+            lbComName.Size = new Size(88, 20);
+            lbComName.TabIndex = 1;
+            lbComName.Text = "Máy tính 01";
             // 
-            // pictureBox1
+            // pbxMayTinh
             // 
-            pictureBox1.Image = Properties.Resources.Online;
-            pictureBox1.Location = new Point(15, 8);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(120, 120);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            pbxMayTinh.Image = Properties.Resources.Online;
+            pbxMayTinh.Location = new Point(15, 8);
+            pbxMayTinh.Name = "pbxMayTinh";
+            pbxMayTinh.Size = new Size(120, 120);
+            pbxMayTinh.SizeMode = PictureBoxSizeMode.Zoom;
+            pbxMayTinh.TabIndex = 0;
+            pbxMayTinh.TabStop = false;
             // 
             // panel3
             // 
@@ -1184,9 +942,9 @@ namespace CyberManagementProject
             panel3.Controls.Add(label6);
             panel3.Controls.Add(label7);
             panel3.Controls.Add(pictureBox2);
-            panel3.Location = new Point(158, 3);
+            panel3.Location = new Point(159, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(149, 213);
+            panel3.Size = new Size(150, 215);
             panel3.TabIndex = 1;
             // 
             // label5
@@ -1237,9 +995,9 @@ namespace CyberManagementProject
             panel4.Controls.Add(label9);
             panel4.Controls.Add(label10);
             panel4.Controls.Add(pictureBox3);
-            panel4.Location = new Point(313, 3);
+            panel4.Location = new Point(315, 3);
             panel4.Name = "panel4";
-            panel4.Size = new Size(149, 213);
+            panel4.Size = new Size(150, 215);
             panel4.TabIndex = 4;
             // 
             // label8
@@ -1282,270 +1040,207 @@ namespace CyberManagementProject
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
             // 
-            // panel5
+            // tbpAccount
             // 
-            panel5.BackColor = Color.WhiteSmoke;
-            panel5.BorderStyle = BorderStyle.FixedSingle;
-            panel5.Controls.Add(label11);
-            panel5.Controls.Add(label12);
-            panel5.Controls.Add(label13);
-            panel5.Controls.Add(pictureBox4);
-            panel5.Location = new Point(468, 3);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(149, 213);
-            panel5.TabIndex = 4;
+            tbpAccount.Controls.Add(panel23);
+            tbpAccount.Controls.Add(panel24);
+            tbpAccount.Controls.Add(grbKhachHang);
+            tbpAccount.Location = new Point(0, 0);
+            tbpAccount.Name = "tbpAccount";
+            tbpAccount.Padding = new Padding(3);
+            tbpAccount.Size = new Size(1112, 672);
+            tbpAccount.TabIndex = 1;
+            tbpAccount.Text = "tabPage1";
+            tbpAccount.UseVisualStyleBackColor = true;
             // 
-            // label11
+            // panel23
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(48, 184);
-            label11.Name = "label11";
-            label11.Size = new Size(52, 20);
-            label11.TabIndex = 3;
-            label11.Text = "user01";
+            panel23.Controls.Add(btnThemKhachHang);
+            panel23.Controls.Add(btnNhap);
+            panel23.Controls.Add(button2);
+            panel23.Controls.Add(btn_TroChuyen);
+            panel23.Location = new Point(388, 0);
+            panel23.Name = "panel23";
+            panel23.Size = new Size(713, 56);
+            panel23.TabIndex = 10;
             // 
-            // label12
+            // btnThemKhachHang
             // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(48, 160);
-            label12.Name = "label12";
-            label12.Size = new Size(55, 20);
-            label12.TabIndex = 2;
-            label12.Text = "1:30:52";
+            btnThemKhachHang.BackColor = Color.FromArgb(192, 255, 255);
+            btnThemKhachHang.FlatStyle = FlatStyle.Flat;
+            btnThemKhachHang.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThemKhachHang.Location = new Point(192, 16);
+            btnThemKhachHang.Name = "btnThemKhachHang";
+            btnThemKhachHang.Size = new Size(127, 31);
+            btnThemKhachHang.TabIndex = 3;
+            btnThemKhachHang.Text = "➕ Thêm Mới";
+            btnThemKhachHang.UseVisualStyleBackColor = false;
+            btnThemKhachHang.Click += btnThemKhachHang_Click;
             // 
-            // label13
+            // btnNhap
             // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.Location = new Point(32, 136);
-            label13.Name = "label13";
-            label13.Size = new Size(90, 20);
-            label13.TabIndex = 1;
-            label13.Text = "Máy tính 02";
+            btnNhap.BackColor = Color.FromArgb(192, 255, 255);
+            btnNhap.FlatStyle = FlatStyle.Flat;
+            btnNhap.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnNhap.Location = new Point(336, 16);
+            btnNhap.Name = "btnNhap";
+            btnNhap.Size = new Size(112, 31);
+            btnNhap.TabIndex = 3;
+            btnNhap.Text = "Nhập File";
+            btnNhap.UseVisualStyleBackColor = false;
             // 
-            // pictureBox4
+            // button2
             // 
-            pictureBox4.Image = Properties.Resources.Offline;
-            pictureBox4.Location = new Point(15, 8);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(120, 120);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 0;
-            pictureBox4.TabStop = false;
+            button2.BackColor = Color.FromArgb(192, 255, 255);
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Location = new Point(464, 16);
+            button2.Name = "button2";
+            button2.Size = new Size(112, 31);
+            button2.TabIndex = 3;
+            button2.Text = "Xuất File";
+            button2.UseVisualStyleBackColor = false;
             // 
-            // panel6
+            // btn_TroChuyen
             // 
-            panel6.BackColor = Color.WhiteSmoke;
-            panel6.BorderStyle = BorderStyle.FixedSingle;
-            panel6.Controls.Add(label14);
-            panel6.Controls.Add(label15);
-            panel6.Controls.Add(label16);
-            panel6.Controls.Add(pictureBox5);
-            panel6.Location = new Point(623, 3);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(149, 213);
-            panel6.TabIndex = 5;
+            btn_TroChuyen.BackColor = Color.FromArgb(192, 255, 255);
+            btn_TroChuyen.FlatStyle = FlatStyle.Flat;
+            btn_TroChuyen.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_TroChuyen.Location = new Point(592, 16);
+            btn_TroChuyen.Name = "btn_TroChuyen";
+            btn_TroChuyen.Size = new Size(112, 31);
+            btn_TroChuyen.TabIndex = 3;
+            btn_TroChuyen.Text = "Trò Chuyện";
+            btn_TroChuyen.UseVisualStyleBackColor = false;
             // 
-            // label14
+            // panel24
             // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label14.Location = new Point(48, 184);
-            label14.Name = "label14";
-            label14.Size = new Size(52, 20);
-            label14.TabIndex = 3;
-            label14.Text = "user01";
+            panel24.Controls.Add(label32);
+            panel24.Controls.Add(label33);
+            panel24.Location = new Point(13, 0);
+            panel24.Name = "panel24";
+            panel24.Size = new Size(288, 48);
+            panel24.TabIndex = 9;
             // 
-            // label15
+            // label32
             // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label15.Location = new Point(48, 160);
-            label15.Name = "label15";
-            label15.Size = new Size(55, 20);
-            label15.TabIndex = 2;
-            label15.Text = "1:30:52";
+            label32.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label32.Location = new Point(97, 16);
+            label32.Name = "label32";
+            label32.Size = new Size(176, 23);
+            label32.TabIndex = 6;
+            label32.Text = "Quản lý khách hàng";
             // 
-            // label16
+            // label33
             // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label16.Location = new Point(32, 136);
-            label16.Name = "label16";
-            label16.Size = new Size(90, 20);
-            label16.TabIndex = 1;
-            label16.Text = "Máy tính 03";
+            label33.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label33.Location = new Point(8, 16);
+            label33.Name = "label33";
+            label33.Size = new Size(88, 23);
+            label33.TabIndex = 6;
+            label33.Text = "⟲ Home >";
+            label33.Click += label33_Click;
             // 
-            // pictureBox5
+            // grbKhachHang
             // 
-            pictureBox5.Image = Properties.Resources.Online;
-            pictureBox5.Location = new Point(15, 8);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(120, 120);
-            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox5.TabIndex = 0;
-            pictureBox5.TabStop = false;
+            grbKhachHang.Controls.Add(panel25);
+            grbKhachHang.Controls.Add(panel27);
+            grbKhachHang.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            grbKhachHang.Location = new Point(13, 64);
+            grbKhachHang.Name = "grbKhachHang";
+            grbKhachHang.Size = new Size(1088, 600);
+            grbKhachHang.TabIndex = 11;
+            grbKhachHang.TabStop = false;
+            grbKhachHang.Text = "Quản Lý Khách Hàng";
             // 
-            // panel7
+            // panel25
             // 
-            panel7.BackColor = Color.WhiteSmoke;
-            panel7.BorderStyle = BorderStyle.FixedSingle;
-            panel7.Controls.Add(label17);
-            panel7.Controls.Add(label18);
-            panel7.Controls.Add(label19);
-            panel7.Controls.Add(pictureBox6);
-            panel7.Location = new Point(3, 222);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(149, 213);
-            panel7.TabIndex = 6;
+            panel25.Controls.Add(cbxNhomKhach);
+            panel25.Controls.Add(txtTimKiemKhachHang);
+            panel25.Controls.Add(panel26);
+            panel25.Location = new Point(8, 40);
+            panel25.Name = "panel25";
+            panel25.Size = new Size(1079, 48);
+            panel25.TabIndex = 8;
             // 
-            // label17
+            // cbxNhomKhach
             // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label17.Location = new Point(48, 184);
-            label17.Name = "label17";
-            label17.Size = new Size(52, 20);
-            label17.TabIndex = 3;
-            label17.Text = "user01";
+            cbxNhomKhach.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbxNhomKhach.Location = new Point(440, 8);
+            cbxNhomKhach.Name = "cbxNhomKhach";
+            cbxNhomKhach.Size = new Size(121, 33);
+            cbxNhomKhach.TabIndex = 5;
+            cbxNhomKhach.SelectedIndexChanged += cbxNhomKhach_SelectedIndexChanged;
             // 
-            // label18
+            // txtTimKiemKhachHang
             // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label18.Location = new Point(48, 160);
-            label18.Name = "label18";
-            label18.Size = new Size(55, 20);
-            label18.TabIndex = 2;
-            label18.Text = "1:30:52";
+            txtTimKiemKhachHang.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtTimKiemKhachHang.Location = new Point(8, 8);
+            txtTimKiemKhachHang.Multiline = true;
+            txtTimKiemKhachHang.Name = "txtTimKiemKhachHang";
+            txtTimKiemKhachHang.Size = new Size(424, 32);
+            txtTimKiemKhachHang.TabIndex = 4;
+            txtTimKiemKhachHang.TextChanged += txtTimKiemKhachHang_TextChanged;
             // 
-            // label19
+            // panel26
             // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label19.Location = new Point(32, 136);
-            label19.Name = "label19";
-            label19.Size = new Size(90, 20);
-            label19.TabIndex = 1;
-            label19.Text = "Máy tính 03";
+            panel26.Controls.Add(textBox1);
+            panel26.Controls.Add(button5);
+            panel26.Controls.Add(button6);
+            panel26.Location = new Point(568, 0);
+            panel26.Name = "panel26";
+            panel26.Size = new Size(211, 48);
+            panel26.TabIndex = 3;
             // 
-            // pictureBox6
+            // textBox1
             // 
-            pictureBox6.Image = Properties.Resources.Online;
-            pictureBox6.Location = new Point(15, 8);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(120, 120);
-            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox6.TabIndex = 0;
-            pictureBox6.TabStop = false;
+            textBox1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(64, 8);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(53, 31);
+            textBox1.TabIndex = 1;
+            textBox1.TextAlign = HorizontalAlignment.Center;
             // 
-            // panel8
+            // button5
             // 
-            panel8.BackColor = Color.WhiteSmoke;
-            panel8.BorderStyle = BorderStyle.FixedSingle;
-            panel8.Controls.Add(label20);
-            panel8.Controls.Add(label21);
-            panel8.Controls.Add(label22);
-            panel8.Controls.Add(pictureBox7);
-            panel8.Location = new Point(158, 222);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(149, 213);
-            panel8.TabIndex = 5;
+            button5.Font = new Font("Segoe UI", 14.25F);
+            button5.Location = new Point(127, 8);
+            button5.Name = "button5";
+            button5.Size = new Size(46, 32);
+            button5.TabIndex = 1;
+            button5.Text = ">>";
+            button5.TextAlign = ContentAlignment.TopCenter;
+            button5.UseVisualStyleBackColor = true;
             // 
-            // label20
+            // button6
             // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label20.Location = new Point(48, 184);
-            label20.Name = "label20";
-            label20.Size = new Size(52, 20);
-            label20.TabIndex = 3;
-            label20.Text = "user01";
+            button6.Font = new Font("Segoe UI", 14.25F);
+            button6.Location = new Point(8, 8);
+            button6.Name = "button6";
+            button6.Size = new Size(46, 32);
+            button6.TabIndex = 1;
+            button6.Text = "<<";
+            button6.TextAlign = ContentAlignment.TopCenter;
+            button6.UseVisualStyleBackColor = true;
             // 
-            // label21
+            // panel27
             // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label21.Location = new Point(48, 160);
-            label21.Name = "label21";
-            label21.Size = new Size(55, 20);
-            label21.TabIndex = 2;
-            label21.Text = "1:30:52";
+            panel27.Controls.Add(flpKhachHang);
+            panel27.Location = new Point(8, 96);
+            panel27.Name = "panel27";
+            panel27.Size = new Size(1072, 512);
+            panel27.TabIndex = 7;
             // 
-            // label22
+            // flpKhachHang
             // 
-            label22.AutoSize = true;
-            label22.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label22.Location = new Point(32, 136);
-            label22.Name = "label22";
-            label22.Size = new Size(90, 20);
-            label22.TabIndex = 1;
-            label22.Text = "Máy tính 03";
-            // 
-            // pictureBox7
-            // 
-            pictureBox7.Image = Properties.Resources.Online;
-            pictureBox7.Location = new Point(15, 8);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(120, 120);
-            pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox7.TabIndex = 0;
-            pictureBox7.TabStop = false;
-            // 
-            // panel13
-            // 
-            panel13.BackColor = Color.WhiteSmoke;
-            panel13.BorderStyle = BorderStyle.FixedSingle;
-            panel13.Controls.Add(label34);
-            panel13.Controls.Add(label35);
-            panel13.Controls.Add(label36);
-            panel13.Controls.Add(pictureBox14);
-            panel13.Location = new Point(313, 222);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(149, 213);
-            panel13.TabIndex = 7;
-            // 
-            // label34
-            // 
-            label34.AutoSize = true;
-            label34.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label34.Location = new Point(48, 184);
-            label34.Name = "label34";
-            label34.Size = new Size(52, 20);
-            label34.TabIndex = 3;
-            label34.Text = "user01";
-            // 
-            // label35
-            // 
-            label35.AutoSize = true;
-            label35.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label35.Location = new Point(48, 160);
-            label35.Name = "label35";
-            label35.Size = new Size(55, 20);
-            label35.TabIndex = 2;
-            label35.Text = "1:30:52";
-            // 
-            // label36
-            // 
-            label36.AutoSize = true;
-            label36.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label36.Location = new Point(32, 136);
-            label36.Name = "label36";
-            label36.Size = new Size(90, 20);
-            label36.TabIndex = 1;
-            label36.Text = "Máy tính 03";
-            // 
-            // pictureBox14
-            // 
-            pictureBox14.Image = Properties.Resources.Online;
-            pictureBox14.Location = new Point(15, 8);
-            pictureBox14.Name = "pictureBox14";
-            pictureBox14.Size = new Size(120, 120);
-            pictureBox14.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox14.TabIndex = 0;
-            pictureBox14.TabStop = false;
+            flpKhachHang.AutoScroll = true;
+            flpKhachHang.Location = new Point(8, 8);
+            flpKhachHang.Name = "flpKhachHang";
+            flpKhachHang.Size = new Size(1056, 488);
+            flpKhachHang.TabIndex = 0;
+            flpKhachHang.MouseDown += flpKhachHang_MouseDown;
             // 
             // tbpServices
             // 
@@ -2509,8 +2204,6 @@ namespace CyberManagementProject
             cbxTrangThai.Name = "cbxTrangThai";
             cbxTrangThai.Size = new Size(122, 36);
             cbxTrangThai.TabIndex = 0;
-            cbxTrangThai.Enter += cbxTrangThai_Enter_1;
-            cbxTrangThai.Leave += cbxTrangThai_Leave_1;
             // 
             // txtTimKiem
             // 
@@ -3282,13 +2975,13 @@ namespace CyberManagementProject
             // 
             cmsKhachHang.Items.AddRange(new ToolStripItem[] { cmsKhachHang_Them, cmsKhachHang_Nhac, cmsKhachHang_TrangChu });
             cmsKhachHang.Name = "cmsKhachHang";
-            cmsKhachHang.Size = new Size(213, 70);
+            cmsKhachHang.Size = new Size(214, 70);
             // 
             // cmsKhachHang_Them
             // 
             cmsKhachHang_Them.Name = "cmsKhachHang_Them";
             cmsKhachHang_Them.ShortcutKeys = Keys.Control | Keys.N;
-            cmsKhachHang_Them.Size = new Size(212, 22);
+            cmsKhachHang_Them.Size = new Size(213, 22);
             cmsKhachHang_Them.Text = "Thêm khách hàng";
             cmsKhachHang_Them.Click += cmsKhachHang_Them_Click;
             // 
@@ -3296,7 +2989,7 @@ namespace CyberManagementProject
             // 
             cmsKhachHang_Nhac.Name = "cmsKhachHang_Nhac";
             cmsKhachHang_Nhac.ShortcutKeys = Keys.Control | Keys.M;
-            cmsKhachHang_Nhac.Size = new Size(212, 22);
+            cmsKhachHang_Nhac.Size = new Size(213, 22);
             cmsKhachHang_Nhac.Text = "Nhạc";
             cmsKhachHang_Nhac.Click += cmsKhachHang_Nhac_Click;
             // 
@@ -3304,7 +2997,7 @@ namespace CyberManagementProject
             // 
             cmsKhachHang_TrangChu.Name = "cmsKhachHang_TrangChu";
             cmsKhachHang_TrangChu.ShortcutKeys = Keys.Control | Keys.H;
-            cmsKhachHang_TrangChu.Size = new Size(212, 22);
+            cmsKhachHang_TrangChu.Size = new Size(213, 22);
             cmsKhachHang_TrangChu.Text = "Trang chủ";
             cmsKhachHang_TrangChu.Click += cmsKhachHang_TrangChu_Click;
             // 
@@ -3312,13 +3005,13 @@ namespace CyberManagementProject
             // 
             cmsNhanVien.Items.AddRange(new ToolStripItem[] { cmsNhanVien_Them, cmsNhanVien_Nhac, cmsNhanVien_TrangChu });
             cmsNhanVien.Name = "cmsNhanVien";
-            cmsNhanVien.Size = new Size(199, 70);
+            cmsNhanVien.Size = new Size(200, 70);
             // 
             // cmsNhanVien_Them
             // 
             cmsNhanVien_Them.Name = "cmsNhanVien_Them";
             cmsNhanVien_Them.ShortcutKeys = Keys.Alt | Keys.N;
-            cmsNhanVien_Them.Size = new Size(198, 22);
+            cmsNhanVien_Them.Size = new Size(199, 22);
             cmsNhanVien_Them.Text = "Thêm nhân viên";
             cmsNhanVien_Them.Click += cmsNhanVien_Them_Click;
             // 
@@ -3326,7 +3019,7 @@ namespace CyberManagementProject
             // 
             cmsNhanVien_Nhac.Name = "cmsNhanVien_Nhac";
             cmsNhanVien_Nhac.ShortcutKeys = Keys.Control | Keys.M;
-            cmsNhanVien_Nhac.Size = new Size(198, 22);
+            cmsNhanVien_Nhac.Size = new Size(199, 22);
             cmsNhanVien_Nhac.Text = "Nhạc";
             cmsNhanVien_Nhac.Click += cmsNhanVien_Nhac_Click;
             // 
@@ -3334,7 +3027,7 @@ namespace CyberManagementProject
             // 
             cmsNhanVien_TrangChu.Name = "cmsNhanVien_TrangChu";
             cmsNhanVien_TrangChu.ShortcutKeys = Keys.Control | Keys.H;
-            cmsNhanVien_TrangChu.Size = new Size(198, 22);
+            cmsNhanVien_TrangChu.Size = new Size(199, 22);
             cmsNhanVien_TrangChu.Text = "Trang chủ";
             cmsNhanVien_TrangChu.Click += cmsNhanVien_TrangChu_Click;
             // 
@@ -3351,7 +3044,6 @@ namespace CyberManagementProject
             Name = "frmMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmMain";
-            FormClosed += frmMain_FormClosed;
             KeyDown += frmMain_KeyDown;
             pnlLeft.ResumeLayout(false);
             pnStatictical.ResumeLayout(false);
@@ -3372,15 +3064,6 @@ namespace CyberManagementProject
             pnlTitleBar.ResumeLayout(false);
             pnlTitleBar.PerformLayout();
             tblMain.ResumeLayout(false);
-            tbpAccount.ResumeLayout(false);
-            panel23.ResumeLayout(false);
-            panel24.ResumeLayout(false);
-            grbKhachHang.ResumeLayout(false);
-            panel25.ResumeLayout(false);
-            panel25.PerformLayout();
-            panel26.ResumeLayout(false);
-            panel26.PerformLayout();
-            panel27.ResumeLayout(false);
             tbpComputer.ResumeLayout(false);
             pnComputerControl.ResumeLayout(false);
             gbxComputerInfor.ResumeLayout(false);
@@ -3394,30 +3077,24 @@ namespace CyberManagementProject
             panel9.PerformLayout();
             pnComputerButton.ResumeLayout(false);
             flpComputer.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            pnCom.ResumeLayout(false);
+            pnCom.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbxMayTinh).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            panel8.ResumeLayout(false);
-            panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
-            panel13.ResumeLayout(false);
-            panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
+            tbpAccount.ResumeLayout(false);
+            panel23.ResumeLayout(false);
+            panel24.ResumeLayout(false);
+            grbKhachHang.ResumeLayout(false);
+            panel25.ResumeLayout(false);
+            panel25.PerformLayout();
+            panel26.ResumeLayout(false);
+            panel26.PerformLayout();
+            panel27.ResumeLayout(false);
             tbpServices.ResumeLayout(false);
             panel14.ResumeLayout(false);
             panel14.PerformLayout();
@@ -3534,11 +3211,11 @@ namespace CyberManagementProject
         private TabPage tbpComputer;
         private FlowLayoutPanel flpComputer;
         private Panel pnComputerControl;
-        private Panel panel1;
+        private Panel pnCom;
         private Label label4;
         private Label label3;
-        private Label label2;
-        private PictureBox pictureBox1;
+        private Label lbComName;
+        private PictureBox pbxMayTinh;
         private Panel panel3;
         private Label label5;
         private Label label6;
@@ -3549,26 +3226,6 @@ namespace CyberManagementProject
         private Label label9;
         private Label label10;
         private PictureBox pictureBox3;
-        private Panel panel5;
-        private Label label11;
-        private Label label12;
-        private Label label13;
-        private PictureBox pictureBox4;
-        private Panel panel6;
-        private Label label14;
-        private Label label15;
-        private Label label16;
-        private PictureBox pictureBox5;
-        private Panel panel7;
-        private Label label17;
-        private Label label18;
-        private Label label19;
-        private PictureBox pictureBox6;
-        private Panel panel8;
-        private Label label20;
-        private Label label21;
-        private Label label22;
-        private PictureBox pictureBox7;
         private GroupBox gbxComputerInfor;
         private Panel panel10;
         private Label label23;
@@ -3635,11 +3292,6 @@ namespace CyberManagementProject
         private Button button5;
         private Button button6;
         private Panel panel27;
-        private Panel panel13;
-        private Label label34;
-        private Label label35;
-        private Label label36;
-        private PictureBox pictureBox14;
         private TabPage tbpServices;
         private Panel panel14;
         private TextBox textBox4;
