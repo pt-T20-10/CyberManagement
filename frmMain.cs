@@ -25,8 +25,6 @@ namespace CyberManagementProject
         {
             InitializeComponent();
             Load();
-          
-
         }
 
         #region Hoàng Nghĩa
