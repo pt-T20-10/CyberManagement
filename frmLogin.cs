@@ -1,3 +1,5 @@
+using CyberManagementProject.DAO;
+
 namespace CyberManagementProject
 {
     public partial class frmLogin : Form
@@ -8,10 +10,25 @@ namespace CyberManagementProject
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //frmMain _frmMain = new frmMain();
-            //this.Hide();
-            //_frmMain.ShowDialog();
-            //this.Show();
+            string tkNhanVien = txbUserName.Text;
+            string matKhau = txbPassWord.Text;
+
+            if (string.IsNullOrEmpty(tkNhanVien) || string.IsNullOrEmpty(matKhau))
+            {
+                MessageBox.Show("Vui lòng nhập tài khoản và mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (TKNhanVienDAO.Instance.Login(tkNhanVien, matKhau))
+            {
+                this.Hide();
+                frmMain mainForm = new frmMain();
+                mainForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sai tài khoản hoặc mật khẩu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void frmLogin_FormClosing_1(object sender, FormClosingEventArgs e)

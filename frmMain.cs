@@ -508,6 +508,11 @@ namespace CyberManagementProject
 
 
 
+        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmLogin flogin = new frmLogin();
+            flogin.Show();
+        }
     }
 
 }

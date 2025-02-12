@@ -620,9 +620,9 @@ namespace CyberManagementProject
             pnlTitleBar.Controls.Add(flpListComputer);
             pnlTitleBar.Controls.Add(label1);
             pnlTitleBar.Controls.Add(btnToggleMenu);
-            pnlTitleBar.Location = new Point(0, 0);
+            pnlTitleBar.Location = new Point(32, 0);
             pnlTitleBar.Name = "pnlTitleBar";
-            pnlTitleBar.Size = new Size(1352, 56);
+            pnlTitleBar.Size = new Size(1320, 56);
             pnlTitleBar.TabIndex = 1;
             // 
             // flpListComputer
@@ -3349,6 +3349,7 @@ namespace CyberManagementProject
             Name = "frmMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmMain";
+            FormClosed += frmMain_FormClosed;
             KeyDown += frmMain_KeyDown;
             pnlLeft.ResumeLayout(false);
             pnStatictical.ResumeLayout(false);
