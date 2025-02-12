@@ -85,9 +85,9 @@
             txbPassWord.Location = new Point(13, 52);
             txbPassWord.Multiline = true;
             txbPassWord.Name = "txbPassWord";
+            txbPassWord.PasswordChar = '*';
             txbPassWord.Size = new Size(358, 30);
             txbPassWord.TabIndex = 2;
-            txbPassWord.UseSystemPasswordChar = true;
             // 
             // lbPassWord
             // 
