@@ -21,7 +21,8 @@ namespace CyberManagementProject.DAO
 
         private DataProvider() { }
 
-        string connectionSTR = @"Data Source=CAKE;Initial Catalog=CyberManagement;Integrated Security=True;Trust Server Certificate=True;";
+        string connectionSTR = @"Data Source=ACER\MSSQLSERVER03;Initial Catalog=CyberManagement;Integrated Security=True;Encrypt=True;Trust Server Certificate=True;";
+        //Data Source=ACER\MSSQLSERVER03;Initial Catalog=CyberManagement;Integrated Security=True;Encrypt=True;Trust Server Certificate=True;
 
         public DataTable ExcuteQuery(string query, object[] parameter = null)
         {

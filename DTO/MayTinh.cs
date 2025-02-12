@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,15 @@ namespace CyberManagementProject.DTO
             this.trangThaiMay = status;
             this.ghiChuMay = note;  
         }
+        public MayTinh(DataRow row) 
+        {
+            this.iDMayTinh = (int)row["IDMayTinh"];
+            this.tenMay = row["TenMay"].ToString();
+            this.trangThaiMay = row["TrangThai"].ToString();
+            this.bangGia = (float)Convert.ToDouble(row["BangGia"]);
+            this.ghiChuMay = row["GhiChu"].ToString();
 
+        }
 
         public int IDMayTinh { get => iDMayTinh; set => iDMayTinh = value; }
         public string TenMay { get => tenMay; set => tenMay = value; }
