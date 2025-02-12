@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace CyberManagementProject.Music
@@ -17,16 +12,14 @@ namespace CyberManagementProject.Music
             InitializeComponent();
         }
 
-        string[] selectedFilePath;
-        // Tạo hộp thoại chọn file
+        List<string> selectedFilePath = new List<string>();  // Dùng List thay vì mảng
+        List<string> fileNames = new List<string>();
         OpenFileDialog openFileDialog = new OpenFileDialog();
-        string[] fileNames;
 
         private void btnChooseMusic_Click(object sender, EventArgs e)
         {
             string folderPath = @"D:\LapTrinhNet\CyberManagement\Music\Music";
 
-            // Kiểm tra thư mục có tồn tại không
             if (!Directory.Exists(folderPath))
             {
                 MessageBox.Show("Thư mục không tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -35,32 +28,22 @@ namespace CyberManagementProject.Music
 
             try
             {
-
-
-                // Thiết lập thư mục mở ban đầu
                 openFileDialog.InitialDirectory = folderPath;
-
-                // Bộ lọc file (chỉ hiện các file ảnh)
                 openFileDialog.Filter = "Mp3 Files, Mp4 Files|*.mp3;*.mp4;*.mp";
-
-                // Tiêu đề của hộp thoại
                 openFileDialog.Title = "Chọn nhạc";
+                openFileDialog.Multiselect = true;  // Cho phép chọn nhiều file
 
-                // Hiển thị hộp thoại và kiểm tra nếu người dùng nhấn OK
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Lấy đường dẫn file đã chọn
-                    selectedFilePath = openFileDialog.FileNames;
-
-                    //lấy tên file
-                    fileNames = openFileDialog.SafeFileNames;
-
-                    foreach (var item in fileNames)
+                    foreach (var file in openFileDialog.FileNames)
                     {
-                        this.lbxMusic.Items.Add(item);
-
+                        if (!selectedFilePath.Contains(file))  // Tránh trùng lặp
+                        {
+                            selectedFilePath.Add(file);
+                            fileNames.Add(Path.GetFileName(file));
+                            lbxMusic.Items.Add(Path.GetFileName(file));
+                        }
                     }
-
                 }
             }
             catch (Exception ex)
@@ -71,17 +54,26 @@ namespace CyberManagementProject.Music
 
         private void lbxMusic_DoubleClick(object sender, EventArgs e)
         {
-            if (lbxMusic.SelectedIndex != -1)
+            if (lbxMusic.SelectedIndex >= 0 && lbxMusic.SelectedIndex < selectedFilePath.Count)
             {
                 int choose = lbxMusic.SelectedIndex;
                 wmpMusic.URL = selectedFilePath[choose];
-                this.txtMusic.Text = fileNames[choose];
+                txtMusic.Text = fileNames[choose];
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy bài hát!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-
+            DialogResult result = MessageBox.Show("Làm việc không nghe nhạc sẽ bị khùng đó ní. Chắc chưa?", "Nhắc nhở", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                MessageBox.Show("Bye thằng khùng");
+                this.Close();
+            }
         }
     }
 }

@@ -300,6 +300,14 @@ namespace CyberManagementProject
             lbTittleKH = new Label();
             pnThongKeKH = new Panel();
             dgvThongKeKH = new DataGridView();
+            cmsKhachHang = new ContextMenuStrip(components);
+            cmsKhachHang_Them = new ToolStripMenuItem();
+            cmsKhachHang_Nhac = new ToolStripMenuItem();
+            cmsKhachHang_TrangChu = new ToolStripMenuItem();
+            cmsNhanVien = new ContextMenuStrip(components);
+            cmsNhanVien_Them = new ToolStripMenuItem();
+            cmsNhanVien_Nhac = new ToolStripMenuItem();
+            cmsNhanVien_TrangChu = new ToolStripMenuItem();
             pnlLeft.SuspendLayout();
             pnStatictical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -410,6 +418,8 @@ namespace CyberManagementProject
             pnKhungThangKH.SuspendLayout();
             pnThongKeKH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvThongKeKH).BeginInit();
+            cmsKhachHang.SuspendLayout();
+            cmsNhanVien.SuspendLayout();
             SuspendLayout();
             // 
             // pnlLeft
@@ -722,7 +732,7 @@ namespace CyberManagementProject
             // 
             panel24.Controls.Add(label32);
             panel24.Controls.Add(label33);
-            panel24.Location = new Point(16, 8);
+            panel24.Location = new Point(13, 0);
             panel24.Name = "panel24";
             panel24.Size = new Size(288, 48);
             panel24.TabIndex = 9;
@@ -730,9 +740,9 @@ namespace CyberManagementProject
             // label32
             // 
             label32.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label32.Location = new Point(88, 16);
+            label32.Location = new Point(97, 16);
             label32.Name = "label32";
-            label32.Size = new Size(185, 23);
+            label32.Size = new Size(176, 23);
             label32.TabIndex = 6;
             label32.Text = "Quản lý khách hàng";
             // 
@@ -845,6 +855,7 @@ namespace CyberManagementProject
             flpKhachHang.Name = "flpKhachHang";
             flpKhachHang.Size = new Size(1056, 488);
             flpKhachHang.TabIndex = 0;
+            flpKhachHang.MouseDown += flpKhachHang_MouseDown;
             // 
             // tbpComputer
             // 
@@ -2452,16 +2463,15 @@ namespace CyberManagementProject
             // 
             // grbQuanLyNhanVien
             // 
-            grbQuanLyNhanVien.BackColor = Color.White;
             grbQuanLyNhanVien.Controls.Add(cbxChucVu);
             grbQuanLyNhanVien.Controls.Add(panel19);
             grbQuanLyNhanVien.Controls.Add(cbxTrangThai);
             grbQuanLyNhanVien.Controls.Add(txtTimKiem);
             grbQuanLyNhanVien.FlatStyle = FlatStyle.System;
             grbQuanLyNhanVien.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            grbQuanLyNhanVien.Location = new Point(16, 64);
+            grbQuanLyNhanVien.Location = new Point(10, 64);
             grbQuanLyNhanVien.Name = "grbQuanLyNhanVien";
-            grbQuanLyNhanVien.Size = new Size(1087, 609);
+            grbQuanLyNhanVien.Size = new Size(1093, 609);
             grbQuanLyNhanVien.TabIndex = 6;
             grbQuanLyNhanVien.TabStop = false;
             grbQuanLyNhanVien.Text = "Quản Lý Nhân Viên";
@@ -2489,6 +2499,7 @@ namespace CyberManagementProject
             flpNhanVien.Name = "flpNhanVien";
             flpNhanVien.Size = new Size(1064, 488);
             flpNhanVien.TabIndex = 4;
+            flpNhanVien.MouseDown += flpNhanVien_MouseDown;
             // 
             // cbxTrangThai
             // 
@@ -2505,7 +2516,7 @@ namespace CyberManagementProject
             txtTimKiem.Location = new Point(8, 40);
             txtTimKiem.Multiline = true;
             txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(513, 40);
+            txtTimKiem.Size = new Size(521, 37);
             txtTimKiem.TabIndex = 0;
             txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
@@ -3265,6 +3276,66 @@ namespace CyberManagementProject
             dgvThongKeKH.Size = new Size(682, 521);
             dgvThongKeKH.TabIndex = 0;
             // 
+            // cmsKhachHang
+            // 
+            cmsKhachHang.Items.AddRange(new ToolStripItem[] { cmsKhachHang_Them, cmsKhachHang_Nhac, cmsKhachHang_TrangChu });
+            cmsKhachHang.Name = "cmsKhachHang";
+            cmsKhachHang.Size = new Size(213, 70);
+            // 
+            // cmsKhachHang_Them
+            // 
+            cmsKhachHang_Them.Name = "cmsKhachHang_Them";
+            cmsKhachHang_Them.ShortcutKeys = Keys.Control | Keys.N;
+            cmsKhachHang_Them.Size = new Size(212, 22);
+            cmsKhachHang_Them.Text = "Thêm khách hàng";
+            cmsKhachHang_Them.Click += cmsKhachHang_Them_Click;
+            // 
+            // cmsKhachHang_Nhac
+            // 
+            cmsKhachHang_Nhac.Name = "cmsKhachHang_Nhac";
+            cmsKhachHang_Nhac.ShortcutKeys = Keys.Control | Keys.M;
+            cmsKhachHang_Nhac.Size = new Size(212, 22);
+            cmsKhachHang_Nhac.Text = "Nhạc";
+            cmsKhachHang_Nhac.Click += cmsKhachHang_Nhac_Click;
+            // 
+            // cmsKhachHang_TrangChu
+            // 
+            cmsKhachHang_TrangChu.Name = "cmsKhachHang_TrangChu";
+            cmsKhachHang_TrangChu.ShortcutKeys = Keys.Control | Keys.H;
+            cmsKhachHang_TrangChu.Size = new Size(212, 22);
+            cmsKhachHang_TrangChu.Text = "Trang chủ";
+            cmsKhachHang_TrangChu.Click += cmsKhachHang_TrangChu_Click;
+            // 
+            // cmsNhanVien
+            // 
+            cmsNhanVien.Items.AddRange(new ToolStripItem[] { cmsNhanVien_Them, cmsNhanVien_Nhac, cmsNhanVien_TrangChu });
+            cmsNhanVien.Name = "cmsNhanVien";
+            cmsNhanVien.Size = new Size(199, 70);
+            // 
+            // cmsNhanVien_Them
+            // 
+            cmsNhanVien_Them.Name = "cmsNhanVien_Them";
+            cmsNhanVien_Them.ShortcutKeys = Keys.Alt | Keys.N;
+            cmsNhanVien_Them.Size = new Size(198, 22);
+            cmsNhanVien_Them.Text = "Thêm nhân viên";
+            cmsNhanVien_Them.Click += cmsNhanVien_Them_Click;
+            // 
+            // cmsNhanVien_Nhac
+            // 
+            cmsNhanVien_Nhac.Name = "cmsNhanVien_Nhac";
+            cmsNhanVien_Nhac.ShortcutKeys = Keys.Control | Keys.M;
+            cmsNhanVien_Nhac.Size = new Size(198, 22);
+            cmsNhanVien_Nhac.Text = "Nhạc";
+            cmsNhanVien_Nhac.Click += cmsNhanVien_Nhac_Click;
+            // 
+            // cmsNhanVien_TrangChu
+            // 
+            cmsNhanVien_TrangChu.Name = "cmsNhanVien_TrangChu";
+            cmsNhanVien_TrangChu.ShortcutKeys = Keys.Control | Keys.H;
+            cmsNhanVien_TrangChu.Size = new Size(198, 22);
+            cmsNhanVien_TrangChu.Text = "Trang chủ";
+            cmsNhanVien_TrangChu.Click += cmsNhanVien_TrangChu_Click;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -3274,9 +3345,11 @@ namespace CyberManagementProject
             Controls.Add(pnlTitleBar);
             Controls.Add(pnlLeft);
             FormBorderStyle = FormBorderStyle.None;
+            KeyPreview = true;
             Name = "frmMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmMain";
+            KeyDown += frmMain_KeyDown;
             pnlLeft.ResumeLayout(false);
             pnStatictical.ResumeLayout(false);
             pnStatictical.PerformLayout();
@@ -3441,6 +3514,8 @@ namespace CyberManagementProject
             pnKhungThangKH.PerformLayout();
             pnThongKeKH.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvThongKeKH).EndInit();
+            cmsKhachHang.ResumeLayout(false);
+            cmsNhanVien.ResumeLayout(false);
             ResumeLayout(false);
         }
         #endregion
@@ -3713,5 +3788,13 @@ namespace CyberManagementProject
         private ComboBox cbxChucVu;
         private ComboBox cbxTrangThai;
         private TextBox txtTimKiem;
+        private ContextMenuStrip cmsKhachHang;
+        private ToolStripMenuItem cmsKhachHang_Them;
+        private ToolStripMenuItem cmsKhachHang_Nhac;
+        private ToolStripMenuItem cmsKhachHang_TrangChu;
+        private ContextMenuStrip cmsNhanVien;
+        private ToolStripMenuItem cmsNhanVien_Them;
+        private ToolStripMenuItem cmsNhanVien_Nhac;
+        private ToolStripMenuItem cmsNhanVien_TrangChu;
     }
 }

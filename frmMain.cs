@@ -15,6 +15,7 @@ using CyberManagementProject.DTO;
 using Microsoft.Data.SqlClient;
 using System.Collections;
 using QuanLyQuanNet.Customer;
+using CyberManagementProject.Music;
 
 namespace CyberManagementProject
 {
@@ -24,7 +25,16 @@ namespace CyberManagementProject
         public frmMain()
         {
             InitializeComponent();
+            Load();
 
+
+        }
+
+        #region Hoàng Nghĩa
+
+        #region Method
+        void Load()
+        {
             LoadKhachHang(); //Load danh sách khách hàng khi frmMain load
 
             LoadNhanVien(); //Load danh sách nhân viên khi frmMain load
@@ -38,13 +48,7 @@ namespace CyberManagementProject
             LoadChucVuToComboBox(); // gọi phương thức load TenChucVu khi frmMain load
 
             LoadNhomKhachToComboBox(); // gọi phương thức load NhomKhach khi frmMain load
-
         }
-
-        #region Hoàng Nghĩa
-
-        #region Method
-
         //Load thong tin cua Khach Hang
         public void LoadKhachHang()
         {
@@ -308,6 +312,74 @@ namespace CyberManagementProject
             }
         }
 
+        //menu chuột phải Khách hàng
+        private void flpKhachHang_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                cmsKhachHang.Show(Cursor.Position);
+            }
+        }
+        private void cmsKhachHang_Them_Click(object sender, EventArgs e)
+        {
+            frmThemKhachHang f = new frmThemKhachHang();
+            f.Show();
+        }
+        private void cmsKhachHang_Nhac_Click(object sender, EventArgs e)
+        {
+            frmMusic f = new frmMusic();
+            f.Show();
+        }
+        private void cmsKhachHang_TrangChu_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpComputer;
+        }
+
+        //menu chuột phải Nhân viên
+        private void flpNhanVien_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                cmsNhanVien.Show(Cursor.Position);
+            }
+        }
+        private void cmsNhanVien_Them_Click(object sender, EventArgs e)
+        {
+            frmThemNhanVien f = new frmThemNhanVien();
+            f.Show();
+        }
+        private void cmsNhanVien_Nhac_Click(object sender, EventArgs e)
+        {
+            frmMusic f = new frmMusic();
+            f.Show();
+        }
+        private void cmsNhanVien_TrangChu_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpComputer;
+        }
+        //Tổng hợp phím tắt
+        private void frmMain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.N) // Ctrl + N: tạo khách hàng mới
+            {
+                frmThemKhachHang f = new frmThemKhachHang();
+                f.Show();
+            }
+            else if (e.Alt && e.KeyCode == Keys.N) // Alt + N: tạo nhân viên mới
+            {
+                frmThemNhanVien f = new frmThemNhanVien();
+                f.Show();
+            }
+            else if (e.Control && e.KeyCode == Keys.M) // Ctrl + M: gọi form Music
+            {
+                frmMusic f = new frmMusic();
+                f.Show();
+            }
+            else if (e.Control && e.KeyCode == Keys.H) // Ctrl + H: gọi form Main (computer)
+            {
+                tblMain.SelectedTab = tbpComputer;
+            }
+        }
         #endregion
 
         #endregion
@@ -429,8 +501,13 @@ namespace CyberManagementProject
             tblMain.SelectedTab = tbpStatictical;
         }
 
-#endregion
-#endregion
+        #endregion
+        #region Method
+        #endregion
+        #endregion
+
+
+
     }
 
 }
