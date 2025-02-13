@@ -510,9 +510,11 @@ namespace CyberManagementProject
         }
         private void btnManageComputer_Click(object sender, EventArgs e)
         {
-
-            frmAddUserToComputer f = new frmAddUserToComputer();
+            MayTinhView computer = flpComputer.Tag as MayTinhView;
+        
+            frmAddUserToComputer f = new frmAddUserToComputer(computer);
             f.ShowDialog();
+            LoadComputerList();
 
         }
         #region CloseButton
@@ -627,7 +629,7 @@ namespace CyberManagementProject
             LoadComputerList();
 
         }
-        void LoadComputerList()
+        public void  LoadComputerList()
         {
             flpComputer.Controls.Clear();
             List<MayTinhView> computers = MayTinhDAO.Instance.LoadComputerStatus();

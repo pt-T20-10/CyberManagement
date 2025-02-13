@@ -45,7 +45,7 @@ namespace CyberManagementProject.DTO
         public int IDMayTinh { get; set; }
         public string TenMay { get; set; }
         public string TrangThai { get; set; }
-        public string? IDPhien { get; set; }
+        public int? IDPhien { get; set; }
         public int? ThoiGianConLai { get; set; }
         public decimal? TongTien { get; set; }
         public string? TKKhachHang { get; set; }
@@ -56,7 +56,7 @@ namespace CyberManagementProject.DTO
             IDMayTinh = (int)row["IDMayTinh"];
             TenMay = row["TenMay"].ToString();
             TrangThai = row["TrangThai"].ToString();
-            IDPhien = row["IDPhien"]?.ToString();
+            IDPhien = row["IDPhien"] as int?;
             ThoiGianConLai = row["ThoiGianConlai"] as int?;
             TongTien = row["TongTien"] as decimal?;
             TKKhachHang = row["TKKhachHang"]?.ToString();

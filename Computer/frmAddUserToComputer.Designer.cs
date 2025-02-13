@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             gbxComputerManager = new GroupBox();
-            button1 = new Button();
+            btnMoMay = new Button();
             numericUpDown1 = new NumericUpDown();
-            comboBox1 = new ComboBox();
+            cbxAccountUser = new ComboBox();
             label2 = new Label();
             lbNameToAdd = new Label();
             gbxComputerManager.SuspendLayout();
@@ -40,9 +40,9 @@
             // 
             // gbxComputerManager
             // 
-            gbxComputerManager.Controls.Add(button1);
+            gbxComputerManager.Controls.Add(btnMoMay);
             gbxComputerManager.Controls.Add(numericUpDown1);
-            gbxComputerManager.Controls.Add(comboBox1);
+            gbxComputerManager.Controls.Add(cbxAccountUser);
             gbxComputerManager.Controls.Add(label2);
             gbxComputerManager.Controls.Add(lbNameToAdd);
             gbxComputerManager.Location = new Point(8, 8);
@@ -52,14 +52,15 @@
             gbxComputerManager.TabStop = false;
             gbxComputerManager.Text = "groupBox1";
             // 
-            // button1
+            // btnMoMay
             // 
-            button1.Location = new Point(48, 192);
-            button1.Name = "button1";
-            button1.Size = new Size(100, 38);
-            button1.TabIndex = 4;
-            button1.Text = "Mở máy";
-            button1.UseVisualStyleBackColor = true;
+            btnMoMay.Location = new Point(48, 192);
+            btnMoMay.Name = "btnMoMay";
+            btnMoMay.Size = new Size(100, 38);
+            btnMoMay.TabIndex = 4;
+            btnMoMay.Text = "Mở máy";
+            btnMoMay.UseVisualStyleBackColor = true;
+            btnMoMay.Click += btnMoMay_Click;
             // 
             // numericUpDown1
             // 
@@ -68,13 +69,13 @@
             numericUpDown1.Size = new Size(168, 23);
             numericUpDown1.TabIndex = 3;
             // 
-            // comboBox1
+            // cbxAccountUser
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(16, 64);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(168, 23);
-            comboBox1.TabIndex = 2;
+            cbxAccountUser.FormattingEnabled = true;
+            cbxAccountUser.Location = new Point(16, 64);
+            cbxAccountUser.Name = "cbxAccountUser";
+            cbxAccountUser.Size = new Size(168, 23);
+            cbxAccountUser.TabIndex = 2;
             // 
             // label2
             // 
@@ -104,7 +105,6 @@
             Controls.Add(gbxComputerManager);
             Name = "frmAddUserToComputer";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "frmAddUserToComputer";
             gbxComputerManager.ResumeLayout(false);
             gbxComputerManager.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
@@ -117,7 +117,7 @@
         private Label label2;
         private Label lbNameToAdd;
         private NumericUpDown numericUpDown1;
-        private ComboBox comboBox1;
-        private Button button1;
+        private ComboBox cbxAccountUser;
+        private Button btnMoMay;
     }
 }

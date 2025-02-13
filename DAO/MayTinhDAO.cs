@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace CyberManagementProject.DAO
 {
@@ -56,5 +57,20 @@ namespace CyberManagementProject.DAO
             }
             return computers;
         }
+        public DataTable LoadListKhachHang()
+        {
+            string query = "EXEC USP_LoadListKhachHangAvilable";
+            return DataProvider.Instance.ExcuteQuery(query);    
+        }
+        public void InsertUser_Phien(int idMayTinh , string userName)
+        {
+            DataProvider.Instance.ExcuteQuery("EXEC USP_InsertPhienSuDung @iDMayTinh , @UserName ", new object[] {idMayTinh, userName} ); 
+        }
+        public bool isKhachHangNotAvailable(string userName)
+        {
+            DataTable result = DataProvider.Instance.ExcuteQuery("EXEC USP_LoadListKhachHangNotAvilable @userName ", new object[] { userName });
+            return result.Rows.Count > 0;
+        }
+
     }
 }
