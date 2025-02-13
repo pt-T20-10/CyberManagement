@@ -503,17 +503,17 @@ namespace CyberManagementProject
         }
         private void btnExtraMoney_Click(object sender, EventArgs e)
         {
-            this.Opacity = 0.5;
+           
             frmNapTien f = new frmNapTien();
             f.ShowDialog();
-            this.Opacity = 1;
+            
         }
         private void btnManageComputer_Click(object sender, EventArgs e)
         {  
-            this.Opacity = 0.5;
+           
             frmAddUserToComputer f = new frmAddUserToComputer();
             f.ShowDialog();
-             this.Opacity = 1;
+            
         }
         #endregion
         #region Method
