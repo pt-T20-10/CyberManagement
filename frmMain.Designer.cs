@@ -638,7 +638,7 @@ namespace CyberManagementProject
             gbxComputerInfor.Size = new Size(328, 456);
             gbxComputerInfor.TabIndex = 0;
             gbxComputerInfor.TabStop = false;
-            gbxComputerInfor.Text = "Máy tính 01";
+            gbxComputerInfor.Text = "Máy tính";
             // 
             // lvServices
             // 
@@ -723,7 +723,7 @@ namespace CyberManagementProject
             tbxTimeLeft.ReadOnly = true;
             tbxTimeLeft.Size = new Size(191, 25);
             tbxTimeLeft.TabIndex = 1;
-            tbxTimeLeft.Text = "1:30:52";
+            tbxTimeLeft.Text = "00:00:00";
             // 
             // panel11
             // 
@@ -747,13 +747,12 @@ namespace CyberManagementProject
             // tbxMoneyCost
             // 
             tbxMoneyCost.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbxMoneyCost.Location = new Point(136, 16);
+            tbxMoneyCost.Location = new Point(96, 16);
             tbxMoneyCost.Name = "tbxMoneyCost";
             tbxMoneyCost.ReadOnly = true;
             tbxMoneyCost.RightToLeft = RightToLeft.No;
-            tbxMoneyCost.Size = new Size(168, 25);
+            tbxMoneyCost.Size = new Size(192, 25);
             tbxMoneyCost.TabIndex = 1;
-            tbxMoneyCost.Text = "70.000đ";
             tbxMoneyCost.TextAlign = HorizontalAlignment.Right;
             // 
             // panel9
@@ -783,7 +782,6 @@ namespace CyberManagementProject
             tbxUserAccount.ReadOnly = true;
             tbxUserAccount.Size = new Size(191, 29);
             tbxUserAccount.TabIndex = 1;
-            tbxUserAccount.Text = "User01";
             // 
             // pnComputerButton
             // 
