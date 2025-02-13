@@ -40,4 +40,27 @@ namespace CyberManagementProject.DTO
         public string GhiChuMay { get => ghiChuMay; set => ghiChuMay = value; }
 
     }
+    public class MayTinhView
+    {
+        public string IDMayTinh { get; set; }
+        public string TenMay { get; set; }
+        public string TrangThai { get; set; }
+        public string? IDPhien { get; set; }
+        public DateTime? ThoiGianConLai { get; set; }
+        public decimal? TongTien { get; set; }
+        public string? TKKhachHang { get; set; }
+        public decimal? TienNap { get; set; }
+
+        public MayTinhView(DataRow row)
+        {
+            IDMayTinh = row["IDMayTinh"].ToString();
+            TenMay = row["TenMay"].ToString();
+            TrangThai = row["TrangThai"].ToString();
+            IDPhien = row["IDPhien"]?.ToString();
+            ThoiGianConLai = row["ThoiGianConlai"] as DateTime?;
+            TongTien = row["TongTien"] as decimal?;
+            TKKhachHang = row["TKKhachHang"]?.ToString();
+            TienNap = row["TienNap"] as decimal?;
+        }
+    }
 }

@@ -23,7 +23,8 @@ namespace CyberManagementProject
             {
                 this.Hide();
                 frmMain mainForm = new frmMain();
-                mainForm.Show();
+                mainForm.ShowDialog();
+                this.Show();
             }
             else
             {

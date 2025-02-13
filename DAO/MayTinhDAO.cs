@@ -43,5 +43,18 @@ namespace CyberManagementProject.DAO
             }    
             return computers;
         }
+        public List<MayTinhView> LoadComputerStatus()
+        {
+            List<MayTinhView> computers = new List<MayTinhView>();
+            string query = "SELECT * FROM VW_MayTinhStatus";
+            DataTable data = DataProvider.Instance.ExcuteQuery(query);
+
+            foreach (DataRow row in data.Rows)
+            {
+                MayTinhView computer = new MayTinhView(row);
+                computers.Add(computer);
+            }
+            return computers;
+        }
     }
 }

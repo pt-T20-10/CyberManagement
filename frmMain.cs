@@ -503,18 +503,44 @@ namespace CyberManagementProject
         }
         private void btnExtraMoney_Click(object sender, EventArgs e)
         {
-           
+
             frmNapTien f = new frmNapTien();
             f.ShowDialog();
-            
+
         }
         private void btnManageComputer_Click(object sender, EventArgs e)
-        {  
-           
+        {
+
             frmAddUserToComputer f = new frmAddUserToComputer();
             f.ShowDialog();
-            
+
         }
+        #region CloseButton
+        private void pbxClose_MouseEnter_1(object sender, EventArgs e)
+        {
+            pbxClose.BackColor = Color.Red;
+            pbxClose.Image = Properties.Resources.close_hover;
+        }
+        private void pbxClose_MouseLeave(object sender, EventArgs e)
+        {
+            pbxClose.BackColor = Color.Transparent;
+            pbxClose.Image = Properties.Resources.close;
+        }
+
+        private void pbxClose_MouseUp(object sender, MouseEventArgs e)
+        {
+            pbxClose.BackColor = Color.Red;
+        }
+
+        private void pbxClose_MouseDown(object sender, MouseEventArgs e)
+        {
+            pbxClose.BackColor = Color.DarkRed;
+        }
+        private void pbxClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
         #endregion
         #region Method
         void LoadTrongThoai()
@@ -525,10 +551,9 @@ namespace CyberManagementProject
         void LoadComputerList()
         {
             flpComputer.Controls.Clear();
-            List<MayTinh> computers = MayTinhDAO.Instance.LoadComputer();
-            foreach (MayTinh com in computers)
+            List<MayTinhView> computers = MayTinhDAO.Instance.LoadComputerStatus();
+            foreach (MayTinhView com in computers)
             {
-                // Tạo Panel chứa từng máy tính
                 Panel pnCom = new Panel()
                 {
                     Width = MayTinhDAO.TableWidth,
@@ -538,72 +563,125 @@ namespace CyberManagementProject
                     Padding = new Padding(5), // Thêm padding để tạo khoảng cách bên trong
                     Tag = com
                 };
+                // Tạo Panel chứa từng máy tính
                 string projectPath = AppDomain.CurrentDomain.BaseDirectory;
-                string imagePath = Path.Combine(projectPath, @"..\..\..\Resources\Monitor\Offline.png");
+                string imageOfflinePath = Path.Combine(projectPath, @"..\..\..\Resources\Monitor\Offline.png");
+                string imageOnlinelinePath = Path.Combine(projectPath, @"..\..\..\Resources\Monitor\Online.png");
                 // Tạo PictureBox để hiển thị ảnh máy tính
-                PictureBox pbComputer = new PictureBox()
+                if (com.TrangThai == "Trống")
                 {
+                    PictureBox pbComputer = new PictureBox()
+                    {
+                        Width = MayTinhDAO.PicWidth,
+                        Height = MayTinhDAO.PicHeight, // Chiếm nửa trên của panel
+                        SizeMode = PictureBoxSizeMode.StretchImage,
+                        Image = Image.FromFile(imageOfflinePath),
+                        Location = new Point((pnCom.Width - MayTinhDAO.PicWidth) / 2, 0)
+                    };
+                    // Tạo TextBox hiển thị tên máy tính
+                    Label lbComputerName = new Label()
+                    {
+                        AutoSize = true,
+                        Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0),
 
-                    Width = MayTinhDAO.PicWidth,
-                    Height = MayTinhDAO.PicHeight, // Chiếm nửa trên của panel
-                    SizeMode = PictureBoxSizeMode.StretchImage,
-                    Image = Image.FromFile(imagePath),
-                    Location = new Point((pnCom.Width - MayTinhDAO.PicWidth) / 2, (pnCom.Height - MayTinhDAO.PicHeight) / 2)
-                    // Đổi thành đường dẫn ảnh thật
-                    //Location = new Point(5, 5) // Đặt vị trí ở góc trên của Panel
-                };
-                // Tạo TextBox hiển thị tên máy tính
-                Label lbComputerName = new Label()
+                        Text = com.TenMay,
+
+                        Location = new Point(30, pbComputer.Bottom + 5), // Đặt ở giữa theo chiều ngang
+                        TextAlign = ContentAlignment.MiddleCenter // Căn giữa chữ theo chiều ngang
+                    };
+                    // Tạo TextBox hiển thị thời gian sử dụng
+                    Label lbTimeUsed = new Label()
+                    {
+                        Text = "00:00:00", // Giả sử ThoiGianSuDung là kiểu TimeSpan hoặc string
+                       
+                        Width = pnCom.Width - 10,
+                        Height = 25,
+                        Location = new Point(5, lbComputerName.Bottom + 5), // Dưới TextBox tên máy tính
+                        TextAlign = ContentAlignment.MiddleCenter // Căn giữa chữ theo chiều ngang
+
+                    };
+
+                    // Tạo TextBox hiển thị tên người dùng đang sử dụng máy
+                    Label lbUserName = new Label()
+                    {
+                        Text = "Trống", // Giả sử UserName là tên người dùng
+                        
+                        Width = pnCom.Width - 10,
+                        Height = 25,
+                        Location = new Point(5, lbTimeUsed.Bottom + 5), // Dưới TextBox thời gian sử dụng
+                        TextAlign = ContentAlignment.MiddleCenter // Căn giữa chữ theo chiều ngang
+
+                    };
+                    pbComputer.SizeMode = PictureBoxSizeMode.Zoom;
+
+                    // Thêm các control vào Panel
+                    pnCom.Controls.Add(pbComputer);
+                    pnCom.Controls.Add(lbComputerName);
+                    pnCom.Controls.Add(lbTimeUsed);
+                    pnCom.Controls.Add(lbUserName);
+                }
+                else
                 {
-                    AutoSize = true,
-                    Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0),
+                    PictureBox pbComputer = new PictureBox()
+                    {
+                        Width = MayTinhDAO.PicWidth,
+                        Height = MayTinhDAO.PicHeight, // Chiếm nửa trên của panel
+                        SizeMode = PictureBoxSizeMode.StretchImage,
+                        Image = Image.FromFile(imageOnlinelinePath),
+                        Location = new Point((pnCom.Width - MayTinhDAO.PicWidth) / 2, 0)
+                    };
+                    // Tạo TextBox hiển thị tên máy tính
+                    Label lbComputerName = new Label()
+                    {
+                        AutoSize = true,
+                        Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0),
 
-                    Text = com.TenMay,
+                        Text = com.TenMay,
 
-                    Location = new Point(30, pbComputer.Bottom + 5), // Đặt ở giữa theo chiều ngang
-                    TextAlign = ContentAlignment.MiddleCenter // Căn giữa chữ theo chiều ngang
-                };
-                //// Tạo TextBox hiển thị thời gian sử dụng
-                //TextBox txtTimeUsed = new TextBox()
-                //{
-                //    Text = com.ThoiGianSuDung.ToString(), // Giả sử ThoiGianSuDung là kiểu TimeSpan hoặc string
-                //    ReadOnly = true,
-                //    Width = pnCom.Width - 10,
-                //    Height = 25,
-                //    Location = new Point(5, txtComputerName.Bottom + 5), // Dưới TextBox tên máy tính
-                //    TextAlign = HorizontalAlignment.Center
-                //};
+                        Location = new Point(30, pbComputer.Bottom + 5), // Đặt ở giữa theo chiều ngang
+                        TextAlign = ContentAlignment.MiddleCenter // Căn giữa chữ theo chiều ngang
+                    };
+                    // Tạo TextBox hiển thị thời gian sử dụng
+                    Label  lbTimeUsed = new Label()
+                    {
+                        Text = com.ThoiGianConLai.ToString(), // Giả sử ThoiGianSuDung là kiểu TimeSpan hoặc string
+                      
+                        Width = pnCom.Width - 10,
+                        Height = 25,
+                        Location = new Point(5, lbComputerName.Bottom + 5), // Dưới TextBox tên máy tính
+                        TextAlign = ContentAlignment.MiddleCenter // Căn giữa chữ theo chiều ngang
 
-                //// Tạo TextBox hiển thị tên người dùng đang sử dụng máy
-                //TextBox txtUser = new TextBox()
-                //{
-                //    Text = com.UserName, // Giả sử UserName là tên người dùng
-                //    ReadOnly = true,
-                //    Width = pnCom.Width - 10,
-                //    Height = 25,
-                //    Location = new Point(5, txtTimeUsed.Bottom + 5), // Dưới TextBox thời gian sử dụng
-                //    TextAlign = HorizontalAlignment.Center
-                //};
-                //pbComputer.SizeMode = PictureBoxSizeMode.Zoom;
+                    };
 
-                // Thêm các control vào Panel
-                pnCom.Controls.Add(pbComputer);
-                pnCom.Controls.Add(lbComputerName);
-                //pnCom.Controls.Add(txtTimeUsed);
-                //pnCom.Controls.Add(txtUser);
+                    // Tạo TextBox hiển thị tên người dùng đang sử dụng máy
+                    Label lbUserName = new Label()
+                    {
+                        Text = com.TKKhachHang, // Giả sử UserName là tên người dùng
+                        
+                        Width = pnCom.Width - 10,
+                        Height = 25,
+                        Location = new Point(5, lbTimeUsed.Bottom + 5), // Dưới TextBox thời gian sử dụng
+                        TextAlign = ContentAlignment.MiddleCenter // Căn giữa chữ theo chiều ngang
+                    };
+                    pbComputer.SizeMode = PictureBoxSizeMode.Zoom;
 
+                    // Thêm các control vào Panel
+                    pnCom.Controls.Add(pbComputer);
+                    pnCom.Controls.Add(lbComputerName);
+                    pnCom.Controls.Add(lbTimeUsed);
+                    pnCom.Controls.Add(lbUserName);
+                }
                 // Thêm Panel vào FlowLayoutPanel
                 flpComputer.Controls.Add(pnCom);
             }
 
         }
-       
-        #endregion
-        #endregion
-
-
 
 
     }
+    #endregion
 
+    #endregion
 }
+
+
