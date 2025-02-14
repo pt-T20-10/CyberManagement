@@ -137,6 +137,12 @@ namespace CyberManagementProject
             label36 = new Label();
             pictureBox14 = new PictureBox();
             tbpServices = new TabPage();
+            groupBox1 = new GroupBox();
+            panel14 = new Panel();
+            cbCategory = new ComboBox();
+            txbSearch = new TextBox();
+            panel20 = new Panel();
+            flpFoodList = new FlowLayoutPanel();
             panel16 = new Panel();
             button1 = new Button();
             button4 = new Button();
@@ -224,16 +230,6 @@ namespace CyberManagementProject
             label1 = new Label();
             flpListComputer = new FlowLayoutPanel();
             pnlTitleBar = new Panel();
-            groupBox1 = new GroupBox();
-            panel14 = new Panel();
-            comboBox1 = new ComboBox();
-            textBox2 = new TextBox();
-            panel17 = new Panel();
-            textBox3 = new TextBox();
-            button3 = new Button();
-            button7 = new Button();
-            panel20 = new Panel();
-            flpFoodList = new FlowLayoutPanel();
             pnlLeft.SuspendLayout();
             pnStatictical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -279,6 +275,9 @@ namespace CyberManagementProject
             panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
             tbpServices.SuspendLayout();
+            groupBox1.SuspendLayout();
+            panel14.SuspendLayout();
+            panel20.SuspendLayout();
             panel16.SuspendLayout();
             panel15.SuspendLayout();
             tbpStaff.SuspendLayout();
@@ -312,10 +311,6 @@ namespace CyberManagementProject
             pnThongKeKH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvThongKeKH).BeginInit();
             pnlTitleBar.SuspendLayout();
-            groupBox1.SuspendLayout();
-            panel14.SuspendLayout();
-            panel17.SuspendLayout();
-            panel20.SuspendLayout();
             SuspendLayout();
             // 
             // pnlLeft
@@ -1485,14 +1480,77 @@ namespace CyberManagementProject
             tbpServices.Text = "tabPage1";
             tbpServices.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(panel14);
+            groupBox1.Controls.Add(panel20);
+            groupBox1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(8, 72);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(1240, 800);
+            groupBox1.TabIndex = 12;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Quản Lý Thức Ăn";
+            // 
+            // panel14
+            // 
+            panel14.Controls.Add(cbCategory);
+            panel14.Controls.Add(txbSearch);
+            panel14.Location = new Point(9, 53);
+            panel14.Margin = new Padding(3, 4, 3, 4);
+            panel14.Name = "panel14";
+            panel14.Size = new Size(1233, 64);
+            panel14.TabIndex = 8;
+            // 
+            // cbCategory
+            // 
+            cbCategory.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbCategory.Location = new Point(503, 11);
+            cbCategory.Margin = new Padding(3, 4, 3, 4);
+            cbCategory.Name = "cbCategory";
+            cbCategory.Size = new Size(138, 40);
+            cbCategory.TabIndex = 5;
+            // 
+            // txbSearch
+            // 
+            txbSearch.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txbSearch.Location = new Point(9, 11);
+            txbSearch.Margin = new Padding(3, 4, 3, 4);
+            txbSearch.Multiline = true;
+            txbSearch.Name = "txbSearch";
+            txbSearch.Size = new Size(484, 41);
+            txbSearch.TabIndex = 4;
+            this.txbSearch.TextChanged += new System.EventHandler(this.txbSearch_TextChanged);
+
+            // 
+            // panel20
+            // 
+            panel20.Controls.Add(flpFoodList);
+            panel20.Location = new Point(9, 128);
+            panel20.Margin = new Padding(3, 4, 3, 4);
+            panel20.Name = "panel20";
+            panel20.Size = new Size(1225, 683);
+            panel20.TabIndex = 7;
+            // 
+            // flpFoodList
+            // 
+            flpFoodList.AutoScroll = true;
+            flpFoodList.Location = new Point(9, 11);
+            flpFoodList.Margin = new Padding(3, 4, 3, 4);
+            flpFoodList.Name = "flpFoodList";
+            flpFoodList.Size = new Size(1207, 651);
+            flpFoodList.TabIndex = 0;
+            // 
             // panel16
             // 
             panel16.Controls.Add(button1);
             panel16.Controls.Add(button4);
-            panel16.Location = new Point(432, 0);
+            panel16.Location = new Point(432, 8);
             panel16.Margin = new Padding(3, 4, 3, 4);
             panel16.Name = "panel16";
-            panel16.Size = new Size(816, 75);
+            panel16.Size = new Size(816, 64);
             panel16.TabIndex = 10;
             // 
             // button1
@@ -1500,7 +1558,7 @@ namespace CyberManagementProject
             button1.BackColor = Color.FromArgb(128, 255, 255);
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(504, 24);
+            button1.Location = new Point(504, 8);
             button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
             button1.Size = new Size(145, 41);
@@ -1514,7 +1572,7 @@ namespace CyberManagementProject
             button4.BackColor = Color.FromArgb(128, 255, 255);
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.Location = new Point(656, 24);
+            button4.Location = new Point(656, 8);
             button4.Margin = new Padding(3, 4, 3, 4);
             button4.Name = "button4";
             button4.Size = new Size(145, 41);
@@ -2462,115 +2520,6 @@ namespace CyberManagementProject
             pnlTitleBar.Size = new Size(1545, 75);
             pnlTitleBar.TabIndex = 1;
             // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(panel14);
-            groupBox1.Controls.Add(panel20);
-            groupBox1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(8, 72);
-            groupBox1.Margin = new Padding(3, 4, 3, 4);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(1240, 800);
-            groupBox1.TabIndex = 12;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Quản Lý Thức Ăn";
-            // 
-            // panel14
-            // 
-            panel14.Controls.Add(comboBox1);
-            panel14.Controls.Add(textBox2);
-            panel14.Controls.Add(panel17);
-            panel14.Location = new Point(9, 53);
-            panel14.Margin = new Padding(3, 4, 3, 4);
-            panel14.Name = "panel14";
-            panel14.Size = new Size(1233, 64);
-            panel14.TabIndex = 8;
-            // 
-            // comboBox1
-            // 
-            comboBox1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox1.Location = new Point(503, 11);
-            comboBox1.Margin = new Padding(3, 4, 3, 4);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(138, 40);
-            comboBox1.TabIndex = 5;
-            // 
-            // textBox2
-            // 
-            textBox2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(9, 11);
-            textBox2.Margin = new Padding(3, 4, 3, 4);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(484, 41);
-            textBox2.TabIndex = 4;
-            // 
-            // panel17
-            // 
-            panel17.Controls.Add(textBox3);
-            panel17.Controls.Add(button3);
-            panel17.Controls.Add(button7);
-            panel17.Location = new Point(649, 0);
-            panel17.Margin = new Padding(3, 4, 3, 4);
-            panel17.Name = "panel17";
-            panel17.Size = new Size(241, 64);
-            panel17.TabIndex = 3;
-            // 
-            // textBox3
-            // 
-            textBox3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(73, 11);
-            textBox3.Margin = new Padding(3, 4, 3, 4);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(60, 40);
-            textBox3.TabIndex = 1;
-            textBox3.TextAlign = HorizontalAlignment.Center;
-            // 
-            // button3
-            // 
-            button3.Font = new Font("Segoe UI", 14.25F);
-            button3.Location = new Point(145, 11);
-            button3.Margin = new Padding(3, 4, 3, 4);
-            button3.Name = "button3";
-            button3.Size = new Size(53, 43);
-            button3.TabIndex = 1;
-            button3.Text = ">>";
-            button3.TextAlign = ContentAlignment.TopCenter;
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            button7.Font = new Font("Segoe UI", 14.25F);
-            button7.Location = new Point(9, 11);
-            button7.Margin = new Padding(3, 4, 3, 4);
-            button7.Name = "button7";
-            button7.Size = new Size(53, 43);
-            button7.TabIndex = 1;
-            button7.Text = "<<";
-            button7.TextAlign = ContentAlignment.TopCenter;
-            button7.UseVisualStyleBackColor = true;
-            // 
-            // panel20
-            // 
-            panel20.Controls.Add(flpFoodList);
-            panel20.Location = new Point(9, 128);
-            panel20.Margin = new Padding(3, 4, 3, 4);
-            panel20.Name = "panel20";
-            panel20.Size = new Size(1225, 683);
-            panel20.TabIndex = 7;
-            // 
-            // flpFoodList
-            // 
-            flpFoodList.AutoScroll = true;
-            flpFoodList.Location = new Point(9, 11);
-            flpFoodList.Margin = new Padding(3, 4, 3, 4);
-            flpFoodList.Name = "flpFoodList";
-            flpFoodList.Size = new Size(1207, 651);
-            flpFoodList.TabIndex = 0;
-            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -2648,6 +2597,10 @@ namespace CyberManagementProject
             panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
             tbpServices.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            panel14.ResumeLayout(false);
+            panel14.PerformLayout();
+            panel20.ResumeLayout(false);
             panel16.ResumeLayout(false);
             panel15.ResumeLayout(false);
             tbpStaff.ResumeLayout(false);
@@ -2696,12 +2649,6 @@ namespace CyberManagementProject
             ((System.ComponentModel.ISupportInitialize)dgvThongKeKH).EndInit();
             pnlTitleBar.ResumeLayout(false);
             pnlTitleBar.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            panel14.ResumeLayout(false);
-            panel14.PerformLayout();
-            panel17.ResumeLayout(false);
-            panel17.PerformLayout();
-            panel20.ResumeLayout(false);
             ResumeLayout(false);
         }
         #endregion
@@ -2901,12 +2848,8 @@ namespace CyberManagementProject
         private Label label37;
         private GroupBox groupBox1;
         private Panel panel14;
-        private ComboBox comboBox1;
-        private TextBox textBox2;
-        private Panel panel17;
-        private TextBox textBox3;
-        private Button button3;
-        private Button button7;
+        private ComboBox cbCategory;
+        private TextBox txbSearch;
         private Panel panel20;
         private FlowLayoutPanel flpFoodList;
     }

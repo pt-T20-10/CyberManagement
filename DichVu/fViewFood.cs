@@ -31,6 +31,11 @@ namespace CyberManagementProject
             f.ShowDialog();
             LoadFoodList();
         }
+
+        private void btnEditFood_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

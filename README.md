@@ -1,2 +1,2 @@
 ﻿# CyberManagement
-Thêm chức năng tìm kiếm
+Thêm chức năng Add Panel 2

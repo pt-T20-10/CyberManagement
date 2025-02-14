@@ -15,6 +15,7 @@ using CyberManagementProject.DTO;
 using Microsoft.Data.SqlClient;
 using System.Collections;
 using QuanLyQuanNet.Customer;
+using CyberManagementProject.DichVu;
 
 namespace CyberManagementProject
 {
@@ -38,6 +39,8 @@ namespace CyberManagementProject
             LoadChucVuToComboBox(); // gọi phương thức load TenChucVu khi frmMain load
 
             LoadNhomKhachToComboBox(); // gọi phương thức load NhomKhach khi frmMain load
+
+            LoadFoodList(); //gọi phương thức LoadFoodList khi frmMain load
 
         }
 
@@ -328,67 +331,205 @@ namespace CyberManagementProject
         }
 
         //Tạo Danh Sách Thức Ăn
+        private void LoadFoodList()
+        {
+            flpFoodList.Controls.Clear(); // Xóa danh sách cũ trước khi load mới
+
+            List<DoAnDTO> foodList = FoodDAO.Instance.GetFoodList();
+
+            foreach (DoAnDTO food in foodList)
+            {
+                AddFoodToFlowLayout(food);
+            }
+        }
+
+ 
+
+
+        //-------------------------------------------
         public void AddFoodToFlowLayout(DoAnDTO food)
         {
-            if (food == null) return;
-
-            // Tạo panel chứa món ăn
-            Panel panel = new Panel
+            Panel foodPanel = new Panel
             {
-                Width = 200,  // Giảm bề rộng để hiển thị đẹp hơn
-                Height = 180, // Tăng chiều cao để ảnh không bị chật
+                Width = 200,
+                Height = 300,
                 BorderStyle = BorderStyle.FixedSingle,
-                BackColor = Color.White,
                 Padding = new Padding(5),
-                Margin = new Padding(10) // Tạo khoảng cách giữa các món ăn
+                Tag = food
             };
 
-            // Hình ảnh món ăn
             PictureBox pictureBox = new PictureBox
             {
                 Width = 180,
-                Height = 100,
-                SizeMode = PictureBoxSizeMode.Zoom,
-                Location = new Point(10, 10)
+                Height = 150,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Cursor = Cursors.Hand
             };
 
-            if (File.Exists(food.HinhAnh))
+            if (!string.IsNullOrEmpty(food.HinhAnh) && File.Exists(food.HinhAnh))
+            {
                 pictureBox.Image = Image.FromFile(food.HinhAnh);
-            else
-                pictureBox.Image = Properties.Resources.default_image;
+            }
 
-            // Tên món ăn
             Label lblTen = new Label
             {
                 Text = food.TenDoAn,
                 AutoSize = false,
+                Width = 180,
+                Height = 30,
                 TextAlign = ContentAlignment.MiddleCenter,
-                Dock = DockStyle.Top,
                 Font = new Font("Arial", 10, FontStyle.Bold)
             };
 
-            // Giá món ăn
             Label lblGia = new Label
             {
-                Text = $"Giá: {food.Gia:#,##0} VND",
+                Text = $"Giá: {food.Gia:N0} VNĐ",
                 AutoSize = false,
-                ForeColor = Color.Red,
-                Font = new Font("Arial", 10, FontStyle.Bold),
+                Width = 180,
+                Height = 25,
                 TextAlign = ContentAlignment.MiddleCenter,
-                Dock = DockStyle.Bottom
+                Font = new Font("Arial", 10, FontStyle.Regular)
             };
 
-            // Thêm vào panel
-            panel.Controls.Add(lblTen);
-            panel.Controls.Add(pictureBox);
-            panel.Controls.Add(lblGia);
+            // Nút sửa (🖊)
+            Button btnEdit = new Button
+            {
+                Text = "🖊",
+                Width = 50,
+                Height = 35,
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("Arial", 12, FontStyle.Bold),
+                BackColor = Color.LightGray,
+                ForeColor = Color.Black,
+                Cursor = Cursors.Hand,
+                Tag = food
+            };
 
-            // Thêm vào FlowLayoutPanel
-            flpFoodList.Controls.Add(panel);
-            flpFoodList.Refresh();
+            // Nút giỏ hàng (🛒) - Chỉ hiển thị, không có sự kiện
+            Button btnCart = new Button
+            {
+                Text = "🛒",
+                Width = 50,
+                Height = 35,
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("Arial", 12, FontStyle.Bold),
+                BackColor = Color.LightGray,
+                ForeColor = Color.Black,
+                Cursor = Cursors.Hand,
+                Tag = food
+            };
+
+            // Nút xóa (🗑) - Chỉ hiển thị thông báo
+            Button btnDelete = new Button
+            {
+                Text = "🗑",
+                Width = 50,
+                Height = 35,
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("Arial", 12, FontStyle.Bold),
+                BackColor = Color.LightGray,
+                ForeColor = Color.Black,
+                Cursor = Cursors.Hand,
+                Tag = food
+            };
+
+            // Hiệu ứng hover đổi màu
+            btnEdit.MouseEnter += (s, e) => { btnEdit.BackColor = Color.Gray; btnEdit.ForeColor = Color.White; };
+            btnEdit.MouseLeave += (s, e) => { btnEdit.BackColor = Color.LightGray; btnEdit.ForeColor = Color.Black; };
+
+            btnCart.MouseEnter += (s, e) => { btnCart.BackColor = Color.Gray; btnCart.ForeColor = Color.White; };
+            btnCart.MouseLeave += (s, e) => { btnCart.BackColor = Color.LightGray; btnCart.ForeColor = Color.Black; };
+
+            btnDelete.MouseEnter += (s, e) => { btnDelete.BackColor = Color.Red; btnDelete.ForeColor = Color.White; };
+            btnDelete.MouseLeave += (s, e) => { btnDelete.BackColor = Color.LightGray; btnDelete.ForeColor = Color.Black; };
+
+            btnEdit.Click += btnEdit_Click;
+            btnDelete.Click += btnDelete_Click;
+
+            // Panel chứa 3 nút
+            FlowLayoutPanel buttonPanel = new FlowLayoutPanel
+            {
+                FlowDirection = FlowDirection.LeftToRight,
+                Width = 180,
+                Height = 40,
+                AutoSize = false,
+                WrapContents = false,
+                Dock = DockStyle.Bottom,
+                Padding = new Padding(0),
+                Margin = new Padding(0)
+            };
+
+            buttonPanel.Controls.Add(btnEdit);
+            buttonPanel.Controls.Add(btnCart);
+            buttonPanel.Controls.Add(btnDelete);
+
+            FlowLayoutPanel panelContainer = new FlowLayoutPanel
+            {
+                FlowDirection = FlowDirection.TopDown,
+                Width = 200,
+                Height = 280,
+                WrapContents = false,
+                AutoSize = false,
+                Dock = DockStyle.Fill,
+                Padding = new Padding(5),
+                Margin = new Padding(5)
+            };
+
+            panelContainer.Controls.Add(pictureBox);
+            panelContainer.Controls.Add(lblTen);
+            panelContainer.Controls.Add(lblGia);
+            panelContainer.Controls.Add(buttonPanel);
+
+            foodPanel.Controls.Add(panelContainer);
+            flpFoodList.Controls.Add(foodPanel);
+        }
+
+        // Xử lý khi nhấn nút sửa
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && btn.Tag is DoAnDTO food)
+            {
+                fEditFood editForm = new fEditFood(food);
+                editForm.FoodUpdated += LoadFoodList; // Load lại danh sách sau khi sửa
+                editForm.ShowDialog();
+            }
         }
 
 
+        // Xử lý khi nhấn nút xóa (Chỉ hiển thị thông báo, không xóa thực sự)
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && btn.Tag is DoAnDTO food)
+            {
+                MessageBox.Show($"Bạn muốn xóa {food.TenDoAn} nhưng tính năng này chưa được kích hoạt!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        //Chức năng tìm kiếm
+        private void txbSearch_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = txbSearch.Text.ToLower();
+
+            foreach (Control control in flpFoodList.Controls)
+            {
+                if (control is Panel panel)
+                {
+                    // Tìm FlowLayoutPanel chứa label
+                    FlowLayoutPanel panelContainer = panel.Controls.OfType<FlowLayoutPanel>().FirstOrDefault();
+                    if (panelContainer != null)
+                    {
+                        // Tìm label chứa tên món ăn
+                        Label lblTen = panelContainer.Controls.OfType<Label>().FirstOrDefault();
+                        if (lblTen != null)
+                        {
+                            panel.Visible = lblTen.Text.ToLower().Contains(searchText);
+                        }
+                    }
+                }
+            }
+        }
 
 
 

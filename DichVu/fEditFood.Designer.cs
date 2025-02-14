@@ -1,6 +1,6 @@
-﻿namespace QuanLyQuanNet
+﻿namespace CyberManagementProject.DichVu
 {
-    partial class fAddFood
+    partial class fEditFood
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btnXoa = new Button();
             btnExt = new Button();
-            btnLuu = new Button();
+            btnCapNhat = new Button();
             cbLoai = new ComboBox();
             txbSoLuong = new TextBox();
             txbGia = new TextBox();
             txbTenMonAn = new TextBox();
-            textBox1 = new TextBox();
+            txbID = new TextBox();
             label6 = new Label();
             label4 = new Label();
             label3 = new Label();
@@ -49,13 +50,14 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnXoa);
             panel1.Controls.Add(btnExt);
-            panel1.Controls.Add(btnLuu);
+            panel1.Controls.Add(btnCapNhat);
             panel1.Controls.Add(cbLoai);
             panel1.Controls.Add(txbSoLuong);
             panel1.Controls.Add(txbGia);
             panel1.Controls.Add(txbTenMonAn);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(txbID);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
@@ -66,26 +68,37 @@
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(744, 280);
-            panel1.TabIndex = 0;
+            panel1.TabIndex = 1;
+            // 
+            // btnXoa
+            // 
+            btnXoa.Location = new Point(480, 224);
+            btnXoa.Name = "btnXoa";
+            btnXoa.Size = new Size(94, 29);
+            btnXoa.TabIndex = 6;
+            btnXoa.Text = "Xóa";
+            btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnExt_Click;
             // 
             // btnExt
             // 
-            btnExt.Location = new Point(472, 224);
+            btnExt.Location = new Point(360, 224);
             btnExt.Name = "btnExt";
             btnExt.Size = new Size(94, 29);
             btnExt.TabIndex = 6;
             btnExt.Text = "Thoát";
             btnExt.UseVisualStyleBackColor = true;
+            btnExt.Click += btnExt_Click;
             // 
-            // btnLuu
+            // btnCapNhat
             // 
-            btnLuu.Location = new Point(600, 224);
-            btnLuu.Name = "btnLuu";
-            btnLuu.Size = new Size(94, 29);
-            btnLuu.TabIndex = 5;
-            btnLuu.Text = "Lưu";
-            btnLuu.UseVisualStyleBackColor = true;
-            btnLuu.Click += btnAdd_Click;
+            btnCapNhat.Location = new Point(600, 224);
+            btnCapNhat.Name = "btnCapNhat";
+            btnCapNhat.Size = new Size(94, 29);
+            btnCapNhat.TabIndex = 5;
+            btnCapNhat.Text = "Cập Nhật";
+            btnCapNhat.UseVisualStyleBackColor = true;
+            btnCapNhat.Click += new EventHandler(this.btnCapNhat_Click);
             // 
             // cbLoai
             // 
@@ -101,7 +114,6 @@
             txbSoLuong.Name = "txbSoLuong";
             txbSoLuong.Size = new Size(333, 27);
             txbSoLuong.TabIndex = 4;
-            txbSoLuong.TextChanged += textBox4_TextChanged;
             // 
             // txbGia
             // 
@@ -109,7 +121,6 @@
             txbGia.Name = "txbGia";
             txbGia.Size = new Size(333, 27);
             txbGia.TabIndex = 4;
-            txbGia.TextChanged += textBox4_TextChanged;
             // 
             // txbTenMonAn
             // 
@@ -118,13 +129,13 @@
             txbTenMonAn.Size = new Size(333, 27);
             txbTenMonAn.TabIndex = 2;
             // 
-            // textBox1
+            // txbID
             // 
-            textBox1.Location = new Point(360, 8);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(333, 27);
-            textBox1.TabIndex = 1;
+            txbID.Location = new Point(360, 8);
+            txbID.Name = "txbID";
+            txbID.ReadOnly = true;
+            txbID.Size = new Size(333, 27);
+            txbID.TabIndex = 1;
             // 
             // label6
             // 
@@ -171,7 +182,8 @@
             btnChonAnh.Size = new Size(75, 22);
             btnChonAnh.TabIndex = 1;
             btnChonAnh.Text = "Chọn Ảnh";
-            btnChonAnh.Click += label1_Click;
+            btnChonAnh.Click += new EventHandler(this.btnChonAnh_Click);
+
             // 
             // label1
             // 
@@ -181,7 +193,6 @@
             label1.Size = new Size(24, 20);
             label1.TabIndex = 1;
             label1.Text = "ID";
-            label1.Click += label1_Click;
             // 
             // ptFood
             // 
@@ -192,16 +203,14 @@
             ptFood.TabIndex = 0;
             ptFood.TabStop = false;
             // 
-            // fAddFood
+            // fEditFood
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(743, 267);
+            ClientSize = new Size(746, 282);
             Controls.Add(panel1);
-            Name = "fAddFood";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "fAddFood";
-            Load += fAddFood_Load;
+            Name = "fEditFood";
+            Text = "fEditFood";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ptFood).EndInit();
@@ -211,19 +220,20 @@
         #endregion
 
         private Panel panel1;
+        private Button btnExt;
+        private Button btnCapNhat;
+        private ComboBox cbLoai;
+        private TextBox txbSoLuong;
+        private TextBox txbGia;
+        private TextBox txbTenMonAn;
+        private TextBox txbID;
+        private Label label6;
         private Label label4;
         private Label label3;
         private Label label2;
+        private Label btnChonAnh;
         private Label label1;
         private PictureBox ptFood;
-        private Label btnChonAnh;
-        private TextBox txbGia;
-        private TextBox txbTenMonAn;
-        private TextBox textBox1;
-        private Button btnExt;
-        private Button btnLuu;
-        private ComboBox cbLoai;
-        private Label label6;
-        private TextBox txbSoLuong;
+        private Button btnXoa;
     }
 }

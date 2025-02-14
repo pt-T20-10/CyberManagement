@@ -110,6 +110,7 @@
             btnEditFood.TabIndex = 0;
             btnEditFood.Text = "Sửa";
             btnEditFood.UseVisualStyleBackColor = true;
+            btnEditFood.Click += btnEditFood_Click;
             // 
             // btnDeleteFood
             // 
