@@ -62,17 +62,17 @@ namespace CyberManagementProject
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
-            panel12 = new Panel();
-            label26 = new Label();
+            pnStatusCom = new Panel();
+            lbStatusCom = new Label();
             tbxComputerStatus = new TextBox();
-            panel10 = new Panel();
-            label23 = new Label();
+            pnTimeCom = new Panel();
+            lbTimeConLai = new Label();
             tbxTimeLeft = new TextBox();
-            panel11 = new Panel();
+            pnTongTienCom = new Panel();
             lbTotalPriceDichVu = new Label();
             tbxMoneyCost = new TextBox();
-            panel9 = new Panel();
-            label24 = new Label();
+            pnUserNameCom = new Panel();
+            lbUserNameCom = new Label();
             tbxUserAccount = new TextBox();
             pnComputerButton = new Panel();
             btnExtraMoney = new Button();
@@ -83,20 +83,19 @@ namespace CyberManagementProject
             btnForceStop = new Button();
             flpComputer = new FlowLayoutPanel();
             tbpAccount = new TabPage();
-            panel23 = new Panel();
+            pnButtonAccount = new Panel();
             btnThemKhachHang = new Button();
             btnNhap = new Button();
             button2 = new Button();
             btn_TroChuyen = new Button();
-            panel24 = new Panel();
-            label32 = new Label();
-            label33 = new Label();
+            pnDuongDanAccount = new Panel();
+            lbCurrentAccountPage = new Label();
+            lbHomeAccountPage = new Label();
             grbKhachHang = new GroupBox();
-            panel25 = new Panel();
+            pnTimKimAccount = new Panel();
             cbxNhomKhach = new ComboBox();
             txtTimKiemKhachHang = new TextBox();
-            panel26 = new Panel();
-            panel27 = new Panel();
+            pnDisplayAccount = new Panel();
             flpKhachHang = new FlowLayoutPanel();
             tbpServices = new TabPage();
             panel14 = new Panel();
@@ -146,82 +145,21 @@ namespace CyberManagementProject
             textBox7 = new TextBox();
             label41 = new Label();
             tbpStaff = new TabPage();
-            panel18 = new Panel();
+            pnDuongDanStaff = new Panel();
             lblQuanLyNhanVien = new Label();
             lblHome = new Label();
             grbQuanLyNhanVien = new GroupBox();
             cbxChucVu = new ComboBox();
-            panel19 = new Panel();
+            pnDisplayStaff = new Panel();
             flpNhanVien = new FlowLayoutPanel();
             cbxTrangThai = new ComboBox();
             txtTimKiem = new TextBox();
-            panel22 = new Panel();
+            pnStaffControl = new Panel();
             btnThemMoi = new Button();
             btnXuatFile = new Button();
             btn_ThongKe = new Button();
             tbpStatictical = new TabPage();
             pnJob = new Panel();
-            tclThongKe = new TabControl();
-            tbDoanhThu = new TabPage();
-            pnCongViec = new Panel();
-            rbtYear = new RadioButton();
-            rbtMonth = new RadioButton();
-            rbtDate = new RadioButton();
-            panel48 = new Panel();
-            textBox8 = new TextBox();
-            lbDoangThuNam = new Label();
-            lbNhapNam = new Label();
-            dtpNamDT = new DateTimePicker();
-            panel49 = new Panel();
-            textBox9 = new TextBox();
-            lbDoanhThuThang = new Label();
-            lbNhapThang = new Label();
-            dtpThangDT = new DateTimePicker();
-            panel50 = new Panel();
-            textBox10 = new TextBox();
-            lbDoanhThuNgay = new Label();
-            lbNhapNgay = new Label();
-            dtpNgayDT = new DateTimePicker();
-            pnDoanhThu = new Panel();
-            dgvDoanhThu = new DataGridView();
-            pnDate = new Panel();
-            btnShow = new Button();
-            lbEnd = new Label();
-            lbStart = new Label();
-            dtpEnd = new DateTimePicker();
-            dtpStart = new DateTimePicker();
-            tbNhanVien = new TabPage();
-            pnNhanVien = new Panel();
-            pnLenhNV = new Panel();
-            rbtTitleNamNV = new RadioButton();
-            rbtTitleThangNV = new RadioButton();
-            pnKhungNamNV = new Panel();
-            btnNamNV = new Button();
-            lbNamNV = new Label();
-            dtpNamNV = new DateTimePicker();
-            pnKhungThangNV = new Panel();
-            btnThangNV = new Button();
-            lbThangNV = new Label();
-            dtpThangNV = new DateTimePicker();
-            lbTittle = new Label();
-            pnThongKeNhanVien = new Panel();
-            dgvNhanVien = new DataGridView();
-            tpKhachHang = new TabPage();
-            pnKhachHang = new Panel();
-            pnKHVip = new Panel();
-            btnXemKHTop = new Button();
-            lbKHVip = new Label();
-            pnLenhKH = new Panel();
-            pnKhungThangKH = new Panel();
-            btnXemKH = new Button();
-            lbEndKH = new Label();
-            lbStartKH = new Label();
-            dtpEndKH = new DateTimePicker();
-            dtpStartKH = new DateTimePicker();
-            lbTittleThangKH = new Label();
-            lbTittleKH = new Label();
-            pnThongKeKH = new Panel();
-            dgvThongKeKH = new DataGridView();
             cmsKhachHang = new ContextMenuStrip(components);
             cmsKhachHang_Them = new ToolStripMenuItem();
             cmsKhachHang_Nhac = new ToolStripMenuItem();
@@ -247,17 +185,17 @@ namespace CyberManagementProject
             tbpComputer.SuspendLayout();
             pnComputerControl.SuspendLayout();
             gbxComputerInfor.SuspendLayout();
-            panel12.SuspendLayout();
-            panel10.SuspendLayout();
-            panel11.SuspendLayout();
-            panel9.SuspendLayout();
+            pnStatusCom.SuspendLayout();
+            pnTimeCom.SuspendLayout();
+            pnTongTienCom.SuspendLayout();
+            pnUserNameCom.SuspendLayout();
             pnComputerButton.SuspendLayout();
             tbpAccount.SuspendLayout();
-            panel23.SuspendLayout();
-            panel24.SuspendLayout();
+            pnButtonAccount.SuspendLayout();
+            pnDuongDanAccount.SuspendLayout();
             grbKhachHang.SuspendLayout();
-            panel25.SuspendLayout();
-            panel27.SuspendLayout();
+            pnTimKimAccount.SuspendLayout();
+            pnDisplayAccount.SuspendLayout();
             tbpServices.SuspendLayout();
             panel14.SuspendLayout();
             panel15.SuspendLayout();
@@ -280,35 +218,11 @@ namespace CyberManagementProject
             panel32.SuspendLayout();
             panel33.SuspendLayout();
             tbpStaff.SuspendLayout();
-            panel18.SuspendLayout();
+            pnDuongDanStaff.SuspendLayout();
             grbQuanLyNhanVien.SuspendLayout();
-            panel19.SuspendLayout();
-            panel22.SuspendLayout();
+            pnDisplayStaff.SuspendLayout();
+            pnStaffControl.SuspendLayout();
             tbpStatictical.SuspendLayout();
-            pnJob.SuspendLayout();
-            tclThongKe.SuspendLayout();
-            tbDoanhThu.SuspendLayout();
-            pnCongViec.SuspendLayout();
-            panel48.SuspendLayout();
-            panel49.SuspendLayout();
-            panel50.SuspendLayout();
-            pnDoanhThu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDoanhThu).BeginInit();
-            pnDate.SuspendLayout();
-            tbNhanVien.SuspendLayout();
-            pnNhanVien.SuspendLayout();
-            pnLenhNV.SuspendLayout();
-            pnKhungNamNV.SuspendLayout();
-            pnKhungThangNV.SuspendLayout();
-            pnThongKeNhanVien.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvNhanVien).BeginInit();
-            tpKhachHang.SuspendLayout();
-            pnKhachHang.SuspendLayout();
-            pnKHVip.SuspendLayout();
-            pnLenhKH.SuspendLayout();
-            pnKhungThangKH.SuspendLayout();
-            pnThongKeKH.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvThongKeKH).BeginInit();
             cmsKhachHang.SuspendLayout();
             cmsNhanVien.SuspendLayout();
             SuspendLayout();
@@ -575,10 +489,10 @@ namespace CyberManagementProject
             // gbxComputerInfor
             // 
             gbxComputerInfor.Controls.Add(lvServices);
-            gbxComputerInfor.Controls.Add(panel12);
-            gbxComputerInfor.Controls.Add(panel10);
-            gbxComputerInfor.Controls.Add(panel11);
-            gbxComputerInfor.Controls.Add(panel9);
+            gbxComputerInfor.Controls.Add(pnStatusCom);
+            gbxComputerInfor.Controls.Add(pnTimeCom);
+            gbxComputerInfor.Controls.Add(pnTongTienCom);
+            gbxComputerInfor.Controls.Add(pnUserNameCom);
             gbxComputerInfor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbxComputerInfor.Location = new Point(8, 8);
             gbxComputerInfor.Name = "gbxComputerInfor";
@@ -613,24 +527,24 @@ namespace CyberManagementProject
             columnHeader3.Text = "Số lượng";
             columnHeader3.Width = 75;
             // 
-            // panel12
+            // pnStatusCom
             // 
-            panel12.Controls.Add(label26);
-            panel12.Controls.Add(tbxComputerStatus);
-            panel12.Location = new Point(8, 144);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(296, 48);
-            panel12.TabIndex = 3;
+            pnStatusCom.Controls.Add(lbStatusCom);
+            pnStatusCom.Controls.Add(tbxComputerStatus);
+            pnStatusCom.Location = new Point(8, 144);
+            pnStatusCom.Name = "pnStatusCom";
+            pnStatusCom.Size = new Size(296, 48);
+            pnStatusCom.TabIndex = 3;
             // 
-            // label26
+            // lbStatusCom
             // 
-            label26.AutoSize = true;
-            label26.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label26.Location = new Point(0, 16);
-            label26.Name = "label26";
-            label26.Size = new Size(82, 20);
-            label26.TabIndex = 2;
-            label26.Text = "Trạng thái:";
+            lbStatusCom.AutoSize = true;
+            lbStatusCom.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbStatusCom.Location = new Point(0, 16);
+            lbStatusCom.Name = "lbStatusCom";
+            lbStatusCom.Size = new Size(82, 20);
+            lbStatusCom.TabIndex = 2;
+            lbStatusCom.Text = "Trạng thái:";
             // 
             // tbxComputerStatus
             // 
@@ -643,24 +557,24 @@ namespace CyberManagementProject
             tbxComputerStatus.TabIndex = 1;
             tbxComputerStatus.Text = "Đang sử dụng\r\n\r\n";
             // 
-            // panel10
+            // pnTimeCom
             // 
-            panel10.Controls.Add(label23);
-            panel10.Controls.Add(tbxTimeLeft);
-            panel10.Location = new Point(8, 88);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(296, 48);
-            panel10.TabIndex = 3;
+            pnTimeCom.Controls.Add(lbTimeConLai);
+            pnTimeCom.Controls.Add(tbxTimeLeft);
+            pnTimeCom.Location = new Point(8, 88);
+            pnTimeCom.Name = "pnTimeCom";
+            pnTimeCom.Size = new Size(296, 48);
+            pnTimeCom.TabIndex = 3;
             // 
-            // label23
+            // lbTimeConLai
             // 
-            label23.AutoSize = true;
-            label23.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label23.Location = new Point(0, 16);
-            label23.Name = "label23";
-            label23.Size = new Size(77, 20);
-            label23.TabIndex = 2;
-            label23.Text = "Thời gian:";
+            lbTimeConLai.AutoSize = true;
+            lbTimeConLai.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbTimeConLai.Location = new Point(0, 16);
+            lbTimeConLai.Name = "lbTimeConLai";
+            lbTimeConLai.Size = new Size(77, 20);
+            lbTimeConLai.TabIndex = 2;
+            lbTimeConLai.Text = "Thời gian:";
             // 
             // tbxTimeLeft
             // 
@@ -672,14 +586,14 @@ namespace CyberManagementProject
             tbxTimeLeft.TabIndex = 1;
             tbxTimeLeft.Text = "00:00:00";
             // 
-            // panel11
+            // pnTongTienCom
             // 
-            panel11.Controls.Add(lbTotalPriceDichVu);
-            panel11.Controls.Add(tbxMoneyCost);
-            panel11.Location = new Point(16, 400);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(312, 48);
-            panel11.TabIndex = 3;
+            pnTongTienCom.Controls.Add(lbTotalPriceDichVu);
+            pnTongTienCom.Controls.Add(tbxMoneyCost);
+            pnTongTienCom.Location = new Point(16, 400);
+            pnTongTienCom.Name = "pnTongTienCom";
+            pnTongTienCom.Size = new Size(312, 48);
+            pnTongTienCom.TabIndex = 3;
             // 
             // lbTotalPriceDichVu
             // 
@@ -703,24 +617,24 @@ namespace CyberManagementProject
             tbxMoneyCost.Text = "0.00";
             tbxMoneyCost.TextAlign = HorizontalAlignment.Right;
             // 
-            // panel9
+            // pnUserNameCom
             // 
-            panel9.Controls.Add(label24);
-            panel9.Controls.Add(tbxUserAccount);
-            panel9.Location = new Point(8, 32);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(296, 48);
-            panel9.TabIndex = 3;
+            pnUserNameCom.Controls.Add(lbUserNameCom);
+            pnUserNameCom.Controls.Add(tbxUserAccount);
+            pnUserNameCom.Location = new Point(8, 32);
+            pnUserNameCom.Name = "pnUserNameCom";
+            pnUserNameCom.Size = new Size(296, 48);
+            pnUserNameCom.TabIndex = 3;
             // 
-            // label24
+            // lbUserNameCom
             // 
-            label24.AutoSize = true;
-            label24.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label24.Location = new Point(0, 16);
-            label24.Name = "label24";
-            label24.Size = new Size(96, 20);
-            label24.TabIndex = 2;
-            label24.Text = "Người dùng:";
+            lbUserNameCom.AutoSize = true;
+            lbUserNameCom.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbUserNameCom.Location = new Point(0, 16);
+            lbUserNameCom.Name = "lbUserNameCom";
+            lbUserNameCom.Size = new Size(96, 20);
+            lbUserNameCom.TabIndex = 2;
+            lbUserNameCom.Text = "Người dùng:";
             // 
             // tbxUserAccount
             // 
@@ -812,8 +726,8 @@ namespace CyberManagementProject
             // 
             // tbpAccount
             // 
-            tbpAccount.Controls.Add(panel23);
-            tbpAccount.Controls.Add(panel24);
+            tbpAccount.Controls.Add(pnButtonAccount);
+            tbpAccount.Controls.Add(pnDuongDanAccount);
             tbpAccount.Controls.Add(grbKhachHang);
             tbpAccount.Location = new Point(0, 0);
             tbpAccount.Name = "tbpAccount";
@@ -823,16 +737,16 @@ namespace CyberManagementProject
             tbpAccount.Text = "tabPage1";
             tbpAccount.UseVisualStyleBackColor = true;
             // 
-            // panel23
+            // pnButtonAccount
             // 
-            panel23.Controls.Add(btnThemKhachHang);
-            panel23.Controls.Add(btnNhap);
-            panel23.Controls.Add(button2);
-            panel23.Controls.Add(btn_TroChuyen);
-            panel23.Location = new Point(388, 0);
-            panel23.Name = "panel23";
-            panel23.Size = new Size(732, 56);
-            panel23.TabIndex = 10;
+            pnButtonAccount.Controls.Add(btnThemKhachHang);
+            pnButtonAccount.Controls.Add(btnNhap);
+            pnButtonAccount.Controls.Add(button2);
+            pnButtonAccount.Controls.Add(btn_TroChuyen);
+            pnButtonAccount.Location = new Point(388, 0);
+            pnButtonAccount.Name = "pnButtonAccount";
+            pnButtonAccount.Size = new Size(732, 56);
+            pnButtonAccount.TabIndex = 10;
             // 
             // btnThemKhachHang
             // 
@@ -883,38 +797,38 @@ namespace CyberManagementProject
             btn_TroChuyen.Text = "Trò Chuyện";
             btn_TroChuyen.UseVisualStyleBackColor = false;
             // 
-            // panel24
+            // pnDuongDanAccount
             // 
-            panel24.Controls.Add(label32);
-            panel24.Controls.Add(label33);
-            panel24.Location = new Point(13, 0);
-            panel24.Name = "panel24";
-            panel24.Size = new Size(288, 48);
-            panel24.TabIndex = 9;
+            pnDuongDanAccount.Controls.Add(lbCurrentAccountPage);
+            pnDuongDanAccount.Controls.Add(lbHomeAccountPage);
+            pnDuongDanAccount.Location = new Point(13, 0);
+            pnDuongDanAccount.Name = "pnDuongDanAccount";
+            pnDuongDanAccount.Size = new Size(288, 48);
+            pnDuongDanAccount.TabIndex = 9;
             // 
-            // label32
+            // lbCurrentAccountPage
             // 
-            label32.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label32.Location = new Point(97, 16);
-            label32.Name = "label32";
-            label32.Size = new Size(176, 23);
-            label32.TabIndex = 6;
-            label32.Text = "Quản lý khách hàng";
+            lbCurrentAccountPage.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbCurrentAccountPage.Location = new Point(97, 16);
+            lbCurrentAccountPage.Name = "lbCurrentAccountPage";
+            lbCurrentAccountPage.Size = new Size(176, 23);
+            lbCurrentAccountPage.TabIndex = 6;
+            lbCurrentAccountPage.Text = "Quản lý khách hàng";
             // 
-            // label33
+            // lbHomeAccountPage
             // 
-            label33.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label33.Location = new Point(8, 16);
-            label33.Name = "label33";
-            label33.Size = new Size(88, 23);
-            label33.TabIndex = 6;
-            label33.Text = "⟲ Home >";
-            label33.Click += label33_Click;
+            lbHomeAccountPage.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbHomeAccountPage.Location = new Point(8, 16);
+            lbHomeAccountPage.Name = "lbHomeAccountPage";
+            lbHomeAccountPage.Size = new Size(88, 23);
+            lbHomeAccountPage.TabIndex = 6;
+            lbHomeAccountPage.Text = "⟲ Home >";
+            lbHomeAccountPage.Click += label33_Click;
             // 
             // grbKhachHang
             // 
-            grbKhachHang.Controls.Add(panel25);
-            grbKhachHang.Controls.Add(panel27);
+            grbKhachHang.Controls.Add(pnTimKimAccount);
+            grbKhachHang.Controls.Add(pnDisplayAccount);
             grbKhachHang.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             grbKhachHang.Location = new Point(13, 64);
             grbKhachHang.Name = "grbKhachHang";
@@ -923,15 +837,14 @@ namespace CyberManagementProject
             grbKhachHang.TabStop = false;
             grbKhachHang.Text = "Quản Lý Khách Hàng";
             // 
-            // panel25
+            // pnTimKimAccount
             // 
-            panel25.Controls.Add(cbxNhomKhach);
-            panel25.Controls.Add(txtTimKiemKhachHang);
-            panel25.Controls.Add(panel26);
-            panel25.Location = new Point(8, 40);
-            panel25.Name = "panel25";
-            panel25.Size = new Size(1096, 48);
-            panel25.TabIndex = 8;
+            pnTimKimAccount.Controls.Add(cbxNhomKhach);
+            pnTimKimAccount.Controls.Add(txtTimKiemKhachHang);
+            pnTimKimAccount.Location = new Point(8, 40);
+            pnTimKimAccount.Name = "pnTimKimAccount";
+            pnTimKimAccount.Size = new Size(1096, 48);
+            pnTimKimAccount.TabIndex = 8;
             // 
             // cbxNhomKhach
             // 
@@ -952,20 +865,13 @@ namespace CyberManagementProject
             txtTimKiemKhachHang.TabIndex = 4;
             txtTimKiemKhachHang.TextChanged += txtTimKiemKhachHang_TextChanged;
             // 
-            // panel26
+            // pnDisplayAccount
             // 
-            panel26.Location = new Point(568, 0);
-            panel26.Name = "panel26";
-            panel26.Size = new Size(211, 48);
-            panel26.TabIndex = 3;
-            // 
-            // panel27
-            // 
-            panel27.Controls.Add(flpKhachHang);
-            panel27.Location = new Point(8, 96);
-            panel27.Name = "panel27";
-            panel27.Size = new Size(1096, 512);
-            panel27.TabIndex = 7;
+            pnDisplayAccount.Controls.Add(flpKhachHang);
+            pnDisplayAccount.Location = new Point(8, 96);
+            pnDisplayAccount.Name = "pnDisplayAccount";
+            pnDisplayAccount.Size = new Size(1096, 512);
+            pnDisplayAccount.TabIndex = 7;
             // 
             // flpKhachHang
             // 
@@ -1473,9 +1379,9 @@ namespace CyberManagementProject
             // 
             // tbpStaff
             // 
-            tbpStaff.Controls.Add(panel18);
+            tbpStaff.Controls.Add(pnDuongDanStaff);
             tbpStaff.Controls.Add(grbQuanLyNhanVien);
-            tbpStaff.Controls.Add(panel22);
+            tbpStaff.Controls.Add(pnStaffControl);
             tbpStaff.Location = new Point(0, 0);
             tbpStaff.Name = "tbpStaff";
             tbpStaff.Padding = new Padding(3);
@@ -1484,14 +1390,14 @@ namespace CyberManagementProject
             tbpStaff.Text = "git b";
             tbpStaff.UseVisualStyleBackColor = true;
             // 
-            // panel18
+            // pnDuongDanStaff
             // 
-            panel18.Controls.Add(lblQuanLyNhanVien);
-            panel18.Controls.Add(lblHome);
-            panel18.Location = new Point(18, 8);
-            panel18.Name = "panel18";
-            panel18.Size = new Size(288, 48);
-            panel18.TabIndex = 8;
+            pnDuongDanStaff.Controls.Add(lblQuanLyNhanVien);
+            pnDuongDanStaff.Controls.Add(lblHome);
+            pnDuongDanStaff.Location = new Point(18, 8);
+            pnDuongDanStaff.Name = "pnDuongDanStaff";
+            pnDuongDanStaff.Size = new Size(288, 48);
+            pnDuongDanStaff.TabIndex = 8;
             // 
             // lblQuanLyNhanVien
             // 
@@ -1515,7 +1421,7 @@ namespace CyberManagementProject
             // grbQuanLyNhanVien
             // 
             grbQuanLyNhanVien.Controls.Add(cbxChucVu);
-            grbQuanLyNhanVien.Controls.Add(panel19);
+            grbQuanLyNhanVien.Controls.Add(pnDisplayStaff);
             grbQuanLyNhanVien.Controls.Add(cbxTrangThai);
             grbQuanLyNhanVien.Controls.Add(txtTimKiem);
             grbQuanLyNhanVien.FlatStyle = FlatStyle.System;
@@ -1536,13 +1442,13 @@ namespace CyberManagementProject
             cbxChucVu.TabIndex = 2;
             cbxChucVu.SelectedIndexChanged += cbxChucVu_SelectedIndexChanged_1;
             // 
-            // panel19
+            // pnDisplayStaff
             // 
-            panel19.Controls.Add(flpNhanVien);
-            panel19.Location = new Point(6, 94);
-            panel19.Name = "panel19";
-            panel19.Size = new Size(1098, 506);
-            panel19.TabIndex = 5;
+            pnDisplayStaff.Controls.Add(flpNhanVien);
+            pnDisplayStaff.Location = new Point(6, 94);
+            pnDisplayStaff.Name = "pnDisplayStaff";
+            pnDisplayStaff.Size = new Size(1098, 506);
+            pnDisplayStaff.TabIndex = 5;
             // 
             // flpNhanVien
             // 
@@ -1571,15 +1477,15 @@ namespace CyberManagementProject
             txtTimKiem.TabIndex = 0;
             txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
-            // panel22
+            // pnStaffControl
             // 
-            panel22.Controls.Add(btnThemMoi);
-            panel22.Controls.Add(btnXuatFile);
-            panel22.Controls.Add(btn_ThongKe);
-            panel22.Location = new Point(386, 0);
-            panel22.Name = "panel22";
-            panel22.Size = new Size(734, 56);
-            panel22.TabIndex = 7;
+            pnStaffControl.Controls.Add(btnThemMoi);
+            pnStaffControl.Controls.Add(btnXuatFile);
+            pnStaffControl.Controls.Add(btn_ThongKe);
+            pnStaffControl.Location = new Point(386, 0);
+            pnStaffControl.Name = "pnStaffControl";
+            pnStaffControl.Size = new Size(734, 56);
+            pnStaffControl.TabIndex = 7;
             // 
             // btnThemMoi
             // 
@@ -1632,700 +1538,12 @@ namespace CyberManagementProject
             // pnJob
             // 
             pnJob.BorderStyle = BorderStyle.FixedSingle;
-            pnJob.Controls.Add(tclThongKe);
             pnJob.Dock = DockStyle.Fill;
             pnJob.Location = new Point(3, 3);
             pnJob.Margin = new Padding(2);
             pnJob.Name = "pnJob";
             pnJob.Size = new Size(1122, 682);
             pnJob.TabIndex = 4;
-            // 
-            // tclThongKe
-            // 
-            tclThongKe.Controls.Add(tbDoanhThu);
-            tclThongKe.Controls.Add(tbNhanVien);
-            tclThongKe.Controls.Add(tpKhachHang);
-            tclThongKe.Location = new Point(8, 8);
-            tclThongKe.Margin = new Padding(2);
-            tclThongKe.Name = "tclThongKe";
-            tclThongKe.SelectedIndex = 0;
-            tclThongKe.Size = new Size(1112, 664);
-            tclThongKe.TabIndex = 0;
-            // 
-            // tbDoanhThu
-            // 
-            tbDoanhThu.BorderStyle = BorderStyle.FixedSingle;
-            tbDoanhThu.Controls.Add(pnCongViec);
-            tbDoanhThu.Controls.Add(pnDoanhThu);
-            tbDoanhThu.Controls.Add(pnDate);
-            tbDoanhThu.Location = new Point(4, 24);
-            tbDoanhThu.Margin = new Padding(2);
-            tbDoanhThu.Name = "tbDoanhThu";
-            tbDoanhThu.Padding = new Padding(2);
-            tbDoanhThu.Size = new Size(1104, 636);
-            tbDoanhThu.TabIndex = 0;
-            tbDoanhThu.Text = "Doanh Thu";
-            tbDoanhThu.UseVisualStyleBackColor = true;
-            // 
-            // pnCongViec
-            // 
-            pnCongViec.BorderStyle = BorderStyle.FixedSingle;
-            pnCongViec.Controls.Add(rbtYear);
-            pnCongViec.Controls.Add(rbtMonth);
-            pnCongViec.Controls.Add(rbtDate);
-            pnCongViec.Controls.Add(panel48);
-            pnCongViec.Controls.Add(panel49);
-            pnCongViec.Controls.Add(panel50);
-            pnCongViec.Location = new Point(736, 16);
-            pnCongViec.Margin = new Padding(2);
-            pnCongViec.Name = "pnCongViec";
-            pnCongViec.Size = new Size(360, 608);
-            pnCongViec.TabIndex = 2;
-            // 
-            // rbtYear
-            // 
-            rbtYear.AutoSize = true;
-            rbtYear.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            rbtYear.Location = new Point(16, 384);
-            rbtYear.Margin = new Padding(2);
-            rbtYear.Name = "rbtYear";
-            rbtYear.Size = new Size(101, 24);
-            rbtYear.TabIndex = 4;
-            rbtYear.TabStop = true;
-            rbtYear.Text = "Theo năm:";
-            rbtYear.UseVisualStyleBackColor = true;
-            // 
-            // rbtMonth
-            // 
-            rbtMonth.AutoSize = true;
-            rbtMonth.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            rbtMonth.Location = new Point(11, 200);
-            rbtMonth.Margin = new Padding(2);
-            rbtMonth.Name = "rbtMonth";
-            rbtMonth.Size = new Size(111, 24);
-            rbtMonth.TabIndex = 4;
-            rbtMonth.TabStop = true;
-            rbtMonth.Text = "Theo tháng:";
-            rbtMonth.UseVisualStyleBackColor = true;
-            // 
-            // rbtDate
-            // 
-            rbtDate.AutoSize = true;
-            rbtDate.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            rbtDate.Location = new Point(11, 12);
-            rbtDate.Margin = new Padding(2);
-            rbtDate.Name = "rbtDate";
-            rbtDate.Size = new Size(104, 24);
-            rbtDate.TabIndex = 4;
-            rbtDate.TabStop = true;
-            rbtDate.Text = "Theo ngày:";
-            rbtDate.UseVisualStyleBackColor = true;
-            // 
-            // panel48
-            // 
-            panel48.BorderStyle = BorderStyle.FixedSingle;
-            panel48.Controls.Add(textBox8);
-            panel48.Controls.Add(lbDoangThuNam);
-            panel48.Controls.Add(lbNhapNam);
-            panel48.Controls.Add(dtpNamDT);
-            panel48.Location = new Point(8, 416);
-            panel48.Margin = new Padding(2);
-            panel48.Name = "panel48";
-            panel48.Size = new Size(342, 115);
-            panel48.TabIndex = 3;
-            // 
-            // textBox8
-            // 
-            textBox8.Font = new Font("Segoe UI", 11F);
-            textBox8.Location = new Point(126, 65);
-            textBox8.Margin = new Padding(2);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(196, 27);
-            textBox8.TabIndex = 2;
-            // 
-            // lbDoangThuNam
-            // 
-            lbDoangThuNam.AutoSize = true;
-            lbDoangThuNam.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lbDoangThuNam.Location = new Point(15, 69);
-            lbDoangThuNam.Margin = new Padding(2, 0, 2, 0);
-            lbDoangThuNam.Name = "lbDoangThuNam";
-            lbDoangThuNam.Size = new Size(82, 20);
-            lbDoangThuNam.TabIndex = 1;
-            lbDoangThuNam.Text = "DoanhThu";
-            // 
-            // lbNhapNam
-            // 
-            lbNhapNam.AutoSize = true;
-            lbNhapNam.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lbNhapNam.Location = new Point(15, 25);
-            lbNhapNam.Margin = new Padding(2, 0, 2, 0);
-            lbNhapNam.Name = "lbNhapNam";
-            lbNhapNam.Size = new Size(47, 20);
-            lbNhapNam.TabIndex = 1;
-            lbNhapNam.Text = "Năm:";
-            // 
-            // dtpNamDT
-            // 
-            dtpNamDT.Font = new Font("Segoe UI", 11F);
-            dtpNamDT.Location = new Point(126, 25);
-            dtpNamDT.Margin = new Padding(2);
-            dtpNamDT.Name = "dtpNamDT";
-            dtpNamDT.Size = new Size(196, 27);
-            dtpNamDT.TabIndex = 0;
-            // 
-            // panel49
-            // 
-            panel49.BorderStyle = BorderStyle.FixedSingle;
-            panel49.Controls.Add(textBox9);
-            panel49.Controls.Add(lbDoanhThuThang);
-            panel49.Controls.Add(lbNhapThang);
-            panel49.Controls.Add(dtpThangDT);
-            panel49.Location = new Point(11, 227);
-            panel49.Margin = new Padding(2);
-            panel49.Name = "panel49";
-            panel49.Size = new Size(342, 115);
-            panel49.TabIndex = 2;
-            // 
-            // textBox9
-            // 
-            textBox9.Font = new Font("Segoe UI", 11F);
-            textBox9.Location = new Point(126, 68);
-            textBox9.Margin = new Padding(2);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(196, 27);
-            textBox9.TabIndex = 2;
-            // 
-            // lbDoanhThuThang
-            // 
-            lbDoanhThuThang.AutoSize = true;
-            lbDoanhThuThang.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lbDoanhThuThang.Location = new Point(15, 67);
-            lbDoanhThuThang.Margin = new Padding(2, 0, 2, 0);
-            lbDoanhThuThang.Name = "lbDoanhThuThang";
-            lbDoanhThuThang.Size = new Size(86, 20);
-            lbDoanhThuThang.TabIndex = 1;
-            lbDoanhThuThang.Text = "DoanhThu:";
-            // 
-            // lbNhapThang
-            // 
-            lbNhapThang.AutoSize = true;
-            lbNhapThang.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lbNhapThang.Location = new Point(15, 28);
-            lbNhapThang.Margin = new Padding(2, 0, 2, 0);
-            lbNhapThang.Name = "lbNhapThang";
-            lbNhapThang.Size = new Size(57, 20);
-            lbNhapThang.TabIndex = 1;
-            lbNhapThang.Text = "Tháng:";
-            // 
-            // dtpThangDT
-            // 
-            dtpThangDT.Font = new Font("Segoe UI", 11F);
-            dtpThangDT.Location = new Point(126, 28);
-            dtpThangDT.Margin = new Padding(2);
-            dtpThangDT.Name = "dtpThangDT";
-            dtpThangDT.Size = new Size(196, 27);
-            dtpThangDT.TabIndex = 0;
-            // 
-            // panel50
-            // 
-            panel50.BorderStyle = BorderStyle.FixedSingle;
-            panel50.Controls.Add(textBox10);
-            panel50.Controls.Add(lbDoanhThuNgay);
-            panel50.Controls.Add(lbNhapNgay);
-            panel50.Controls.Add(dtpNgayDT);
-            panel50.Location = new Point(11, 41);
-            panel50.Margin = new Padding(2);
-            panel50.Name = "panel50";
-            panel50.Size = new Size(342, 115);
-            panel50.TabIndex = 1;
-            // 
-            // textBox10
-            // 
-            textBox10.Font = new Font("Segoe UI", 11F);
-            textBox10.Location = new Point(126, 68);
-            textBox10.Margin = new Padding(2);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(196, 27);
-            textBox10.TabIndex = 2;
-            // 
-            // lbDoanhThuNgay
-            // 
-            lbDoanhThuNgay.AutoSize = true;
-            lbDoanhThuNgay.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lbDoanhThuNgay.Location = new Point(15, 68);
-            lbDoanhThuNgay.Margin = new Padding(2, 0, 2, 0);
-            lbDoanhThuNgay.Name = "lbDoanhThuNgay";
-            lbDoanhThuNgay.Size = new Size(90, 20);
-            lbDoanhThuNgay.TabIndex = 1;
-            lbDoanhThuNgay.Text = "Doanh Thu:";
-            // 
-            // lbNhapNgay
-            // 
-            lbNhapNgay.AutoSize = true;
-            lbNhapNgay.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lbNhapNgay.Location = new Point(15, 22);
-            lbNhapNgay.Margin = new Padding(2, 0, 2, 0);
-            lbNhapNgay.Name = "lbNhapNgay";
-            lbNhapNgay.Size = new Size(50, 20);
-            lbNhapNgay.TabIndex = 1;
-            lbNhapNgay.Text = "Ngày:";
-            // 
-            // dtpNgayDT
-            // 
-            dtpNgayDT.Font = new Font("Segoe UI", 11F);
-            dtpNgayDT.Location = new Point(126, 22);
-            dtpNgayDT.Margin = new Padding(2);
-            dtpNgayDT.Name = "dtpNgayDT";
-            dtpNgayDT.Size = new Size(196, 27);
-            dtpNgayDT.TabIndex = 0;
-            // 
-            // pnDoanhThu
-            // 
-            pnDoanhThu.Controls.Add(dgvDoanhThu);
-            pnDoanhThu.Location = new Point(13, 95);
-            pnDoanhThu.Margin = new Padding(2);
-            pnDoanhThu.Name = "pnDoanhThu";
-            pnDoanhThu.Size = new Size(715, 529);
-            pnDoanhThu.TabIndex = 1;
-            // 
-            // dgvDoanhThu
-            // 
-            dgvDoanhThu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDoanhThu.Dock = DockStyle.Fill;
-            dgvDoanhThu.Location = new Point(0, 0);
-            dgvDoanhThu.Margin = new Padding(2);
-            dgvDoanhThu.Name = "dgvDoanhThu";
-            dgvDoanhThu.RowHeadersWidth = 62;
-            dgvDoanhThu.Size = new Size(715, 529);
-            dgvDoanhThu.TabIndex = 0;
-            // 
-            // pnDate
-            // 
-            pnDate.BorderStyle = BorderStyle.FixedSingle;
-            pnDate.Controls.Add(btnShow);
-            pnDate.Controls.Add(lbEnd);
-            pnDate.Controls.Add(lbStart);
-            pnDate.Controls.Add(dtpEnd);
-            pnDate.Controls.Add(dtpStart);
-            pnDate.Location = new Point(13, 10);
-            pnDate.Margin = new Padding(2);
-            pnDate.Name = "pnDate";
-            pnDate.Size = new Size(715, 75);
-            pnDate.TabIndex = 0;
-            // 
-            // btnShow
-            // 
-            btnShow.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnShow.Location = new Point(484, 12);
-            btnShow.Margin = new Padding(2);
-            btnShow.Name = "btnShow";
-            btnShow.Size = new Size(156, 47);
-            btnShow.TabIndex = 4;
-            btnShow.Text = "Xem";
-            btnShow.UseVisualStyleBackColor = true;
-            // 
-            // lbEnd
-            // 
-            lbEnd.AutoSize = true;
-            lbEnd.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lbEnd.Location = new Point(48, 41);
-            lbEnd.Margin = new Padding(2, 0, 2, 0);
-            lbEnd.Name = "lbEnd";
-            lbEnd.Size = new Size(83, 20);
-            lbEnd.TabIndex = 3;
-            lbEnd.Text = "Đến ngày: ";
-            // 
-            // lbStart
-            // 
-            lbStart.AutoSize = true;
-            lbStart.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lbStart.Location = new Point(48, 12);
-            lbStart.Margin = new Padding(2, 0, 2, 0);
-            lbStart.Name = "lbStart";
-            lbStart.Size = new Size(74, 20);
-            lbStart.TabIndex = 2;
-            lbStart.Text = "Từ ngày: ";
-            // 
-            // dtpEnd
-            // 
-            dtpEnd.Font = new Font("Segoe UI", 11F);
-            dtpEnd.Location = new Point(168, 41);
-            dtpEnd.Margin = new Padding(2);
-            dtpEnd.Name = "dtpEnd";
-            dtpEnd.Size = new Size(291, 27);
-            dtpEnd.TabIndex = 1;
-            // 
-            // dtpStart
-            // 
-            dtpStart.Font = new Font("Segoe UI", 11F);
-            dtpStart.Location = new Point(168, 12);
-            dtpStart.Margin = new Padding(2);
-            dtpStart.Name = "dtpStart";
-            dtpStart.Size = new Size(291, 27);
-            dtpStart.TabIndex = 0;
-            // 
-            // tbNhanVien
-            // 
-            tbNhanVien.Controls.Add(pnNhanVien);
-            tbNhanVien.Location = new Point(4, 24);
-            tbNhanVien.Margin = new Padding(2);
-            tbNhanVien.Name = "tbNhanVien";
-            tbNhanVien.Padding = new Padding(2);
-            tbNhanVien.Size = new Size(1104, 636);
-            tbNhanVien.TabIndex = 1;
-            tbNhanVien.Text = "Nhân Viên";
-            tbNhanVien.UseVisualStyleBackColor = true;
-            // 
-            // pnNhanVien
-            // 
-            pnNhanVien.BorderStyle = BorderStyle.FixedSingle;
-            pnNhanVien.Controls.Add(pnLenhNV);
-            pnNhanVien.Controls.Add(lbTittle);
-            pnNhanVien.Controls.Add(pnThongKeNhanVien);
-            pnNhanVien.Dock = DockStyle.Fill;
-            pnNhanVien.Location = new Point(2, 2);
-            pnNhanVien.Margin = new Padding(2);
-            pnNhanVien.Name = "pnNhanVien";
-            pnNhanVien.Size = new Size(1100, 632);
-            pnNhanVien.TabIndex = 0;
-            // 
-            // pnLenhNV
-            // 
-            pnLenhNV.BorderStyle = BorderStyle.FixedSingle;
-            pnLenhNV.Controls.Add(rbtTitleNamNV);
-            pnLenhNV.Controls.Add(rbtTitleThangNV);
-            pnLenhNV.Controls.Add(pnKhungNamNV);
-            pnLenhNV.Controls.Add(pnKhungThangNV);
-            pnLenhNV.Location = new Point(711, 46);
-            pnLenhNV.Margin = new Padding(2);
-            pnLenhNV.Name = "pnLenhNV";
-            pnLenhNV.Size = new Size(340, 523);
-            pnLenhNV.TabIndex = 2;
-            // 
-            // rbtTitleNamNV
-            // 
-            rbtTitleNamNV.AutoSize = true;
-            rbtTitleNamNV.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            rbtTitleNamNV.Location = new Point(12, 223);
-            rbtTitleNamNV.Margin = new Padding(2);
-            rbtTitleNamNV.Name = "rbtTitleNamNV";
-            rbtTitleNamNV.Size = new Size(167, 24);
-            rbtTitleNamNV.TabIndex = 5;
-            rbtTitleNamNV.TabStop = true;
-            rbtTitleNamNV.Text = "Thống kê theo năm:";
-            rbtTitleNamNV.UseVisualStyleBackColor = true;
-            // 
-            // rbtTitleThangNV
-            // 
-            rbtTitleThangNV.AutoSize = true;
-            rbtTitleThangNV.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            rbtTitleThangNV.Location = new Point(12, 17);
-            rbtTitleThangNV.Margin = new Padding(2);
-            rbtTitleThangNV.Name = "rbtTitleThangNV";
-            rbtTitleThangNV.Size = new Size(177, 24);
-            rbtTitleThangNV.TabIndex = 5;
-            rbtTitleThangNV.TabStop = true;
-            rbtTitleThangNV.Text = "Thống kê theo tháng:";
-            rbtTitleThangNV.UseVisualStyleBackColor = true;
-            // 
-            // pnKhungNamNV
-            // 
-            pnKhungNamNV.BorderStyle = BorderStyle.FixedSingle;
-            pnKhungNamNV.Controls.Add(btnNamNV);
-            pnKhungNamNV.Controls.Add(lbNamNV);
-            pnKhungNamNV.Controls.Add(dtpNamNV);
-            pnKhungNamNV.Location = new Point(12, 251);
-            pnKhungNamNV.Margin = new Padding(2);
-            pnKhungNamNV.Name = "pnKhungNamNV";
-            pnKhungNamNV.Size = new Size(316, 116);
-            pnKhungNamNV.TabIndex = 4;
-            // 
-            // btnNamNV
-            // 
-            btnNamNV.Font = new Font("Segoe UI", 12F);
-            btnNamNV.Location = new Point(182, 74);
-            btnNamNV.Margin = new Padding(2);
-            btnNamNV.Name = "btnNamNV";
-            btnNamNV.Size = new Size(119, 27);
-            btnNamNV.TabIndex = 2;
-            btnNamNV.Text = "Xem";
-            btnNamNV.UseVisualStyleBackColor = true;
-            // 
-            // lbNamNV
-            // 
-            lbNamNV.AutoSize = true;
-            lbNamNV.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lbNamNV.Location = new Point(7, 33);
-            lbNamNV.Margin = new Padding(2, 0, 2, 0);
-            lbNamNV.Name = "lbNamNV";
-            lbNamNV.Size = new Size(47, 20);
-            lbNamNV.TabIndex = 1;
-            lbNamNV.Text = "Năm:";
-            // 
-            // dtpNamNV
-            // 
-            dtpNamNV.Font = new Font("Segoe UI", 11F);
-            dtpNamNV.Location = new Point(70, 30);
-            dtpNamNV.Margin = new Padding(2);
-            dtpNamNV.Name = "dtpNamNV";
-            dtpNamNV.Size = new Size(232, 27);
-            dtpNamNV.TabIndex = 0;
-            // 
-            // pnKhungThangNV
-            // 
-            pnKhungThangNV.BorderStyle = BorderStyle.FixedSingle;
-            pnKhungThangNV.Controls.Add(btnThangNV);
-            pnKhungThangNV.Controls.Add(lbThangNV);
-            pnKhungThangNV.Controls.Add(dtpThangNV);
-            pnKhungThangNV.Location = new Point(12, 45);
-            pnKhungThangNV.Margin = new Padding(2);
-            pnKhungThangNV.Name = "pnKhungThangNV";
-            pnKhungThangNV.Size = new Size(316, 116);
-            pnKhungThangNV.TabIndex = 2;
-            // 
-            // btnThangNV
-            // 
-            btnThangNV.Font = new Font("Segoe UI", 12F);
-            btnThangNV.Location = new Point(182, 72);
-            btnThangNV.Margin = new Padding(2);
-            btnThangNV.Name = "btnThangNV";
-            btnThangNV.Size = new Size(119, 27);
-            btnThangNV.TabIndex = 2;
-            btnThangNV.Text = "Xem";
-            btnThangNV.UseVisualStyleBackColor = true;
-            // 
-            // lbThangNV
-            // 
-            lbThangNV.AutoSize = true;
-            lbThangNV.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lbThangNV.Location = new Point(7, 35);
-            lbThangNV.Margin = new Padding(2, 0, 2, 0);
-            lbThangNV.Name = "lbThangNV";
-            lbThangNV.Size = new Size(57, 20);
-            lbThangNV.TabIndex = 1;
-            lbThangNV.Text = "Tháng:";
-            // 
-            // dtpThangNV
-            // 
-            dtpThangNV.Font = new Font("Segoe UI", 11F);
-            dtpThangNV.Location = new Point(70, 32);
-            dtpThangNV.Margin = new Padding(2);
-            dtpThangNV.Name = "dtpThangNV";
-            dtpThangNV.Size = new Size(232, 27);
-            dtpThangNV.TabIndex = 0;
-            // 
-            // lbTittle
-            // 
-            lbTittle.AutoSize = true;
-            lbTittle.BackColor = Color.FromArgb(128, 255, 255);
-            lbTittle.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbTittle.Location = new Point(169, 17);
-            lbTittle.Margin = new Padding(2, 0, 2, 0);
-            lbTittle.Name = "lbTittle";
-            lbTittle.Size = new Size(259, 30);
-            lbTittle.TabIndex = 1;
-            lbTittle.Text = "Nhân viên xuất sắt nhất";
-            // 
-            // pnThongKeNhanVien
-            // 
-            pnThongKeNhanVien.BorderStyle = BorderStyle.FixedSingle;
-            pnThongKeNhanVien.Controls.Add(dgvNhanVien);
-            pnThongKeNhanVien.Location = new Point(13, 46);
-            pnThongKeNhanVien.Margin = new Padding(2);
-            pnThongKeNhanVien.Name = "pnThongKeNhanVien";
-            pnThongKeNhanVien.Size = new Size(695, 523);
-            pnThongKeNhanVien.TabIndex = 0;
-            // 
-            // dgvNhanVien
-            // 
-            dgvNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvNhanVien.Dock = DockStyle.Fill;
-            dgvNhanVien.Location = new Point(0, 0);
-            dgvNhanVien.Margin = new Padding(2);
-            dgvNhanVien.Name = "dgvNhanVien";
-            dgvNhanVien.RowHeadersWidth = 62;
-            dgvNhanVien.Size = new Size(693, 521);
-            dgvNhanVien.TabIndex = 0;
-            // 
-            // tpKhachHang
-            // 
-            tpKhachHang.Controls.Add(pnKhachHang);
-            tpKhachHang.Location = new Point(4, 24);
-            tpKhachHang.Margin = new Padding(2);
-            tpKhachHang.Name = "tpKhachHang";
-            tpKhachHang.Padding = new Padding(2);
-            tpKhachHang.Size = new Size(1104, 636);
-            tpKhachHang.TabIndex = 2;
-            tpKhachHang.Text = "Khách hàng";
-            tpKhachHang.UseVisualStyleBackColor = true;
-            // 
-            // pnKhachHang
-            // 
-            pnKhachHang.BorderStyle = BorderStyle.FixedSingle;
-            pnKhachHang.Controls.Add(pnKHVip);
-            pnKhachHang.Controls.Add(pnLenhKH);
-            pnKhachHang.Controls.Add(lbTittleKH);
-            pnKhachHang.Controls.Add(pnThongKeKH);
-            pnKhachHang.Dock = DockStyle.Fill;
-            pnKhachHang.Location = new Point(2, 2);
-            pnKhachHang.Margin = new Padding(2);
-            pnKhachHang.Name = "pnKhachHang";
-            pnKhachHang.Size = new Size(1100, 632);
-            pnKhachHang.TabIndex = 1;
-            // 
-            // pnKHVip
-            // 
-            pnKHVip.BorderStyle = BorderStyle.FixedSingle;
-            pnKHVip.Controls.Add(btnXemKHTop);
-            pnKHVip.Controls.Add(lbKHVip);
-            pnKHVip.Location = new Point(736, 112);
-            pnKHVip.Margin = new Padding(2);
-            pnKHVip.Name = "pnKHVip";
-            pnKHVip.Size = new Size(351, 68);
-            pnKHVip.TabIndex = 3;
-            // 
-            // btnXemKHTop
-            // 
-            btnXemKHTop.Font = new Font("Segoe UI", 11F);
-            btnXemKHTop.Location = new Point(176, 17);
-            btnXemKHTop.Margin = new Padding(2);
-            btnXemKHTop.Name = "btnXemKHTop";
-            btnXemKHTop.Size = new Size(146, 28);
-            btnXemKHTop.TabIndex = 2;
-            btnXemKHTop.Text = "Xem";
-            btnXemKHTop.UseVisualStyleBackColor = true;
-            // 
-            // lbKHVip
-            // 
-            lbKHVip.AutoSize = true;
-            lbKHVip.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lbKHVip.Location = new Point(9, 22);
-            lbKHVip.Margin = new Padding(2, 0, 2, 0);
-            lbKHVip.Name = "lbKHVip";
-            lbKHVip.Size = new Size(140, 20);
-            lbKHVip.TabIndex = 2;
-            lbKHVip.Text = "Khách hàng TOP 1:";
-            // 
-            // pnLenhKH
-            // 
-            pnLenhKH.BorderStyle = BorderStyle.FixedSingle;
-            pnLenhKH.Controls.Add(pnKhungThangKH);
-            pnLenhKH.Controls.Add(lbTittleThangKH);
-            pnLenhKH.Location = new Point(736, 192);
-            pnLenhKH.Margin = new Padding(2);
-            pnLenhKH.Name = "pnLenhKH";
-            pnLenhKH.Size = new Size(351, 294);
-            pnLenhKH.TabIndex = 2;
-            // 
-            // pnKhungThangKH
-            // 
-            pnKhungThangKH.BorderStyle = BorderStyle.FixedSingle;
-            pnKhungThangKH.Controls.Add(btnXemKH);
-            pnKhungThangKH.Controls.Add(lbEndKH);
-            pnKhungThangKH.Controls.Add(lbStartKH);
-            pnKhungThangKH.Controls.Add(dtpEndKH);
-            pnKhungThangKH.Controls.Add(dtpStartKH);
-            pnKhungThangKH.Location = new Point(9, 64);
-            pnKhungThangKH.Margin = new Padding(2);
-            pnKhungThangKH.Name = "pnKhungThangKH";
-            pnKhungThangKH.Size = new Size(330, 155);
-            pnKhungThangKH.TabIndex = 2;
-            // 
-            // btnXemKH
-            // 
-            btnXemKH.Font = new Font("Segoe UI", 11F);
-            btnXemKH.Location = new Point(167, 110);
-            btnXemKH.Margin = new Padding(2);
-            btnXemKH.Name = "btnXemKH";
-            btnXemKH.Size = new Size(146, 29);
-            btnXemKH.TabIndex = 2;
-            btnXemKH.Text = "Xem";
-            btnXemKH.UseVisualStyleBackColor = true;
-            // 
-            // lbEndKH
-            // 
-            lbEndKH.AutoSize = true;
-            lbEndKH.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            lbEndKH.Location = new Point(10, 70);
-            lbEndKH.Margin = new Padding(2, 0, 2, 0);
-            lbEndKH.Name = "lbEndKH";
-            lbEndKH.Size = new Size(79, 20);
-            lbEndKH.TabIndex = 1;
-            lbEndKH.Text = "Đến ngày:";
-            // 
-            // lbStartKH
-            // 
-            lbStartKH.AutoSize = true;
-            lbStartKH.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            lbStartKH.Location = new Point(10, 26);
-            lbStartKH.Margin = new Padding(2, 0, 2, 0);
-            lbStartKH.Name = "lbStartKH";
-            lbStartKH.Size = new Size(68, 20);
-            lbStartKH.TabIndex = 1;
-            lbStartKH.Text = "Từ ngày:";
-            // 
-            // dtpEndKH
-            // 
-            dtpEndKH.Font = new Font("Segoe UI", 11F);
-            dtpEndKH.Location = new Point(104, 70);
-            dtpEndKH.Margin = new Padding(2);
-            dtpEndKH.Name = "dtpEndKH";
-            dtpEndKH.Size = new Size(210, 27);
-            dtpEndKH.TabIndex = 0;
-            // 
-            // dtpStartKH
-            // 
-            dtpStartKH.Font = new Font("Segoe UI", 11F);
-            dtpStartKH.Location = new Point(104, 25);
-            dtpStartKH.Margin = new Padding(2);
-            dtpStartKH.Name = "dtpStartKH";
-            dtpStartKH.Size = new Size(210, 27);
-            dtpStartKH.TabIndex = 0;
-            // 
-            // lbTittleThangKH
-            // 
-            lbTittleThangKH.AutoSize = true;
-            lbTittleThangKH.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lbTittleThangKH.Location = new Point(9, 31);
-            lbTittleThangKH.Margin = new Padding(2, 0, 2, 0);
-            lbTittleThangKH.Name = "lbTittleThangKH";
-            lbTittleThangKH.Size = new Size(155, 20);
-            lbTittleThangKH.TabIndex = 2;
-            lbTittleThangKH.Text = "Thống kê theo tháng";
-            // 
-            // lbTittleKH
-            // 
-            lbTittleKH.AutoSize = true;
-            lbTittleKH.BackColor = Color.FromArgb(128, 255, 255);
-            lbTittleKH.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbTittleKH.Location = new Point(194, 17);
-            lbTittleKH.Margin = new Padding(2, 0, 2, 0);
-            lbTittleKH.Name = "lbTittleKH";
-            lbTittleKH.Size = new Size(279, 30);
-            lbTittleKH.TabIndex = 1;
-            lbTittleKH.Text = "THỐNG KÊ KHÁCH HÀNG";
-            // 
-            // pnThongKeKH
-            // 
-            pnThongKeKH.BorderStyle = BorderStyle.FixedSingle;
-            pnThongKeKH.Controls.Add(dgvThongKeKH);
-            pnThongKeKH.Location = new Point(13, 46);
-            pnThongKeKH.Margin = new Padding(2);
-            pnThongKeKH.Name = "pnThongKeKH";
-            pnThongKeKH.Size = new Size(715, 578);
-            pnThongKeKH.TabIndex = 0;
-            // 
-            // dgvThongKeKH
-            // 
-            dgvThongKeKH.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvThongKeKH.Dock = DockStyle.Fill;
-            dgvThongKeKH.Location = new Point(0, 0);
-            dgvThongKeKH.Margin = new Padding(2);
-            dgvThongKeKH.Name = "dgvThongKeKH";
-            dgvThongKeKH.RowHeadersWidth = 62;
-            dgvThongKeKH.Size = new Size(713, 576);
-            dgvThongKeKH.TabIndex = 0;
             // 
             // cmsKhachHang
             // 
@@ -2424,22 +1642,22 @@ namespace CyberManagementProject
             tbpComputer.ResumeLayout(false);
             pnComputerControl.ResumeLayout(false);
             gbxComputerInfor.ResumeLayout(false);
-            panel12.ResumeLayout(false);
-            panel12.PerformLayout();
-            panel10.ResumeLayout(false);
-            panel10.PerformLayout();
-            panel11.ResumeLayout(false);
-            panel11.PerformLayout();
-            panel9.ResumeLayout(false);
-            panel9.PerformLayout();
+            pnStatusCom.ResumeLayout(false);
+            pnStatusCom.PerformLayout();
+            pnTimeCom.ResumeLayout(false);
+            pnTimeCom.PerformLayout();
+            pnTongTienCom.ResumeLayout(false);
+            pnTongTienCom.PerformLayout();
+            pnUserNameCom.ResumeLayout(false);
+            pnUserNameCom.PerformLayout();
             pnComputerButton.ResumeLayout(false);
             tbpAccount.ResumeLayout(false);
-            panel23.ResumeLayout(false);
-            panel24.ResumeLayout(false);
+            pnButtonAccount.ResumeLayout(false);
+            pnDuongDanAccount.ResumeLayout(false);
             grbKhachHang.ResumeLayout(false);
-            panel25.ResumeLayout(false);
-            panel25.PerformLayout();
-            panel27.ResumeLayout(false);
+            pnTimKimAccount.ResumeLayout(false);
+            pnTimKimAccount.PerformLayout();
+            pnDisplayAccount.ResumeLayout(false);
             tbpServices.ResumeLayout(false);
             panel14.ResumeLayout(false);
             panel14.PerformLayout();
@@ -2475,49 +1693,12 @@ namespace CyberManagementProject
             panel33.ResumeLayout(false);
             panel33.PerformLayout();
             tbpStaff.ResumeLayout(false);
-            panel18.ResumeLayout(false);
+            pnDuongDanStaff.ResumeLayout(false);
             grbQuanLyNhanVien.ResumeLayout(false);
             grbQuanLyNhanVien.PerformLayout();
-            panel19.ResumeLayout(false);
-            panel22.ResumeLayout(false);
+            pnDisplayStaff.ResumeLayout(false);
+            pnStaffControl.ResumeLayout(false);
             tbpStatictical.ResumeLayout(false);
-            pnJob.ResumeLayout(false);
-            tclThongKe.ResumeLayout(false);
-            tbDoanhThu.ResumeLayout(false);
-            pnCongViec.ResumeLayout(false);
-            pnCongViec.PerformLayout();
-            panel48.ResumeLayout(false);
-            panel48.PerformLayout();
-            panel49.ResumeLayout(false);
-            panel49.PerformLayout();
-            panel50.ResumeLayout(false);
-            panel50.PerformLayout();
-            pnDoanhThu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvDoanhThu).EndInit();
-            pnDate.ResumeLayout(false);
-            pnDate.PerformLayout();
-            tbNhanVien.ResumeLayout(false);
-            pnNhanVien.ResumeLayout(false);
-            pnNhanVien.PerformLayout();
-            pnLenhNV.ResumeLayout(false);
-            pnLenhNV.PerformLayout();
-            pnKhungNamNV.ResumeLayout(false);
-            pnKhungNamNV.PerformLayout();
-            pnKhungThangNV.ResumeLayout(false);
-            pnKhungThangNV.PerformLayout();
-            pnThongKeNhanVien.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvNhanVien).EndInit();
-            tpKhachHang.ResumeLayout(false);
-            pnKhachHang.ResumeLayout(false);
-            pnKhachHang.PerformLayout();
-            pnKHVip.ResumeLayout(false);
-            pnKHVip.PerformLayout();
-            pnLenhKH.ResumeLayout(false);
-            pnLenhKH.PerformLayout();
-            pnKhungThangKH.ResumeLayout(false);
-            pnKhungThangKH.PerformLayout();
-            pnThongKeKH.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvThongKeKH).EndInit();
             cmsKhachHang.ResumeLayout(false);
             cmsNhanVien.ResumeLayout(false);
             ResumeLayout(false);
@@ -2540,17 +1721,17 @@ namespace CyberManagementProject
         private Label label10;
         private PictureBox pictureBox3;
         private GroupBox gbxComputerInfor;
-        private Panel panel10;
-        private Label label23;
+        private Panel pnTimeCom;
+        private Label lbTimeConLai;
         private TextBox tbxTimeLeft;
-        private Panel panel9;
-        private Label label24;
+        private Panel pnUserNameCom;
+        private Label lbUserNameCom;
         private TextBox tbxUserAccount;
         private ListView lvServices;
-        private Panel panel12;
-        private Label label26;
+        private Panel pnStatusCom;
+        private Label lbStatusCom;
         private TextBox tbxComputerStatus;
-        private Panel panel11;
+        private Panel pnTongTienCom;
         private Label lbTotalPriceDichVu;
         private TextBox tbxMoneyCost;
         private ColumnHeader columnHeader1;
@@ -2585,23 +1766,24 @@ namespace CyberManagementProject
         private Label lblQuanLyNhanVien;
         private Label lblHome;
         private GroupBox grbQuanLyNhanVien;
-        private Panel panel19;
-        private Panel panel22;
+        private Panel pnDisplayStaff;
+        private Panel pnStaffControl;
         private Button btnThemMoi;
         private Button btnXuatFile;
         private Button btn_ThongKe;
-        private Panel panel23;
+        private Panel pnButtonAccount;
         private Button btnThemKhachHang;
         private Button btnNhap;
         private Button button2;
         private Button btn_TroChuyen;
-        private Panel panel24;
-        private Label label32;
-        private Label label33;
+        private Panel pnDuongDanAccount;
+        private Panel pnDuongDanStaff;
+        private Label lbCurrentAccountPage;
+        private Label lbHomeAccountPage;
         private GroupBox grbKhachHang;
-        private Panel panel25;
+        private Panel pnTimKimAccount;
         private Panel panel26;
-        private Panel panel27;
+        private Panel pnDisplayAccount;
         private TabPage tbpServices;
         private Panel panel14;
         private TextBox textBox4;
@@ -2650,67 +1832,6 @@ namespace CyberManagementProject
         private Label lbTenBanh;
         private PictureBox pbxBanh;
         private Panel pnJob;
-        private TabControl tclThongKe;
-        private TabPage tbDoanhThu;
-        private Panel pnCongViec;
-        private RadioButton rbtYear;
-        private RadioButton rbtMonth;
-        private RadioButton rbtDate;
-        private Panel panel48;
-        private TextBox textBox8;
-        private Label lbDoangThuNam;
-        private Label lbNhapNam;
-        private DateTimePicker dtpNamDT;
-        private Panel panel49;
-        private TextBox textBox9;
-        private Label lbDoanhThuThang;
-        private Label lbNhapThang;
-        private DateTimePicker dtpThangDT;
-        private Panel panel50;
-        private TextBox textBox10;
-        private Label lbDoanhThuNgay;
-        private Label lbNhapNgay;
-        private DateTimePicker dtpNgayDT;
-        private Panel pnDoanhThu;
-        private DataGridView dgvDoanhThu;
-        private Panel pnDate;
-        private Button btnShow;
-        private Label lbEnd;
-        private Label lbStart;
-        private DateTimePicker dtpEnd;
-        private DateTimePicker dtpStart;
-        private TabPage tbNhanVien;
-        private Panel pnNhanVien;
-        private Panel pnLenhNV;
-        private RadioButton rbtTitleNamNV;
-        private RadioButton rbtTitleThangNV;
-        private Panel pnKhungNamNV;
-        private Button btnNamNV;
-        private Label lbNamNV;
-        private DateTimePicker dtpNamNV;
-        private Panel pnKhungThangNV;
-        private Button btnThangNV;
-        private Label lbThangNV;
-        private DateTimePicker dtpThangNV;
-        private Label lbTittle;
-        private Panel pnThongKeNhanVien;
-        private DataGridView dgvNhanVien;
-        private TabPage tpKhachHang;
-        private Panel pnKhachHang;
-        private Panel pnKHVip;
-        private Button btnXemKHTop;
-        private Label lbKHVip;
-        private Panel pnLenhKH;
-        private Panel pnKhungThangKH;
-        private Button btnXemKH;
-        private Label lbEndKH;
-        private Label lbStartKH;
-        private DateTimePicker dtpEndKH;
-        private DateTimePicker dtpStartKH;
-        private Label lbTittleThangKH;
-        private Label lbTittleKH;
-        private Panel pnThongKeKH;
-        private DataGridView dgvThongKeKH;
         private TextBox txtTimKiemKhachHang;
         private FlowLayoutPanel flpKhachHang;
         private FlowLayoutPanel flpNhanVien;
