@@ -15,7 +15,7 @@ namespace CyberManagementProject.DTO
         private int iDMayTinh;
         private DateTime? timeBatDau;
         private DateTime? timeKetThuc;
-        private float? tongTien;
+        private double? tongTien;
 
         public PhienSuDung(int idPhien, int idKhacHang, int idMayTinh , DateTime? timeBatDau , DateTime? timeKetThuc)
         {
@@ -42,6 +42,6 @@ namespace CyberManagementProject.DTO
         public int IDMayTinh { get => iDMayTinh; set => iDMayTinh = value; }
         public DateTime? TimeBatDau { get => timeBatDau; set => timeBatDau = value; }
         public DateTime? TimeKetThuc { get => timeKetThuc; set => timeKetThuc = value; }
-        public float? TongTien { get => tongTien; set => tongTien = value; }
+        public double? TongTien { get => tongTien; set => tongTien = value; }
     }
 }

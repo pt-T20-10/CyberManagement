@@ -511,11 +511,34 @@ namespace CyberManagementProject
         private void btnManageComputer_Click(object sender, EventArgs e)
         {
             MayTinhView computer = flpComputer.Tag as MayTinhView;
-        
+
             frmAddUserToComputer f = new frmAddUserToComputer(computer);
             f.ShowDialog();
             LoadComputerList();
 
+        }
+        private void btnShutDownComputer_Click(object sender, EventArgs e)
+        {
+            MayTinhView com = flpComputer.Tag as MayTinhView;
+            
+            if (com != null) 
+            {
+                string tenMay = com.TenMay.ToString();
+                int idPhien = (int)com.IDPhien;
+                DateTime timeKetThuc = DateTime.Now;
+                double TongTien = Convert.ToDouble(tbxMoneyCost.Text.Split(' ')[0].Replace(".", ""));
+                if (MessageBox.Show(string.Format("Bạn có thục sự muốn tắt máy {0}?" ,tenMay ), "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                { 
+                    MayTinhDAO.Instance.AddThoiGianKetThucPhien(idPhien, timeKetThuc, (float)TongTien);
+                    LoadComputerList();
+                }    
+
+            } 
+            else
+            {
+                MessageBox.Show("Vui lòng chọn máy!");
+                return;
+            }    
         }
         #region CloseButton
         private void pbxClose_MouseEnter_1(object sender, EventArgs e)
@@ -629,7 +652,7 @@ namespace CyberManagementProject
             LoadComputerList();
 
         }
-        public void  LoadComputerList()
+        public void LoadComputerList()
         {
             flpComputer.Controls.Clear();
             List<MayTinhView> computers = MayTinhDAO.Instance.LoadComputerStatus();
@@ -643,7 +666,7 @@ namespace CyberManagementProject
                     BorderStyle = BorderStyle.FixedSingle,
                     BackColor = Color.WhiteSmoke,
                     Padding = new Padding(5),
-                   
+
                 };
 
                 // Thêm sự kiện Click vào Panel chính (click ở đâu cũng được)
@@ -707,14 +730,14 @@ namespace CyberManagementProject
                 };
                 lbUserName.Click += LbUserName_Click;
                 // Thêm các control vào Panel chứa
-             
+
                 pnCom.Controls.Add(pbComputer);
                 pnCom.Controls.Add(lbComputerName);
                 pnCom.Controls.Add(lbTimeUsed);
                 pnCom.Controls.Add(lbUserName);
 
                 // Thêm Panel chứa vào Panel chính
-                
+
                 pnCom.Controls.Add(containerPanel);
                 // Thêm Panel chính vào FlowLayoutPanel
                 flpComputer.Controls.Add(pnCom);
@@ -752,7 +775,7 @@ namespace CyberManagementProject
             }
         }
 
-
+      
     }
     #endregion
 

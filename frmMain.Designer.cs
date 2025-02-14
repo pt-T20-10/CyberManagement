@@ -740,9 +740,9 @@ namespace CyberManagementProject
             lbTotalPriceDichVu.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbTotalPriceDichVu.Location = new Point(0, 16);
             lbTotalPriceDichVu.Name = "lbTotalPriceDichVu";
-            lbTotalPriceDichVu.Size = new Size(93, 20);
+            lbTotalPriceDichVu.Size = new Size(78, 20);
             lbTotalPriceDichVu.TabIndex = 2;
-            lbTotalPriceDichVu.Text = "Tiền đã nạp:";
+            lbTotalPriceDichVu.Text = "Tổng tiền:";
             // 
             // tbxMoneyCost
             // 
@@ -753,6 +753,7 @@ namespace CyberManagementProject
             tbxMoneyCost.RightToLeft = RightToLeft.No;
             tbxMoneyCost.Size = new Size(192, 25);
             tbxMoneyCost.TabIndex = 1;
+            tbxMoneyCost.Text = "0.00";
             tbxMoneyCost.TextAlign = HorizontalAlignment.Right;
             // 
             // panel9
@@ -798,7 +799,7 @@ namespace CyberManagementProject
             // 
             // btnExtraMoney
             // 
-            btnExtraMoney.Location = new Point(153, 16);
+            btnExtraMoney.Location = new Point(160, 84);
             btnExtraMoney.Name = "btnExtraMoney";
             btnExtraMoney.Size = new Size(127, 48);
             btnExtraMoney.TabIndex = 2;
@@ -808,7 +809,7 @@ namespace CyberManagementProject
             // 
             // btnManageComputer
             // 
-            btnManageComputer.Location = new Point(153, 152);
+            btnManageComputer.Location = new Point(0, 16);
             btnManageComputer.Name = "btnManageComputer";
             btnManageComputer.Size = new Size(127, 48);
             btnManageComputer.TabIndex = 3;
@@ -827,16 +828,17 @@ namespace CyberManagementProject
             // 
             // btnShutDownComputer
             // 
-            btnShutDownComputer.Location = new Point(153, 80);
+            btnShutDownComputer.Location = new Point(160, 16);
             btnShutDownComputer.Name = "btnShutDownComputer";
             btnShutDownComputer.Size = new Size(127, 48);
             btnShutDownComputer.TabIndex = 5;
             btnShutDownComputer.Text = "Tắt máy";
             btnShutDownComputer.UseVisualStyleBackColor = true;
+            btnShutDownComputer.Click += btnShutDownComputer_Click;
             // 
             // btnAddServices
             // 
-            btnAddServices.Location = new Point(0, 80);
+            btnAddServices.Location = new Point(0, 84);
             btnAddServices.Name = "btnAddServices";
             btnAddServices.Size = new Size(127, 48);
             btnAddServices.TabIndex = 6;
@@ -845,7 +847,7 @@ namespace CyberManagementProject
             // 
             // btnForceStop
             // 
-            btnForceStop.Location = new Point(0, 16);
+            btnForceStop.Location = new Point(160, 152);
             btnForceStop.Name = "btnForceStop";
             btnForceStop.Size = new Size(127, 48);
             btnForceStop.TabIndex = 7;

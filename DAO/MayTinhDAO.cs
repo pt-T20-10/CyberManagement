@@ -68,8 +68,12 @@ namespace CyberManagementProject.DAO
         }
         public bool isKhachHangNotAvailable(string userName)
         {
-            DataTable result = DataProvider.Instance.ExcuteQuery("EXEC USP_LoadListKhachHangNotAvilable @userName ", new object[] { userName });
+            DataTable result = DataProvider.Instance.ExcuteQuery("EXEC USP_CheckTKKhachHangNotAvailable @userName ", new object[] { userName });
             return result.Rows.Count > 0;
+        }
+        public void AddThoiGianKetThucPhien(int idPhien , DateTime timeKetThuc , float TongTien)
+        {
+            DataProvider.Instance.ExcuteNonQuery("EXEC USP_AddTimeKetThuc @iDPhien  , @TimeKetThuc  , @TongTien ", new object[] { idPhien, timeKetThuc, TongTien });
         }
 
     }
