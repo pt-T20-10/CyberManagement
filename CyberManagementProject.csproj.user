@@ -13,10 +13,16 @@
     <Compile Update="DichVu\DichVu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="DichVu\fEditFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DichVu\fViewFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="DTO\CustomTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="fAddFood.cs">
+    <Compile Update="DichVu\fAddFood.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmLogin.cs">
