@@ -96,9 +96,6 @@ namespace CyberManagementProject
             cbxNhomKhach = new ComboBox();
             txtTimKiemKhachHang = new TextBox();
             panel26 = new Panel();
-            textBox1 = new TextBox();
-            button5 = new Button();
-            button6 = new Button();
             panel27 = new Panel();
             flpKhachHang = new FlowLayoutPanel();
             tbpServices = new TabPage();
@@ -295,7 +292,6 @@ namespace CyberManagementProject
             panel24.SuspendLayout();
             grbKhachHang.SuspendLayout();
             panel25.SuspendLayout();
-            panel26.SuspendLayout();
             panel27.SuspendLayout();
             tbpServices.SuspendLayout();
             panel14.SuspendLayout();
@@ -1007,46 +1003,10 @@ namespace CyberManagementProject
             // 
             // panel26
             // 
-            panel26.Controls.Add(textBox1);
-            panel26.Controls.Add(button5);
-            panel26.Controls.Add(button6);
             panel26.Location = new Point(568, 0);
             panel26.Name = "panel26";
             panel26.Size = new Size(211, 48);
             panel26.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(64, 8);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(53, 31);
-            textBox1.TabIndex = 1;
-            textBox1.TextAlign = HorizontalAlignment.Center;
-            // 
-            // button5
-            // 
-            button5.Font = new Font("Segoe UI", 14.25F);
-            button5.Location = new Point(127, 8);
-            button5.Name = "button5";
-            button5.Size = new Size(46, 32);
-            button5.TabIndex = 1;
-            button5.Text = ">>";
-            button5.TextAlign = ContentAlignment.TopCenter;
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            button6.Font = new Font("Segoe UI", 14.25F);
-            button6.Location = new Point(8, 8);
-            button6.Name = "button6";
-            button6.Size = new Size(46, 32);
-            button6.TabIndex = 1;
-            button6.Text = "<<";
-            button6.TextAlign = ContentAlignment.TopCenter;
-            button6.UseVisualStyleBackColor = true;
             // 
             // panel27
             // 
@@ -2798,13 +2758,13 @@ namespace CyberManagementProject
             // 
             cmsKhachHang.Items.AddRange(new ToolStripItem[] { cmsKhachHang_Them, cmsKhachHang_Nhac, cmsKhachHang_TrangChu });
             cmsKhachHang.Name = "cmsKhachHang";
-            cmsKhachHang.Size = new Size(214, 70);
+            cmsKhachHang.Size = new Size(213, 70);
             // 
             // cmsKhachHang_Them
             // 
             cmsKhachHang_Them.Name = "cmsKhachHang_Them";
             cmsKhachHang_Them.ShortcutKeys = Keys.Control | Keys.N;
-            cmsKhachHang_Them.Size = new Size(213, 22);
+            cmsKhachHang_Them.Size = new Size(212, 22);
             cmsKhachHang_Them.Text = "Thêm khách hàng";
             cmsKhachHang_Them.Click += cmsKhachHang_Them_Click;
             // 
@@ -2812,7 +2772,7 @@ namespace CyberManagementProject
             // 
             cmsKhachHang_Nhac.Name = "cmsKhachHang_Nhac";
             cmsKhachHang_Nhac.ShortcutKeys = Keys.Control | Keys.M;
-            cmsKhachHang_Nhac.Size = new Size(213, 22);
+            cmsKhachHang_Nhac.Size = new Size(212, 22);
             cmsKhachHang_Nhac.Text = "Nhạc";
             cmsKhachHang_Nhac.Click += cmsKhachHang_Nhac_Click;
             // 
@@ -2820,7 +2780,7 @@ namespace CyberManagementProject
             // 
             cmsKhachHang_TrangChu.Name = "cmsKhachHang_TrangChu";
             cmsKhachHang_TrangChu.ShortcutKeys = Keys.Control | Keys.H;
-            cmsKhachHang_TrangChu.Size = new Size(213, 22);
+            cmsKhachHang_TrangChu.Size = new Size(212, 22);
             cmsKhachHang_TrangChu.Text = "Trang chủ";
             cmsKhachHang_TrangChu.Click += cmsKhachHang_TrangChu_Click;
             // 
@@ -2828,13 +2788,13 @@ namespace CyberManagementProject
             // 
             cmsNhanVien.Items.AddRange(new ToolStripItem[] { cmsNhanVien_Them, cmsNhanVien_Nhac, cmsNhanVien_TrangChu });
             cmsNhanVien.Name = "cmsNhanVien";
-            cmsNhanVien.Size = new Size(200, 70);
+            cmsNhanVien.Size = new Size(199, 70);
             // 
             // cmsNhanVien_Them
             // 
             cmsNhanVien_Them.Name = "cmsNhanVien_Them";
             cmsNhanVien_Them.ShortcutKeys = Keys.Alt | Keys.N;
-            cmsNhanVien_Them.Size = new Size(199, 22);
+            cmsNhanVien_Them.Size = new Size(198, 22);
             cmsNhanVien_Them.Text = "Thêm nhân viên";
             cmsNhanVien_Them.Click += cmsNhanVien_Them_Click;
             // 
@@ -2842,7 +2802,7 @@ namespace CyberManagementProject
             // 
             cmsNhanVien_Nhac.Name = "cmsNhanVien_Nhac";
             cmsNhanVien_Nhac.ShortcutKeys = Keys.Control | Keys.M;
-            cmsNhanVien_Nhac.Size = new Size(199, 22);
+            cmsNhanVien_Nhac.Size = new Size(198, 22);
             cmsNhanVien_Nhac.Text = "Nhạc";
             cmsNhanVien_Nhac.Click += cmsNhanVien_Nhac_Click;
             // 
@@ -2850,7 +2810,7 @@ namespace CyberManagementProject
             // 
             cmsNhanVien_TrangChu.Name = "cmsNhanVien_TrangChu";
             cmsNhanVien_TrangChu.ShortcutKeys = Keys.Control | Keys.H;
-            cmsNhanVien_TrangChu.Size = new Size(199, 22);
+            cmsNhanVien_TrangChu.Size = new Size(198, 22);
             cmsNhanVien_TrangChu.Text = "Trang chủ";
             cmsNhanVien_TrangChu.Click += cmsNhanVien_TrangChu_Click;
             // 
@@ -2906,8 +2866,6 @@ namespace CyberManagementProject
             grbKhachHang.ResumeLayout(false);
             panel25.ResumeLayout(false);
             panel25.PerformLayout();
-            panel26.ResumeLayout(false);
-            panel26.PerformLayout();
             panel27.ResumeLayout(false);
             tbpServices.ResumeLayout(false);
             panel14.ResumeLayout(false);
@@ -3091,9 +3049,6 @@ namespace CyberManagementProject
         private GroupBox grbKhachHang;
         private Panel panel25;
         private Panel panel26;
-        private TextBox textBox1;
-        private Button button5;
-        private Button button6;
         private Panel panel27;
         private TabPage tbpServices;
         private Panel panel14;

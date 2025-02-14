@@ -140,7 +140,7 @@
             // btnDong
             // 
             btnDong.Font = new Font("Segoe UI", 14.25F);
-            btnDong.Location = new Point(296, 400);
+            btnDong.Location = new Point(160, 400);
             btnDong.Name = "btnDong";
             btnDong.Size = new Size(112, 40);
             btnDong.TabIndex = 8;
@@ -151,7 +151,7 @@
             // btnXoa
             // 
             btnXoa.Font = new Font("Segoe UI", 14.25F);
-            btnXoa.Location = new Point(160, 400);
+            btnXoa.Location = new Point(296, 400);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(112, 40);
             btnXoa.TabIndex = 7;

@@ -40,7 +40,6 @@ namespace CyberManagementProject.Computer
             if (MayTinhDAO.Instance.isKhachHangNotAvailable(UserName))
             {
                 MessageBox.Show("Tài khoản đã được đăng nhập");
-                return;
             }
             else 
             {

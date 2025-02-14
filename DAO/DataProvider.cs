@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CyberManagementProject.DAO
 {
@@ -20,8 +22,8 @@ namespace CyberManagementProject.DAO
         }
 
         private DataProvider() { }
-
-        string connectionSTR = @"Data Source=ACER\MSSQLSERVER03;Initial Catalog=CyberManagement;Integrated Security=True;Encrypt=True;Trust Server Certificate=True;";
+        string connectionSTR = @"Data Source = SADO\SQLEXPRESS2012;Initial Catalog = CyberManagement; Integrated Security = True; Trust Server Certificate=True;";
+        //Data Source=ACER\MSSQLSERVER03;Initial Catalog=CyberManagement;Integrated Security=True;Encrypt=True;Trust Server Certificate=True;
 
         public DataTable ExcuteQuery(string query, object[] parameter = null)
         {

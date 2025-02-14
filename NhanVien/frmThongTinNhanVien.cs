@@ -218,13 +218,13 @@ namespace QuanLyQuanNet
         private void cbxChucVuNhanVien_SelectedIndexChanged(object sender, EventArgs e)
         {
             frmMain? mainForm = Application.OpenForms["frmMain"] as frmMain;
-            mainForm.LoadKhachHang();
+            mainForm.LoadNhanVien();
         }
 
         private void cbxKieuLamNhanVien_SelectedIndexChanged(object sender, EventArgs e)
         {
             frmMain? mainForm = Application.OpenForms["frmMain"] as frmMain;
-            mainForm.LoadKhachHang();
+            mainForm.LoadNhanVien();
         }
 
         private void LoadChucVu()
