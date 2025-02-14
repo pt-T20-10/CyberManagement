@@ -75,6 +75,9 @@ namespace CyberManagementProject.DAO
         {
             DataProvider.Instance.ExcuteNonQuery("EXEC USP_AddTimeKetThuc @iDPhien  , @TimeKetThuc  , @TongTien ", new object[] { idPhien, timeKetThuc, TongTien });
         }
-
+        public void InsertServiceToComputer(int? idPhien, int idFood, int count)
+        {
+            DataProvider.Instance.ExcuteQuery("EXEC USP_InsetChiTietDichVu @iDPhien  , @iDFood  , @count ", new object[] { idPhien, idFood, count });
+        }
     }
 }

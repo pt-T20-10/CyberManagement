@@ -17,6 +17,7 @@ using System.Collections;
 using QuanLyQuanNet.Customer;
 using CyberManagementProject.Music;
 using CyberManagementProject.Computer;
+using System.Globalization;
 
 namespace CyberManagementProject
 {
@@ -520,25 +521,42 @@ namespace CyberManagementProject
         private void btnShutDownComputer_Click(object sender, EventArgs e)
         {
             MayTinhView com = flpComputer.Tag as MayTinhView;
-            
-            if (com != null) 
+
+            if (com != null)
             {
                 string tenMay = com.TenMay.ToString();
                 int idPhien = (int)com.IDPhien;
                 DateTime timeKetThuc = DateTime.Now;
                 double TongTien = Convert.ToDouble(tbxMoneyCost.Text.Split(' ')[0].Replace(".", ""));
-                if (MessageBox.Show(string.Format("Bạn có thục sự muốn tắt máy {0}?" ,tenMay ), "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                { 
+                if (MessageBox.Show(string.Format("Bạn có thục sự muốn tắt máy {0}?", tenMay), "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
                     MayTinhDAO.Instance.AddThoiGianKetThucPhien(idPhien, timeKetThuc, (float)TongTien);
                     LoadComputerList();
-                }    
+                }
 
-            } 
+            }
             else
             {
                 MessageBox.Show("Vui lòng chọn máy!");
                 return;
-            }    
+            }
+        }
+        private void btnAddServices_Click(object sender, EventArgs e)
+        {
+            MayTinhView com = flpComputer.Tag as MayTinhView;
+            if (com != null) 
+            {
+               
+                frmAddDichVuToCom f = new frmAddDichVuToCom(com);
+                f.ShowDialog();
+                LoadComputerBindingByComputer(com);
+                LoadComputerList();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn máy!");
+                return ;
+            }
         }
         #region CloseButton
         private void pbxClose_MouseEnter_1(object sender, EventArgs e)
@@ -644,6 +662,7 @@ namespace CyberManagementProject
                 }
             }
         }
+       
         #endregion 
         #endregion
         #region Method
@@ -757,6 +776,7 @@ namespace CyberManagementProject
             // Thêm Binding mới
             gbxComputerInfor.DataBindings.Add(new Binding("Text", computuberStatus, "TenMay"));
             tbxComputerStatus.DataBindings.Add(new Binding("Text", computuberStatus, "TrangThai"));
+            ShowOrderedFood(data.IDMayTinh);
 
             if (data.TrangThai != "Trống")
             {
@@ -774,8 +794,26 @@ namespace CyberManagementProject
                 tbxTimeLeft.DataBindings.Add(timeBinding);
             }
         }
+        void ShowOrderedFood(int id)
+        {
+            lvServices.Items.Clear();
+            CultureInfo culture = new CultureInfo("vi-VN");
+            List<OrderedFood> listOrderedFood = OrderedFoodDAO.Instance.GetListOrderedFoodByComputer(id);
+            float totalPrice = 0;
+            foreach (OrderedFood item in listOrderedFood)
+            {
+                ListViewItem lsvItem = new ListViewItem(item.FoodName.ToString());
+                lsvItem.SubItems.Add(item.Price.ToString("c", culture));
+                lsvItem.SubItems.Add(item.Count.ToString());
 
-      
+                lvServices.Items.Add(lsvItem);
+                totalPrice += item.TotalPrice;
+            }
+
+            tbxMoneyCost.Text = totalPrice.ToString("c", culture);
+        }
+
+        
     }
     #endregion
 

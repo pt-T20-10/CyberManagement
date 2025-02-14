@@ -98,6 +98,9 @@ namespace CyberManagementProject
             flpKhachHang = new FlowLayoutPanel();
             tbpServices = new TabPage();
             tbpStaff = new TabPage();
+            pnDuongDanStaff = new Panel();
+            lblQuanLyNhanVien = new Label();
+            lblHome = new Label();
             grbQuanLyNhanVien = new GroupBox();
             cbxChucVu = new ComboBox();
             pnDisplayStaff = new Panel();
@@ -118,9 +121,6 @@ namespace CyberManagementProject
             cmsNhanVien_Them = new ToolStripMenuItem();
             cmsNhanVien_Nhac = new ToolStripMenuItem();
             cmsNhanVien_TrangChu = new ToolStripMenuItem();
-            lblHome = new Label();
-            lblQuanLyNhanVien = new Label();
-            pnDuongDanStaff = new Panel();
             pnlLeft.SuspendLayout();
             pnStatictical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -150,13 +150,13 @@ namespace CyberManagementProject
             pnTimKimAccount.SuspendLayout();
             pnDisplayAccount.SuspendLayout();
             tbpStaff.SuspendLayout();
+            pnDuongDanStaff.SuspendLayout();
             grbQuanLyNhanVien.SuspendLayout();
             pnDisplayStaff.SuspendLayout();
             pnStaffControl.SuspendLayout();
             tbpStatictical.SuspendLayout();
             cmsKhachHang.SuspendLayout();
             cmsNhanVien.SuspendLayout();
-            pnDuongDanStaff.SuspendLayout();
             SuspendLayout();
             // 
             // pnlLeft
@@ -592,6 +592,7 @@ namespace CyberManagementProject
             // 
             // btnExtraMoney
             // 
+            btnExtraMoney.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnExtraMoney.Location = new Point(160, 84);
             btnExtraMoney.Name = "btnExtraMoney";
             btnExtraMoney.Size = new Size(127, 48);
@@ -602,6 +603,7 @@ namespace CyberManagementProject
             // 
             // btnManageComputer
             // 
+            btnManageComputer.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnManageComputer.Location = new Point(0, 16);
             btnManageComputer.Name = "btnManageComputer";
             btnManageComputer.Size = new Size(127, 48);
@@ -612,6 +614,7 @@ namespace CyberManagementProject
             // 
             // btnTrackComputer
             // 
+            btnTrackComputer.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnTrackComputer.Location = new Point(0, 152);
             btnTrackComputer.Name = "btnTrackComputer";
             btnTrackComputer.Size = new Size(127, 48);
@@ -621,6 +624,7 @@ namespace CyberManagementProject
             // 
             // btnShutDownComputer
             // 
+            btnShutDownComputer.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnShutDownComputer.Location = new Point(160, 16);
             btnShutDownComputer.Name = "btnShutDownComputer";
             btnShutDownComputer.Size = new Size(127, 48);
@@ -631,15 +635,18 @@ namespace CyberManagementProject
             // 
             // btnAddServices
             // 
+            btnAddServices.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnAddServices.Location = new Point(0, 84);
             btnAddServices.Name = "btnAddServices";
             btnAddServices.Size = new Size(127, 48);
             btnAddServices.TabIndex = 6;
             btnAddServices.Text = "Thêm dịch vụ";
             btnAddServices.UseVisualStyleBackColor = true;
+            btnAddServices.Click += btnAddServices_Click;
             // 
             // btnForceStop
             // 
+            btnForceStop.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnForceStop.Location = new Point(160, 152);
             btnForceStop.Name = "btnForceStop";
             btnForceStop.Size = new Size(127, 48);
@@ -837,6 +844,34 @@ namespace CyberManagementProject
             tbpStaff.Text = "git b";
             tbpStaff.UseVisualStyleBackColor = true;
             // 
+            // pnDuongDanStaff
+            // 
+            pnDuongDanStaff.Controls.Add(lblQuanLyNhanVien);
+            pnDuongDanStaff.Controls.Add(lblHome);
+            pnDuongDanStaff.Location = new Point(18, 8);
+            pnDuongDanStaff.Name = "pnDuongDanStaff";
+            pnDuongDanStaff.Size = new Size(288, 48);
+            pnDuongDanStaff.TabIndex = 8;
+            // 
+            // lblQuanLyNhanVien
+            // 
+            lblQuanLyNhanVien.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblQuanLyNhanVien.Location = new Point(88, 16);
+            lblQuanLyNhanVien.Name = "lblQuanLyNhanVien";
+            lblQuanLyNhanVien.Size = new Size(168, 23);
+            lblQuanLyNhanVien.TabIndex = 6;
+            lblQuanLyNhanVien.Text = "Quản lý nhân viên";
+            // 
+            // lblHome
+            // 
+            lblHome.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblHome.Location = new Point(8, 16);
+            lblHome.Name = "lblHome";
+            lblHome.Size = new Size(88, 23);
+            lblHome.TabIndex = 6;
+            lblHome.Text = "⟲ Home >";
+            lblHome.Click += lblHome_Click;
+            // 
             // grbQuanLyNhanVien
             // 
             grbQuanLyNhanVien.Controls.Add(cbxChucVu);
@@ -1024,34 +1059,6 @@ namespace CyberManagementProject
             cmsNhanVien_TrangChu.Text = "Trang chủ";
             cmsNhanVien_TrangChu.Click += cmsNhanVien_TrangChu_Click;
             // 
-            // lblHome
-            // 
-            lblHome.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblHome.Location = new Point(8, 16);
-            lblHome.Name = "lblHome";
-            lblHome.Size = new Size(88, 23);
-            lblHome.TabIndex = 6;
-            lblHome.Text = "⟲ Home >";
-            lblHome.Click += lblHome_Click;
-            // 
-            // lblQuanLyNhanVien
-            // 
-            lblQuanLyNhanVien.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblQuanLyNhanVien.Location = new Point(88, 16);
-            lblQuanLyNhanVien.Name = "lblQuanLyNhanVien";
-            lblQuanLyNhanVien.Size = new Size(168, 23);
-            lblQuanLyNhanVien.TabIndex = 6;
-            lblQuanLyNhanVien.Text = "Quản lý nhân viên";
-            // 
-            // pnDuongDanStaff
-            // 
-            pnDuongDanStaff.Controls.Add(lblQuanLyNhanVien);
-            pnDuongDanStaff.Controls.Add(lblHome);
-            pnDuongDanStaff.Location = new Point(18, 8);
-            pnDuongDanStaff.Name = "pnDuongDanStaff";
-            pnDuongDanStaff.Size = new Size(288, 48);
-            pnDuongDanStaff.TabIndex = 8;
-            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1106,6 +1113,7 @@ namespace CyberManagementProject
             pnTimKimAccount.PerformLayout();
             pnDisplayAccount.ResumeLayout(false);
             tbpStaff.ResumeLayout(false);
+            pnDuongDanStaff.ResumeLayout(false);
             grbQuanLyNhanVien.ResumeLayout(false);
             grbQuanLyNhanVien.PerformLayout();
             pnDisplayStaff.ResumeLayout(false);
@@ -1113,7 +1121,6 @@ namespace CyberManagementProject
             tbpStatictical.ResumeLayout(false);
             cmsKhachHang.ResumeLayout(false);
             cmsNhanVien.ResumeLayout(false);
-            pnDuongDanStaff.ResumeLayout(false);
             ResumeLayout(false);
         }
         #endregion
