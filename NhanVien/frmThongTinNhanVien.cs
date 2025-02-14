@@ -59,22 +59,6 @@ namespace QuanLyQuanNet
 
         }
 
-        private void btnCancelThemNhanVien_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Ban co chac chan muon thoat chuong trinh khong?", "Thong bao", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.OK)
-            {
-                MessageBox.Show("Hen gap lai ban");
-                this.Close();
-            }
-            else
-            {
-
-            }
-        }
-
-
-
         private void btnChonAnh_Click(object sender, EventArgs e)
         {
             string folderPath = @"D:\LapTrinhNet\TEST_PULL_PUSH\Picture";
@@ -121,11 +105,6 @@ namespace QuanLyQuanNet
         private void btnCancelThemNhanVien_Click_1(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void txtBoPhanNhanVien_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -227,21 +206,6 @@ namespace QuanLyQuanNet
             mainForm.LoadNhanVien();
         }
 
-        private void LoadChucVu()
-        {
-            cbxChucVuNhanVien.Items.Clear(); // Xóa dữ liệu cũ
-
-            List<string> danhSachNhomKhach = NhanVienDAO.Instance.GetDanhSachChucVu();
-
-            foreach (string nhomKhach in danhSachNhomKhach)
-            {
-                cbxChucVuNhanVien.Items.Add(nhomKhach);
-            }
-
-            if (cbxChucVuNhanVien.Items.Count > 0)
-            {
-                cbxChucVuNhanVien.SelectedIndex = 0; // Chọn mặc định dòng đầu tiên
-            }
-        }
+        
     }
 }
