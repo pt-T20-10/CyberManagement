@@ -292,7 +292,7 @@
             btnHuy.Name = "btnHuy";
             btnHuy.Size = new Size(122, 39);
             btnHuy.TabIndex = 15;
-            btnHuy.Text = "Huỷ bỏ";
+            btnHuy.Text = "Đóng";
             btnHuy.UseVisualStyleBackColor = true;
             btnHuy.Click += btnHuy_Click;
             // 

@@ -44,30 +44,6 @@ namespace CyberManagementProject.DAO
         // Thêm nhân viên mới
         public bool AddNhanVien(string tkNhanVien  ,   string mkNhanVien)
         {
-
-            //// Chuyển đổi mật khẩu (mkNhanVien) từ chuỗi thành mảng byte (varbinary)
-            //byte[] mkNhanVienBinary = Encoding.UTF8.GetBytes(mkNhanVien);  // Đổi mật khẩu thành mảng byte
-            //// Câu lệnh INSERT vào bảng TKNhanVien
-            //string query = " EXEC USP_ThemTKNhanVien @TKNhanVien  ,  @MKNhanVien ";
-            //int result = DataProvider.Instance.ExcuteNonQuery(query  ,   new object[] { tkNhanVien  ,   mkNhanVienBinary });
-
-            //if (result > 0)
-            //{
-            //    // Sau khi thêm TKNhanVien vào bảng TKNhanVien   ,    thêm vào bảng NhanVien
-            //    // Cung cấp các tham số mặc định cho các trường còn lại trong bảng NhanVien
-            //    string queryNhanVien = " EXEC USP_ThemNhanVien @TKNhanVien ,  @TenChucVu , @TenBoPhan , @KieuLam , @GioiTinh , @TonGiao ";
-            //    string TenChucVu = "Phục vụ";
-            //    string TenBoPhan = "Nhân sự";
-            //    string KieuLam = "Parttime";
-            //    string GioiTinh = "Nam";
-            //    string TonGiao = "Không";
-
-            //    // Thực hiện thêm dữ liệu vào bảng NhanVien
-            //    DataProvider.Instance.ExcuteNonQuery(queryNhanVien ,  new object[] { tkNhanVien  ,  TenChucVu  ,  TenBoPhan  ,  KieuLam  ,  GioiTinh  ,  TonGiao }); //  ,   hoTenLot  ,   ten  ,   soDT  ,   email  ,   idChucVu  ,   idBoPhan  ,   cCCD });
-            //    return true;
-            //}
-            //return false;
-
             // Thêm tài khoản nhân viên trước
             bool addTaiKhoan = TKNhanVienDAO.Instance.AddTaiKhoanNhanVien(tkNhanVien, mkNhanVien); //gọi phương thức AddTaiKhoanNhanVien trong TKNhanVienDAO, bởi vì
                                                                                                     //tạo nhân viên mới trong TKNhanVienDAO sẽ hợp lý hơn, nhưng mà cũng cần vài trường trong table NhanVien nên phải rườm rà như vậy
@@ -145,23 +121,6 @@ namespace CyberManagementProject.DAO
             }
         }
 
-
-        ////Tìm kiếm nhân viên theo TKNhanVien
-        //public List<string> TimKiemNhanVien(string tkNhanVien)
-        //{
-        //    List<string> danhSachTKNhanVien = new List<string>();
-        //    string query = "SELECT TKNhanVien FROM NhanVien WHERE TKNhanVien LIKE @TKNhanVien";
-
-        //    DataTable data = DataProvider.Instance.ExcuteQuery(query, new object[] { $"%{tkNhanVien}%" });
-        //    foreach (DataRow row in data.Rows)
-        //    {
-        //        danhSachTKNhanVien.Add(row["TKNhanVien"].ToString());
-        //    }
-        //    return danhSachTKNhanVien;
-        //}
-
-        //
-
         public List<string> GetDanhSachChucVu()
         {
             string query = "SELECT DISTINCT TenChucVu FROM NhanVien WHERE TenChucVu IS NOT NULL";
@@ -174,5 +133,14 @@ namespace CyberManagementProject.DAO
             }
             return danhSachChucVu;
         } //Lấy danh sách chức vụ từ SQL
+
+        //kiểm tra nhân viên đã có trong SQL chưa
+        public bool IsNhanVienExists(string tkNhanVien)
+        {
+            string query = "SELECT COUNT(*) FROM NhanVien WHERE TKNhanVien = @TKNhanVien ";
+            object result = DataProvider.Instance.ExcuteScalar(query, new object[] { tkNhanVien });
+
+            return Convert.ToInt32(result) > 0; // Trả về true nếu tài khoản đã tồn tại
+        }
     }
 }

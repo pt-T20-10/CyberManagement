@@ -88,22 +88,36 @@ namespace QuanLyQuanNet.KhachHang
 
         private void btnDongY_Click(object sender, EventArgs e)
         {
-            string tkKhachHang = txtTaiKhoanKhachHang.Text;
-            string mkKhachHang = txtMatKhauKhachHang.Text;
-
-            if (KhachHangDAO.Instance.AddKhachHang(tkKhachHang, mkKhachHang))
+            try
             {
-                MessageBox.Show("Thêm khách hàng thành công!");
+                string tkKhachHang = txtTaiKhoanKhachHang.Text.Trim();
+                string mkKhachHang = txtMatKhauKhachHang.Text;
 
-                // Cập nhật danh sách nhân viên ở Main
-               
-                var mainForm = (frmMain)Application.OpenForms["frmMain"];
-                mainForm.LoadKhachHang();
-                this.Close();
+                // Kiểm tra xem tài khoản khách hàng đã tồn tại hay chưa
+                if (KhachHangDAO.Instance.IsKhachHangExists(tkKhachHang))
+                {
+                    MessageBox.Show("Tài khoản khách hàng đã tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Nếu tài khoản chưa tồn tại, tiến hành thêm vào database
+                if (KhachHangDAO.Instance.AddKhachHang(tkKhachHang, mkKhachHang))
+                {
+                    MessageBox.Show("Thêm khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Cập nhật danh sách khách hàng trên form chính
+                    var mainForm = (frmMain)Application.OpenForms["frmMain"];
+                    mainForm.LoadKhachHang();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm khách hàng thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Thêm khách hàng thất bại!");
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
