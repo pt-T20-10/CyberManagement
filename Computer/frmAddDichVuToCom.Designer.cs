@@ -42,7 +42,7 @@
             // btnAcceptAddDVtoCom
             // 
             btnAcceptAddDVtoCom.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnAcceptAddDVtoCom.Location = new Point(16, 224);
+            btnAcceptAddDVtoCom.Location = new Point(16, 222);
             btnAcceptAddDVtoCom.Name = "btnAcceptAddDVtoCom";
             btnAcceptAddDVtoCom.Size = new Size(100, 35);
             btnAcceptAddDVtoCom.TabIndex = 0;
@@ -53,7 +53,7 @@
             // btnCancelAddDVtoCom
             // 
             btnCancelAddDVtoCom.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnCancelAddDVtoCom.Location = new Point(160, 224);
+            btnCancelAddDVtoCom.Location = new Point(160, 222);
             btnCancelAddDVtoCom.Name = "btnCancelAddDVtoCom";
             btnCancelAddDVtoCom.Size = new Size(100, 35);
             btnCancelAddDVtoCom.TabIndex = 1;

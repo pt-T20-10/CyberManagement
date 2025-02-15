@@ -614,39 +614,6 @@ namespace CyberManagementProject
 
         #region Trọng Thoại
         #region Events
-        private void btnForceStop_Click(object sender, EventArgs e)
-        {
-            // Hiển thị MessageBox hỏi người dùng có muốn thoát hay không
-            DialogResult result = MessageBox.Show(
-                "Đóng ứng dụng máy 1?",
-                "Đóng ứng dụng",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-        }
-        private void timerToggle_Tick(object sender, EventArgs e)
-        {
-            if (Utilize.isCollapsed)
-            {
-                pnlLeft.Width += 10; // Mở rộng
-                if (pnlLeft.Width >= Utilize.sidebarExpandedWidth)
-                {
-                    pnlLeft.Width = Utilize.sidebarExpandedWidth; // Đặt giá trị tối đa
-                    timerToggle.Stop(); // Dừng Timer
-                    Utilize.isCollapsed = false; // Cập nhật trạng thái
-                }
-            }
-            else
-            {
-                pnlLeft.Width -= 10; // Thu hẹp
-                if (pnlLeft.Width <= Utilize.sidebarCollapsedWidth)
-                {
-                    pnlLeft.Width = Utilize.sidebarCollapsedWidth; // Đặt giá trị tối thiểu
-                    timerToggle.Stop(); // Dừng Timer
-                    Utilize.isCollapsed = true; // Cập nhật trạng thái
-                }
-            }
-        }
         private void btnToggleMenu_Click(object sender, EventArgs e)
         {
             timerToggle.Start();
@@ -726,6 +693,23 @@ namespace CyberManagementProject
             f.ShowDialog();
 
         }
+        private void btnManageAllCom_Click(object sender, EventArgs e)
+        {
+            MayTinhView computer = flpComputer.Tag as MayTinhView;
+            if (computer != null)
+            {
+                MayTinh com = MayTinhDAO.Instance.LoadComputerById(computer.IDMayTinh);
+                frmManageComputers frm = new frmManageComputers(com);
+                frm.ShowDialog();
+                LoadComputerList();
+            }
+            else
+            {
+                frmManageComputers frm = new frmManageComputers();
+                frm.ShowDialog();
+                LoadComputerList();
+            }
+        }
         private void btnManageComputer_Click(object sender, EventArgs e)
         {
             MayTinhView computer = flpComputer.Tag as MayTinhView;
@@ -741,6 +725,11 @@ namespace CyberManagementProject
 
             if (com != null)
             {
+                if (com.TrangThai == "Trống")
+                {
+                    MessageBox.Show("Máy hiện chưa mở!");
+                    return;
+                }
                 string tenMay = com.TenMay.ToString();
                 int idPhien = (int)com.IDPhien;
                 DateTime timeKetThuc = DateTime.Now;
@@ -748,6 +737,7 @@ namespace CyberManagementProject
                 if (MessageBox.Show(string.Format("Bạn có thục sự muốn tắt máy {0}?", tenMay), "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     MayTinhDAO.Instance.AddThoiGianKetThucPhien(idPhien, timeKetThuc, (float)TongTien);
+                    MessageBox.Show("Đã tắt máy {0}", tenMay);
                     LoadComputerBindingByComputer(com);
                     LoadComputerList();
                 }
@@ -762,9 +752,14 @@ namespace CyberManagementProject
         private void btnAddServices_Click(object sender, EventArgs e)
         {
             MayTinhView com = flpComputer.Tag as MayTinhView;
-            if (com != null) 
+            if (com != null)
             {
-               
+                if(com.TrangThai == "Trống")
+                {
+                    MessageBox.Show("Máy chưa được mở!");
+                    return; 
+                }
+
                 frmAddDichVuToCom f = new frmAddDichVuToCom(com);
                 f.ShowDialog();
                 LoadComputerBindingByComputer(com);
@@ -773,9 +768,36 @@ namespace CyberManagementProject
             else
             {
                 MessageBox.Show("Vui lòng chọn máy!");
-                return ;
+                return;
             }
+
         }
+        private void flpComputer_Click(object sender, EventArgs e)
+        {
+            // Xóa tag của flpComputer
+            flpComputer.Tag = null;
+
+            // Kiểm tra nếu computuberStatus.DataSource không phải là danh sách hoặc null
+            if (computuberStatus.DataSource != null)
+            {
+                // Đặt lại dữ liệu nguồn về một danh sách trống thay vì null
+                computuberStatus.DataSource = new List<MayTinhView>();
+            }
+
+            // Xóa tất cả Binding cũ
+            gbxComputerInfor.DataBindings.Clear();
+            tbxUserAccount.DataBindings.Clear();
+            tbxComputerStatus.DataBindings.Clear();
+            tbxTimeLeft.DataBindings.Clear();
+
+            // Đặt lại giá trị trống cho các textbox
+            gbxComputerInfor.Text = "Thông tin máy";
+            tbxUserAccount.Text = "";
+            tbxComputerStatus.Text = "";
+            tbxTimeLeft.Text = "00:00:00";
+            LoadButton();
+        }
+
         #region CloseButton
         private void pbxClose_MouseEnter_1(object sender, EventArgs e)
         {
@@ -812,6 +834,7 @@ namespace CyberManagementProject
                 {
                     flpComputer.Tag = computer;
                     LoadComputerBindingByComputer(computer);
+                    LoadButton();
                 }
             }
         }
@@ -825,6 +848,7 @@ namespace CyberManagementProject
                 {
                     flpComputer.Tag = computer;
                     LoadComputerBindingByComputer(computer);
+                    LoadButton();
                 }
             }
         }
@@ -838,6 +862,7 @@ namespace CyberManagementProject
                 {
                     flpComputer.Tag = computer;
                     LoadComputerBindingByComputer(computer);
+                    LoadButton();
                 }
             }
         }
@@ -851,6 +876,7 @@ namespace CyberManagementProject
                 {
                     flpComputer.Tag = computer;
                     LoadComputerBindingByComputer(computer);
+                    LoadButton();
                 }
             }
         }
@@ -864,6 +890,7 @@ namespace CyberManagementProject
                 {
                     flpComputer.Tag = computer;
                     LoadComputerBindingByComputer(computer);
+                    LoadButton();
                 }
             }
         }
@@ -877,16 +904,28 @@ namespace CyberManagementProject
                 {
                     flpComputer.Tag = computer;
                     LoadComputerBindingByComputer(computer);
+                    LoadButton();
                 }
             }
         }
-       
-        #endregion 
+
+        #endregion
         #endregion
         #region Method
         void LoadTrongThoai()
         {
             LoadComputerList();
+            LoadButton();
+
+        }
+        void LoadButton()
+        {
+            bool isEnabled = flpComputer.Tag != null;
+
+            btnAddServices.Enabled = isEnabled;
+            btnManageComputer.Enabled = isEnabled;
+            btnShutDownComputer.Enabled = isEnabled;
+
 
         }
         public void LoadComputerList()
@@ -983,6 +1022,7 @@ namespace CyberManagementProject
 
         void LoadComputerBindingByComputer(MayTinhView data)
         {
+            LoadButton();
             computuberStatus.DataSource = data;
 
             // Xóa tất cả Binding cũ
@@ -1031,7 +1071,7 @@ namespace CyberManagementProject
             tbxMoneyCost.Text = totalPrice.ToString("c", culture);
         }
 
-        
+       
     }
     #endregion
 
