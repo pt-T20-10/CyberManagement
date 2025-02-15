@@ -1,2 +1,2 @@
 ﻿# CyberManagement
-Thêm chức năng tìm kiếm
+cap nhat thuong thuc xoa tkkhachhang
