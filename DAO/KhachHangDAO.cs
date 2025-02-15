@@ -97,7 +97,7 @@ namespace CyberManagementProject.DAO
             string query_NV = @" EXEC USP_XoaKhachHang @TKKhachHang ";
 
             // Câu lệnh xóa trong bảng TKKhachHang
-            string query_TKNV = @" EXEC USP_XoaTKKhachHang @TKKhachHang ";
+            string query_TKNV = @" EXEC USP_DeleteTKKhachHang @TKKhachHang ";
 
             try
             {
@@ -129,6 +129,15 @@ namespace CyberManagementProject.DAO
                 danhSachNhomKhach.Add(row["NhomKhach"].ToString());
             }
             return danhSachNhomKhach;
+        }
+
+        //kiểm tra khách hàng đã có trong SQL chưa
+        public bool IsKhachHangExists(string tkKhachHang)
+        {
+            string query = "SELECT COUNT(*) FROM KhachHang WHERE TKKhachHang = @TKKhachHang ";
+            object result = DataProvider.Instance.ExcuteScalar(query, new object[] { tkKhachHang });
+
+            return Convert.ToInt32(result) > 0; // Trả về true nếu tài khoản đã tồn tại
         }
 
     }

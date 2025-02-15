@@ -89,20 +89,36 @@ namespace CyberManagementProject.NhanVien
         //thủ tục thêm mới nhân viên
         private void btnDongY_Click(object sender, EventArgs e)
         {
-            string tkNhanVien = txtTaiKhoanNhanVien.Text;
-            string mkNhanVien = txtMatKhauNhanVien.Text;
+            try
+            {
+                string tkNhanVien = txtTaiKhoanNhanVien.Text.Trim();
+                string mkNhanVien = txtMatKhauNhanVien.Text;
 
-            if (NhanVienDAO.Instance.AddNhanVien(tkNhanVien, mkNhanVien))
-            {
-                MessageBox.Show("Thêm nhân viên thành công!");
-                // Cập nhật danh sách nhân viên ở Main
-                frmMain? mainForm = Application.OpenForms["frmMain"] as frmMain;
-                mainForm.LoadNhanVien(); // Gọi trước khi đóng form
-                this.Close();
+                // Kiểm tra xem tài khoản nhân viên đã tồn tại chưa
+                if (NhanVienDAO.Instance.IsNhanVienExists(tkNhanVien))
+                {
+                    MessageBox.Show("Tài khoản nhân viên đã tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Nếu tài khoản chưa tồn tại, tiến hành thêm vào database
+                if (NhanVienDAO.Instance.AddNhanVien(tkNhanVien, mkNhanVien))
+                {
+                    MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Cập nhật danh sách nhân viên trên form chính
+                    frmMain? mainForm = Application.OpenForms["frmMain"] as frmMain;
+                    mainForm?.LoadNhanVien(); // Gọi trước khi đóng form
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm nhân viên thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Thêm nhân viên thất bại!");
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

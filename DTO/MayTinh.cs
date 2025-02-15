@@ -12,7 +12,7 @@ namespace CyberManagementProject.DTO
         private int iDMayTinh;
         private string tenMay;
         private double bangGia;
-        private string trangThaiMay;
+        private string trangThaiMay = "Trống";
         private string ghiChuMay = " ";
 
         public MayTinh(int id,string tenmay, double banggia, string status, string note) 
@@ -39,5 +39,28 @@ namespace CyberManagementProject.DTO
         public string TrangThaiMay { get => trangThaiMay; set => trangThaiMay = value; }
         public string GhiChuMay { get => ghiChuMay; set => ghiChuMay = value; }
 
+    }
+    public class MayTinhView
+    {
+        public int IDMayTinh { get; set; }
+        public string TenMay { get; set; }
+        public string TrangThai { get; set; }
+        public int? IDPhien { get; set; }
+        public int? ThoiGianConLai { get; set; }
+        public decimal? TongTien { get; set; }
+        public string? TKKhachHang { get; set; }
+        public decimal? TienNap { get; set; }
+
+        public MayTinhView(DataRow row)
+        {
+            IDMayTinh = (int)row["IDMayTinh"];
+            TenMay = row["TenMay"].ToString();
+            TrangThai = row["TrangThai"].ToString();
+            IDPhien = row["IDPhien"] as int?;
+            ThoiGianConLai = row["ThoiGianConlai"] as int?;
+            TongTien = row["TongTien"] as decimal?;
+            TKKhachHang = row["TKKhachHang"]?.ToString();
+            TienNap = row["TienNap"] as decimal?;
+        }
     }
 }
