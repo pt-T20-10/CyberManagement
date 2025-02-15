@@ -14,4 +14,5 @@ namespace CyberManagementProject.DAO
         public const int sidebarCollapsedWidth = 0; // Kích thước thu hẹp
     }
 
+
 }

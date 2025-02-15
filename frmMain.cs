@@ -732,32 +732,33 @@ namespace CyberManagementProject
         {
             MayTinhView com = flpComputer.Tag as MayTinhView;
 
-            if (com != null)
-            {
-                if (com.TrangThai == "Trống")
-                {
-                    MessageBox.Show("Máy hiện chưa mở!");
-                    return;
-                }
-                string tenMay = com.TenMay.ToString();
-                int idPhien = (int)com.IDPhien;
-                DateTime timeKetThuc = DateTime.Now;
-                double TongTienDoAn = Convert.ToDouble(tbxMoneyCost.Text.Split(' ')[0].Replace(".", ""));
-                double TongTienNap = Convert.ToDouble(tbxMoneyAdd.Text.Split(' ')[0].Replace(".", ""));
-                if (MessageBox.Show(string.Format("Bạn có thục sự muốn tắt máy {0}?", tenMay), "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                {
-                    MayTinhDAO.Instance.AddThoiGianKetThucPhien(idPhien, timeKetThuc, (float)TongTienNap,(float)TongTienDoAn );
-                    MessageBox.Show("Đã tắt máy " + tenMay);
-                    LoadComputerList();
-                    LoadComputerBindingByComputer(com);
-                    
-                }
-
-            }
-            else
+            if (com == null)
             {
                 MessageBox.Show("Vui lòng chọn máy!");
                 return;
+            }
+
+            if (com.TrangThai == "Trống")
+            {
+                MessageBox.Show("Máy hiện chưa mở!");
+                return;
+            }
+
+            string tenMay = com.TenMay;
+            int idPhien = com.IDPhien ?? -1;
+            DateTime timeKetThuc = DateTime.Now;
+            decimal tongTienDoAn = decimal.Parse(tbxMoneyCost.Text.Split(' ')[0].Replace(".", ""));
+            decimal tongTienNap = CyberManager.GetTongTienNap(idPhien); // Đồng bộ với CyberManager
+
+            if (MessageBox.Show($"Bạn có thực sự muốn tắt máy {tenMay}?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                CyberManager.KetThucPhien(idPhien, timeKetThuc, tongTienDoAn);
+                MessageBox.Show($"Đã tắt máy {tenMay}");
+
+                // Cập nhật giao diện
+                LoadComputerList();
+                LoadComputerBindingByComputer(com);
+                tbxMoneyAdd.Text = "0 VNĐ"; // Reset tiền nạp về 0
             }
         }
         private void btnAddServices_Click(object sender, EventArgs e)
@@ -1036,13 +1037,12 @@ namespace CyberManagementProject
             LoadButton();
             computuberStatus.DataSource = data;
 
-            // Xóa tất cả Binding cũ
             gbxComputerInfor.DataBindings.Clear();
             tbxUserAccount.DataBindings.Clear();
             tbxComputerStatus.DataBindings.Clear();
             tbxTimeLeft.DataBindings.Clear();
+            tbxMoneyAdd.Clear();
 
-            // Thêm Binding mới
             gbxComputerInfor.DataBindings.Add(new Binding("Text", computuberStatus, "TenMay"));
             tbxComputerStatus.DataBindings.Add(new Binding("Text", computuberStatus, "TrangThai"));
             ShowOrderedFood(data.IDMayTinh);
@@ -1061,8 +1061,15 @@ namespace CyberManagementProject
                     }
                 };
                 tbxTimeLeft.DataBindings.Add(timeBinding);
+
+                // Lấy ID phiên của khách hàng trong máy tính hiện tại
+                int idPhien = (int)data.IDPhien;
+                tbxMoneyAdd.Text = idPhien > 0
+                    ? $"{CyberManager.GetTongTienNap(idPhien):N0} VNĐ"
+                    : "0 VNĐ";
             }
         }
+
         void ShowOrderedFood(int id)
         {
             lvServices.Items.Clear();

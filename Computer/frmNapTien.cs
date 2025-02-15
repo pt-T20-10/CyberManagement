@@ -51,17 +51,30 @@ namespace CyberManagementProject.Computer
         private void btnAcceptAddMoney_Click(object sender, EventArgs e)
         {
             string userName = cbxAddMoneyUserName.SelectedValue.ToString();
-        
-            double tienNap = Convert.ToDouble(nrupNapTienSoTien.Value);
+            decimal soTienNap = (decimal)nrupNapTienSoTien.Value;
+
             if (!MayTinhDAO.Instance.isKhachHangNotAvailable(userName))
             {
-                if (TKKhachHangDAO.Instance.NapTien((float)tienNap, userName))
+                if (TKKhachHangDAO.Instance.NapTien((float)soTienNap, userName))
                 {
-                    MessageBox.Show(string.Format("Nạp tiền cho {0} thành công", userName));
+                    MessageBox.Show($"Nạp tiền cho {userName} thành công");
                 }
                 else
+                {
                     MessageBox.Show("Có lỗi xảy ra khi nạp tiền");
+                }
+            }
+            else
+            {
+                // Người dùng đang trong phiên, lưu vào hệ thống theo idPhien
+                if (account != null)
+                {
+                    int idPhien = account.IDPhien ?? -1;
+                    CyberManager.NapTien(idPhien, soTienNap, userName);
+                    MessageBox.Show($"Nạp tiền cho {userName} thành công");
+                }
             }
         }
+
     }
 }
