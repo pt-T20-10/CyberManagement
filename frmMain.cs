@@ -693,11 +693,16 @@ namespace CyberManagementProject
             {
                 frmNapTien f = new frmNapTien(computer);
                 f.ShowDialog();
+                LoadComputerBindingByComputer(computer);
+                LoadComputerList();
             }
             else
             {
                 frmNapTien f = new frmNapTien();
                 f.ShowDialog();
+
+                LoadComputerBindingByComputer(computer);
+                LoadComputerList();
             }
             
 

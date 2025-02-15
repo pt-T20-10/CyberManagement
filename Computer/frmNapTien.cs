@@ -72,6 +72,8 @@ namespace CyberManagementProject.Computer
                     int idPhien = account.IDPhien ?? -1;
                     CyberManager.NapTien(idPhien, soTienNap, userName);
                     MessageBox.Show($"Nạp tiền cho {userName} thành công");
+                    // 🔹 Gọi Event để báo `frmMain` cập nhật
+                    //OnMoneyAdded?.Invoke(idPhien);
                 }
             }
         }
