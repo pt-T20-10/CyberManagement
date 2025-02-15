@@ -1,7 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="Computer\frmAddDichVuToCom.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Computer\frmAddUserToComputer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Computer\frmManageComputers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Computer\frmNapTien.cs">
@@ -10,10 +16,16 @@
     <Compile Update="DichVu\DichVu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="DichVu\fEditFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DichVu\fViewFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="DTO\CustomTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="fAddFood.cs">
+    <Compile Update="DichVu\fAddFood.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmLogin.cs">

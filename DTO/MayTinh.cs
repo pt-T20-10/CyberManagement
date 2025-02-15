@@ -12,7 +12,7 @@ namespace CyberManagementProject.DTO
         private int iDMayTinh;
         private string tenMay;
         private double bangGia;
-        private string trangThaiMay;
+        private string trangThaiMay = "Trống";
         private string ghiChuMay = " ";
 
         public MayTinh(int id,string tenmay, double banggia, string status, string note) 
