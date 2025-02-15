@@ -737,7 +737,7 @@ namespace CyberManagementProject
                 if (MessageBox.Show(string.Format("Bạn có thục sự muốn tắt máy {0}?", tenMay), "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     MayTinhDAO.Instance.AddThoiGianKetThucPhien(idPhien, timeKetThuc, (float)TongTien);
-                    MessageBox.Show("Đã tắt máy {0}", tenMay);
+                    MessageBox.Show("Đã tắt máy " + tenMay);
                     LoadComputerBindingByComputer(com);
                     LoadComputerList();
                 }
