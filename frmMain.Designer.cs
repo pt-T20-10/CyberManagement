@@ -68,7 +68,9 @@ namespace CyberManagementProject
             lbTimeConLai = new Label();
             tbxTimeLeft = new TextBox();
             pnTongTienCom = new Panel();
+            label6 = new Label();
             lbTotalPriceDichVu = new Label();
+            tbxMoneyAdd = new TextBox();
             tbxMoneyCost = new TextBox();
             pnUserNameCom = new Panel();
             lbUserNameCom = new Label();
@@ -214,8 +216,6 @@ namespace CyberManagementProject
             cmsNhanVien_Them = new ToolStripMenuItem();
             cmsNhanVien_Nhac = new ToolStripMenuItem();
             cmsNhanVien_TrangChu = new ToolStripMenuItem();
-            label6 = new Label();
-            tbxMoneyAdd = new TextBox();
             pnlLeft.SuspendLayout();
             pnStatictical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -646,10 +646,20 @@ namespace CyberManagementProject
             pnTongTienCom.Controls.Add(lbTotalPriceDichVu);
             pnTongTienCom.Controls.Add(tbxMoneyAdd);
             pnTongTienCom.Controls.Add(tbxMoneyCost);
-            pnTongTienCom.Location = new Point(0, 400);
+            pnTongTienCom.Location = new Point(8, 400);
             pnTongTienCom.Name = "pnTongTienCom";
-            pnTongTienCom.Size = new Size(327, 56);
+            pnTongTienCom.Size = new Size(319, 56);
             pnTongTienCom.TabIndex = 3;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
+            label6.Location = new Point(176, 8);
+            label6.Name = "label6";
+            label6.Size = new Size(68, 20);
+            label6.TabIndex = 3;
+            label6.Text = "Tiền nạp";
             // 
             // lbTotalPriceDichVu
             // 
@@ -660,6 +670,18 @@ namespace CyberManagementProject
             lbTotalPriceDichVu.Size = new Size(78, 20);
             lbTotalPriceDichVu.TabIndex = 2;
             lbTotalPriceDichVu.Text = "Tổng tiền:";
+            // 
+            // tbxMoneyAdd
+            // 
+            tbxMoneyAdd.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxMoneyAdd.Location = new Point(176, 24);
+            tbxMoneyAdd.Name = "tbxMoneyAdd";
+            tbxMoneyAdd.ReadOnly = true;
+            tbxMoneyAdd.RightToLeft = RightToLeft.No;
+            tbxMoneyAdd.Size = new Size(128, 25);
+            tbxMoneyAdd.TabIndex = 1;
+            tbxMoneyAdd.Text = "0.00";
+            tbxMoneyAdd.TextAlign = HorizontalAlignment.Right;
             // 
             // tbxMoneyCost
             // 
@@ -709,9 +731,9 @@ namespace CyberManagementProject
             pnComputerButton.Controls.Add(btnShutDownComputer);
             pnComputerButton.Controls.Add(btnAddServices);
             pnComputerButton.Controls.Add(btnManageAllCom);
-            pnComputerButton.Location = new Point(24, 472);
+            pnComputerButton.Location = new Point(24, 464);
             pnComputerButton.Name = "pnComputerButton";
-            pnComputerButton.Size = new Size(295, 200);
+            pnComputerButton.Size = new Size(295, 208);
             pnComputerButton.TabIndex = 7;
             // 
             // btnExtraMoney
@@ -784,7 +806,7 @@ namespace CyberManagementProject
             flpComputer.BorderStyle = BorderStyle.FixedSingle;
             flpComputer.Location = new Point(0, 0);
             flpComputer.Name = "flpComputer";
-            flpComputer.Size = new Size(785, 680);
+            flpComputer.Size = new Size(785, 672);
             flpComputer.TabIndex = 0;
             flpComputer.Click += flpComputer_Click;
             // 
@@ -2239,40 +2261,18 @@ namespace CyberManagementProject
             cmsNhanVien_TrangChu.Text = "Trang chủ";
             cmsNhanVien_TrangChu.Click += cmsNhanVien_TrangChu_Click;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
-            label6.Location = new Point(176, 8);
-            label6.Name = "label6";
-            label6.Size = new Size(68, 20);
-            label6.TabIndex = 3;
-            label6.Text = "Tiền nạp";
-            // 
-            // tbxMoneyAdd
-            // 
-            tbxMoneyAdd.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbxMoneyAdd.Location = new Point(176, 24);
-            tbxMoneyAdd.Name = "tbxMoneyAdd";
-            tbxMoneyAdd.ReadOnly = true;
-            tbxMoneyAdd.RightToLeft = RightToLeft.No;
-            tbxMoneyAdd.Size = new Size(128, 25);
-            tbxMoneyAdd.TabIndex = 1;
-            tbxMoneyAdd.Text = "0.00";
-            tbxMoneyAdd.TextAlign = HorizontalAlignment.Right;
-            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1345, 713);
+            ClientSize = new Size(1345, 715);
             Controls.Add(tblMain);
             Controls.Add(pnlTitleBar);
             Controls.Add(pnlLeft);
             FormBorderStyle = FormBorderStyle.None;
             KeyPreview = true;
-            MaximumSize = new Size(1345, 713);
-            MinimumSize = new Size(1345, 713);
+            MaximumSize = new Size(1345, 715);
+            MinimumSize = new Size(1345, 715);
             Name = "frmMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmMain";

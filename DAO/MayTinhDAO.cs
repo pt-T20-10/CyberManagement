@@ -84,9 +84,9 @@ namespace CyberManagementProject.DAO
             DataTable result = DataProvider.Instance.ExcuteQuery("EXEC USP_CheckTKKhachHangNotAvailable @userName ", new object[] { userName });
             return result.Rows.Count > 0;
         }
-        public void AddThoiGianKetThucPhien(int idPhien , DateTime timeKetThuc , float TongTien)
+        public void AddThoiGianKetThucPhien(int idPhien , DateTime timeKetThuc , float TongTienNap , float TongTienDoAn)
         {
-            DataProvider.Instance.ExcuteNonQuery("EXEC USP_AddTimeKetThuc @iDPhien  , @TimeKetThuc  , @TongTien ", new object[] { idPhien, timeKetThuc, TongTien });
+            DataProvider.Instance.ExcuteNonQuery("EXEC USP_AddTimeKetThuc @iDPhien  , @TimeKetThuc  ,  @TongTienNap , @TongTienDoAn ", new object[] { idPhien, timeKetThuc, TongTienNap, TongTienDoAn });
         }
         public void InsertServiceToComputer(int? idPhien, int idFood, int count)
         {

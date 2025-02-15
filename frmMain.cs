@@ -742,13 +742,15 @@ namespace CyberManagementProject
                 string tenMay = com.TenMay.ToString();
                 int idPhien = (int)com.IDPhien;
                 DateTime timeKetThuc = DateTime.Now;
-                double TongTien = Convert.ToDouble(tbxMoneyCost.Text.Split(' ')[0].Replace(".", ""));
+                double TongTienDoAn = Convert.ToDouble(tbxMoneyCost.Text.Split(' ')[0].Replace(".", ""));
+                double TongTienNap = Convert.ToDouble(tbxMoneyAdd.Text.Split(' ')[0].Replace(".", ""));
                 if (MessageBox.Show(string.Format("Bạn có thục sự muốn tắt máy {0}?", tenMay), "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    MayTinhDAO.Instance.AddThoiGianKetThucPhien(idPhien, timeKetThuc, (float)TongTien);
+                    MayTinhDAO.Instance.AddThoiGianKetThucPhien(idPhien, timeKetThuc, (float)TongTienNap,(float)TongTienDoAn );
                     MessageBox.Show("Đã tắt máy " + tenMay);
-                    LoadComputerBindingByComputer(com);
                     LoadComputerList();
+                    LoadComputerBindingByComputer(com);
+                    
                 }
 
             }
