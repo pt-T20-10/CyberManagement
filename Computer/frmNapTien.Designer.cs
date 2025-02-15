@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            button1 = new Button();
+            cbxAddMoneyUserName = new ComboBox();
+            btnAcceptAddMoney = new Button();
             nrupNapTienSoTien = new NumericUpDown();
             lbNapTienSoTien = new Label();
-            textBox2 = new TextBox();
+            tbxTimeLeft = new TextBox();
             lbNapTienThoiGianConLai = new Label();
             lbUserNameNapTien = new Label();
-            textBox1 = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nrupNapTienSoTien).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(cbxAddMoneyUserName);
+            groupBox1.Controls.Add(btnAcceptAddMoney);
             groupBox1.Controls.Add(nrupNapTienSoTien);
             groupBox1.Controls.Add(lbNapTienSoTien);
-            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(tbxTimeLeft);
             groupBox1.Controls.Add(lbNapTienThoiGianConLai);
             groupBox1.Controls.Add(lbUserNameNapTien);
-            groupBox1.Controls.Add(textBox1);
             groupBox1.Location = new Point(8, 0);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(248, 296);
@@ -56,21 +56,32 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Nạp tiền";
             // 
-            // button1
+            // cbxAddMoneyUserName
             // 
-            button1.Location = new Point(72, 248);
-            button1.Name = "button1";
-            button1.Size = new Size(104, 40);
-            button1.TabIndex = 6;
-            button1.Text = "Nạp tiền";
-            button1.UseVisualStyleBackColor = true;
+            cbxAddMoneyUserName.FormattingEnabled = true;
+            cbxAddMoneyUserName.Location = new Point(40, 64);
+            cbxAddMoneyUserName.Name = "cbxAddMoneyUserName";
+            cbxAddMoneyUserName.Size = new Size(168, 23);
+            cbxAddMoneyUserName.TabIndex = 7;
+            // 
+            // btnAcceptAddMoney
+            // 
+            btnAcceptAddMoney.Location = new Point(72, 248);
+            btnAcceptAddMoney.Name = "btnAcceptAddMoney";
+            btnAcceptAddMoney.Size = new Size(104, 40);
+            btnAcceptAddMoney.TabIndex = 6;
+            btnAcceptAddMoney.Text = "Nạp tiền";
+            btnAcceptAddMoney.UseVisualStyleBackColor = true;
+            btnAcceptAddMoney.Click += btnAcceptAddMoney_Click;
             // 
             // nrupNapTienSoTien
             // 
             nrupNapTienSoTien.Location = new Point(40, 208);
+            nrupNapTienSoTien.Maximum = new decimal(new int[] { 1410065408, 2, 0, 0 });
             nrupNapTienSoTien.Name = "nrupNapTienSoTien";
             nrupNapTienSoTien.Size = new Size(178, 23);
             nrupNapTienSoTien.TabIndex = 5;
+            nrupNapTienSoTien.Value = new decimal(new int[] { 10000, 0, 0, 0 });
             // 
             // lbNapTienSoTien
             // 
@@ -82,12 +93,13 @@
             lbNapTienSoTien.TabIndex = 4;
             lbNapTienSoTien.Text = "Số tiền nạp";
             // 
-            // textBox2
+            // tbxTimeLeft
             // 
-            textBox2.Location = new Point(40, 136);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(178, 23);
-            textBox2.TabIndex = 3;
+            tbxTimeLeft.Location = new Point(40, 136);
+            tbxTimeLeft.Name = "tbxTimeLeft";
+            tbxTimeLeft.ReadOnly = true;
+            tbxTimeLeft.Size = new Size(178, 23);
+            tbxTimeLeft.TabIndex = 3;
             // 
             // lbNapTienThoiGianConLai
             // 
@@ -109,14 +121,6 @@
             lbUserNameNapTien.TabIndex = 1;
             lbUserNameNapTien.Text = "Tài khoản";
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(40, 64);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(178, 23);
-            textBox1.TabIndex = 0;
-            // 
             // frmNapTien
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -125,7 +129,7 @@
             Controls.Add(groupBox1);
             Name = "frmNapTien";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "frmNapTien";
+            Text = "Nạp tiền";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nrupNapTienSoTien).EndInit();
@@ -135,12 +139,12 @@
         #endregion
 
         private GroupBox groupBox1;
-        private TextBox textBox2;
+        private TextBox tbxTimeLeft;
         private Label lbNapTienThoiGianConLai;
         private Label lbUserNameNapTien;
-        private TextBox textBox1;
         private Label lbNapTienSoTien;
-        private Button button1;
+        private Button btnAcceptAddMoney;
         private NumericUpDown nrupNapTienSoTien;
+        private ComboBox cbxAddMoneyUserName;
     }
 }

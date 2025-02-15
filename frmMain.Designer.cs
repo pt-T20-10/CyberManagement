@@ -214,6 +214,8 @@ namespace CyberManagementProject
             cmsNhanVien_Them = new ToolStripMenuItem();
             cmsNhanVien_Nhac = new ToolStripMenuItem();
             cmsNhanVien_TrangChu = new ToolStripMenuItem();
+            label6 = new Label();
+            tbxMoneyAdd = new TextBox();
             pnlLeft.SuspendLayout();
             pnStatictical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -640,18 +642,20 @@ namespace CyberManagementProject
             // 
             // pnTongTienCom
             // 
+            pnTongTienCom.Controls.Add(label6);
             pnTongTienCom.Controls.Add(lbTotalPriceDichVu);
+            pnTongTienCom.Controls.Add(tbxMoneyAdd);
             pnTongTienCom.Controls.Add(tbxMoneyCost);
-            pnTongTienCom.Location = new Point(15, 400);
+            pnTongTienCom.Location = new Point(0, 400);
             pnTongTienCom.Name = "pnTongTienCom";
-            pnTongTienCom.Size = new Size(312, 48);
+            pnTongTienCom.Size = new Size(327, 56);
             pnTongTienCom.TabIndex = 3;
             // 
             // lbTotalPriceDichVu
             // 
             lbTotalPriceDichVu.AutoSize = true;
             lbTotalPriceDichVu.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbTotalPriceDichVu.Location = new Point(0, 16);
+            lbTotalPriceDichVu.Location = new Point(8, 8);
             lbTotalPriceDichVu.Name = "lbTotalPriceDichVu";
             lbTotalPriceDichVu.Size = new Size(78, 20);
             lbTotalPriceDichVu.TabIndex = 2;
@@ -660,11 +664,11 @@ namespace CyberManagementProject
             // tbxMoneyCost
             // 
             tbxMoneyCost.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbxMoneyCost.Location = new Point(97, 16);
+            tbxMoneyCost.Location = new Point(8, 24);
             tbxMoneyCost.Name = "tbxMoneyCost";
             tbxMoneyCost.ReadOnly = true;
             tbxMoneyCost.RightToLeft = RightToLeft.No;
-            tbxMoneyCost.Size = new Size(192, 25);
+            tbxMoneyCost.Size = new Size(128, 25);
             tbxMoneyCost.TabIndex = 1;
             tbxMoneyCost.Text = "0.00";
             tbxMoneyCost.TextAlign = HorizontalAlignment.Right;
@@ -705,9 +709,9 @@ namespace CyberManagementProject
             pnComputerButton.Controls.Add(btnShutDownComputer);
             pnComputerButton.Controls.Add(btnAddServices);
             pnComputerButton.Controls.Add(btnManageAllCom);
-            pnComputerButton.Location = new Point(24, 464);
+            pnComputerButton.Location = new Point(24, 472);
             pnComputerButton.Name = "pnComputerButton";
-            pnComputerButton.Size = new Size(295, 208);
+            pnComputerButton.Size = new Size(295, 200);
             pnComputerButton.TabIndex = 7;
             // 
             // btnExtraMoney
@@ -2235,6 +2239,28 @@ namespace CyberManagementProject
             cmsNhanVien_TrangChu.Text = "Trang chủ";
             cmsNhanVien_TrangChu.Click += cmsNhanVien_TrangChu_Click;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
+            label6.Location = new Point(176, 8);
+            label6.Name = "label6";
+            label6.Size = new Size(68, 20);
+            label6.TabIndex = 3;
+            label6.Text = "Tiền nạp";
+            // 
+            // tbxMoneyAdd
+            // 
+            tbxMoneyAdd.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxMoneyAdd.Location = new Point(176, 24);
+            tbxMoneyAdd.Name = "tbxMoneyAdd";
+            tbxMoneyAdd.ReadOnly = true;
+            tbxMoneyAdd.RightToLeft = RightToLeft.No;
+            tbxMoneyAdd.Size = new Size(128, 25);
+            tbxMoneyAdd.TabIndex = 1;
+            tbxMoneyAdd.Text = "0.00";
+            tbxMoneyAdd.TextAlign = HorizontalAlignment.Right;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -2540,5 +2566,7 @@ namespace CyberManagementProject
         private Button btnTKSoDo;
         private Button btnTKXuatFile;
         private Button btnTKQLUngDung;
+        private Label label6;
+        private TextBox tbxMoneyAdd;
     }
 }

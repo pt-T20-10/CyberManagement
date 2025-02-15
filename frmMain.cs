@@ -688,9 +688,18 @@ namespace CyberManagementProject
         }
         private void btnExtraMoney_Click(object sender, EventArgs e)
         {
-
-            frmNapTien f = new frmNapTien();
-            f.ShowDialog();
+            MayTinhView computer = flpComputer.Tag as MayTinhView;
+            if (computer != null) 
+            {
+                frmNapTien f = new frmNapTien(computer);
+                f.ShowDialog();
+            }
+            else
+            {
+                frmNapTien f = new frmNapTien();
+                f.ShowDialog();
+            }
+            
 
         }
         private void btnManageAllCom_Click(object sender, EventArgs e)
@@ -754,10 +763,10 @@ namespace CyberManagementProject
             MayTinhView com = flpComputer.Tag as MayTinhView;
             if (com != null)
             {
-                if(com.TrangThai == "Trống")
+                if (com.TrangThai == "Trống")
                 {
                     MessageBox.Show("Máy chưa được mở!");
-                    return; 
+                    return;
                 }
 
                 frmAddDichVuToCom f = new frmAddDichVuToCom(com);
@@ -1070,8 +1079,6 @@ namespace CyberManagementProject
 
             tbxMoneyCost.Text = totalPrice.ToString("c", culture);
         }
-
-       
     }
     #endregion
 
