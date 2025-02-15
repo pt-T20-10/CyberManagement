@@ -97,7 +97,7 @@ namespace CyberManagementProject.DAO
             string query_NV = @" EXEC USP_XoaKhachHang @TKKhachHang ";
 
             // Câu lệnh xóa trong bảng TKKhachHang
-            string query_TKNV = @" EXEC USP_XoaTKKhachHang @TKKhachHang ";
+            string query_TKNV = @" EXEC USP_DeleteTKKhachHang @TKKhachHang ";
 
             try
             {
