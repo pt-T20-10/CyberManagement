@@ -44,6 +44,7 @@
             txtSoDTKhachHang = new TextBox();
             txtTenKhachHang = new TextBox();
             txtIDKhachHang = new TextBox();
+            btnDoiMK = new Button();
             gbxThemKhachHang.SuspendLayout();
             SuspendLayout();
             // 
@@ -58,6 +59,7 @@
             gbxThemKhachHang.Controls.Add(cbxLoaiKhachHang);
             gbxThemKhachHang.Controls.Add(btnDong);
             gbxThemKhachHang.Controls.Add(btnXoa);
+            gbxThemKhachHang.Controls.Add(btnDoiMK);
             gbxThemKhachHang.Controls.Add(btnCapNhat);
             gbxThemKhachHang.Controls.Add(txtDiaChiKhachHang);
             gbxThemKhachHang.Controls.Add(txtEmailKhachHang);
@@ -140,9 +142,9 @@
             // btnDong
             // 
             btnDong.Font = new Font("Segoe UI", 14.25F);
-            btnDong.Location = new Point(160, 400);
+            btnDong.Location = new Point(248, 440);
             btnDong.Name = "btnDong";
-            btnDong.Size = new Size(112, 40);
+            btnDong.Size = new Size(144, 40);
             btnDong.TabIndex = 8;
             btnDong.Text = "Đóng";
             btnDong.UseVisualStyleBackColor = true;
@@ -151,9 +153,9 @@
             // btnXoa
             // 
             btnXoa.Font = new Font("Segoe UI", 14.25F);
-            btnXoa.Location = new Point(296, 400);
+            btnXoa.Location = new Point(40, 440);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(112, 40);
+            btnXoa.Size = new Size(144, 40);
             btnXoa.TabIndex = 7;
             btnXoa.Text = "Xoá";
             btnXoa.UseVisualStyleBackColor = true;
@@ -162,9 +164,9 @@
             // btnCapNhat
             // 
             btnCapNhat.Font = new Font("Segoe UI", 14.25F);
-            btnCapNhat.Location = new Point(24, 400);
+            btnCapNhat.Location = new Point(40, 384);
             btnCapNhat.Name = "btnCapNhat";
-            btnCapNhat.Size = new Size(112, 40);
+            btnCapNhat.Size = new Size(144, 40);
             btnCapNhat.TabIndex = 6;
             btnCapNhat.Text = "Cập Nhật";
             btnCapNhat.UseVisualStyleBackColor = true;
@@ -224,6 +226,17 @@
             txtIDKhachHang.Size = new Size(296, 40);
             txtIDKhachHang.TabIndex = 0;
             // 
+            // btnDoiMK
+            // 
+            btnDoiMK.Font = new Font("Segoe UI", 14.25F);
+            btnDoiMK.Location = new Point(248, 384);
+            btnDoiMK.Name = "btnDoiMK";
+            btnDoiMK.Size = new Size(144, 40);
+            btnDoiMK.TabIndex = 6;
+            btnDoiMK.Text = "Đổi Pass";
+            btnDoiMK.UseVisualStyleBackColor = true;
+            btnDoiMK.Click += btnDoiMK_Click;
+            // 
             // frmThongTinKhachHang
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -256,5 +269,6 @@
         private Label label4;
         private Label label3;
         private Label label2;
+        private Button btnDoiMK;
     }
 }

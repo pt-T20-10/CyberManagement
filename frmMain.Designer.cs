@@ -1059,7 +1059,7 @@ namespace CyberManagementProject
             groupBox1.Size = new Size(1280, 824);
             groupBox1.TabIndex = 12;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Quản Lý Dịch Vụ 1";
+            groupBox1.Text = "Quản Lý Dịch Vụ";
             // 
             // btnResetCart
             // 
@@ -1211,7 +1211,7 @@ namespace CyberManagementProject
             label2.Name = "label2";
             label2.Size = new Size(201, 31);
             label2.TabIndex = 6;
-            label2.Text = "Quản lý Dịch Vụ 1";
+            label2.Text = "Quản lý Dịch Vụ ";
             // 
             // label3
             // 

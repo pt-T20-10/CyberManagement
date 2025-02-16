@@ -156,6 +156,8 @@ namespace CyberManagementProject
                     btn.Visible = tkKhachHang.Contains(tuKhoa);
                 }
             }
+
+
         }
 
         //Phương thức load dữ liệu của trường TenChucVu (NhanVien) từ SQL

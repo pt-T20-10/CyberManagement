@@ -1,19 +1,31 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CyberManagementProject.DTO
 {
+
     public class DoAnDTO
     {
         // ID của đồ ăn
         public int IDDoAn { get; set; }
-        public string TenDoAn { get; set; }
-        public decimal Gia { get; set; }
-        public int IDLoai { get; set; }
-        public string HinhAnh { get; set; }
-        public int Quantity { get; set; } = 0;  // Mặc định số lượng là 0
 
-        // Tính tổng tiền dựa trên số lượng
-        public decimal ThanhTien => Gia * Quantity;
+        // Tên đồ ăn
+        public string TenDoAn { get; set; }
+
+        // Giá của đồ ăn
+        public decimal Gia { get; set; }
+
+        // ID loại đồ ăn
+        public int IDLoai { get; set; }
+
+        // Hình ảnh của đồ ăn
+        public string HinhAnh { get; set; }
+        public int Quantity { get; set; } = 0;
+
 
         // Constructor không tham số
         public DoAnDTO() { }
@@ -28,11 +40,22 @@ namespace CyberManagementProject.DTO
             HinhAnh = hinhAnh;
             Quantity = quantity;
         }
+        //Tổng tiền
+        public decimal ThanhTien => Gia * Quantity;
+        public DoAnDTO(DataRow row)
+        {
+            this.IDDoAn = (int)row["IDDoAn"];
+            this.TenDoAn = row["TenDoAn"].ToString();
+            this.Gia = (decimal)Convert.ToDouble((row["Gia"]).ToString());
+            this.IDLoai = (int)row["IDLoai"];
+            this.HinhAnh = row["HinhAnh"].ToString();
+        }
 
-        // Override phương thức ToString() để hiển thị thông tin
+
+        // Override phương thức ToString() để dễ hiển thị thông tin
         public override string ToString()
         {
-            return $"ID: {IDDoAn}, Tên: {TenDoAn}, Giá: {Gia:N0} VNĐ, Loại: {IDLoai}, Hình ảnh: {HinhAnh}, Số lượng: {Quantity}, Thành tiền: {ThanhTien:N0} VNĐ";
+            return $"ID: {IDDoAn}, Tên: {TenDoAn}, Giá: {Gia}, ID Loại: {IDLoai}, Hình ảnh: {HinhAnh}";
         }
     }
 }

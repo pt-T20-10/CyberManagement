@@ -4,9 +4,10 @@ using System.Data;
 using System.Data.SqlClient;
 
 
+
 namespace CyberManagementProject.DAO
 {
-    internal class FoodDAO
+    public class FoodDAO
     {
         private static FoodDAO instance;
 
@@ -133,6 +134,21 @@ namespace CyberManagementProject.DAO
                 row.Field<int>("IDLoai"),
                 row.Field<string>("HinhAnh")
             )).ToList();
+        }
+
+        public List<DoAnDTO> GetListFoodByCategoryId(int id)
+        {
+            List<DoAnDTO> listFood = new List<DoAnDTO>();
+
+            string query = "SELECT * FROM DoAn WHERE IDLoai=" + id;
+
+            DataTable data = DataProvider.Instance.ExcuteQuery(query);
+            foreach (DataRow row in data.Rows)
+            {
+                DoAnDTO food = new DoAnDTO(row);
+                listFood.Add(food);
+            }
+            return listFood;
         }
 
         // Thêm món ăn vào giỏ hàng  
