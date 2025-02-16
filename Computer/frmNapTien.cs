@@ -51,7 +51,7 @@ namespace CyberManagementProject.Computer
         private void btnAcceptAddMoney_Click(object sender, EventArgs e)
         {
             string userName = cbxAddMoneyUserName.SelectedValue.ToString();
-            decimal soTienNap = (decimal)nrupNapTienSoTien.Value;
+            double soTienNap = Convert.ToDouble(nrupNapTienSoTien.Value);
 
             if (!MayTinhDAO.Instance.isKhachHangNotAvailable(userName))
             {
@@ -66,17 +66,30 @@ namespace CyberManagementProject.Computer
             }
             else
             {
-                // Người dùng đang trong phiên, lưu vào hệ thống theo idPhien
+                // 🔹 Nếu người dùng đang trong phiên, cần cập nhật tiền cho phiên đó
                 if (account != null)
                 {
                     int idPhien = account.IDPhien ?? -1;
-                    CyberManager.NapTien(idPhien, soTienNap, userName);
-                    MessageBox.Show($"Nạp tiền cho {userName} thành công");
-                    // 🔹 Gọi Event để báo `frmMain` cập nhật
-                    //OnMoneyAdded?.Invoke(idPhien);
+                    if (idPhien != -1)
+                    {
+                        CyberManager.NapTien(idPhien, soTienNap, userName);
+
+                        // 🔹 Gọi cập nhật vào database
+                        PhienSuDungDAO.Instance.CapNhatTienNap(idPhien, (float)soTienNap);
+
+                        MessageBox.Show($"Nạp tiền cho {userName} vào phiên {idPhien} thành công");
+
+                        // 🔹 Gọi event để cập nhật giao diện nếu cần
+                        //OnMoneyAdded?.Invoke(idPhien);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy phiên sử dụng của khách hàng");
+                    }
                 }
             }
         }
+
 
     }
 }
