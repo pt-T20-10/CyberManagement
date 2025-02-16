@@ -108,6 +108,7 @@
             Controls.Add(txtMKKhachHang);
             Controls.Add(txtTKKhachHang);
             Name = "frmDoiMatKhauKhachHang";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmDoiMatKhauKhachHang";
             ResumeLayout(false);
             PerformLayout();

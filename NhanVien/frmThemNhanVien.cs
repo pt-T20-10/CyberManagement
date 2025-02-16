@@ -1,4 +1,5 @@
 ﻿using CyberManagementProject.DAO;
+using CyberManagementProject.DTO;
 using QuanLyQuanNet.KhachHang;
 using System;
 using System.Collections.Generic;
@@ -94,10 +95,18 @@ namespace CyberManagementProject.NhanVien
                 string tkNhanVien = txtTaiKhoanNhanVien.Text.Trim();
                 string mkNhanVien = txtMatKhauNhanVien.Text;
 
+
+                //Kiểm tra nếu tài khoản rỗng
+                if (string.IsNullOrWhiteSpace(tkNhanVien) || string.IsNullOrWhiteSpace(mkNhanVien) || (tkNhanVien == "Tài khoản") || (mkNhanVien == "Mật khẩu"))
+                {
+                    MessageBox.Show("Vui lòng nhập tài khoản và mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 // Kiểm tra xem tài khoản nhân viên đã tồn tại chưa
                 if (NhanVienDAO.Instance.IsNhanVienExists(tkNhanVien))
                 {
-                    MessageBox.Show("Tài khoản nhân viên đã tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Tài khoản nhân viên đã tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
