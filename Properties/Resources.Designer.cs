@@ -63,6 +63,26 @@ namespace CyberManagementProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _41 {
+            get {
+                object obj = ResourceManager.GetObject("41", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap anh_nen_lien_minh_huyen_thoai_dep_045725916 {
+            get {
+                object obj = ResourceManager.GetObject("anh-nen-lien-minh-huyen-thoai-dep_045725916", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bill {
             get {
                 object obj = ResourceManager.GetObject("bill", resourceCulture);
@@ -123,6 +143,16 @@ namespace CyberManagementProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap nen_login1 {
+            get {
+                object obj = ResourceManager.GetObject("nen_login1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Offline {
             get {
                 object obj = ResourceManager.GetObject("Offline", resourceCulture);
@@ -136,6 +166,26 @@ namespace CyberManagementProject.Properties {
         internal static System.Drawing.Bitmap Online {
             get {
                 object obj = ResourceManager.GetObject("Online", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap photo_0_151808631425575789599 {
+            get {
+                object obj = ResourceManager.GetObject("photo-0-151808631425575789599", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap photo_0_1518086314255757895991 {
+            get {
+                object obj = ResourceManager.GetObject("photo-0-1518086314255757895991", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
