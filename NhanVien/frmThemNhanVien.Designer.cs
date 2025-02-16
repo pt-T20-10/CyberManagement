@@ -109,8 +109,10 @@
             // 
             // frmThemNhanVien
             // 
+            AcceptButton = btnDongY;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnHuyBo;
             ClientSize = new Size(446, 309);
             Controls.Add(gbxThemKhachHang);
             Name = "frmThemNhanVien";

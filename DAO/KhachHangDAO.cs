@@ -42,24 +42,23 @@ namespace CyberManagementProject.DAO
         public bool AddKhachHang(string TKKhachHang, string mkKhachHang)
         {
 
-            // Chuyển đổi mật khẩu (mkKhachHang) từ chuỗi thành mảng byte (varbinary)
-            byte[] mkKhachHangBinary = Encoding.UTF8.GetBytes(mkKhachHang);  // Đổi mật khẩu thành mảng byte
-            // Câu lệnh INSERT vào bảng TKKhachHang
-            string query = " EXEC USP_ThemTKKhachHang @TKKhachHang , @MKKhachHang ";
-            int result = DataProvider.Instance.ExcuteNonQuery(query, new object[] { TKKhachHang, mkKhachHangBinary });
+            // Thêm tài khoản nhân viên trước
+            bool addTaiKhoan = TKKhachHangDAO.Instance.AddTaiKhoanKhachHang(TKKhachHang, mkKhachHang);
 
-            if (result > 0)
-            {
+            if (!addTaiKhoan) return false;
+
+            // Chuyển đổi mật khẩu (mkKhachHang) từ chuỗi thành mảng byte (varbinary)
+            // byte[] mkKhachHangBinary = Encoding.UTF8.GetBytes(mkKhachHang);  // Đổi mật khẩu thành mảng byte
+
                 // Sau khi thêm TKKhachHang vào bảng TKKhachHang ,  thêm vào bảng KhachHang
                 // Cung cấp các tham số mặc định cho các trường còn lại trong bảng KhachHang
                 string queryKhachHang = " EXEC USP_ThemKhachHang @TKKhachHang , @NhomKhach ";
-                string NhomKhach = "Thường"; 
+                string NhomKhach = "Thường";
 
-                // Thực hiện thêm dữ liệu vào bảng KhachHang
-                DataProvider.Instance.ExcuteNonQuery(queryKhachHang, new object[] { TKKhachHang , NhomKhach});
-                return true;
-            }
-            return false;
+            // Thực hiện thêm dữ liệu vào bảng KhachHang
+            int result = DataProvider.Instance.ExcuteNonQuery(queryKhachHang, new object[] { TKKhachHang , NhomKhach});
+            return result > 0;
+
         }
 
         //thực hiện thao tác hiển thị thông tin Khách hàng khi click vào button
