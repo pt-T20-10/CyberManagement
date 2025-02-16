@@ -1,6 +1,7 @@
 ﻿using CyberManagementProject;
 using CyberManagementProject.DAO;
 using CyberManagementProject.DTO;
+using CyberManagementProject.KhachHang;
 using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace QuanLyQuanNet.Customer
 {
@@ -29,7 +31,7 @@ namespace QuanLyQuanNet.Customer
                 tkkh = khachHang.TKKhachHang;  // Lưu TKKhachHang
 
                 // Cập nhật thông tin vào form
-                txtIDKhachHang.Text = khachHang.ID.ToString();
+                txtIDKhachHang.Text = tkkh; //khachHang.ID.ToString();
                 txtTenKhachHang.Text = khachHang.Ten;
                 txtSoDTKhachHang.Text = khachHang.SoDT;
                 txtEmailKhachHang.Text = khachHang.Email;
@@ -188,44 +190,54 @@ namespace QuanLyQuanNet.Customer
         {
             // Lấy TKKhachHang từ TextBox hoặc DTO
             string TKKhachHang = tkkh;
-            // Xác nhận xóa
-            DialogResult dialogResult = MessageBox.Show(
-                "Bạn có chắc chắn muốn xóa khách hàng này không?",
-                "Xác nhận xóa",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning);
 
-            if (dialogResult == DialogResult.Yes)
+            if (MayTinhDAO.Instance.isKhachHangNotAvailable(tkkh))
             {
-                try
-                {
+                MessageBox.Show("Tài khoản đã được đăng nhập");
+            }
+            else
+            {
+                // Xác nhận xóa
+                DialogResult dialogResult = MessageBox.Show(
+                    "Bạn có chắc chắn muốn xóa khách hàng này không?",
+                    "Xác nhận xóa",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
 
-                    // Gọi DAO để xóa khách hàng
-                    bool isDeleted = KhachHangDAO.Instance.DeleteKhachHangByTKKhachHang((TKKhachHang));
-
-                    if (isDeleted)
-                    {
-                        MessageBox.Show("Xóa khách hàng thành công!");
-                        frmMain? mainForm = Application.OpenForms["frmMain"] as frmMain;
-                        mainForm.LoadKhachHang(); // Gọi trước khi đóng form
-                        this.Close(); // Đóng form thông tin sau khi xóa
-                    }
-                    else
-                    {
-                        MessageBox.Show("Xóa thất bại. Vui lòng thử lại!");
-                    }
-                }
-                catch (Exception ex)
+                if (dialogResult == DialogResult.Yes)
                 {
-                    MessageBox.Show($"Lỗi: {ex.Message}");
+                    try
+                    {
+
+                        // Gọi DAO để xóa khách hàng
+                        bool isDeleted = KhachHangDAO.Instance.DeleteKhachHangByTKKhachHang((TKKhachHang));
+
+                        if (isDeleted)
+                        {
+                            MessageBox.Show("Xóa khách hàng thành công!");
+                            frmMain? mainForm = Application.OpenForms["frmMain"] as frmMain;
+                            mainForm.LoadKhachHang(); // Gọi trước khi đóng form
+                            this.Close(); // Đóng form thông tin sau khi xóa
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa thất bại. Vui lòng thử lại!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Lỗi: {ex.Message}");
+                    }
                 }
             }
+
+
         }
 
         private void cbxLoaiKhachHang_SelectedIndexChanged(object sender, EventArgs e)
         {
             frmMain? mainForm = Application.OpenForms["frmMain"] as frmMain;
-            mainForm.LoadKhachHang(); 
+            mainForm.LoadKhachHang();
         }
 
         private void LoadLoaiKhach()
@@ -244,5 +256,26 @@ namespace QuanLyQuanNet.Customer
                 cbxLoaiKhachHang.SelectedIndex = 0; // Chọn mặc định dòng đầu tiên
             }
         }
+
+        private void btnDoiMK_Click(object sender, EventArgs e)
+        {
+
+            // Tách nội dung của button (giống phương thức tìm kiếm)
+            string noiDungButton = txtIDKhachHang.Text;
+
+            // Lấy TKKhachHang từ dòng đầu tiên
+            string tkKhachHang = noiDungButton.Length > 0 ? noiDungButton.Trim() : string.Empty;
+
+            if (string.IsNullOrEmpty(tkKhachHang))
+            {
+                MessageBox.Show("Không tìm thấy tài khoản khách hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Mở form đổi mật khẩu và truyền TKKhachHang
+            frmDoiMatKhauKhachHang f = new frmDoiMatKhauKhachHang(tkKhachHang);
+            f.ShowDialog();
+        }
+
     }
 }
