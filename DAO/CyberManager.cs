@@ -21,7 +21,7 @@ class CyberManager
         // Cập nhật vào database ngay lập tức
         TKKhachHangDAO.Instance.NapTien((float)soTien, userName);
 
-        MessageBox.Show($"Nạp {soTien} VNĐ vào phiên {idPhien}. Tổng: {tienNapDict[idPhien]}");
+        //MessageBox.Show($"Nạp {soTien} VNĐ vào phiên {idPhien}. Tổng: {tienNapDict[idPhien]}");
     }
 
     // ✅ Kết thúc phiên, lưu vào database
@@ -31,15 +31,15 @@ class CyberManager
         {
             if (tienNapDict.TryRemove(idPhien, out double tienNap))
             {
-                MessageBox.Show($"Phiên {idPhien} kết thúc. Tổng tiền nạp: {tienNap}, Tổng tiền đồ ăn: {tongTienDoAn}");
+                //MessageBox.Show($"Phiên {idPhien} kết thúc. Tổng tiền nạp: {tienNap}, Tổng tiền đồ ăn: {tongTienDoAn}");
 
                 // Lưu thông tin kết thúc phiên vào database
                 MayTinhDAO.Instance.AddThoiGianKetThucPhien(idPhien, timeKetThuc, (float)tienNap, (float)tongTienDoAn);
-                MessageBox.Show("Lưu thành công vào database");
+                //MessageBox.Show("Lưu thành công vào database");
             }
             else
             {
-                MessageBox.Show($"Không tìm thấy idPhien {idPhien} trong tienNapDict.");
+                //MessageBox.Show($"Không tìm thấy idPhien {idPhien} trong tienNapDict.");
             }
         }
         catch (Exception ex)
@@ -65,7 +65,7 @@ class CyberManager
             // Gọi DAO để cập nhật vào database
             PhienSuDungDAO.Instance.CapNhatTienNap(idPhien, (float)soTien);
 
-            MessageBox.Show($"Cập nhật {soTien} VNĐ vào phiên {idPhien}. Tổng: {tienNapDict[idPhien]}");
+            //MessageBox.Show($"Cập nhật {soTien} VNĐ vào phiên {idPhien}. Tổng: {tienNapDict[idPhien]}");
         }
         catch (Exception ex)
         {
@@ -101,7 +101,7 @@ class CyberManager
         {
             tienNapDict.TryAdd(phien.IDPhien, (double)phien.TongTienNap);
         }
-        MessageBox.Show($"Khôi phục {danhSachPhien.Count} phiên đang chạy.");
+        //MessageBox.Show($"Khôi phục {danhSachPhien.Count} phiên đang chạy.");
     }
 
 }

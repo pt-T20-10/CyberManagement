@@ -1074,8 +1074,8 @@ namespace CyberManagementProject
                 // Lấy ID phiên của khách hàng trong máy tính hiện tại
                 int idPhien = (int)data.IDPhien;
                 tbxMoneyAdd.Text = idPhien > 0
-                    ? $"{CyberManager.GetTongTienNap(idPhien):N0} VNĐ"
-                    : "0 VNĐ";
+                    ? $"{CyberManager.GetTongTienNap(idPhien):N0} đ"
+                    : "0 đ";
             }
         }
 
