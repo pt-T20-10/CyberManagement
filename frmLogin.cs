@@ -48,8 +48,6 @@ namespace CyberManagementProject
                 e.Cancel = true; // Hủy sự kiện đóng form
             }
         }
-
-      
     }
 }
   
