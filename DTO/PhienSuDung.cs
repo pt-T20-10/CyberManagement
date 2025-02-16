@@ -11,39 +11,42 @@ namespace CyberManagementProject.DTO
     {
 
         private int iDPhien;
-        private int iDKhachHang;
+        private string tKKhachHang;
         private int iDMayTinh;
         private DateTime? timeBatDau;
         private DateTime? timeKetThuc;
         private double? tongTienNap;
         private double? tongTienDoAn;
 
-        public PhienSuDung(int idPhien, int idKhacHang, int idMayTinh , DateTime? timeBatDau , DateTime? timeKetThuc)
+        public PhienSuDung(int idPhien, string tkKhacHang, int idMayTinh , DateTime? timeBatDau , DateTime? timeKetThuc)
         {
             this.iDPhien = idPhien;
-            this.iDKhachHang = idKhacHang;
+            this.TKKhachHang = tkKhacHang;
             this.iDMayTinh = idMayTinh; 
             this.TimeBatDau = timeBatDau;
         }
         public PhienSuDung(DataRow row)
         {
             this.iDPhien = (int)row["IDPhien"];
-            this.iDKhachHang = (int)row["IDKhachHang"];
+            this.TKKhachHang = row["TKKhachHang"].ToString();
             this.iDMayTinh = (int)row["IDMayTinh"];
             this.timeBatDau = (DateTime?)row["ThoiGianBatDau"];
-            var dateCheckOutTemp = row["dateCheckOut"];
+            var dateCheckOutTemp = row["ThoiGianKetThuc"];
             if (dateCheckOutTemp.ToString() != "")
             {
                 this.timeKetThuc = (DateTime?)dateCheckOutTemp;
             }
+            this.TongTienNap = Convert.ToDouble(row["TongTienNap"]);
+            this.TongTienDoAn = Convert.ToDouble(row["TongTienDoAn"]);
         }
 
         public int IDPhien { get => iDPhien; set => iDPhien = value; }
-        public int IDKhachHang { get => iDKhachHang; set => iDKhachHang = value; }
+       
         public int IDMayTinh { get => iDMayTinh; set => iDMayTinh = value; }
         public DateTime? TimeBatDau { get => timeBatDau; set => timeBatDau = value; }
         public DateTime? TimeKetThuc { get => timeKetThuc; set => timeKetThuc = value; }
         public double? TongTienNap { get => tongTienNap; set => tongTienNap = value; }
         public double? TongTienDoAn { get => tongTienDoAn; set => tongTienDoAn = value; }
+        public string TKKhachHang { get => tKKhachHang; set => tKKhachHang = value; }
     }
 }
