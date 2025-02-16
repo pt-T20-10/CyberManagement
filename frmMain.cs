@@ -31,6 +31,7 @@ namespace CyberManagementProject
             LoadHoangNghia();
             LoadTrongThoai();
             LoadFoodList();
+            LoadCart();
 
         }
 
@@ -416,6 +417,21 @@ namespace CyberManagementProject
             }
         }
 
+        //Xóa giỏ hàng
+        private void btnResetCart_Click_1(object sender, EventArgs e)
+        {
+            if (flpCart.Controls.Count == 0)
+            {
+                MessageBox.Show("Không có gì trong giỏ hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            flpCart.Controls.Clear();
+            txbTongTien.Text = "0 VNĐ";
+
+            MessageBox.Show("Giỏ hàng đã được đặt lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
 
 
 
@@ -518,6 +534,7 @@ namespace CyberManagementProject
 
             btnEdit.Click += btnEdit_Click;
             btnDelete.Click += btnDelete_Click;
+            btnCart.Click += btnCart_Click;
 
             // Panel chứa 3 nút
             FlowLayoutPanel buttonPanel = new FlowLayoutPanel
@@ -570,15 +587,174 @@ namespace CyberManagementProject
         }
 
 
-        // Xử lý khi nhấn nút xóa (Chỉ hiển thị thông báo, không xóa thực sự)
+        // Xử lý khi nhấn nút xóa 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
             if (btn != null && btn.Tag is DoAnDTO food)
             {
-                MessageBox.Show($"Bạn muốn xóa {food.TenDoAn} nhưng tính năng này chưa được kích hoạt!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show(
+                    $"Bạn có chắc chắn muốn xóa {food.TenDoAn} không?",
+                    "Xác nhận xóa",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    if (FoodDAO.Instance.DeleteFood(food.IDDoAn)) // Xóa trong CSDL
+                    {
+                        LoadFoodList(); // Cập nhật lại danh sách món ăn
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
+
+
+
+        void AddToCart(DoAnDTO food)
+        {
+            foreach (Control control in flpCart.Controls)
+            {
+                if (control is Panel existingPanel)
+                {
+                    Label lblFoodName = existingPanel.Controls.OfType<Label>().FirstOrDefault(l => l.Font.Bold);
+                    Label lblQuantity = existingPanel.Controls.OfType<Label>().FirstOrDefault(l => l.Text.StartsWith("SL:"));
+                    Label lblPrice = existingPanel.Controls.OfType<Label>().FirstOrDefault(l => l.ForeColor == Color.Red);
+
+                    if (lblFoodName != null && lblFoodName.Text == food.TenDoAn)
+                    {
+
+                        int currentQuantity = int.Parse(lblQuantity.Text.Replace("SL: ", ""));
+                        currentQuantity++;
+                        lblQuantity.Text = "SL: " + currentQuantity;
+
+
+                        decimal totalItemPrice = currentQuantity * food.Gia;
+                        lblPrice.Text = totalItemPrice.ToString("N0") + " VNĐ";
+
+                        UpdateTotalPrice();
+                        return;
+                    }
+                }
+            }
+
+
+            // Nếu món chưa có trong giỏ, thêm mới như trước
+            Panel panel = new Panel
+            {
+                Width = flpCart.Width - 5,
+                Height = 50,
+                BorderStyle = BorderStyle.FixedSingle,
+                BackColor = Color.White
+            };
+
+            Label lblFoodNameNew = new Label
+            {
+                Text = food.TenDoAn,
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                AutoSize = true,
+                Location = new Point(5, 5)
+            };
+
+            Label lblQuantityNew = new Label
+            {
+                Text = "SL: 1",
+                Font = new Font("Arial", 10),
+                AutoSize = true,
+                Location = new Point(5, 25)
+            };
+
+            Label lblPriceNew = new Label
+            {
+                Text = food.Gia.ToString("N0") + " VNĐ",
+                Font = new Font("Arial", 10),
+                AutoSize = true,
+                ForeColor = Color.Red,
+                Location = new Point(100, 5)
+            };
+
+            Button btnRemove = new Button
+            {
+                Text = "X",
+                Width = 30,
+                Height = 30,
+                Location = new Point(panel.Width - 40, 10),
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+
+            btnRemove.Click += (s, e) =>
+            {
+                int currentQuantity = int.Parse(lblQuantityNew.Text.Replace("SL: ", ""));
+
+                if (currentQuantity > 1)
+                {
+                    currentQuantity--;
+                    lblQuantityNew.Text = "SL: " + currentQuantity;
+
+                    // Cập nhật lại giá món này
+                    decimal totalItemPrice = currentQuantity * food.Gia;
+                    lblPriceNew.Text = totalItemPrice.ToString("N0") + " VNĐ";
+                }
+                else
+                {
+                    flpCart.Controls.Remove(panel);
+                }
+
+                UpdateTotalPrice();
+            };
+
+
+            panel.Controls.Add(lblFoodNameNew);
+            panel.Controls.Add(lblQuantityNew);
+            panel.Controls.Add(lblPriceNew);
+            panel.Controls.Add(btnRemove);
+
+            flpCart.Controls.Add(panel);
+            UpdateTotalPrice();
+        }
+
+
+
+        private void UpdateTotalPrice()
+        {
+            decimal total = 0;
+
+            foreach (Control panel in flpCart.Controls)
+            {
+                foreach (Control control in panel.Controls)
+                {
+                    if (control is Label lbl && lbl.ForeColor == Color.Red) // Lấy label giá
+                    {
+                        total += decimal.Parse(lbl.Text.Replace(" VNĐ", "").Replace(",", ""));
+                    }
+                }
+            }
+
+            txbTongTien.Text = total.ToString("N0") + " VNĐ";
+        }
+
+
+
+
+        private void btnCart_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn == null) return;
+
+            DoAnDTO food = btn.Tag as DoAnDTO;
+            if (food == null) return;
+
+            AddToCart(food);
+            UpdateTotalPrice(); // Cập nhật tổng tiền
+        }
+
+
+
 
         //Chức năng tìm kiếm
         private void txbSearch_TextChanged(object sender, EventArgs e)
@@ -602,6 +778,59 @@ namespace CyberManagementProject
                     }
                 }
             }
+        }
+
+        private void LoadCart()
+        {
+            flpCart.Controls.Clear(); // Xóa dữ liệu cũ
+            List<DoAnDTO> cartList = FoodDAO.Instance.GetCartList(); // Lấy danh sách giỏ hàng từ CSDL
+            decimal totalPrice = 0;
+
+            foreach (var item in cartList)
+            {
+                Panel panel = new Panel
+                {
+                    Width = flpCart.Width - 5,
+                    Height = 50,
+                    BorderStyle = BorderStyle.FixedSingle,
+                    BackColor = Color.White
+                };
+
+                Label lblFoodName = new Label
+                {
+                    Text = item.TenDoAn,
+                    Font = new Font("Arial", 10, FontStyle.Bold),
+                    AutoSize = true,
+                    Location = new Point(5, 5)
+                };
+
+                Label lblQuantity = new Label
+                {
+                    Text = "SL: " + item.Quantity,
+                    Font = new Font("Arial", 10),
+                    AutoSize = true,
+                    Location = new Point(5, 25)
+                };
+
+                Label lblPrice = new Label
+                {
+                    Text = item.Gia.ToString("N0") + " VNĐ",
+                    Font = new Font("Arial", 10),
+                    AutoSize = true,
+                    ForeColor = Color.Red,
+                    Location = new Point(100, 5)
+                };
+
+                totalPrice += item.ThanhTien;
+
+                panel.Controls.Add(lblFoodName);
+                panel.Controls.Add(lblQuantity);
+                panel.Controls.Add(lblPrice);
+
+                flpCart.Controls.Add(panel);
+            }
+
+            txbTongTien.Text = totalPrice.ToString("N0") + " VND";
         }
 
 
@@ -689,7 +918,7 @@ namespace CyberManagementProject
         private void btnExtraMoney_Click(object sender, EventArgs e)
         {
             MayTinhView computer = flpComputer.Tag as MayTinhView;
-            if (computer != null) 
+            if (computer != null)
             {
                 frmNapTien f = new frmNapTien(computer);
                 f.ShowDialog();
@@ -704,7 +933,7 @@ namespace CyberManagementProject
                 LoadComputerBindingByComputer(computer);
                 LoadComputerList();
             }
-            
+
 
         }
         private void btnManageAllCom_Click(object sender, EventArgs e)

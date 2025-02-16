@@ -4,10 +4,9 @@ using System.Data;
 using System.Data.SqlClient;
 
 
-
 namespace CyberManagementProject.DAO
 {
-    public class FoodDAO
+    internal class FoodDAO
     {
         private static FoodDAO instance;
 
@@ -136,19 +135,121 @@ namespace CyberManagementProject.DAO
             )).ToList();
         }
 
-        public List<DoAnDTO> GetListFoodByCategoryId(int id)
+        // Thêm món ăn vào giỏ hàng  
+        public bool AddToCart(int foodID, int quantity)
         {
-            List<DoAnDTO> listFood = new List<DoAnDTO>();
+            string checkQuery = "SELECT Quantity FROM Cart WHERE FoodID = @foodID";
+            object existingQuantity = DataProvider.Instance.ExcuteScalar(checkQuery, new object[] { foodID });
 
-            string query = "SELECT * FROM DoAn WHERE IDLoai=" + id;
+            if (existingQuantity != null)
+            {
+                // Nếu món ăn đã có trong giỏ hàng, cập nhật số lượng
+                int newQuantity = Convert.ToInt32(existingQuantity) + quantity;
+                return UpdateCart(foodID, newQuantity);
+            }
+            else
+            {
+                // Nếu chưa có, thêm mới vào giỏ hàng
+                string insertQuery = "INSERT INTO Cart (FoodID, Quantity) VALUES (@foodID, @quantity)";
+                int result = DataProvider.Instance.ExcuteNonQuery(insertQuery, new object[] { foodID, quantity });
+                return result > 0;
+            }
+        }
+
+        //Xóa món ăn
+        public bool DeleteFood(int id)
+        {
+            string query = $"DELETE FROM DoAn WHERE IDDoAn = {id}";
+            return DataProvider.Instance.ExcuteNonQuery(query) > 0;
+        }
+
+
+
+        //-----------------------------------------  
+        //  Cập nhật số lượng món ăn trong giỏ hàng  
+        public bool UpdateCart(int foodID, int quantity)
+        {
+            string query = "UPDATE Cart SET Quantity = @quantity WHERE FoodID = @foodID";
+            int result = DataProvider.Instance.ExcuteNonQuery(query, new object[] { quantity, foodID });
+            return result > 0;
+        }
+
+
+        //-----------------------------------------  
+        // ✅ Xóa món ăn khỏi giỏ hàng  
+        public bool RemoveFromCart(int cartID)
+        {
+            string query = "DELETE FROM Cart WHERE IDCart = @cartID";
+            try
+            {
+                int result = DataProvider.Instance.ExcuteNonQuery(query, new object[] { cartID });
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi xóa món ăn khỏi giỏ hàng: " + ex.Message);
+            }
+        }
+
+        //-----------------------------------------  
+        // ✅ Lấy danh sách món ăn trong giỏ hàng  
+        public List<DoAnDTO> GetCartList()
+        {
+            List<DoAnDTO> cartList = new List<DoAnDTO>();
+
+            string query = @"
+                SELECT d.IDDoAn, d.TenDoAn, d.Gia, d.IDLoai, d.HinhAnh, c.Quantity 
+                FROM Cart c 
+                INNER JOIN DoAn d ON c.FoodID = d.IDDoAn";
 
             DataTable data = DataProvider.Instance.ExcuteQuery(query);
+
             foreach (DataRow row in data.Rows)
             {
-                DoAnDTO food = new DoAnDTO(row);
-                listFood.Add(food);
+                DoAnDTO food = new DoAnDTO(
+                    Convert.ToInt32(row["IDDoAn"]),
+                    row["TenDoAn"].ToString(),
+                    Convert.ToDecimal(row["Gia"]),
+                    Convert.ToInt32(row["IDLoai"]),
+                    row["HinhAnh"].ToString(),
+                    Convert.ToInt32(row["Quantity"])  // Số lượng từ giỏ hàng
+                );
+                cartList.Add(food);
             }
-            return listFood;
+            return cartList;
+        }
+
+        //-----------------------------------------  
+        // ✅ Tính tổng tiền giỏ hàng  
+        public decimal GetTotalPrice()
+        {
+            string query = @"
+        SELECT SUM(d.Gia * c.Quantity) AS TotalPrice
+        FROM Cart c 
+        INNER JOIN DoAn d ON c.FoodID = d.IDDoAn";
+
+            object result = DataProvider.Instance.ExcuteScalar(query);
+            return (result != DBNull.Value && result != null) ? Convert.ToDecimal(result) : 0;
+        }
+
+
+        public DoAnDTO GetFoodByID(int foodID)
+        {
+            string query = "SELECT IDDoAn, TenDoAn, Gia, IDLoai, HinhAnh FROM DoAn WHERE IDDoAn = @foodID";
+            DataTable data = DataProvider.Instance.ExcuteQuery(query, new object[] { foodID });
+
+            if (data.Rows.Count > 0)
+            {
+                return new DoAnDTO(
+                    Convert.ToInt32(data.Rows[0]["IDDoAn"]),
+                    data.Rows[0]["TenDoAn"].ToString(),
+                    Convert.ToDecimal(data.Rows[0]["Gia"]),
+                    Convert.ToInt32(data.Rows[0]["IDLoai"]),
+                    data.Rows[0]["HinhAnh"].ToString()
+                );
+            }
+
+            return null;
         }
 
     }
