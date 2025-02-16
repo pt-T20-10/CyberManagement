@@ -48,7 +48,7 @@
             btnAddComputer.Location = new Point(16, 376);
             btnAddComputer.Name = "btnAddComputer";
             btnAddComputer.Size = new Size(115, 40);
-            btnAddComputer.TabIndex = 0;
+            btnAddComputer.TabIndex = 4;
             btnAddComputer.Text = "Thêm";
             btnAddComputer.UseVisualStyleBackColor = true;
             btnAddComputer.Click += btnAddComputer_Click;
@@ -59,7 +59,7 @@
             btnUpdateComputer.Location = new Point(16, 440);
             btnUpdateComputer.Name = "btnUpdateComputer";
             btnUpdateComputer.Size = new Size(115, 40);
-            btnUpdateComputer.TabIndex = 0;
+            btnUpdateComputer.TabIndex = 6;
             btnUpdateComputer.Text = "Cập nhật";
             btnUpdateComputer.UseVisualStyleBackColor = true;
             btnUpdateComputer.Click += btnUpdateComputer_Click;
@@ -70,7 +70,7 @@
             btnDeleteComputer.Location = new Point(184, 376);
             btnDeleteComputer.Name = "btnDeleteComputer";
             btnDeleteComputer.Size = new Size(115, 40);
-            btnDeleteComputer.TabIndex = 0;
+            btnDeleteComputer.TabIndex = 5;
             btnDeleteComputer.Text = "Xóa";
             btnDeleteComputer.UseVisualStyleBackColor = true;
             btnDeleteComputer.Click += btnDeleteComputer_Click;
@@ -81,7 +81,7 @@
             btnCancelfrm.Location = new Point(184, 440);
             btnCancelfrm.Name = "btnCancelfrm";
             btnCancelfrm.Size = new Size(115, 40);
-            btnCancelfrm.TabIndex = 0;
+            btnCancelfrm.TabIndex = 7;
             btnCancelfrm.Text = "Thoát";
             btnCancelfrm.UseVisualStyleBackColor = true;
             btnCancelfrm.Click += btnCancelfrm_Click;
@@ -115,7 +115,7 @@
             tbxPriceComputer.Name = "tbxPriceComputer";
             tbxPriceComputer.PlaceholderText = "Giá cho 1 giờ";
             tbxPriceComputer.Size = new Size(224, 32);
-            tbxPriceComputer.TabIndex = 1;
+            tbxPriceComputer.TabIndex = 2;
             // 
             // tbxNoteComputer
             // 
@@ -125,7 +125,7 @@
             tbxNoteComputer.Name = "tbxNoteComputer";
             tbxNoteComputer.PlaceholderText = "...";
             tbxNoteComputer.Size = new Size(224, 112);
-            tbxNoteComputer.TabIndex = 1;
+            tbxNoteComputer.TabIndex = 3;
             // 
             // lbIDComputer
             // 
@@ -171,6 +171,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnCancelfrm;
             ClientSize = new Size(334, 501);
             Controls.Add(lbNoteComputer);
             Controls.Add(lbPriceComputer);

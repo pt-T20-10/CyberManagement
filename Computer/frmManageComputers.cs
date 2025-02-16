@@ -39,6 +39,7 @@ namespace CyberManagementProject.Computer
             tbxNoteComputer.Text = com != null ? com.GhiChuMay.ToString() : string.Empty;
             btnDeleteComputer.Enabled = com != null ? true : false;
             btnUpdateComputer.Enabled = com != null ? true : false;
+            btnAddComputer.Enabled = com != null ? false : true;
         }
         private void btnDeleteComputer_Click(object sender, EventArgs e)
         {

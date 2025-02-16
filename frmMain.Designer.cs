@@ -68,7 +68,9 @@ namespace CyberManagementProject
             lbTimeConLai = new Label();
             tbxTimeLeft = new TextBox();
             pnTongTienCom = new Panel();
+            label6 = new Label();
             lbTotalPriceDichVu = new Label();
+            tbxMoneyAdd = new TextBox();
             tbxMoneyCost = new TextBox();
             pnUserNameCom = new Panel();
             lbUserNameCom = new Label();
@@ -640,31 +642,55 @@ namespace CyberManagementProject
             // 
             // pnTongTienCom
             // 
+            pnTongTienCom.Controls.Add(label6);
             pnTongTienCom.Controls.Add(lbTotalPriceDichVu);
+            pnTongTienCom.Controls.Add(tbxMoneyAdd);
             pnTongTienCom.Controls.Add(tbxMoneyCost);
-            pnTongTienCom.Location = new Point(15, 400);
+            pnTongTienCom.Location = new Point(8, 400);
             pnTongTienCom.Name = "pnTongTienCom";
-            pnTongTienCom.Size = new Size(312, 48);
+            pnTongTienCom.Size = new Size(319, 56);
             pnTongTienCom.TabIndex = 3;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
+            label6.Location = new Point(176, 8);
+            label6.Name = "label6";
+            label6.Size = new Size(68, 20);
+            label6.TabIndex = 3;
+            label6.Text = "Tiền nạp";
             // 
             // lbTotalPriceDichVu
             // 
             lbTotalPriceDichVu.AutoSize = true;
             lbTotalPriceDichVu.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbTotalPriceDichVu.Location = new Point(0, 16);
+            lbTotalPriceDichVu.Location = new Point(8, 8);
             lbTotalPriceDichVu.Name = "lbTotalPriceDichVu";
             lbTotalPriceDichVu.Size = new Size(78, 20);
             lbTotalPriceDichVu.TabIndex = 2;
             lbTotalPriceDichVu.Text = "Tổng tiền:";
             // 
+            // tbxMoneyAdd
+            // 
+            tbxMoneyAdd.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxMoneyAdd.Location = new Point(176, 24);
+            tbxMoneyAdd.Name = "tbxMoneyAdd";
+            tbxMoneyAdd.ReadOnly = true;
+            tbxMoneyAdd.RightToLeft = RightToLeft.No;
+            tbxMoneyAdd.Size = new Size(128, 25);
+            tbxMoneyAdd.TabIndex = 1;
+            tbxMoneyAdd.Text = "0.00";
+            tbxMoneyAdd.TextAlign = HorizontalAlignment.Right;
+            // 
             // tbxMoneyCost
             // 
             tbxMoneyCost.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbxMoneyCost.Location = new Point(97, 16);
+            tbxMoneyCost.Location = new Point(8, 24);
             tbxMoneyCost.Name = "tbxMoneyCost";
             tbxMoneyCost.ReadOnly = true;
             tbxMoneyCost.RightToLeft = RightToLeft.No;
-            tbxMoneyCost.Size = new Size(192, 25);
+            tbxMoneyCost.Size = new Size(128, 25);
             tbxMoneyCost.TabIndex = 1;
             tbxMoneyCost.Text = "0.00";
             tbxMoneyCost.TextAlign = HorizontalAlignment.Right;
@@ -780,7 +806,7 @@ namespace CyberManagementProject
             flpComputer.BorderStyle = BorderStyle.FixedSingle;
             flpComputer.Location = new Point(0, 0);
             flpComputer.Name = "flpComputer";
-            flpComputer.Size = new Size(785, 680);
+            flpComputer.Size = new Size(785, 672);
             flpComputer.TabIndex = 0;
             flpComputer.Click += flpComputer_Click;
             // 
@@ -2239,14 +2265,14 @@ namespace CyberManagementProject
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1345, 713);
+            ClientSize = new Size(1345, 715);
             Controls.Add(tblMain);
             Controls.Add(pnlTitleBar);
             Controls.Add(pnlLeft);
             FormBorderStyle = FormBorderStyle.None;
             KeyPreview = true;
-            MaximumSize = new Size(1345, 713);
-            MinimumSize = new Size(1345, 713);
+            MaximumSize = new Size(1345, 715);
+            MinimumSize = new Size(1345, 715);
             Name = "frmMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmMain";
@@ -2540,5 +2566,7 @@ namespace CyberManagementProject
         private Button btnTKSoDo;
         private Button btnTKXuatFile;
         private Button btnTKQLUngDung;
+        private Label label6;
+        private TextBox tbxMoneyAdd;
     }
 }
