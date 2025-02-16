@@ -49,7 +49,7 @@
             gbxThemKhachHang.Location = new Point(8, 8);
             gbxThemKhachHang.Name = "gbxThemKhachHang";
             gbxThemKhachHang.Size = new Size(432, 288);
-            gbxThemKhachHang.TabIndex = 0;
+            gbxThemKhachHang.TabIndex = 4;
             gbxThemKhachHang.TabStop = false;
             gbxThemKhachHang.Text = "Thêm Khách Hàng";
             // 
@@ -84,13 +84,14 @@
             txtMatKhauKhachHang.PasswordChar = '*';
             txtMatKhauKhachHang.Size = new Size(392, 40);
             txtMatKhauKhachHang.TabIndex = 2;
+            txtMatKhauKhachHang.Text = "1";
             txtMatKhauKhachHang.Enter += txtMatKhau_Enter;
             txtMatKhauKhachHang.Leave += txtMatKhau_Leave;
             // 
             // txtTaiKhoanKhachHang
             // 
             txtTaiKhoanKhachHang.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTaiKhoanKhachHang.ForeColor = Color.FromArgb(224, 224, 224);
+            txtTaiKhoanKhachHang.ForeColor = Color.Black;
             txtTaiKhoanKhachHang.Location = new Point(24, 104);
             txtTaiKhoanKhachHang.Multiline = true;
             txtTaiKhoanKhachHang.Name = "txtTaiKhoanKhachHang";
@@ -106,7 +107,7 @@
             txtIDKhachHang.Name = "txtIDKhachHang";
             txtIDKhachHang.ReadOnly = true;
             txtIDKhachHang.Size = new Size(392, 40);
-            txtIDKhachHang.TabIndex = 0;
+            txtIDKhachHang.TabIndex = 5;
             // 
             // frmThemKhachHang
             // 
