@@ -841,26 +841,7 @@ namespace CyberManagementProject
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            //int idHoaDon = HoaDonDAO.Instance.TaoHoaDon();
 
-            //if (idHoaDon > 0)
-            //{
-            //    bool success = CartDAO.Instance.SaveCartToOrderDetails(idHoaDon);
-            //    if (success)
-            //    {
-            //        HoaDonDAO.Instance.CapNhatTongTien(idHoaDon);
-            //        CartDAO.Instance.ClearCart();
-            //        MessageBox.Show("Thanh toán thành công!", "Thông báo");
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Lỗi khi lưu chi tiết hóa đơn!", "Lỗi");
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Lỗi khi tạo hóa đơn!", "Lỗi");
-            //}
             int idHoaDon = HoaDonDAO.Instance.TaoHoaDon(); // Tạo hóa đơn mới và lấy ID
             if (idHoaDon == -1)
             {
@@ -870,14 +851,37 @@ namespace CyberManagementProject
 
             if (decimal.TryParse(txbTongTien.Text, out decimal tongTien))
             {
-                bool success = HoaDonDAO.Instance.UpdateTotalPrice(idHoaDon, tongTien);
+                List<string> tenMonAnList = new List<string>(); // Danh sách tên món ăn
+
+                // Lặp qua các món trong giỏ hàng và lấy tên món từ lblFoodName
+                foreach (Control control in flpCart.Controls)
+                {
+                    if (control is Panel panel)
+                    {
+                        // Kiểm tra panel có chứa label hay không
+                        Label lblFoodName = panel.Controls.OfType<Label>().FirstOrDefault();
+
+                        if (lblFoodName == null)
+                        {
+                            MessageBox.Show("Không tìm thấy Label trong Panel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            continue; // Bỏ qua panel này
+                        }
+
+                        tenMonAnList.Add(lblFoodName.Text); // Lấy tên món ăn
+                    }
+                }
+
+
+
+                // Cập nhật tổng tiền và tên món ăn vào cơ sở dữ liệu HoaDon
+                bool success = ChiTietHoaDonDAO.Instance.UpdateTotalPrice1(idHoaDon, tongTien, tenMonAnList);
                 if (success)
                 {
-                    MessageBox.Show($"Hóa đơn {idHoaDon} đã được cập nhật tổng tiền thành công!");
+                    MessageBox.Show($"Hóa đơn {idHoaDon} đã được thêm thành công ");
                 }
                 else
                 {
-                    MessageBox.Show("Lỗi khi cập nhật tổng tiền!");
+                    MessageBox.Show("Lỗi khi cập nhật hóa đơn!");
                 }
             }
             else
@@ -886,13 +890,8 @@ namespace CyberManagementProject
             }
 
             LoadCart(); // Cập nhật lại giao diện
+
         }
-
-
-
-
-
-
         #endregion
 
         #region Hoàng Lễ

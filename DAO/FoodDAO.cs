@@ -307,6 +307,9 @@ namespace CyberManagementProject.DAO
 
         }
 
+
+
+        //ChiTietHoaDonDAO do ChiTietHoaDon liên kết nhiều quá nên t không xóa được huhu :((
         public class ChiTietHoaDonDAO
         {
             private static ChiTietHoaDonDAO instance;
@@ -328,9 +331,64 @@ namespace CyberManagementProject.DAO
 
                 DataProvider.Instance.ExcuteNonQuery(query, new object[] { idHoaDon });
             }
+
+            public bool SaveCartToChiTietHoaDon(int idHoaDon)
+            {
+                string query = @"
+                INSERT INTO ChiTietHoaDon (IDHoaDon)
+                SELECT IDHoaDon
+                FROM HoaDon 
+                WHERE IDHoaDon = @IDHoaDon ";
+
+                int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { idHoaDon });
+                return result > 0;
+            }
+            
+            public bool UpdateTotalPrice1(int idHoaDon, decimal tongTien, List<string> tenMonAnList)
+            {
+
+                try
+                {
+                    string query = "UPDATE HoaDon SET TongTien = @TongTien WHERE IDHoaDon = @IDHoaDon ";
+                    int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tongTien, idHoaDon });
+
+                    // Kiểm tra nếu update thành công
+                    if (result <= 0)
+                    {
+                        MessageBox.Show("Không tìm thấy hóa đơn với IDHoaDon = " + idHoaDon);
+                        MessageBox.Show("Không tìm thấy hóa đơn với TongTien = " + tongTien);
+                    }
+
+                    List<string> updatedTenMonAnList = new List<string>();
+                    foreach (string tenMonAn in tenMonAnList)
+                    {
+                        string detailQuery = "UPDATE HoaDon SET TenMonAn = @TenMonAn WHERE IDHoaDon = @IDHoaDon ";
+                        int result1 = DataProvider.Instance.ExecuteNonQuery(detailQuery, new object[] { tenMonAn, idHoaDon });
+
+                        // Kiểm tra nếu update thành công
+                        if (result1 <= 0)
+                        {
+                            MessageBox.Show("Không tìm thấy hóa đơn với TenMonAn = " + tenMonAn);
+                            return false; // Trả về false nếu không cập nhật được tên món ăn
+                        }
+                        updatedTenMonAnList.Add(tenMonAn);
+                    }
+
+                    return true;
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Lỗi khi cập nhật hóa đơn: " + ex.Message);
+                    return false;
+                }
+
+            }
         }
 
 
+        //GioHangDAO
         public class GioHangDAO
         {
             private static GioHangDAO instance;
@@ -351,6 +409,8 @@ namespace CyberManagementProject.DAO
             }
 
         }
+
+
     }
 
  }
