@@ -19,6 +19,7 @@ using CyberManagementProject.Music;
 using CyberManagementProject.Computer;
 using System.Globalization;
 using CyberManagementProject.DichVu;
+using static CyberManagementProject.DAO.FoodDAO;
 
 namespace CyberManagementProject
 {
@@ -420,7 +421,7 @@ namespace CyberManagementProject
         }
 
         //Xóa giỏ hàng
-        private void btnResetCart_Click_1(object sender, EventArgs e)
+        private void btnResetCart_Click(object sender, EventArgs e)
         {
             if (flpCart.Controls.Count == 0)
             {
@@ -730,17 +731,20 @@ namespace CyberManagementProject
             {
                 foreach (Control control in panel.Controls)
                 {
-                    if (control is Label lbl && lbl.ForeColor == Color.Red) // Lấy label giá
+                    if (control is Label lbl && lbl.ForeColor == Color.Red && !string.IsNullOrWhiteSpace(lbl.Text))
                     {
-                        total += decimal.Parse(lbl.Text.Replace(" VNĐ", "").Replace(",", ""));
+                        string priceText = lbl.Text.Replace(" VNĐ", "").Replace(",", "").Trim();
+
+                        if (decimal.TryParse(priceText, out decimal price))
+                        {
+                            total += price;
+                        }
                     }
                 }
             }
 
-            txbTongTien.Text = total.ToString("N0") + " VNĐ";
+            txbTongTien.Text = total.ToString("N0");
         }
-
-
 
 
         private void btnCart_Click(object sender, EventArgs e)
@@ -808,7 +812,7 @@ namespace CyberManagementProject
 
                 Label lblQuantity = new Label
                 {
-                    Text = "SL: " + item.Quantity,
+                   // Text = "SL: " + item.Quantity,
                     Font = new Font("Arial", 10),
                     AutoSize = true,
                     Location = new Point(5, 25)
@@ -823,7 +827,7 @@ namespace CyberManagementProject
                     Location = new Point(100, 5)
                 };
 
-                totalPrice += item.ThanhTien;
+                //totalPrice += item.ThanhTien;
 
                 panel.Controls.Add(lblFoodName);
                 panel.Controls.Add(lblQuantity);
@@ -834,6 +838,59 @@ namespace CyberManagementProject
 
             txbTongTien.Text = totalPrice.ToString("N0") + " VND";
         }
+
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            //int idHoaDon = HoaDonDAO.Instance.TaoHoaDon();
+
+            //if (idHoaDon > 0)
+            //{
+            //    bool success = CartDAO.Instance.SaveCartToOrderDetails(idHoaDon);
+            //    if (success)
+            //    {
+            //        HoaDonDAO.Instance.CapNhatTongTien(idHoaDon);
+            //        CartDAO.Instance.ClearCart();
+            //        MessageBox.Show("Thanh toán thành công!", "Thông báo");
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Lỗi khi lưu chi tiết hóa đơn!", "Lỗi");
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Lỗi khi tạo hóa đơn!", "Lỗi");
+            //}
+            int idHoaDon = HoaDonDAO.Instance.TaoHoaDon(); // Tạo hóa đơn mới và lấy ID
+            if (idHoaDon == -1)
+            {
+                MessageBox.Show("Lỗi khi tạo hóa đơn!");
+                return;
+            }
+
+            if (decimal.TryParse(txbTongTien.Text, out decimal tongTien))
+            {
+                bool success = HoaDonDAO.Instance.UpdateTotalPrice(idHoaDon, tongTien);
+                if (success)
+                {
+                    MessageBox.Show($"Hóa đơn {idHoaDon} đã được cập nhật tổng tiền thành công!");
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi khi cập nhật tổng tiền!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Dữ liệu không hợp lệ!");
+            }
+
+            LoadCart(); // Cập nhật lại giao diện
+        }
+
+
+
+
 
 
         #endregion
@@ -1324,6 +1381,8 @@ namespace CyberManagementProject
 
             tbxMoneyCost.Text = totalPrice.ToString("c", culture);
         }
+
+        
     }
     #endregion
 

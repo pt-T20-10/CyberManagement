@@ -1072,6 +1072,7 @@ namespace CyberManagementProject
             btnResetCart.TabIndex = 8;
             btnResetCart.Text = "Reset \U0001f6d2";
             btnResetCart.UseVisualStyleBackColor = false;
+            btnResetCart.Click += btnResetCart_Click;
             // 
             // btnThanhToan
             // 
@@ -1084,6 +1085,7 @@ namespace CyberManagementProject
             btnThanhToan.TabIndex = 8;
             btnThanhToan.Text = "Thanh Toán";
             btnThanhToan.UseVisualStyleBackColor = false;
+            btnThanhToan.Click += btnThanhToan_Click;
             // 
             // label9
             // 

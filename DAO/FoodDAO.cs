@@ -268,5 +268,89 @@ namespace CyberManagementProject.DAO
             return null;
         }
 
+        public class HoaDonDAO
+        {
+            private static HoaDonDAO instance;
+
+            public static HoaDonDAO Instance
+            {
+                get { if (instance == null) instance = new HoaDonDAO(); return instance; }
+                private set { instance = value; }
+            }
+
+            private HoaDonDAO() { }
+
+            // Thêm hóa đơn mới và lấy ID của hóa đơn vừa tạo
+            public int TaoHoaDon()
+            {
+                string query = "INSERT INTO HoaDon (TongTien) OUTPUT INSERTED.IDHoaDon VALUES (0)";
+                object result = DataProvider.Instance.ExcuteScalar(query);
+                return (result != null) ? Convert.ToInt32(result) : -1;
+            }
+
+            // Cập nhật tổng tiền cho hóa đơn
+            public void CapNhatTongTien(int idHoaDon)
+            {
+                string query = @"
+                UPDATE HoaDon 
+                SET TongTien = (SELECT SUM(ThanhTien) FROM ChiTietHoaDon WHERE IDHoaDon = @IDHoaDon )
+                WHERE IDHoaDon = @IDHoaDon ";
+
+                DataProvider.Instance.ExcuteNonQuery(query, new object[] { idHoaDon });
+            }
+            public bool UpdateTotalPrice(int idHoaDon, decimal tongTien)
+            {
+                string query = "UPDATE HoaDon SET TongTien = @TongTien WHERE IDHoaDon = @IDHoaDon ";
+                int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tongTien, idHoaDon });
+                return result > 0;
+            }
+
+        }
+
+        public class ChiTietHoaDonDAO
+        {
+            private static ChiTietHoaDonDAO instance;
+
+            public static ChiTietHoaDonDAO Instance
+            {
+                get { if (instance == null) instance = new ChiTietHoaDonDAO(); return instance; }
+                private set { instance = value; }
+            }
+
+            private ChiTietHoaDonDAO() { }
+
+            // Lưu giỏ hàng vào bảng ChiTietHoaDon
+            public void LuuGioHangVaoChiTietHoaDon(int idHoaDon)
+            {
+                string query = @"
+                INSERT INTO ChiTietHoaDon (IDHoaDon, IDDoAn, SoLuong, ThanhTien)
+                SELECT @IDHoaDon , IDDoAn, SoLuong, ThanhTien FROM GioHang ";
+
+                DataProvider.Instance.ExcuteNonQuery(query, new object[] { idHoaDon });
+            }
+        }
+
+
+        public class GioHangDAO
+        {
+            private static GioHangDAO instance;
+
+            public static GioHangDAO Instance
+            {
+                get { if (instance == null) instance = new GioHangDAO(); return instance; }
+                private set { instance = value; }
+            }
+
+            private GioHangDAO() { }
+
+            // Xóa giỏ hàng sau khi thanh toán
+            public void XoaGioHang()
+            {
+                string query = "DELETE FROM GioHang";
+                DataProvider.Instance.ExcuteNonQuery(query);
+            }
+
+        }
     }
-}
+
+ }
