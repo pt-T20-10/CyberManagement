@@ -54,12 +54,12 @@ namespace CyberManagementProject.Computer
             int idFood = (cbxAddToComMon.SelectedItem as DoAnDTO).IDDoAn;
             int count = (int)nrudAddToComCount.Value;
             MayTinhDAO.Instance.InsertServiceToComputer(idPhien, idFood, count);
-            if(MessageBox.Show("Thêm món thành công","Thông báo",MessageBoxButtons.OK) == DialogResult.OK)
+            if (MessageBox.Show("Thêm món thành công", "Thông báo", MessageBoxButtons.OK) == DialogResult.OK)
             {
                 this.Close();
-            } 
-                
-           
+            }
+
+
         }
     }
 }

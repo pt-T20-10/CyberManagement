@@ -93,18 +93,18 @@ namespace CyberManagementProject.DAO
         public bool DeleteKhachHangByTKKhachHang(string tkKhachHang)
         {
             // Câu lệnh xóa trong bảng KhachHang
-            string query_NV = @" EXEC USP_XoaKhachHang @TKKhachHang ";
+            string query_KH = @" EXEC USP_XoaKhachHang @TKKhachHang ";
 
             // Câu lệnh xóa trong bảng TKKhachHang
-            string query_TKNV = @" EXEC USP_DeleteTKKhachHang @TKKhachHang ";
+            string query_TKKH = @" EXEC USP_DeleteTKKhachHang @TKKhachHang ";
 
             try
             {
                 // Thực thi câu lệnh DELETE cho bảng KhachHang
-                int result1 = DataProvider.Instance.ExcuteNonQuery(query_NV, new object[] { tkKhachHang });
+                int result1 = DataProvider.Instance.ExcuteNonQuery(query_KH, new object[] { tkKhachHang });
 
                 // Thực thi câu lệnh DELETE cho bảng TKKhachHang
-                int result2 = DataProvider.Instance.ExcuteNonQuery(query_TKNV, new object[] { tkKhachHang });
+                int result2 = DataProvider.Instance.ExcuteNonQuery(query_TKKH, new object[] { tkKhachHang });
 
                 return ((result1 > 0) && (result2 > 0));
             }

@@ -31,7 +31,7 @@ namespace CyberManagementProject.Computer
 
         void Load(MayTinhView? account)
         {
-            List<TKKhachHang> listAccount = TKKhachHangDAO.Instance.GetListCategory();
+            List<TKKhachHangDTO> listAccount = TKKhachHangDAO.Instance.GetListCategory();
             cbxAddMoneyUserName.DataSource = listAccount;
             cbxAddMoneyUserName.DisplayMember = "TKKhachHang"; // Hiển thị tên khách hàng trên ComboBox
             cbxAddMoneyUserName.ValueMember = "UserName"; // Giá trị thực tế là UserName
@@ -77,7 +77,7 @@ namespace CyberManagementProject.Computer
                         // 🔹 Gọi cập nhật vào database
                         PhienSuDungDAO.Instance.CapNhatTienNap(idPhien, (float)soTienNap);
 
-                        MessageBox.Show($"Nạp tiền cho {userName} vào phiên {idPhien} thành công");
+                        //MessageBox.Show($"Nạp tiền cho {userName} vào phiên {idPhien} thành công");
 
                         // 🔹 Gọi event để cập nhật giao diện nếu cần
                         //OnMoneyAdded?.Invoke(idPhien);

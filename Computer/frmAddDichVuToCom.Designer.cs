@@ -41,8 +41,8 @@
             // 
             // btnAcceptAddDVtoCom
             // 
-            btnAcceptAddDVtoCom.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnAcceptAddDVtoCom.Location = new Point(16, 222);
+            btnAcceptAddDVtoCom.Font = new Font("Tahoma", 14.25F, FontStyle.Bold);
+            btnAcceptAddDVtoCom.Location = new Point(19, 222);
             btnAcceptAddDVtoCom.Name = "btnAcceptAddDVtoCom";
             btnAcceptAddDVtoCom.Size = new Size(100, 35);
             btnAcceptAddDVtoCom.TabIndex = 0;
@@ -52,8 +52,8 @@
             // 
             // btnCancelAddDVtoCom
             // 
-            btnCancelAddDVtoCom.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnCancelAddDVtoCom.Location = new Point(160, 222);
+            btnCancelAddDVtoCom.Font = new Font("Tahoma", 14.25F, FontStyle.Bold);
+            btnCancelAddDVtoCom.Location = new Point(163, 222);
             btnCancelAddDVtoCom.Name = "btnCancelAddDVtoCom";
             btnCancelAddDVtoCom.Size = new Size(100, 35);
             btnCancelAddDVtoCom.TabIndex = 1;
@@ -62,56 +62,59 @@
             // 
             // cbxAddToComLoaiMon
             // 
+            cbxAddToComLoaiMon.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cbxAddToComLoaiMon.FormattingEnabled = true;
             cbxAddToComLoaiMon.Location = new Point(40, 40);
             cbxAddToComLoaiMon.Name = "cbxAddToComLoaiMon";
-            cbxAddToComLoaiMon.Size = new Size(160, 23);
+            cbxAddToComLoaiMon.Size = new Size(160, 26);
             cbxAddToComLoaiMon.TabIndex = 2;
             cbxAddToComLoaiMon.SelectedIndexChanged += cbxAddToComLoaiMon_SelectedIndexChanged;
             // 
             // cbxAddToComMon
             // 
+            cbxAddToComMon.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cbxAddToComMon.FormattingEnabled = true;
             cbxAddToComMon.Location = new Point(40, 112);
             cbxAddToComMon.Name = "cbxAddToComMon";
-            cbxAddToComMon.Size = new Size(160, 23);
+            cbxAddToComMon.Size = new Size(160, 26);
             cbxAddToComMon.TabIndex = 3;
             // 
             // nrudAddToComCount
             // 
-            nrudAddToComCount.Location = new Point(136, 168);
+            nrudAddToComCount.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            nrudAddToComCount.Location = new Point(136, 164);
             nrudAddToComCount.Name = "nrudAddToComCount";
-            nrudAddToComCount.Size = new Size(56, 23);
+            nrudAddToComCount.Size = new Size(64, 26);
             nrudAddToComCount.TabIndex = 4;
             nrudAddToComCount.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // lbAddToComLoaiMon
             // 
             lbAddToComLoaiMon.AutoSize = true;
-            lbAddToComLoaiMon.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lbAddToComLoaiMon.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbAddToComLoaiMon.Location = new Point(40, 8);
             lbAddToComLoaiMon.Name = "lbAddToComLoaiMon";
-            lbAddToComLoaiMon.Size = new Size(46, 21);
+            lbAddToComLoaiMon.Size = new Size(56, 23);
             lbAddToComLoaiMon.TabIndex = 5;
             lbAddToComLoaiMon.Text = "Loại ";
             // 
             // lbAddToComMon
             // 
             lbAddToComMon.AutoSize = true;
-            lbAddToComMon.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lbAddToComMon.Font = new Font("Tahoma", 14.25F, FontStyle.Bold);
             lbAddToComMon.Location = new Point(40, 80);
             lbAddToComMon.Name = "lbAddToComMon";
-            lbAddToComMon.Size = new Size(45, 21);
+            lbAddToComMon.Size = new Size(51, 23);
             lbAddToComMon.TabIndex = 5;
             lbAddToComMon.Text = "Món";
             // 
             // lbAddToComCount
             // 
             lbAddToComCount.AutoSize = true;
-            lbAddToComCount.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lbAddToComCount.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbAddToComCount.Location = new Point(40, 168);
             lbAddToComCount.Name = "lbAddToComCount";
-            lbAddToComCount.Size = new Size(79, 21);
+            lbAddToComCount.Size = new Size(80, 19);
             lbAddToComCount.TabIndex = 5;
             lbAddToComCount.Text = "Số lượng";
             // 
