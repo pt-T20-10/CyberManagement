@@ -119,7 +119,7 @@
             Controls.Add(gbxThemKhachHang);
             Name = "frmThemKhachHang";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmThemKhachHang";
+            Text = "Thêm tài khoản khách hàng";
             gbxThemKhachHang.ResumeLayout(false);
             gbxThemKhachHang.PerformLayout();
             ResumeLayout(false);

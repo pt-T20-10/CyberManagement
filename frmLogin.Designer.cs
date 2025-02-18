@@ -39,6 +39,7 @@
             btnLogin = new Button();
             lbTitle = new Label();
             pnLogin = new Panel();
+            button1 = new Button();
             pnUserName.SuspendLayout();
             pnPassWord.SuspendLayout();
             pnLogin.SuspendLayout();
@@ -60,7 +61,7 @@
             txbUserName.Multiline = true;
             txbUserName.Name = "txbUserName";
             txbUserName.Size = new Size(358, 30);
-            txbUserName.TabIndex = 1;
+            txbUserName.TabIndex = 2;
             txbUserName.Text = "admin1";
             // 
             // lbUserName
@@ -93,7 +94,7 @@
             txbPassWord.Name = "txbPassWord";
             txbPassWord.PasswordChar = '*';
             txbPassWord.Size = new Size(358, 30);
-            txbPassWord.TabIndex = 2;
+            txbPassWord.TabIndex = 3;
             txbPassWord.Text = "password123";
             // 
             // lbPassWord
@@ -123,7 +124,7 @@
             btnLogin.Location = new Point(202, 295);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(194, 48);
-            btnLogin.TabIndex = 3;
+            btnLogin.TabIndex = 4;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
@@ -152,19 +153,33 @@
             pnLogin.Size = new Size(604, 362);
             pnLogin.TabIndex = 3;
             // 
+            // button1
+            // 
+            button1.Location = new Point(656, 0);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 1;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Visible = false;
+            button1.Click += button1_Click;
+            // 
             // frmLogin
             // 
             AcceptButton = btnLogin;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            CancelButton = button1;
             ClientSize = new Size(734, 400);
+            Controls.Add(button1);
             Controls.Add(pnLogin);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cyber Management";
             FormClosing += frmLogin_FormClosing_1;
+            KeyDown += frmLogin_KeyDown;
             pnUserName.ResumeLayout(false);
             pnUserName.PerformLayout();
             pnPassWord.ResumeLayout(false);
@@ -186,5 +201,6 @@
         private Button btnLogin;
         private Label lbTitle;
         private Panel pnLogin;
+        private Button button1;
     }
 }

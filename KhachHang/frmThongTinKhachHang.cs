@@ -194,6 +194,7 @@ namespace QuanLyQuanNet.Customer
             if (MayTinhDAO.Instance.isKhachHangNotAvailable(tkkh))
             {
                 MessageBox.Show("Tài khoản đã được đăng nhập");
+                return;
             }
             else
             {

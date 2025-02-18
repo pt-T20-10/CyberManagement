@@ -117,7 +117,7 @@
             Controls.Add(gbxThemKhachHang);
             Name = "frmThemNhanVien";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmThemNhanVien";
+            Text = "Thêm nhân viên";
             gbxThemKhachHang.ResumeLayout(false);
             gbxThemKhachHang.PerformLayout();
             ResumeLayout(false);

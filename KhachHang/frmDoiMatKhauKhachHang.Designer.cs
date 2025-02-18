@@ -109,7 +109,7 @@
             Controls.Add(txtTKKhachHang);
             Name = "frmDoiMatKhauKhachHang";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmDoiMatKhauKhachHang";
+            Text = "Đổi mật khẩu khách hàng";
             ResumeLayout(false);
             PerformLayout();
         }

@@ -19,7 +19,11 @@ using CyberManagementProject.Music;
 using CyberManagementProject.Computer;
 using System.Globalization;
 using CyberManagementProject.DichVu;
+using OfficeOpenXml;
+using System.IO;
+using QLQuanNET;
 using static CyberManagementProject.DAO.FoodDAO;
+
 
 namespace CyberManagementProject
 {
@@ -32,7 +36,11 @@ namespace CyberManagementProject
             LoadHoangNghia();
             LoadTrongThoai();
             LoadFoodList();
+
+            SetupDataGridView();
+
             LoadCart();
+
 
         }
 
@@ -443,8 +451,8 @@ namespace CyberManagementProject
         {
             Panel foodPanel = new Panel
             {
-                Width = 200,
-                Height = 300,
+                Width = 150,
+                Height = 230,
                 BorderStyle = BorderStyle.FixedSingle,
                 Padding = new Padding(5),
                 Tag = food
@@ -452,8 +460,8 @@ namespace CyberManagementProject
 
             PictureBox pictureBox = new PictureBox
             {
-                Width = 180,
-                Height = 150,
+                Width = 130,
+                Height = 100,
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Cursor = Cursors.Hand
             };
@@ -467,7 +475,7 @@ namespace CyberManagementProject
             {
                 Text = food.TenDoAn,
                 AutoSize = false,
-                Width = 180,
+                Width = 130,
                 Height = 30,
                 TextAlign = ContentAlignment.MiddleCenter,
                 Font = new Font("Arial", 10, FontStyle.Bold)
@@ -477,7 +485,7 @@ namespace CyberManagementProject
             {
                 Text = $"Giá: {food.Gia:N0} VNĐ",
                 AutoSize = false,
-                Width = 180,
+                Width = 130,
                 Height = 25,
                 TextAlign = ContentAlignment.MiddleCenter,
                 Font = new Font("Arial", 10, FontStyle.Regular)
@@ -487,8 +495,8 @@ namespace CyberManagementProject
             Button btnEdit = new Button
             {
                 Text = "🖊",
-                Width = 50,
-                Height = 35,
+                Width = 35,
+                Height = 25,
                 FlatStyle = FlatStyle.Flat,
                 Font = new Font("Arial", 12, FontStyle.Bold),
                 BackColor = Color.LightGray,
@@ -501,8 +509,8 @@ namespace CyberManagementProject
             Button btnCart = new Button
             {
                 Text = "🛒",
-                Width = 50,
-                Height = 35,
+                Width = 35,
+                Height = 25,
                 FlatStyle = FlatStyle.Flat,
                 Font = new Font("Arial", 12, FontStyle.Bold),
                 BackColor = Color.LightGray,
@@ -515,8 +523,8 @@ namespace CyberManagementProject
             Button btnDelete = new Button
             {
                 Text = "🗑",
-                Width = 50,
-                Height = 35,
+                Width = 35,
+                Height = 25,
                 FlatStyle = FlatStyle.Flat,
                 Font = new Font("Arial", 12, FontStyle.Bold),
                 BackColor = Color.LightGray,
@@ -559,8 +567,8 @@ namespace CyberManagementProject
             FlowLayoutPanel panelContainer = new FlowLayoutPanel
             {
                 FlowDirection = FlowDirection.TopDown,
-                Width = 200,
-                Height = 280,
+                Width = 180,
+                Height = 240,
                 WrapContents = false,
                 AutoSize = false,
                 Dock = DockStyle.Fill,
@@ -626,7 +634,7 @@ namespace CyberManagementProject
                     Label lblFoodName = existingPanel.Controls.OfType<Label>().FirstOrDefault(l => l.Font.Bold);
                     Label lblQuantity = existingPanel.Controls.OfType<Label>().FirstOrDefault(l => l.Text.StartsWith("SL:"));
                     Label lblPrice = existingPanel.Controls.OfType<Label>().FirstOrDefault(l => l.ForeColor == Color.Red);
-                
+
 
                     if (lblFoodName != null && lblFoodName.Text == food.TenDoAn)
                     {
@@ -677,7 +685,7 @@ namespace CyberManagementProject
                 Location = new Point(100, 5)
             };
 
-   
+
 
             Button btnRemove = new Button
             {
@@ -837,7 +845,7 @@ namespace CyberManagementProject
                 flpCart.Controls.Add(panel);
             }
 
-            txbTongTien.Text = totalPrice.ToString("N0") ;
+            txbTongTien.Text = totalPrice.ToString("N0");
         }
 
         private void btnThanhToan_Click(object sender, EventArgs e)
@@ -852,10 +860,10 @@ namespace CyberManagementProject
 
             if (decimal.TryParse(txbTongTien.Text, out decimal tongTien))
             {
-              
+
                 List<string> tenMonAnList = new List<string>(); // Danh sách tên món ăn
                 List<int> SoLuongMonAnList = new List<int>(); // Danh sách số lượng món ăn
-                List<decimal> thanhtienmon = new List<decimal>();   
+                List<decimal> thanhtienmon = new List<decimal>();
                 // Lặp qua các món trong giỏ hàng và lấy tên món từ lblFoodName
                 foreach (Control control in flpCart.Controls)
                 {
@@ -872,8 +880,8 @@ namespace CyberManagementProject
                         .ToList();
                         thanhtienmon.AddRange(lblPriviewPrice);
                         Label lblQuantity = panel.Controls.OfType<Label>().FirstOrDefault(l => l.Text.StartsWith("SL:"));
-                   
-                  
+
+
 
 
 
@@ -896,7 +904,7 @@ namespace CyberManagementProject
                 }
 
                 // Cập nhật tổng tiền và tên món ăn vào cơ sở dữ liệu HoaDon
-                bool success = ChiTietHoaDonDAO.Instance.UpdateTotalPrice1(idHoaDon, tongTien, tenMonAnList, SoLuongMonAnList , thanhtienmon);
+                bool success = ChiTietHoaDonDAO.Instance.UpdateTotalPrice1(idHoaDon, tongTien, tenMonAnList, SoLuongMonAnList, thanhtienmon);
                 if (success)
                 {
                     MessageBox.Show($"Hóa đơn {idHoaDon} đã được thêm thành công ");
@@ -918,6 +926,683 @@ namespace CyberManagementProject
 
         #region Hoàng Lễ
         //
+        //--------------------RADIO của Doanh Thu-----------------------------------
+        private void rbtTittleNgayDT_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtTittleNgayDT.Checked)
+            {
+                pnTKNgayDT.Enabled = true;
+                pnTKNgayDT.ForeColor = SystemColors.ControlText;
+
+                pnTKThangDT.Enabled = false;
+                pnTKThangDT.ForeColor = Color.Gray;
+
+                pnTKNamDT.Enabled = false;
+                pnTKNamDT.ForeColor = Color.Gray;
+            }
+        }
+
+        private void rbtTittleThangDT_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtTittleThangDT.Checked)
+            {
+                pnTKThangDT.Enabled = true;
+                pnTKThangDT.ForeColor = SystemColors.ControlText;
+
+                pnTKNgayDT.Enabled = false;
+                pnTKNgayDT.ForeColor = Color.Gray;
+
+                pnTKNamDT.Enabled = false;
+                pnTKNamDT.ForeColor = Color.Gray;
+            }
+        }
+
+        private void rbtTittleNamDT_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtTittleNamDT.Checked)
+            {
+                pnTKNamDT.Enabled = true;
+                pnTKNamDT.ForeColor = SystemColors.ControlText;
+
+                pnTKNgayDT.Enabled = false;
+                pnTKNgayDT.ForeColor = Color.Gray;
+
+                pnTKThangDT.Enabled = false;
+                pnTKThangDT.ForeColor = Color.Gray;
+            }
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpComputer;
+        }
+
+        private void btnTKXuatFile_Click(object sender, EventArgs e)
+        {
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+            // Chạy ở chế độ miễn phí
+
+            // Kiểm tra xem DataGridView có dữ liệu không
+            if (dgvAllThongKe.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Mở hộp thoại lưu file
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel Files|*.xlsx";
+            saveFileDialog.Title = "Lưu file Excel";
+            saveFileDialog.FileName = "ThongKe.xlsx";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    // Sử dụng thư viện EPPlus để tạo file Excel
+                    using (ExcelPackage excel = new ExcelPackage())
+                    {
+                        excel.Workbook.Worksheets.Add("ThongKe");
+
+                        // Lấy worksheet đầu tiên
+                        var worksheet = excel.Workbook.Worksheets[0];
+                        worksheet.Name = "ThongKe";
+                        worksheet.Cells.Style.Font.Size = 12;
+
+                        // Xuất tiêu đề cột
+                        for (int i = 1; i <= dgvAllThongKe.Columns.Count; i++)
+                        {
+                            worksheet.Cells[1, i].Value = dgvAllThongKe.Columns[i - 1].HeaderText;
+                        }
+
+                        // Xuất dữ liệu từ DataGridView
+                        for (int i = 0; i < dgvAllThongKe.Rows.Count; i++)
+                        {
+                            for (int j = 0; j < dgvAllThongKe.Columns.Count; j++)
+                            {
+                                worksheet.Cells[i + 2, j + 1].Value = dgvAllThongKe.Rows[i].Cells[j].Value?.ToString();
+                            }
+                        }
+
+                        // Auto-fit các cột
+                        worksheet.Cells.AutoFitColumns();
+
+                        // Lưu file Excel
+                        FileInfo excelFile = new FileInfo(saveFileDialog.FileName);
+                        excel.SaveAs(excelFile);
+
+                        MessageBox.Show("Xuất file Excel thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi xuất file Excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+        //--------------------RADIO của Máy Trạm-----------------------------------
+        //----------Setup datagridview-----------
+        private void SetupDataGridView()
+        {
+            // Tự động thay đổi kích thước các cột theo nội dung
+            dgvAllThongKe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+            // Tự động thay đổi chiều cao các hàng
+            dgvAllThongKe.AutoResizeRows(DataGridViewAutoSizeRowsMode.AllCells);
+
+            // Tắt tiêu đề của hàng (Row Headers) nếu không cần thiết
+            dgvAllThongKe.RowHeadersVisible = false;
+
+            // Nếu muốn cột có thể tự động cuộn ngang khi dữ liệu quá dài
+            dgvAllThongKe.ScrollBars = ScrollBars.Both;
+
+            // Chỉnh lại cách căn chỉnh nội dung của các cột (có thể thay đổi theo yêu cầu)
+            foreach (DataGridViewColumn column in dgvAllThongKe.Columns)
+            {
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Căn giữa
+            }
+        }
+
+        private void btnTKQLUngDung_Click_1(object sender, EventArgs e)
+        {
+            frmQLyUngDung frmQLyUngDung = new frmQLyUngDung();
+            frmQLyUngDung.ShowDialog();
+
+        }
+
+        private void dtpTKStartKH_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //----------------------THONG KE DOANHTHU------------------------//
+        // Load thống kê doanh thu theo ngày
+        // Load thống kê doanh thu theo ngày
+        private void LoadThongKeDoanhThuTheoNgay()
+        {
+            DateTime ngay = dtpTKNgayDT.Value;
+            DataTable dt = DAOThongKe.Instance.GetThongKeDoanhThuTheoNgay(ngay);
+
+            // Kiểm tra nếu có dữ liệu
+            if (dt.Rows.Count > 0)
+            {
+                dgvAllThongKe.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("Không có dữ liệu cho ngày đã chọn.");
+            }
+        }
+
+        // Load thống kê doanh thu theo tháng
+        private void LoadThongKeDoanhThuTheoThang()
+        {
+            int thang = dtpTKThangDT.Value.Month;
+            int nam = dtpTKThangDT.Value.Year;
+            DataTable dt = DAOThongKe.Instance.GetThongKeDoanhThuTheoThang(thang, nam);
+
+            // Kiểm tra nếu có dữ liệu
+            if (dt.Rows.Count > 0)
+            {
+                dgvAllThongKe.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("Không có dữ liệu cho tháng đã chọn.");
+            }
+        }
+
+        // Load thống kê doanh thu theo năm
+        private void LoadThongKeDoanhThuTheoNam()
+        {
+            int nam = dtpTKNamDT.Value.Year;
+            DataTable dt = DAOThongKe.Instance.GetThongKeDoanhThuTheoNam(nam);
+
+            // Kiểm tra nếu có dữ liệu
+            if (dt.Rows.Count > 0)
+            {
+                dgvAllThongKe.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("Không có dữ liệu cho năm đã chọn.");
+            }
+        }
+
+
+
+
+        private void btnTKNgayDT_Click_1(object sender, EventArgs e)
+        {
+            LoadThongKeDoanhThuTheoNgay();
+        }
+
+
+        private void btnTKThangDT_Click_1(object sender, EventArgs e)
+        {
+            LoadThongKeDoanhThuTheoThang();
+        }
+
+
+        private void btnTKNamDT_Click_1(object sender, EventArgs e)
+        {
+            LoadThongKeDoanhThuTheoNam();
+        }
+
+        private void btnTKTongDoanhThuNgay_Click_1(object sender, EventArgs e)
+        {
+            LoadTongThongKeDoanhThuTheoNgay();
+        }
+
+        private void btnTKTongDoanhThuThang_Click_1(object sender, EventArgs e)
+        {
+            LoadTongThongKeDoanhThuTheoThang();
+        }
+
+        private void btnTKTongDoanhThuNam_Click_1(object sender, EventArgs e)
+        {
+            LoadTongThongKeDoanhThuTheoNam();
+        }
+
+        // Load tổng thống kê doanh thu theo ngày
+        private void LoadTongThongKeDoanhThuTheoNgay()
+        {
+            // Lấy ngày từ DateTimePicker
+            DateTime ngay = dtpTKNgayDT.Value;
+
+            // Gọi DAO để lấy tổng doanh thu theo ngày
+            DataTable dt = DAOThongKe.Instance.GetTongDoanhThuTheoNgay(ngay);
+
+            // Debug: In ra số dòng trong DataTable để kiểm tra
+            Console.WriteLine($"Số dòng trả về: {dt.Rows.Count}");
+
+            // Kiểm tra nếu có dữ liệu
+            if (dt.Rows.Count > 0)
+            {
+                // Hiển thị tổng doanh thu lên TextBox
+                txtTKNgayDT.Text = dt.Rows[0]["TongDoanhThu"].ToString();
+            }
+            else
+            {
+                // Nếu không có dữ liệu, hiển thị thông báo
+                MessageBox.Show("Không có dữ liệu cho ngày đã chọn.");
+            }
+        }
+
+        // Load tổng thống kê doanh thu theo tháng
+        private void LoadTongThongKeDoanhThuTheoThang()
+        {
+            // Lấy tháng và năm từ DateTimePicker
+            int thang = dtpTKThangDT.Value.Month;
+            int nam = dtpTKThangDT.Value.Year;
+
+            // Gọi DAO để lấy tổng doanh thu theo tháng
+            DataTable dt = DAOThongKe.Instance.GetTongDoanhThuTheoThang(thang, nam);
+
+            // Debug: In ra số dòng trong DataTable để kiểm tra
+            Console.WriteLine($"Số dòng trả về: {dt.Rows.Count}");
+
+            // Kiểm tra nếu có dữ liệu
+            if (dt.Rows.Count > 0)
+            {
+                // Hiển thị tổng doanh thu lên TextBox
+                txtTKThangDT.Text = dt.Rows[0]["TongDoanhThu"].ToString();
+            }
+            else
+            {
+                // Nếu không có dữ liệu, hiển thị thông báo
+                MessageBox.Show("Không có dữ liệu cho tháng đã chọn.");
+            }
+        }
+
+        // Load tổng thống kê doanh thu theo năm
+        private void LoadTongThongKeDoanhThuTheoNam()
+        {
+            // Lấy năm từ DateTimePicker
+            int nam = dtpTKNamDT.Value.Year;
+
+            // Gọi DAO để lấy tổng doanh thu theo năm
+            DataTable dt = DAOThongKe.Instance.GetTongDoanhThuTheoNam(nam);
+
+            // Debug: In ra số dòng trong DataTable để kiểm tra
+            Console.WriteLine($"Số dòng trả về: {dt.Rows.Count}");
+
+            // Kiểm tra nếu có dữ liệu
+            if (dt.Rows.Count > 0)
+            {
+                // Hiển thị tổng doanh thu lên TextBox
+                txtTKNamDT.Text = dt.Rows[0]["TongDoanhThu"].ToString();
+            }
+            else
+            {
+                // Nếu không có dữ liệu, hiển thị thông báo
+                MessageBox.Show("Không có dữ liệu cho năm đã chọn.");
+            }
+        }
+
+
+        // Tổng thống kê doanh thu theo ngày
+
+
+        // Tổng thống kê doanh thu theo tháng
+
+
+        // Tổng thống kê doanh thu theo năm
+
+
+
+        //---------------------------------MAY TRAM-------------------------------//
+        //Máy nào có số giờ sử dụng nhiều nhất/ít nhất
+        private void btnTGNhieuItMT_Click(object sender, EventArgs e)
+        {
+            // Lấy tháng và năm từ các điều khiển (ví dụ: DateTimePicker)
+            int thang = dtpThangTGNhieuItMT.Value.Month;
+            int nam = dtpThangTGNhieuItMT.Value.Year;
+
+            // Gọi phương thức từ DAOThongKe để lấy dữ liệu
+            string mayTinhSuDungNhieuNhat = DAOThongKe.Instance.GetMayTinhSuDungNhieuNhat(thang, nam);
+            string mayTinhSuDungItNhat = DAOThongKe.Instance.GetMayTinhSuDungItNhat(thang, nam);
+
+            // Hiển thị kết quả lên giao diện
+            if (!string.IsNullOrEmpty(mayTinhSuDungNhieuNhat))
+            {
+                txtTGNhieuMT.Text = mayTinhSuDungNhieuNhat;
+            }
+            else
+            {
+                txtTGNhieuMT.Text = "Không có dữ liệu";
+            }
+
+            if (!string.IsNullOrEmpty(mayTinhSuDungItNhat))
+            {
+                txtTGItMT.Text = mayTinhSuDungItNhat;
+            }
+            else
+            {
+                txtTGItMT.Text = "Không có dữ liệu";
+            }
+        }
+
+        //Số giờ hoạt động của từng máy trong ngày/tháng
+        private void LoadSoGioHoatDongMayTinh()
+        {
+            // Lấy tháng và năm từ các điều khiển (ví dụ: DateTimePicker)
+            int thang = dtpGioTheoThangMT.Value.Month;
+            int nam = dtpGioTheoThangMT.Value.Year;
+
+            // Gọi phương thức từ DAOThongKe để lấy số giờ hoạt động của từng máy
+            DataTable dt = DAOThongKe.Instance.GetSoGioHoatDongMayTinh(thang, nam);
+
+            // Kiểm tra nếu không có dữ liệu
+            if (dt.Rows.Count > 0)
+            {
+                // Hiển thị dữ liệu lên DataGridView
+                dgvAllThongKe.DataSource = dt;
+            }
+            else
+            {
+                // Hiển thị thông báo nếu không có dữ liệu
+                MessageBox.Show("Không có dữ liệu cho tháng đã chọn.");
+            }
+        }
+
+
+        private void btnGioTheoThangMT_Click(object sender, EventArgs e)
+        {
+            LoadSoGioHoatDongMayTinh();
+        }
+
+        //Doanh thu theo từng máy trạm
+        private void LoadDoanhThuMayTinh()
+        {
+
+            // Lấy tháng và năm từ các điều khiển (ví dụ: DateTimePicker)
+            int thang = dtpDTTungMT.Value.Month;
+            int nam = dtpDTTungMT.Value.Year;
+
+            // Gọi phương thức từ DAOThongKe để lấy doanh thu theo từng máy
+            DataTable dt = DAOThongKe.Instance.GetDoanhThuMayTinh(thang, nam);
+
+            // Hiển thị dữ liệu lên DataGridView
+            dgvAllThongKe.DataSource = dt;
+        }
+
+        private void btnDTTungMT_Click(object sender, EventArgs e)
+        {
+            LoadDoanhThuMayTinh();
+        }
+
+        //----------------------DO AN--------------------------------//
+        private void LoadTongSoLuongDoAn()
+        {
+            DateTime startDate = dtpTKDoAnNgayBD.Value; // Lấy giá trị từ DateTimePicker bắt đầu
+            DateTime endDate = dtpTKDoAnNgayKT.Value;   // Lấy giá trị từ DateTimePicker kết thúc
+
+            // Kiểm tra nếu ngày kết thúc phải lớn hơn ngày bắt đầu
+            if (endDate < startDate)
+            {
+                MessageBox.Show("Ngày kết thúc phải lớn hơn ngày bắt đầu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Gọi phương thức từ DAO để lấy dữ liệu thống kê
+            DataTable thongKeData = DAOThongKe.Instance.GetThongKeTongSoLuongDoAn(startDate, endDate);
+
+            // Kiểm tra xem có dữ liệu hay không
+            if (thongKeData == null || thongKeData.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu thống kê trong khoảng thời gian này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Hiển thị kết quả lên DataGridView
+            dgvAllThongKe.DataSource = thongKeData;
+        }
+
+
+        private void btnTongSLDADaBan_Click_1(object sender, EventArgs e)
+        {
+            LoadTongSoLuongDoAn();
+        }
+
+        //----------------------KHACH HANG----------------------------//
+        private void LoadTenKhachHang()
+        {
+            // Gọi phương thức từ DAOThongKe để lấy danh sách tên khách hàng
+            DataTable dt = DAOThongKe.Instance.GetAllTenKhachHang();
+
+            // Kiểm tra nếu có dữ liệu
+            if (dt.Rows.Count > 0)
+            {
+                // Lấy dữ liệu tên khách hàng và thêm vào ComboBox
+                cbxTenKhachHang.DataSource = dt;
+                cbxTenKhachHang.DisplayMember = "TenKhachHang";  // Tên hiển thị trong ComboBox
+                cbxTenKhachHang.ValueMember = "TenKhachHang";  // Giá trị của ComboBox
+            }
+            else
+            {
+                // Nếu không có khách hàng, thông báo
+                MessageBox.Show("Không có dữ liệu khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            // Ban đầu vô hiệu hóa cả 3 panel
+            pnTKNgayDT.Enabled = false;
+            pnTKThangDT.Enabled = false;
+            pnTKNamDT.Enabled = false;
+
+            // Đặt màu chữ mờ cho cả 3 panel
+            pnTKNgayDT.ForeColor = Color.Gray;
+            pnTKThangDT.ForeColor = Color.Gray;
+            pnTKNamDT.ForeColor = Color.Gray;
+
+            LoadTenKhachHang();
+        }
+
+        //Khách hàng thường xuyên sử dụng dịch vụ nhất
+        private void LoadKhachHangThuongXuyen()
+        {
+            // Gọi phương thức từ DAOThongKe để lấy danh sách khách hàng sử dụng dịch vụ nhiều nhất
+            DataTable dt = DAOThongKe.Instance.GetKhachHangThuongXuyen();
+
+            // Kiểm tra nếu DataTable không rỗng
+            if (dt.Rows.Count > 0)
+            {
+                // Hiển thị dữ liệu lên DataGridView
+                dgvAllThongKe.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("Không có dữ liệu.");
+            }
+        }
+
+
+        private void btnTGDVnhieuKH_Click(object sender, EventArgs e)
+        {
+            LoadKhachHangThuongXuyen();
+        }
+
+        //Tổng số tiền khách hàng đã chi tiêu tại quán
+        private void LoadTongTienChiTieuKhachHang()
+        {
+            // Lấy tên khách hàng từ ComboBox
+            string tenKhachHang = cbxTenKhachHang.SelectedValue.ToString();
+
+            // Gọi phương thức từ DAOThongKe để lấy tổng số tiền chi tiêu của khách hàng
+            DataTable dt = DAOThongKe.Instance.GetTongTienChiTieuKhachHang(tenKhachHang);
+
+            // Kiểm tra nếu có dữ liệu
+            if (dt.Rows.Count > 0)
+            {
+                // Hiển thị dữ liệu lên DataGridView
+                dgvAllThongKe.DataSource = dt;
+            }
+            else
+            {
+                // Hiển thị thông báo nếu không có dữ liệu
+                MessageBox.Show("Không có dữ liệu cho khách hàng này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void LoadKhachHangTheoThoiGian()
+        {
+            DateTime startDate = dtpTKStartKH.Value; // Lấy giá trị từ DateTimePicker bắt đầu
+            DateTime endDate = dtpTKEndKH.Value;  // Lấy giá trị từ DateTimePicker kết thúc
+
+            // Kiểm tra nếu ngày kết thúc phải lớn hơn ngày bắt đầu
+            if (endDate < startDate)
+            {
+                MessageBox.Show("Ngày kết thúc phải lớn hơn ngày bắt đầu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Gọi DAO để lấy dữ liệu thống kê
+            DataTable thongKeData = DAOThongKe.Instance.GetThongKeDoanhThuKhachHang(startDate, endDate);
+
+            // Kiểm tra xem có dữ liệu không
+            if (thongKeData.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu thống kê trong khoảng thời gian này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                // Hiển thị dữ liệu lên DataGridView
+                dgvAllThongKe.DataSource = thongKeData;
+            }
+        }
+
+        private void btnTKXemKH_Click(object sender, EventArgs e)
+        {
+            LoadKhachHangTheoThoiGian();
+        }
+
+
+        //-------------------------------Tong ket--------------------------//
+        private void btnTKTongTieuKH_Click(object sender, EventArgs e)
+        {
+            LoadTongTienChiTieuKhachHang();
+        }
+
+        //
+        private void LoadSoLuongKhachMoi()
+        {
+            int thang = dtpThangKhachMoi.Value.Month;
+            int nam = dtpThangKhachMoi.Value.Year;
+
+            int soLuongKhachMoi = DAOThongKe.Instance.GetSoLuongKhachMoi(thang, nam);
+
+            // Kiểm tra nếu không có khách mới
+            if (soLuongKhachMoi == 0)
+            {
+                MessageBox.Show("Không có khách hàng mới trong tháng đã chọn.");
+            }
+            else
+            {
+                // Hiển thị kết quả lên TextBox
+                txtKQThangKhachMoi.Text = soLuongKhachMoi.ToString();
+            }
+        }
+
+
+        private void btnSLKhachMoi_Click(object sender, EventArgs e)
+        {
+            LoadSoLuongKhachMoi();
+        }
+
+        //Lấy danh sách tên khách hàng mới
+        private void LoadDanhSachKhachHangMoi()
+        {
+            int thang = dtpThangKhachMoi.Value.Month;
+            int nam = dtpThangKhachMoi.Value.Year;
+
+            DataTable dt = DAOThongKe.Instance.GetDanhSachKhachHangMoi(thang, nam);
+
+            if (dt.Rows.Count > 0)
+            {
+                dgvAllThongKe.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("Không có khách hàng mới trong tháng/năm này.");
+            }
+        }
+
+        private void btnChiTietSLKhachMoi_Click(object sender, EventArgs e)
+        {
+            LoadDanhSachKhachHangMoi();
+        }
+
+
+
+        private void btnTongKet_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCapNhatThongKe_Click_1(object sender, EventArgs e)
+        {
+
+            // Khởi tạo ProgressBar
+            pbHieuSuat.Minimum = 0;
+            pbHieuSuat.Maximum = 100;
+            pbHieuSuat.Step = 20;
+            pbHieuSuat.Value = 0;
+
+            // Bắt đầu chạy ProgressBar
+            for (int i = 0; i <= 100; i += 20)
+            {
+                pbHieuSuat.Value = i;
+                Thread.Sleep(100); // Giả lập quá trình load dữ liệu
+            }
+
+            // Lấy dữ liệu từ các stored procedures và cập nhật vào các TextBox
+            try
+            {
+                // Lấy Tổng doanh thu
+                string queryDoanhThu = "EXEC sp_TongDoanhThu";
+                DataTable dtDoanhThu = DataProvider.Instance.ExcuteQuery(queryDoanhThu);
+                if (dtDoanhThu.Rows.Count > 0)
+                {
+                    txtTongDoanhThu.Text = dtDoanhThu.Rows[0]["TongDoanhThu"].ToString();
+                }
+
+                // Lấy Tổng giờ sử dụng máy
+                string queryGioSuDung = "EXEC sp_TongGioSuDungMay";
+                DataTable dtGioSuDung = DataProvider.Instance.ExcuteQuery(queryGioSuDung);
+                if (dtGioSuDung.Rows.Count > 0)
+                {
+                    txtTongGioSuDung.Text = dtGioSuDung.Rows[0]["TongGioSuDungMay"].ToString();
+                }
+
+                // Lấy Tổng tiền đồ ăn
+                string queryTienDoAn = "EXEC sp_TongTienDoAn";
+                DataTable dtTienDoAn = DataProvider.Instance.ExcuteQuery(queryTienDoAn);
+                if (dtTienDoAn.Rows.Count > 0)
+                {
+                    txtTongDichVu.Text = dtTienDoAn.Rows[0]["TongTienDoAn"].ToString();
+                }
+
+                // Lấy Tổng tiền máy
+                string queryTienMay = "EXEC sp_TongTienMay";
+                DataTable dtTienMay = DataProvider.Instance.ExcuteQuery(queryTienMay);
+                if (dtTienMay.Rows.Count > 0)
+                {
+                    txtTKTongTienMay.Text = dtTienMay.Rows[0]["TongTienMay"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+
+
+
         #endregion
 
 
@@ -1044,6 +1729,7 @@ namespace CyberManagementProject
         }
         private void btnShutDownComputer_Click(object sender, EventArgs e)
         {
+            CyberManager.KhoiPhucPhienDangChay();
             MayTinhView com = flpComputer.Tag as MayTinhView;
 
             if (com == null)
@@ -1403,6 +2089,23 @@ namespace CyberManagementProject
             }
 
             tbxMoneyCost.Text = totalPrice.ToString("c", culture);
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Hiển thị MessageBox hỏi người dùng có muốn thoát hay không
+            DialogResult result = MessageBox.Show(
+                "Bạn có chắc chắn muốn đăng xuất không?",
+                "Xác nhận đăng xuất",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            // Nếu người dùng chọn "No", hủy việc đóng form
+            if (result == DialogResult.No || result == DialogResult.Cancel || result == DialogResult.None)
+            {
+                e.Cancel = true; // Hủy sự kiện đóng form
+            }
         }
     }
     #endregion
