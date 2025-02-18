@@ -116,8 +116,6 @@ namespace CyberManagementProject.DAO
                     string query = string.Format("EXEC USP_DeleteComputer @IDMayTinh = {0} ", idmay);
                     int result = DataProvider.Instance.ExcuteNonQuery(query);
                     return result > 0;
-                   
-
              }
         public bool ísTenMayTonTai(string name)
         {

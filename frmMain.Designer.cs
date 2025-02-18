@@ -1226,8 +1226,8 @@ namespace CyberManagementProject
             // 
             // tbpStaff
             // 
-            tbpStaff.Controls.Add(pnDuongDanStaff);
             tbpStaff.Controls.Add(grbQuanLyNhanVien);
+            tbpStaff.Controls.Add(pnDuongDanStaff);
             tbpStaff.Controls.Add(pnStaffControl);
             tbpStaff.Location = new Point(0, 0);
             tbpStaff.Margin = new Padding(3, 4, 3, 4);
@@ -2356,13 +2356,17 @@ namespace CyberManagementProject
             cmsKhachHang.ImageScalingSize = new Size(20, 20);
             cmsKhachHang.Items.AddRange(new ToolStripItem[] { cmsKhachHang_Them, cmsKhachHang_Nhac, cmsKhachHang_TrangChu });
             cmsKhachHang.Name = "cmsKhachHang";
-            cmsKhachHang.Size = new Size(248, 76);
+
+            cmsKhachHang.Size = new Size(213, 70);
+
             // 
             // cmsKhachHang_Them
             // 
             cmsKhachHang_Them.Name = "cmsKhachHang_Them";
             cmsKhachHang_Them.ShortcutKeys = Keys.Control | Keys.N;
-            cmsKhachHang_Them.Size = new Size(247, 24);
+
+            cmsKhachHang_Them.Size = new Size(212, 22);
+
             cmsKhachHang_Them.Text = "Thêm khách hàng";
             cmsKhachHang_Them.Click += cmsKhachHang_Them_Click;
             // 
@@ -2370,7 +2374,9 @@ namespace CyberManagementProject
             // 
             cmsKhachHang_Nhac.Name = "cmsKhachHang_Nhac";
             cmsKhachHang_Nhac.ShortcutKeys = Keys.Control | Keys.M;
-            cmsKhachHang_Nhac.Size = new Size(247, 24);
+
+            cmsKhachHang_Nhac.Size = new Size(212, 22);
+
             cmsKhachHang_Nhac.Text = "Nhạc";
             cmsKhachHang_Nhac.Click += cmsKhachHang_Nhac_Click;
             // 
@@ -2378,7 +2384,9 @@ namespace CyberManagementProject
             // 
             cmsKhachHang_TrangChu.Name = "cmsKhachHang_TrangChu";
             cmsKhachHang_TrangChu.ShortcutKeys = Keys.Control | Keys.H;
-            cmsKhachHang_TrangChu.Size = new Size(247, 24);
+
+            cmsKhachHang_TrangChu.Size = new Size(212, 22);
+
             cmsKhachHang_TrangChu.Text = "Trang chủ";
             cmsKhachHang_TrangChu.Click += cmsKhachHang_TrangChu_Click;
             // 
@@ -2387,13 +2395,17 @@ namespace CyberManagementProject
             cmsNhanVien.ImageScalingSize = new Size(20, 20);
             cmsNhanVien.Items.AddRange(new ToolStripItem[] { cmsNhanVien_Them, cmsNhanVien_Nhac, cmsNhanVien_TrangChu });
             cmsNhanVien.Name = "cmsNhanVien";
-            cmsNhanVien.Size = new Size(232, 76);
+
+            cmsNhanVien.Size = new Size(199, 70);
+
             // 
             // cmsNhanVien_Them
             // 
             cmsNhanVien_Them.Name = "cmsNhanVien_Them";
             cmsNhanVien_Them.ShortcutKeys = Keys.Alt | Keys.N;
-            cmsNhanVien_Them.Size = new Size(231, 24);
+
+            cmsNhanVien_Them.Size = new Size(198, 22);
+
             cmsNhanVien_Them.Text = "Thêm nhân viên";
             cmsNhanVien_Them.Click += cmsNhanVien_Them_Click;
             // 
@@ -2401,7 +2413,9 @@ namespace CyberManagementProject
             // 
             cmsNhanVien_Nhac.Name = "cmsNhanVien_Nhac";
             cmsNhanVien_Nhac.ShortcutKeys = Keys.Control | Keys.M;
-            cmsNhanVien_Nhac.Size = new Size(231, 24);
+
+            cmsNhanVien_Nhac.Size = new Size(198, 22);
+
             cmsNhanVien_Nhac.Text = "Nhạc";
             cmsNhanVien_Nhac.Click += cmsNhanVien_Nhac_Click;
             // 
@@ -2409,7 +2423,9 @@ namespace CyberManagementProject
             // 
             cmsNhanVien_TrangChu.Name = "cmsNhanVien_TrangChu";
             cmsNhanVien_TrangChu.ShortcutKeys = Keys.Control | Keys.H;
-            cmsNhanVien_TrangChu.Size = new Size(231, 24);
+
+            cmsNhanVien_TrangChu.Size = new Size(198, 22);
+
             cmsNhanVien_TrangChu.Text = "Trang chủ";
             cmsNhanVien_TrangChu.Click += cmsNhanVien_TrangChu_Click;
             // 

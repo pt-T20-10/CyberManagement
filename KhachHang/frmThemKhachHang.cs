@@ -24,8 +24,8 @@ namespace QuanLyQuanNet.KhachHang
             txtTaiKhoanKhachHang.Text = "Tài khoản";
             txtTaiKhoanKhachHang.ForeColor = Color.Gray;
 
-            txtMatKhauKhachHang.PasswordChar = '\0';
-            txtMatKhauKhachHang.Text = "Mật khẩu";
+            txtMatKhauKhachHang.PasswordChar = '*';//'\0';
+            txtMatKhauKhachHang.Text = "1";
             txtMatKhauKhachHang.ForeColor = Color.Gray;
 
         }
@@ -93,26 +93,33 @@ namespace QuanLyQuanNet.KhachHang
                 string tkKhachHang = txtTaiKhoanKhachHang.Text.Trim();
                 string mkKhachHang = txtMatKhauKhachHang.Text;
 
+                //Kiểm tra nếu tài khoản rỗng
+                if (string.IsNullOrWhiteSpace(tkKhachHang) || string.IsNullOrWhiteSpace(mkKhachHang) || (tkKhachHang == "Tài khoản") || (mkKhachHang == "Mật khẩu"))
+                {
+                    MessageBox.Show("Vui lòng nhập tài khoản và mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 // Kiểm tra xem tài khoản khách hàng đã tồn tại hay chưa
                 if (KhachHangDAO.Instance.IsKhachHangExists(tkKhachHang))
                 {
-                    MessageBox.Show("Tài khoản khách hàng đã tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Tài khoản khách hàng đã tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 // Nếu tài khoản chưa tồn tại, tiến hành thêm vào database
-                if (KhachHangDAO.Instance.AddKhachHang(tkKhachHang, mkKhachHang))
+                if(KhachHangDAO.Instance.AddKhachHang(tkKhachHang, mkKhachHang))
                 {
-                    MessageBox.Show("Thêm khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Thêm khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Cập nhật danh sách khách hàng trên form chính
-                    var mainForm = (frmMain)Application.OpenForms["frmMain"];
-                    mainForm.LoadKhachHang();
-                    this.Close();
+                        // Cập nhật danh sách khách hàng trên form chính
+                        var mainForm = (frmMain)Application.OpenForms["frmMain"];
+                        mainForm.LoadKhachHang();
+                        this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Thêm khách hàng thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Vui lòng nhập tài khoản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)

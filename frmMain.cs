@@ -1046,20 +1046,21 @@ namespace CyberManagementProject
                 return;
             }
 
-            string tenMay = com.TenMay;
+             string tenMay = com.TenMay;
             int idPhien = com.IDPhien ?? -1;
             DateTime timeKetThuc = DateTime.Now;
-            decimal tongTienDoAn = decimal.Parse(tbxMoneyCost.Text.Split(' ')[0].Replace(".", ""));
-            decimal tongTienNap = CyberManager.GetTongTienNap(idPhien); // Đồng bộ với CyberManager
+            double tongTienDoAn = Double.Parse(tbxMoneyCost.Text.Split(' ')[0].Replace(".", ""));
+            double tongTienNap = (double)CyberManager.GetTongTienNap(idPhien); // Đồng bộ với CyberManager
 
             if (MessageBox.Show($"Bạn có thực sự muốn tắt máy {tenMay}?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                CyberManager.KetThucPhien(idPhien, timeKetThuc, tongTienDoAn);
+                CyberManager.KetThucPhien(idPhien, timeKetThuc, (float)tongTienNap,(float)tongTienDoAn);
                 MessageBox.Show($"Đã tắt máy {tenMay}");
 
                 // Cập nhật giao diện
-                LoadComputerList();
                 LoadComputerBindingByComputer(com);
+                LoadComputerList();
+               
                 tbxMoneyAdd.Text = "0 VNĐ"; // Reset tiền nạp về 0
             }
         }
@@ -1230,6 +1231,7 @@ namespace CyberManagementProject
         {
             LoadComputerList();
             LoadButton();
+            CyberManager.KhoiPhucPhienDangChay();
 
         }
         void LoadButton()
@@ -1367,8 +1369,8 @@ namespace CyberManagementProject
                 // Lấy ID phiên của khách hàng trong máy tính hiện tại
                 int idPhien = (int)data.IDPhien;
                 tbxMoneyAdd.Text = idPhien > 0
-                    ? $"{CyberManager.GetTongTienNap(idPhien):N0} VNĐ"
-                    : "0 VNĐ";
+                    ? $"{CyberManager.GetTongTienNap(idPhien):N0} đ"
+                    : "0 đ";
             }
         }
 
