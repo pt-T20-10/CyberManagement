@@ -55,6 +55,7 @@
             // 
             // txbUserName
             // 
+            txbUserName.Font = new Font("Tahoma", 11.25F);
             txbUserName.Location = new Point(13, 38);
             txbUserName.Multiline = true;
             txbUserName.Name = "txbUserName";
@@ -86,6 +87,7 @@
             // 
             // txbPassWord
             // 
+            txbPassWord.Font = new Font("Tahoma", 11.25F);
             txbPassWord.Location = new Point(13, 40);
             txbPassWord.Multiline = true;
             txbPassWord.Name = "txbPassWord";

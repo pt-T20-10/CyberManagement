@@ -111,15 +111,15 @@ namespace CyberManagementProject
             label2 = new Label();
             label3 = new Label();
             tbpStaff = new TabPage();
-            pnDuongDanStaff = new Panel();
-            lblQuanLyNhanVien = new Label();
-            lblHome = new Label();
             grbQuanLyNhanVien = new GroupBox();
             cbxChucVu = new ComboBox();
             pnDisplayStaff = new Panel();
             flpNhanVien = new FlowLayoutPanel();
             cbxTrangThai = new ComboBox();
             txtTimKiem = new TextBox();
+            pnDuongDanStaff = new Panel();
+            lblQuanLyNhanVien = new Label();
+            lblHome = new Label();
             pnStaffControl = new Panel();
             btnThemMoi = new Button();
             btnXuatFile = new Button();
@@ -250,9 +250,9 @@ namespace CyberManagementProject
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             tbpStaff.SuspendLayout();
-            pnDuongDanStaff.SuspendLayout();
             grbQuanLyNhanVien.SuspendLayout();
             pnDisplayStaff.SuspendLayout();
+            pnDuongDanStaff.SuspendLayout();
             pnStaffControl.SuspendLayout();
             tbpStatictical.SuspendLayout();
             pnJob.SuspendLayout();
@@ -288,6 +288,7 @@ namespace CyberManagementProject
             // pnlLeft
             // 
             pnlLeft.BackColor = Color.Transparent;
+            pnlLeft.BackgroundImage = Properties.Resources.leftbar;
             pnlLeft.Controls.Add(pnStatictical);
             pnlLeft.Controls.Add(pnStaff);
             pnlLeft.Controls.Add(pnServices);
@@ -311,7 +312,7 @@ namespace CyberManagementProject
             // 
             // pictureBox12
             // 
-            pictureBox12.Image = Properties.Resources.bill;
+            pictureBox12.Image = Properties.Resources.icons8_bill_50__1_;
             pictureBox12.Location = new Point(8, 16);
             pictureBox12.Name = "pictureBox12";
             pictureBox12.Size = new Size(50, 50);
@@ -343,7 +344,8 @@ namespace CyberManagementProject
             // 
             // pictureBox11
             // 
-            pictureBox11.Image = Properties.Resources.staff;
+            pictureBox11.BackgroundImage = Properties.Resources.staff_96;
+            pictureBox11.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox11.Location = new Point(8, 16);
             pictureBox11.Name = "pictureBox11";
             pictureBox11.Size = new Size(50, 50);
@@ -375,7 +377,7 @@ namespace CyberManagementProject
             // 
             // pictureBox10
             // 
-            pictureBox10.Image = Properties.Resources.food;
+            pictureBox10.Image = Properties.Resources.icons8_sandwich_50;
             pictureBox10.Location = new Point(8, 16);
             pictureBox10.Name = "pictureBox10";
             pictureBox10.Size = new Size(50, 50);
@@ -407,7 +409,7 @@ namespace CyberManagementProject
             // 
             // pictureBox9
             // 
-            pictureBox9.Image = Properties.Resources.useracount;
+            pictureBox9.Image = Properties.Resources.icons8_account_50;
             pictureBox9.Location = new Point(8, 16);
             pictureBox9.Name = "pictureBox9";
             pictureBox9.Size = new Size(50, 50);
@@ -439,7 +441,7 @@ namespace CyberManagementProject
             // 
             // pictureBox8
             // 
-            pictureBox8.Image = Properties.Resources.monitor;
+            pictureBox8.BackgroundImage = Properties.Resources.monitor_white1;
             pictureBox8.Location = new Point(8, 16);
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new Size(50, 50);
@@ -469,6 +471,7 @@ namespace CyberManagementProject
             // pnlTitleBar
             // 
             pnlTitleBar.BackColor = Color.DarkGray;
+            pnlTitleBar.BackgroundImage = Properties.Resources.titlebar;
             pnlTitleBar.Controls.Add(pbxClose);
             pnlTitleBar.Controls.Add(flpListComputer);
             pnlTitleBar.Controls.Add(label1);
@@ -479,6 +482,7 @@ namespace CyberManagementProject
             // 
             // pbxClose
             // 
+            pbxClose.BackColor = Color.Transparent;
             pbxClose.Image = Properties.Resources.close;
             pbxClose.Location = new Point(1305, 0);
             pbxClose.Name = "pbxClose";
@@ -502,12 +506,14 @@ namespace CyberManagementProject
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(440, 8);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Tahoma", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(544, 0);
             label1.Name = "label1";
-            label1.Size = new Size(484, 32);
+            label1.Size = new Size(182, 39);
             label1.TabIndex = 1;
-            label1.Text = "Ứng dụng quản lí tiệm net Vip PROMAX";
+            label1.Text = "Cyber Hub";
             // 
             // tblMain
             // 
@@ -744,7 +750,7 @@ namespace CyberManagementProject
             // 
             // btnExtraMoney
             // 
-            btnExtraMoney.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnExtraMoney.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             btnExtraMoney.Location = new Point(160, 84);
             btnExtraMoney.Name = "btnExtraMoney";
             btnExtraMoney.Size = new Size(127, 48);
@@ -755,8 +761,8 @@ namespace CyberManagementProject
             // 
             // btnManageComputer
             // 
-            btnManageComputer.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnManageComputer.Location = new Point(0, 16);
+            btnManageComputer.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btnManageComputer.Location = new Point(8, 16);
             btnManageComputer.Name = "btnManageComputer";
             btnManageComputer.Size = new Size(127, 48);
             btnManageComputer.TabIndex = 3;
@@ -766,7 +772,7 @@ namespace CyberManagementProject
             // 
             // btnTrackComputer
             // 
-            btnTrackComputer.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnTrackComputer.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             btnTrackComputer.Location = new Point(160, 152);
             btnTrackComputer.Name = "btnTrackComputer";
             btnTrackComputer.Size = new Size(127, 48);
@@ -776,7 +782,7 @@ namespace CyberManagementProject
             // 
             // btnShutDownComputer
             // 
-            btnShutDownComputer.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnShutDownComputer.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             btnShutDownComputer.Location = new Point(160, 16);
             btnShutDownComputer.Name = "btnShutDownComputer";
             btnShutDownComputer.Size = new Size(127, 48);
@@ -787,8 +793,8 @@ namespace CyberManagementProject
             // 
             // btnAddServices
             // 
-            btnAddServices.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnAddServices.Location = new Point(0, 84);
+            btnAddServices.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btnAddServices.Location = new Point(8, 80);
             btnAddServices.Name = "btnAddServices";
             btnAddServices.Size = new Size(127, 48);
             btnAddServices.TabIndex = 6;
@@ -798,8 +804,8 @@ namespace CyberManagementProject
             // 
             // btnManageAllCom
             // 
-            btnManageAllCom.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnManageAllCom.Location = new Point(0, 152);
+            btnManageAllCom.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btnManageAllCom.Location = new Point(8, 152);
             btnManageAllCom.Name = "btnManageAllCom";
             btnManageAllCom.Size = new Size(127, 48);
             btnManageAllCom.TabIndex = 7;
@@ -824,7 +830,7 @@ namespace CyberManagementProject
             tbpAccount.Location = new Point(0, 0);
             tbpAccount.Name = "tbpAccount";
             tbpAccount.Padding = new Padding(3);
-            tbpAccount.Size = new Size(1128, 672);
+            tbpAccount.Size = new Size(1128, 675);
             tbpAccount.TabIndex = 1;
             tbpAccount.Text = "tabPage1";
             tbpAccount.UseVisualStyleBackColor = true;
@@ -982,7 +988,7 @@ namespace CyberManagementProject
             tbpServices.Location = new Point(0, 0);
             tbpServices.Name = "tbpServices";
             tbpServices.Padding = new Padding(3);
-            tbpServices.Size = new Size(1128, 672);
+            tbpServices.Size = new Size(1128, 675);
             tbpServices.TabIndex = 2;
             tbpServices.Text = "tabPage1";
             tbpServices.UseVisualStyleBackColor = true;
@@ -1104,38 +1110,10 @@ namespace CyberManagementProject
             tbpStaff.Location = new Point(0, 0);
             tbpStaff.Name = "tbpStaff";
             tbpStaff.Padding = new Padding(3);
-            tbpStaff.Size = new Size(1128, 672);
+            tbpStaff.Size = new Size(1128, 675);
             tbpStaff.TabIndex = 3;
             tbpStaff.Text = "git b";
             tbpStaff.UseVisualStyleBackColor = true;
-            // 
-            // pnDuongDanStaff
-            // 
-            pnDuongDanStaff.Controls.Add(lblQuanLyNhanVien);
-            pnDuongDanStaff.Controls.Add(lblHome);
-            pnDuongDanStaff.Location = new Point(18, 8);
-            pnDuongDanStaff.Name = "pnDuongDanStaff";
-            pnDuongDanStaff.Size = new Size(288, 48);
-            pnDuongDanStaff.TabIndex = 8;
-            // 
-            // lblQuanLyNhanVien
-            // 
-            lblQuanLyNhanVien.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblQuanLyNhanVien.Location = new Point(88, 16);
-            lblQuanLyNhanVien.Name = "lblQuanLyNhanVien";
-            lblQuanLyNhanVien.Size = new Size(168, 23);
-            lblQuanLyNhanVien.TabIndex = 6;
-            lblQuanLyNhanVien.Text = "Quản lý nhân viên";
-            // 
-            // lblHome
-            // 
-            lblHome.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblHome.Location = new Point(8, 16);
-            lblHome.Name = "lblHome";
-            lblHome.Size = new Size(88, 23);
-            lblHome.TabIndex = 6;
-            lblHome.Text = "⟲ Home >";
-            lblHome.Click += lblHome_Click;
             // 
             // grbQuanLyNhanVien
             // 
@@ -1196,6 +1174,34 @@ namespace CyberManagementProject
             txtTimKiem.TabIndex = 0;
             txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
+            // pnDuongDanStaff
+            // 
+            pnDuongDanStaff.Controls.Add(lblQuanLyNhanVien);
+            pnDuongDanStaff.Controls.Add(lblHome);
+            pnDuongDanStaff.Location = new Point(18, 8);
+            pnDuongDanStaff.Name = "pnDuongDanStaff";
+            pnDuongDanStaff.Size = new Size(288, 48);
+            pnDuongDanStaff.TabIndex = 8;
+            // 
+            // lblQuanLyNhanVien
+            // 
+            lblQuanLyNhanVien.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblQuanLyNhanVien.Location = new Point(88, 16);
+            lblQuanLyNhanVien.Name = "lblQuanLyNhanVien";
+            lblQuanLyNhanVien.Size = new Size(168, 23);
+            lblQuanLyNhanVien.TabIndex = 6;
+            lblQuanLyNhanVien.Text = "Quản lý nhân viên";
+            // 
+            // lblHome
+            // 
+            lblHome.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblHome.Location = new Point(8, 16);
+            lblHome.Name = "lblHome";
+            lblHome.Size = new Size(88, 23);
+            lblHome.TabIndex = 6;
+            lblHome.Text = "⟲ Home >";
+            lblHome.Click += lblHome_Click;
+            // 
             // pnStaffControl
             // 
             pnStaffControl.Controls.Add(btnThemMoi);
@@ -1249,7 +1255,7 @@ namespace CyberManagementProject
             tbpStatictical.Location = new Point(0, 0);
             tbpStatictical.Name = "tbpStatictical";
             tbpStatictical.Padding = new Padding(3);
-            tbpStatictical.Size = new Size(1128, 672);
+            tbpStatictical.Size = new Size(1128, 675);
             tbpStatictical.TabIndex = 4;
             tbpStatictical.Text = "tabPage1";
             tbpStatictical.UseVisualStyleBackColor = true;
@@ -1262,7 +1268,7 @@ namespace CyberManagementProject
             pnJob.Location = new Point(3, 3);
             pnJob.Margin = new Padding(1, 2, 1, 2);
             pnJob.Name = "pnJob";
-            pnJob.Size = new Size(1122, 666);
+            pnJob.Size = new Size(1122, 669);
             pnJob.TabIndex = 4;
             // 
             // pnTKKhungTK
@@ -1273,7 +1279,7 @@ namespace CyberManagementProject
             pnTKKhungTK.Location = new Point(0, 0);
             pnTKKhungTK.Margin = new Padding(2);
             pnTKKhungTK.Name = "pnTKKhungTK";
-            pnTKKhungTK.Size = new Size(1120, 664);
+            pnTKKhungTK.Size = new Size(1120, 667);
             pnTKKhungTK.TabIndex = 1;
             // 
             // gbxThongKe
@@ -2210,13 +2216,13 @@ namespace CyberManagementProject
             cmsKhachHang.ImageScalingSize = new Size(20, 20);
             cmsKhachHang.Items.AddRange(new ToolStripItem[] { cmsKhachHang_Them, cmsKhachHang_Nhac, cmsKhachHang_TrangChu });
             cmsKhachHang.Name = "cmsKhachHang";
-            cmsKhachHang.Size = new Size(213, 70);
+            cmsKhachHang.Size = new Size(214, 70);
             // 
             // cmsKhachHang_Them
             // 
             cmsKhachHang_Them.Name = "cmsKhachHang_Them";
             cmsKhachHang_Them.ShortcutKeys = Keys.Control | Keys.N;
-            cmsKhachHang_Them.Size = new Size(212, 22);
+            cmsKhachHang_Them.Size = new Size(213, 22);
             cmsKhachHang_Them.Text = "Thêm khách hàng";
             cmsKhachHang_Them.Click += cmsKhachHang_Them_Click;
             // 
@@ -2224,7 +2230,7 @@ namespace CyberManagementProject
             // 
             cmsKhachHang_Nhac.Name = "cmsKhachHang_Nhac";
             cmsKhachHang_Nhac.ShortcutKeys = Keys.Control | Keys.M;
-            cmsKhachHang_Nhac.Size = new Size(212, 22);
+            cmsKhachHang_Nhac.Size = new Size(213, 22);
             cmsKhachHang_Nhac.Text = "Nhạc";
             cmsKhachHang_Nhac.Click += cmsKhachHang_Nhac_Click;
             // 
@@ -2232,7 +2238,7 @@ namespace CyberManagementProject
             // 
             cmsKhachHang_TrangChu.Name = "cmsKhachHang_TrangChu";
             cmsKhachHang_TrangChu.ShortcutKeys = Keys.Control | Keys.H;
-            cmsKhachHang_TrangChu.Size = new Size(212, 22);
+            cmsKhachHang_TrangChu.Size = new Size(213, 22);
             cmsKhachHang_TrangChu.Text = "Trang chủ";
             cmsKhachHang_TrangChu.Click += cmsKhachHang_TrangChu_Click;
             // 
@@ -2241,13 +2247,13 @@ namespace CyberManagementProject
             cmsNhanVien.ImageScalingSize = new Size(20, 20);
             cmsNhanVien.Items.AddRange(new ToolStripItem[] { cmsNhanVien_Them, cmsNhanVien_Nhac, cmsNhanVien_TrangChu });
             cmsNhanVien.Name = "cmsNhanVien";
-            cmsNhanVien.Size = new Size(199, 70);
+            cmsNhanVien.Size = new Size(200, 70);
             // 
             // cmsNhanVien_Them
             // 
             cmsNhanVien_Them.Name = "cmsNhanVien_Them";
             cmsNhanVien_Them.ShortcutKeys = Keys.Alt | Keys.N;
-            cmsNhanVien_Them.Size = new Size(198, 22);
+            cmsNhanVien_Them.Size = new Size(199, 22);
             cmsNhanVien_Them.Text = "Thêm nhân viên";
             cmsNhanVien_Them.Click += cmsNhanVien_Them_Click;
             // 
@@ -2255,7 +2261,7 @@ namespace CyberManagementProject
             // 
             cmsNhanVien_Nhac.Name = "cmsNhanVien_Nhac";
             cmsNhanVien_Nhac.ShortcutKeys = Keys.Control | Keys.M;
-            cmsNhanVien_Nhac.Size = new Size(198, 22);
+            cmsNhanVien_Nhac.Size = new Size(199, 22);
             cmsNhanVien_Nhac.Text = "Nhạc";
             cmsNhanVien_Nhac.Click += cmsNhanVien_Nhac_Click;
             // 
@@ -2263,7 +2269,7 @@ namespace CyberManagementProject
             // 
             cmsNhanVien_TrangChu.Name = "cmsNhanVien_TrangChu";
             cmsNhanVien_TrangChu.ShortcutKeys = Keys.Control | Keys.H;
-            cmsNhanVien_TrangChu.Size = new Size(198, 22);
+            cmsNhanVien_TrangChu.Size = new Size(199, 22);
             cmsNhanVien_TrangChu.Text = "Trang chủ";
             cmsNhanVien_TrangChu.Click += cmsNhanVien_TrangChu_Click;
             // 
@@ -2329,10 +2335,10 @@ namespace CyberManagementProject
             panel3.ResumeLayout(false);
             panel1.ResumeLayout(false);
             tbpStaff.ResumeLayout(false);
-            pnDuongDanStaff.ResumeLayout(false);
             grbQuanLyNhanVien.ResumeLayout(false);
             grbQuanLyNhanVien.PerformLayout();
             pnDisplayStaff.ResumeLayout(false);
+            pnDuongDanStaff.ResumeLayout(false);
             pnStaffControl.ResumeLayout(false);
             tbpStatictical.ResumeLayout(false);
             pnJob.ResumeLayout(false);

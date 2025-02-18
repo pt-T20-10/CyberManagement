@@ -77,7 +77,7 @@ namespace CyberManagementProject.Computer
                         // 🔹 Gọi cập nhật vào database
                         PhienSuDungDAO.Instance.CapNhatTienNap(idPhien, (float)soTienNap);
 
-                        MessageBox.Show($"Nạp tiền cho {userName} vào phiên {idPhien} thành công");
+                        //MessageBox.Show($"Nạp tiền cho {userName} vào phiên {idPhien} thành công");
 
                         // 🔹 Gọi event để cập nhật giao diện nếu cần
                         //OnMoneyAdded?.Invoke(idPhien);
