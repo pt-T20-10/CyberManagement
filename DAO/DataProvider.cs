@@ -22,8 +22,9 @@ namespace CyberManagementProject.DAO
         }
 
         private DataProvider() { }
-        string connectionSTR = @"Data Source=CAKE;Initial Catalog=CyberManagement;Integrated Security=True;Trust Server Certificate=True;";
+        string connectionSTR = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=CyberManagement;Integrated Security=True;Trust Server Certificate=True;";
         //Data Source=ACER\MSSQLSERVER03;Initial Catalog=CyberManagement;Integrated Security=True;Encrypt=True;Trust Server Certificate=True;
+        //Data Source=MSI\SQLEXPRESS;Initial Catalog=CyberManagement;Integrated Security=True;Trust Server Certificate=True;
 
         public DataTable ExcuteQuery(string query, object[] parameter = null)
         {
@@ -127,5 +128,39 @@ namespace CyberManagementProject.DAO
             }
             return data;
         }
+
+        public int ExecuteNonQuery(string query, object[] parameter = null)
+        {
+            int data = 0;
+            using (SqlConnection connection = new SqlConnection(connectionSTR))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    if (parameter != null)
+                    {
+                        string[] listPara = query.Split(new char[] { ' ', ',', '(', ')', '=' }, StringSplitOptions.RemoveEmptyEntries);
+                        List<string> paramNames = listPara.Where(p => p.StartsWith("@")).Distinct().ToList();
+
+                        if (paramNames.Count != parameter.Length)
+                        {
+                            throw new ArgumentException($"Số lượng tham số không khớp! Cần: {paramNames.Count}, nhưng truyền vào: {parameter.Length}");
+                        }
+
+                        for (int i = 0; i < paramNames.Count; i++)
+                        {
+                            command.Parameters.AddWithValue(paramNames[i], parameter[i] ?? DBNull.Value);
+                        }
+                    }
+
+                    data = command.ExecuteNonQuery();
+                }
+
+                connection.Close();
+            }
+            return data;
+        }
+
     }
 }
