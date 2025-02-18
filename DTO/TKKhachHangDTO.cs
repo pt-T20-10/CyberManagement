@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace CyberManagementProject.DTO
 {
-    public class TKKhachHang
+    public class TKKhachHangDTO
     {
         private string userName;
         private double tienNap;
         private int timeLeft;
 
-        public TKKhachHang(string userName , float tienNap , int timeleft) 
+        public TKKhachHangDTO(string userName , float tienNap , int timeleft) 
         {
             this.userName = userName;
             this.tienNap = tienNap;
             this.timeLeft = timeleft;
         }
-        public TKKhachHang(DataRow row)
+        public TKKhachHangDTO(DataRow row)
         {
             this.userName = row["TKKhachHang"].ToString();
             this.TienNap = (float)Convert.ToDouble(row["TienNap"]);

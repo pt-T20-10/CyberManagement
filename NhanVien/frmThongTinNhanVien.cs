@@ -61,7 +61,7 @@ namespace QuanLyQuanNet
 
         private void btnChonAnh_Click(object sender, EventArgs e)
         {
-            string folderPath = @"D:\LapTrinhNet\TEST_PULL_PUSH\Picture";
+            string folderPath = @"D:\LapTrinhNet\CyberManagement\Picture";
 
             // Kiểm tra thư mục có tồn tại không
             if (!Directory.Exists(folderPath))
