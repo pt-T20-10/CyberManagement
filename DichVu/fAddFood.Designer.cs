@@ -32,16 +32,12 @@
             btnExt = new Button();
             btnLuu = new Button();
             cbLoai = new ComboBox();
-            txbSoLuong = new TextBox();
             txbGia = new TextBox();
             txbTenMonAn = new TextBox();
-            textBox1 = new TextBox();
-            label6 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             btnChonAnh = new Label();
-            label1 = new Label();
             ptFood = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ptFood).BeginInit();
@@ -52,25 +48,21 @@
             panel1.Controls.Add(btnExt);
             panel1.Controls.Add(btnLuu);
             panel1.Controls.Add(cbLoai);
-            panel1.Controls.Add(txbSoLuong);
             panel1.Controls.Add(txbGia);
             panel1.Controls.Add(txbTenMonAn);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(label6);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(btnChonAnh);
-            panel1.Controls.Add(label1);
             panel1.Controls.Add(ptFood);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(744, 280);
+            panel1.Size = new Size(744, 192);
             panel1.TabIndex = 0;
             // 
             // btnExt
             // 
-            btnExt.Location = new Point(472, 224);
+            btnExt.Location = new Point(472, 144);
             btnExt.Name = "btnExt";
             btnExt.Size = new Size(94, 29);
             btnExt.TabIndex = 6;
@@ -79,7 +71,7 @@
             // 
             // btnLuu
             // 
-            btnLuu.Location = new Point(600, 224);
+            btnLuu.Location = new Point(600, 144);
             btnLuu.Name = "btnLuu";
             btnLuu.Size = new Size(94, 29);
             btnLuu.TabIndex = 5;
@@ -90,22 +82,14 @@
             // cbLoai
             // 
             cbLoai.FormattingEnabled = true;
-            cbLoai.Location = new Point(360, 88);
+            cbLoai.Location = new Point(360, 56);
             cbLoai.Name = "cbLoai";
             cbLoai.Size = new Size(336, 28);
             cbLoai.TabIndex = 3;
             // 
-            // txbSoLuong
-            // 
-            txbSoLuong.Location = new Point(360, 168);
-            txbSoLuong.Name = "txbSoLuong";
-            txbSoLuong.Size = new Size(333, 27);
-            txbSoLuong.TabIndex = 4;
-            txbSoLuong.TextChanged += textBox4_TextChanged;
-            // 
             // txbGia
             // 
-            txbGia.Location = new Point(360, 128);
+            txbGia.Location = new Point(360, 96);
             txbGia.Name = "txbGia";
             txbGia.Size = new Size(333, 27);
             txbGia.TabIndex = 4;
@@ -113,32 +97,15 @@
             // 
             // txbTenMonAn
             // 
-            txbTenMonAn.Location = new Point(360, 48);
+            txbTenMonAn.Location = new Point(360, 16);
             txbTenMonAn.Name = "txbTenMonAn";
             txbTenMonAn.Size = new Size(333, 27);
             txbTenMonAn.TabIndex = 2;
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(360, 8);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(333, 27);
-            textBox1.TabIndex = 1;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(248, 176);
-            label6.Name = "label6";
-            label6.Size = new Size(72, 20);
-            label6.TabIndex = 1;
-            label6.Text = "Số Lượng";
-            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(248, 136);
+            label4.Location = new Point(248, 104);
             label4.Name = "label4";
             label4.Size = new Size(31, 20);
             label4.TabIndex = 1;
@@ -147,7 +114,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(248, 96);
+            label3.Location = new Point(248, 64);
             label3.Name = "label3";
             label3.Size = new Size(37, 20);
             label3.TabIndex = 1;
@@ -156,7 +123,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(248, 56);
+            label2.Location = new Point(248, 24);
             label2.Name = "label2";
             label2.Size = new Size(88, 20);
             label2.TabIndex = 1;
@@ -173,16 +140,6 @@
             btnChonAnh.Text = "Chọn Ảnh";
             btnChonAnh.Click += label1_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(248, 16);
-            label1.Name = "label1";
-            label1.Size = new Size(24, 20);
-            label1.TabIndex = 1;
-            label1.Text = "ID";
-            label1.Click += label1_Click;
-            // 
             // ptFood
             // 
             ptFood.BackColor = SystemColors.ActiveCaption;
@@ -196,7 +153,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(743, 267);
+            ClientSize = new Size(743, 197);
             Controls.Add(panel1);
             Name = "fAddFood";
             StartPosition = FormStartPosition.CenterScreen;
@@ -214,16 +171,12 @@
         private Label label4;
         private Label label3;
         private Label label2;
-        private Label label1;
         private PictureBox ptFood;
         private Label btnChonAnh;
         private TextBox txbGia;
         private TextBox txbTenMonAn;
-        private TextBox textBox1;
         private Button btnExt;
         private Button btnLuu;
         private ComboBox cbLoai;
-        private Label label6;
-        private TextBox txbSoLuong;
     }
 }

@@ -344,7 +344,7 @@ namespace CyberManagementProject.DAO
                 return result > 0;
             }
             
-            public bool UpdateTotalPrice1(int idHoaDon, decimal tongTien, List<string> tenMonAnList)
+            public bool UpdateTotalPrice1(int idHoaDon, decimal tongTien, List<string> tenMonAnList, List<int> SoLuongMonAnList)
             {
 
                 try
@@ -360,21 +360,46 @@ namespace CyberManagementProject.DAO
                     }
 
                     List<string> updatedTenMonAnList = new List<string>();
-                    foreach (string tenMonAn in tenMonAnList)
-                    {
-                        string detailQuery = "UPDATE HoaDon SET TenMonAn = @TenMonAn WHERE IDHoaDon = @IDHoaDon ";
-                        int result1 = DataProvider.Instance.ExecuteNonQuery(detailQuery, new object[] { tenMonAn, idHoaDon });
+                    List<int> updatedSoLuongMonAnList = new List<int>();
 
-                        // Kiểm tra nếu update thành công
+                    for (int i = 0; i < tenMonAnList.Count; i++)
+                    {
+                        string tenMonAn = tenMonAnList[i];
+                        int soLuong = SoLuongMonAnList[i]; // Lấy số lượng món ăn tương ứng
+
+                        // Thêm món ăn và số lượng vào bảng HoaDonChiTiet (nếu có)
+                        string query1 = "INSERT INTO ChiTietHoaDon (TenDoAn, SoLuong) VALUES ( @TenDoAn , @SoLuong )";
+                        int result1 = DataProvider.Instance.ExecuteNonQuery(query1, new object[] { tenMonAn, soLuong });
+
+                        // Kiểm tra nếu insert thành công
                         if (result1 <= 0)
                         {
-                            MessageBox.Show("Không tìm thấy hóa đơn với TenMonAn = " + tenMonAn);
-                            return false; // Trả về false nếu không cập nhật được tên món ăn
+                            MessageBox.Show("Không thể thêm món ăn vào hóa đơn.");
+                            return false; // Trả về false nếu không insert được
                         }
+
                         updatedTenMonAnList.Add(tenMonAn);
+                        updatedSoLuongMonAnList.Add(soLuong); // Lưu số lượng vào danh sách đã cập nhật
                     }
 
+                    // Cập nhật lại thông tin của hóa đơn sau khi thêm tất cả các món ăn
+
+                    //foreach (string tenMonAn in updatedTenMonAnList)
+                    //{
+                    //    string detailQuery = "UPDATE HoaDon SET TenMonAn = @TenMonAn WHERE IDHoaDon = @IDHoaDon ";
+                    //    int result2 = DataProvider.Instance.ExecuteNonQuery(detailQuery, new object[] { tenMonAn, idHoaDon });
+
+                    //    // Kiểm tra nếu update thành công
+                    //    if (result2 <= 0)
+                    //    {
+                    //        MessageBox.Show("Không tìm thấy hóa đơn với TenMonAn = " + tenMonAn);
+                    //        return false; // Trả về false nếu không cập nhật được tên món ăn
+                    //    }
+                    //}
+                    //string query3 = "DELETE FROM HoaDon WHERE IDHoaDon = @IDHoaDon ";
+                    //int result3 = DataProvider.Instance.ExecuteNonQuery(query3, new object[] { idHoaDon + tenMonAnList.Count });
                     return true;
+
 
                 }
                 catch (Exception ex)

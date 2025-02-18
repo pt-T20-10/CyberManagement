@@ -852,6 +852,7 @@ namespace CyberManagementProject
             if (decimal.TryParse(txbTongTien.Text, out decimal tongTien))
             {
                 List<string> tenMonAnList = new List<string>(); // Danh sách tên món ăn
+                List<int> SoLuongMonAnList = new List<int>(); // Danh sách số lượng món ăn
 
                 // Lặp qua các món trong giỏ hàng và lấy tên món từ lblFoodName
                 foreach (Control control in flpCart.Controls)
@@ -860,6 +861,7 @@ namespace CyberManagementProject
                     {
                         // Kiểm tra panel có chứa label hay không
                         Label lblFoodName = panel.Controls.OfType<Label>().FirstOrDefault();
+                        Label lblQuantity = panel.Controls.OfType<Label>().FirstOrDefault(l => l.Text.StartsWith("SL:"));
 
                         if (lblFoodName == null)
                         {
@@ -868,13 +870,21 @@ namespace CyberManagementProject
                         }
 
                         tenMonAnList.Add(lblFoodName.Text); // Lấy tên món ăn
+                        if (int.TryParse(lblQuantity.Text.Substring(3), out int quantity)) 
+                        {
+                            SoLuongMonAnList.Add(quantity);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Số lượng món ăn không hợp lệ: " + lblQuantity.Text);
+                        }
                     }
                 }
 
 
 
                 // Cập nhật tổng tiền và tên món ăn vào cơ sở dữ liệu HoaDon
-                bool success = ChiTietHoaDonDAO.Instance.UpdateTotalPrice1(idHoaDon, tongTien, tenMonAnList);
+                bool success = ChiTietHoaDonDAO.Instance.UpdateTotalPrice1(idHoaDon, tongTien, tenMonAnList, SoLuongMonAnList);
                 if (success)
                 {
                     MessageBox.Show($"Hóa đơn {idHoaDon} đã được thêm thành công ");
