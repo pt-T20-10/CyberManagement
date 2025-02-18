@@ -24,16 +24,16 @@ namespace CyberManagementProject.DAO
        private TKKhachHangDAO() { }
 
 
-        public List<TKKhachHang> GetListCategory()
+        public List<TKKhachHangDTO> GetListCategory()
         {
-            List<TKKhachHang> listAccount = new List<TKKhachHang>();
+            List<TKKhachHangDTO> listAccount = new List<TKKhachHangDTO>();
 
             string query = "SELECT * FROM TKKhachHang";
 
             DataTable data = DataProvider.Instance.ExcuteQuery(query);
             foreach (DataRow row in data.Rows)
             {
-                TKKhachHang account = new TKKhachHang(row);
+                TKKhachHangDTO account = new TKKhachHangDTO(row);
                 listAccount.Add(account);
             }
             return listAccount;

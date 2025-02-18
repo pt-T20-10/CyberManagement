@@ -31,7 +31,7 @@ namespace CyberManagementProject.Computer
 
         void Load(MayTinhView? account)
         {
-            List<TKKhachHang> listAccount = TKKhachHangDAO.Instance.GetListCategory();
+            List<TKKhachHangDTO> listAccount = TKKhachHangDAO.Instance.GetListCategory();
             cbxAddMoneyUserName.DataSource = listAccount;
             cbxAddMoneyUserName.DisplayMember = "TKKhachHang"; // Hiển thị tên khách hàng trên ComboBox
             cbxAddMoneyUserName.ValueMember = "UserName"; // Giá trị thực tế là UserName
