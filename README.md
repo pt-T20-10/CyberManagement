@@ -1,1 +1,11 @@
-﻿thêm chức năng giỏ hàng thêm vào được CSDL nhưng chấp vá chỉ thêm được tổng tiền vào Table GioHang và tên đồ ăn thì bên chi tiết hóa đơn :))
+
+﻿# CyberManagement
+
+
+
+Thêm chức năng tìm kiếm
+cap nhat thuong
+Thêm form thống kê
+Rất cay
+
+thong ke da them

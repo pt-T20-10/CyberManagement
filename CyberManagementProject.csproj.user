@@ -61,6 +61,9 @@
     <Compile Update="ThongKe\frmStatictical.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ThongKe\ThemUngDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="frmMain.resx">
