@@ -86,7 +86,7 @@
             // 
             // txbPassWord
             // 
-            txbPassWord.Location = new Point(8, 40);
+            txbPassWord.Location = new Point(13, 40);
             txbPassWord.Multiline = true;
             txbPassWord.Name = "txbPassWord";
             txbPassWord.PasswordChar = '*';

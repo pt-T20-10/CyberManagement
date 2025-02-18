@@ -287,7 +287,7 @@ namespace CyberManagementProject
             // 
             // pnlLeft
             // 
-            pnlLeft.BackColor = Color.LightCyan;
+            pnlLeft.BackColor = Color.Transparent;
             pnlLeft.Controls.Add(pnStatictical);
             pnlLeft.Controls.Add(pnStaff);
             pnlLeft.Controls.Add(pnServices);
@@ -322,10 +322,11 @@ namespace CyberManagementProject
             // label31
             // 
             label31.AutoSize = true;
-            label31.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label31.Font = new Font("Tahoma", 18F, FontStyle.Bold);
+            label31.ForeColor = SystemColors.ControlLightLight;
             label31.Location = new Point(56, 24);
             label31.Name = "label31";
-            label31.Size = new Size(116, 32);
+            label31.Size = new Size(123, 29);
             label31.TabIndex = 4;
             label31.Text = "Thống kê";
             label31.Click += label31_Click;
@@ -353,10 +354,11 @@ namespace CyberManagementProject
             // lblNhanVien
             // 
             lblNhanVien.AutoSize = true;
-            lblNhanVien.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNhanVien.Font = new Font("Tahoma", 18F, FontStyle.Bold);
+            lblNhanVien.ForeColor = SystemColors.ControlLightLight;
             lblNhanVien.Location = new Point(56, 24);
             lblNhanVien.Name = "lblNhanVien";
-            lblNhanVien.Size = new Size(125, 32);
+            lblNhanVien.Size = new Size(133, 29);
             lblNhanVien.TabIndex = 4;
             lblNhanVien.Text = "Nhân viên";
             lblNhanVien.Click += lblNhanVien_Click;
@@ -384,10 +386,11 @@ namespace CyberManagementProject
             // label29
             // 
             label29.AutoSize = true;
-            label29.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label29.Font = new Font("Tahoma", 18F, FontStyle.Bold);
+            label29.ForeColor = SystemColors.ControlLightLight;
             label29.Location = new Point(56, 24);
             label29.Name = "label29";
-            label29.Size = new Size(95, 32);
+            label29.Size = new Size(102, 29);
             label29.TabIndex = 4;
             label29.Text = "Dịch vụ";
             label29.Click += label29_Click;
@@ -415,10 +418,11 @@ namespace CyberManagementProject
             // label28
             // 
             label28.AutoSize = true;
-            label28.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label28.Font = new Font("Tahoma", 18F, FontStyle.Bold);
+            label28.ForeColor = SystemColors.ControlLightLight;
             label28.Location = new Point(64, 24);
             label28.Name = "label28";
-            label28.Size = new Size(119, 32);
+            label28.Size = new Size(129, 29);
             label28.TabIndex = 4;
             label28.Text = "Tài khoản";
             label28.Click += label28_Click;
@@ -446,10 +450,11 @@ namespace CyberManagementProject
             // label27
             // 
             label27.AutoSize = true;
-            label27.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label27.Font = new Font("Tahoma", 18F, FontStyle.Bold);
+            label27.ForeColor = SystemColors.ControlLightLight;
             label27.Location = new Point(71, 24);
             label27.Name = "label27";
-            label27.Size = new Size(111, 32);
+            label27.Size = new Size(116, 29);
             label27.TabIndex = 4;
             label27.Text = "Máy tính";
             label27.Click += label27_Click;
@@ -511,12 +516,13 @@ namespace CyberManagementProject
             tblMain.Controls.Add(tbpServices);
             tblMain.Controls.Add(tbpStaff);
             tblMain.Controls.Add(tbpStatictical);
+            tblMain.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tblMain.Location = new Point(216, 40);
-            tblMain.MaximumSize = new Size(1128, 672);
-            tblMain.MinimumSize = new Size(1128, 672);
+            tblMain.MaximumSize = new Size(1128, 675);
+            tblMain.MinimumSize = new Size(1128, 675);
             tblMain.Name = "tblMain";
             tblMain.SelectedIndex = 0;
-            tblMain.Size = new Size(1128, 672);
+            tblMain.Size = new Size(1128, 675);
             tblMain.TabIndex = 2;
             // 
             // tbpComputer
@@ -526,7 +532,7 @@ namespace CyberManagementProject
             tbpComputer.Location = new Point(0, 0);
             tbpComputer.Name = "tbpComputer";
             tbpComputer.Padding = new Padding(3);
-            tbpComputer.Size = new Size(1128, 672);
+            tbpComputer.Size = new Size(1128, 675);
             tbpComputer.TabIndex = 0;
             tbpComputer.Text = "tabPage1";
             tbpComputer.UseVisualStyleBackColor = true;
@@ -536,9 +542,9 @@ namespace CyberManagementProject
             pnComputerControl.BorderStyle = BorderStyle.FixedSingle;
             pnComputerControl.Controls.Add(gbxComputerInfor);
             pnComputerControl.Controls.Add(pnComputerButton);
-            pnComputerControl.Location = new Point(784, -8);
+            pnComputerControl.Location = new Point(784, 0);
             pnComputerControl.Name = "pnComputerControl";
-            pnComputerControl.Size = new Size(344, 688);
+            pnComputerControl.Size = new Size(344, 675);
             pnComputerControl.TabIndex = 1;
             // 
             // gbxComputerInfor
@@ -548,7 +554,7 @@ namespace CyberManagementProject
             gbxComputerInfor.Controls.Add(pnTimeCom);
             gbxComputerInfor.Controls.Add(pnTongTienCom);
             gbxComputerInfor.Controls.Add(pnUserNameCom);
-            gbxComputerInfor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            gbxComputerInfor.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbxComputerInfor.Location = new Point(8, 8);
             gbxComputerInfor.Name = "gbxComputerInfor";
             gbxComputerInfor.Size = new Size(328, 456);
@@ -594,10 +600,10 @@ namespace CyberManagementProject
             // lbStatusCom
             // 
             lbStatusCom.AutoSize = true;
-            lbStatusCom.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbStatusCom.Location = new Point(0, 16);
+            lbStatusCom.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
+            lbStatusCom.Location = new Point(0, 11);
             lbStatusCom.Name = "lbStatusCom";
-            lbStatusCom.Size = new Size(82, 20);
+            lbStatusCom.Size = new Size(89, 18);
             lbStatusCom.TabIndex = 2;
             lbStatusCom.Text = "Trạng thái:";
             // 
@@ -623,10 +629,10 @@ namespace CyberManagementProject
             // lbTimeConLai
             // 
             lbTimeConLai.AutoSize = true;
-            lbTimeConLai.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbTimeConLai.Location = new Point(0, 16);
+            lbTimeConLai.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
+            lbTimeConLai.Location = new Point(0, 11);
             lbTimeConLai.Name = "lbTimeConLai";
-            lbTimeConLai.Size = new Size(77, 20);
+            lbTimeConLai.Size = new Size(81, 18);
             lbTimeConLai.TabIndex = 2;
             lbTimeConLai.Text = "Thời gian:";
             // 
@@ -654,20 +660,20 @@ namespace CyberManagementProject
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
+            label6.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
             label6.Location = new Point(176, 8);
             label6.Name = "label6";
-            label6.Size = new Size(68, 20);
+            label6.Size = new Size(71, 18);
             label6.TabIndex = 3;
             label6.Text = "Tiền nạp";
             // 
             // lbTotalPriceDichVu
             // 
             lbTotalPriceDichVu.AutoSize = true;
-            lbTotalPriceDichVu.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbTotalPriceDichVu.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
             lbTotalPriceDichVu.Location = new Point(8, 8);
             lbTotalPriceDichVu.Name = "lbTotalPriceDichVu";
-            lbTotalPriceDichVu.Size = new Size(78, 20);
+            lbTotalPriceDichVu.Size = new Size(82, 18);
             lbTotalPriceDichVu.TabIndex = 2;
             lbTotalPriceDichVu.Text = "Tổng tiền:";
             // 
@@ -707,17 +713,17 @@ namespace CyberManagementProject
             // lbUserNameCom
             // 
             lbUserNameCom.AutoSize = true;
-            lbUserNameCom.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbUserNameCom.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
             lbUserNameCom.Location = new Point(0, 16);
             lbUserNameCom.Name = "lbUserNameCom";
-            lbUserNameCom.Size = new Size(96, 20);
+            lbUserNameCom.Size = new Size(98, 18);
             lbUserNameCom.TabIndex = 2;
             lbUserNameCom.Text = "Người dùng:";
             // 
             // tbxUserAccount
             // 
             tbxUserAccount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbxUserAccount.Location = new Point(97, 8);
+            tbxUserAccount.Location = new Point(100, 10);
             tbxUserAccount.Name = "tbxUserAccount";
             tbxUserAccount.ReadOnly = true;
             tbxUserAccount.Size = new Size(192, 29);
@@ -806,7 +812,7 @@ namespace CyberManagementProject
             flpComputer.BorderStyle = BorderStyle.FixedSingle;
             flpComputer.Location = new Point(0, 0);
             flpComputer.Name = "flpComputer";
-            flpComputer.Size = new Size(785, 672);
+            flpComputer.Size = new Size(785, 675);
             flpComputer.TabIndex = 0;
             flpComputer.Click += flpComputer_Click;
             // 
