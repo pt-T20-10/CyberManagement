@@ -50,6 +50,7 @@ namespace CyberManagementProject
             panel2 = new Panel();
             timerToggle = new System.Windows.Forms.Timer(components);
             pnlTitleBar = new Panel();
+            lblTKNhanVien = new Label();
             pbxClose = new PictureBox();
             flpListComputer = new FlowLayoutPanel();
             label1 = new Label();
@@ -533,6 +534,7 @@ namespace CyberManagementProject
             // 
             pnlTitleBar.BackColor = Color.DarkGray;
             pnlTitleBar.BackgroundImage = Properties.Resources.titlebar;
+            pnlTitleBar.Controls.Add(lblTKNhanVien);
             pnlTitleBar.Controls.Add(pbxClose);
             pnlTitleBar.Controls.Add(flpListComputer);
             pnlTitleBar.Controls.Add(label1);
@@ -540,6 +542,15 @@ namespace CyberManagementProject
             pnlTitleBar.Name = "pnlTitleBar";
             pnlTitleBar.Size = new Size(1352, 37);
             pnlTitleBar.TabIndex = 1;
+            // 
+            // lblTKNhanVien
+            // 
+            lblTKNhanVien.AutoSize = true;
+            lblTKNhanVien.Location = new Point(72, 8);
+            lblTKNhanVien.Name = "lblTKNhanVien";
+            lblTKNhanVien.Size = new Size(0, 14);
+            lblTKNhanVien.TabIndex = 4;
+            lblTKNhanVien.Visible = false;
             // 
             // pbxClose
             // 
@@ -823,14 +834,13 @@ namespace CyberManagementProject
             // 
             // btnExtraMoney
             // 
+            btnExtraMoney.AutoSize = true;
             btnExtraMoney.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             btnExtraMoney.Location = new Point(176, 67);
-            btnExtraMoney.Margin = new Padding(2);
             btnExtraMoney.Name = "btnExtraMoney";
             btnExtraMoney.Size = new Size(127, 45);
-            btnExtraMoney.TabIndex = 2;
-            btnExtraMoney.Text = "Nạp tiền";
-            btnExtraMoney.UseVisualStyleBackColor = true;
+            btnExtraMoney.TabIndex = 0;
+            btnExtraMoney.Text = "Nạp Tiền";
             btnExtraMoney.Click += btnExtraMoney_Click;
             // 
             // btnManageComputer
@@ -1290,9 +1300,9 @@ namespace CyberManagementProject
             btnThemMoi.BackColor = Color.White;
             btnThemMoi.FlatStyle = FlatStyle.Flat;
             btnThemMoi.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnThemMoi.Location = new Point(823, 40);
+            btnThemMoi.Location = new Point(848, 40);
             btnThemMoi.Name = "btnThemMoi";
-            btnThemMoi.Size = new Size(122, 36);
+            btnThemMoi.Size = new Size(136, 32);
             btnThemMoi.TabIndex = 3;
             btnThemMoi.Text = "➕ Thêm Mới";
             btnThemMoi.UseVisualStyleBackColor = false;
@@ -1303,7 +1313,7 @@ namespace CyberManagementProject
             cbxChucVu.Font = new Font("Tahoma", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxChucVu.Location = new Point(545, 40);
             cbxChucVu.Name = "cbxChucVu";
-            cbxChucVu.Size = new Size(122, 32);
+            cbxChucVu.Size = new Size(136, 32);
             cbxChucVu.TabIndex = 2;
             cbxChucVu.SelectedIndexChanged += cbxChucVu_SelectedIndexChanged_1;
             // 
@@ -1327,9 +1337,9 @@ namespace CyberManagementProject
             // 
             cbxTrangThai.Font = new Font("Tahoma", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxTrangThai.FormattingEnabled = true;
-            cbxTrangThai.Location = new Point(684, 40);
+            cbxTrangThai.Location = new Point(696, 40);
             cbxTrangThai.Name = "cbxTrangThai";
-            cbxTrangThai.Size = new Size(122, 32);
+            cbxTrangThai.Size = new Size(136, 32);
             cbxTrangThai.TabIndex = 0;
             // 
             // txtTimKiem
@@ -2785,13 +2795,13 @@ namespace CyberManagementProject
             cmsKhachHang.ImageScalingSize = new Size(20, 20);
             cmsKhachHang.Items.AddRange(new ToolStripItem[] { cmsKhachHang_Them, cmsKhachHang_Nhac, cmsKhachHang_TrangChu });
             cmsKhachHang.Name = "cmsKhachHang";
-            cmsKhachHang.Size = new Size(214, 70);
+            cmsKhachHang.Size = new Size(213, 70);
             // 
             // cmsKhachHang_Them
             // 
             cmsKhachHang_Them.Name = "cmsKhachHang_Them";
             cmsKhachHang_Them.ShortcutKeys = Keys.Control | Keys.N;
-            cmsKhachHang_Them.Size = new Size(213, 22);
+            cmsKhachHang_Them.Size = new Size(212, 22);
             cmsKhachHang_Them.Text = "Thêm khách hàng";
             cmsKhachHang_Them.Click += cmsKhachHang_Them_Click;
             // 
@@ -2799,7 +2809,7 @@ namespace CyberManagementProject
             // 
             cmsKhachHang_Nhac.Name = "cmsKhachHang_Nhac";
             cmsKhachHang_Nhac.ShortcutKeys = Keys.Control | Keys.M;
-            cmsKhachHang_Nhac.Size = new Size(213, 22);
+            cmsKhachHang_Nhac.Size = new Size(212, 22);
             cmsKhachHang_Nhac.Text = "Nhạc";
             cmsKhachHang_Nhac.Click += cmsKhachHang_Nhac_Click;
             // 
@@ -2807,7 +2817,7 @@ namespace CyberManagementProject
             // 
             cmsKhachHang_TrangChu.Name = "cmsKhachHang_TrangChu";
             cmsKhachHang_TrangChu.ShortcutKeys = Keys.Control | Keys.H;
-            cmsKhachHang_TrangChu.Size = new Size(213, 22);
+            cmsKhachHang_TrangChu.Size = new Size(212, 22);
             cmsKhachHang_TrangChu.Text = "Trang chủ";
             cmsKhachHang_TrangChu.Click += cmsKhachHang_TrangChu_Click;
             // 
@@ -2816,13 +2826,13 @@ namespace CyberManagementProject
             cmsNhanVien.ImageScalingSize = new Size(20, 20);
             cmsNhanVien.Items.AddRange(new ToolStripItem[] { cmsNhanVien_Them, cmsNhanVien_Nhac, cmsNhanVien_TrangChu });
             cmsNhanVien.Name = "cmsNhanVien";
-            cmsNhanVien.Size = new Size(200, 70);
+            cmsNhanVien.Size = new Size(199, 70);
             // 
             // cmsNhanVien_Them
             // 
             cmsNhanVien_Them.Name = "cmsNhanVien_Them";
             cmsNhanVien_Them.ShortcutKeys = Keys.Alt | Keys.N;
-            cmsNhanVien_Them.Size = new Size(199, 22);
+            cmsNhanVien_Them.Size = new Size(198, 22);
             cmsNhanVien_Them.Text = "Thêm nhân viên";
             cmsNhanVien_Them.Click += cmsNhanVien_Them_Click;
             // 
@@ -2830,7 +2840,7 @@ namespace CyberManagementProject
             // 
             cmsNhanVien_Nhac.Name = "cmsNhanVien_Nhac";
             cmsNhanVien_Nhac.ShortcutKeys = Keys.Control | Keys.M;
-            cmsNhanVien_Nhac.Size = new Size(199, 22);
+            cmsNhanVien_Nhac.Size = new Size(198, 22);
             cmsNhanVien_Nhac.Text = "Nhạc";
             cmsNhanVien_Nhac.Click += cmsNhanVien_Nhac_Click;
             // 
@@ -2838,7 +2848,7 @@ namespace CyberManagementProject
             // 
             cmsNhanVien_TrangChu.Name = "cmsNhanVien_TrangChu";
             cmsNhanVien_TrangChu.ShortcutKeys = Keys.Control | Keys.H;
-            cmsNhanVien_TrangChu.Size = new Size(199, 22);
+            cmsNhanVien_TrangChu.Size = new Size(198, 22);
             cmsNhanVien_TrangChu.Text = "Trang chủ";
             cmsNhanVien_TrangChu.Click += cmsNhanVien_TrangChu_Click;
             // 
@@ -2893,6 +2903,7 @@ namespace CyberManagementProject
             pnUserNameCom.ResumeLayout(false);
             pnUserNameCom.PerformLayout();
             pnComputerButton.ResumeLayout(false);
+            pnComputerButton.PerformLayout();
             tbpAccount.ResumeLayout(false);
             pnButtonAccount.ResumeLayout(false);
             pnDuongDanAccount.ResumeLayout(false);
@@ -3211,6 +3222,6 @@ namespace CyberManagementProject
         private FlowLayoutPanel flpCart;
         private Button btnThanhToan;
         private Button btnResetCart;
-
+        public Label lblTKNhanVien;
     }
 }

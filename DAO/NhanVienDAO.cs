@@ -97,6 +97,16 @@ namespace CyberManagementProject.DAO
         //Xóa thông tin nhân viên (Xóa nhân viên)
         public bool DeleteNhanVienByTKNhanVien(string tkNhanVien)
         {
+
+            // Lấy tài khoản nhân viên đăng nhập từ frmMain
+            frmMain mainForm = Application.OpenForms["frmMain"] as frmMain;
+            if (mainForm != null && mainForm.GetCurrentUser() == tkNhanVien)
+            {
+                MessageBox.Show("Không thể xóa tài khoản đang đăng nhập!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+
             // Câu lệnh xóa trong bảng NhanVien
             string query_NV = @" EXEC USP_XoaNhanVien @TKNhanVien ";
 

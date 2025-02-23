@@ -27,25 +27,23 @@ namespace CyberManagementProject.KhachHang
         {
             string tkKhachHang = txtTKKhachHang.Text.Trim();
             string matKhauMoi = txtMKKhachHang.Text.Trim();
+                if (string.IsNullOrEmpty(matKhauMoi))
+                {
+                    MessageBox.Show("Vui lòng nhập mật khẩu mới!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-            if (string.IsNullOrEmpty(matKhauMoi))
-            {
-                MessageBox.Show("Vui lòng nhập mật khẩu mới!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+                else if (TKKhachHangDAO.Instance.DoiMatKhauKhachHang(tkKhachHang, matKhauMoi))
+                {
+                    MessageBox.Show("Đổi mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close(); // Đóng form đổi mật khẩu
+                }
+                else
+                {
+                    MessageBox.Show("Đổi mật khẩu thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
-            if (TKKhachHangDAO.Instance.DoiMatKhauKhachHang(tkKhachHang, matKhauMoi))
-            {
-                MessageBox.Show("Đổi mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close(); // Đóng form đổi mật khẩu
-            }
-            else
-            {
-                MessageBox.Show("Đổi mật khẩu thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            MessageBox.Show(string.Format("Mật khẩu của {0} sau khi đổi là {1} ", tkKhachHang, matKhauMoi));
-
+                MessageBox.Show(string.Format("Mật khẩu của {0} sau khi đổi là {1} ", tkKhachHang, matKhauMoi));
         }
     }
 }
