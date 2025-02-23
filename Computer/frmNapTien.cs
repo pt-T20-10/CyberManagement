@@ -89,7 +89,5 @@ namespace CyberManagementProject.Computer
                 }
             }
         }
-
-
     }
 }

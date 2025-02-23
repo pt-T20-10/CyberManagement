@@ -22,7 +22,7 @@ namespace CyberManagementProject
             if (TKNhanVienDAO.Instance.Login(tkNhanVien, matKhau))
             {
                 this.Hide();
-                frmMain mainForm = new frmMain();
+                frmMain mainForm = new frmMain(tkNhanVien); // Truyền tài khoản nhân viên vào frmMain
                 mainForm.ShowDialog();
                 this.Show();
             }
@@ -30,6 +30,7 @@ namespace CyberManagementProject
             {
                 MessageBox.Show("Sai tài khoản hoặc mật khẩu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         private void frmLogin_FormClosing_1(object sender, FormClosingEventArgs e)

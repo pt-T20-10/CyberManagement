@@ -260,22 +260,31 @@ namespace QuanLyQuanNet.Customer
 
         private void btnDoiMK_Click(object sender, EventArgs e)
         {
-
-            // Tách nội dung của button (giống phương thức tìm kiếm)
-            string noiDungButton = txtIDKhachHang.Text;
-
-            // Lấy TKKhachHang từ dòng đầu tiên
-            string tkKhachHang = noiDungButton.Length > 0 ? noiDungButton.Trim() : string.Empty;
-
-            if (string.IsNullOrEmpty(tkKhachHang))
+            string tKKhachHang = tkkh;
+            if (MayTinhDAO.Instance.isKhachHangNotAvailable(tKKhachHang))
             {
-                MessageBox.Show("Không tìm thấy tài khoản khách hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tài khoản đã được đăng nhập");
                 return;
             }
+            else
+            {
+                //// Tách nội dung của button (giống phương thức tìm kiếm)
+                //string noiDungButton = txtIDKhachHang.Text;
 
-            // Mở form đổi mật khẩu và truyền TKKhachHang
-            frmDoiMatKhauKhachHang f = new frmDoiMatKhauKhachHang(tkKhachHang);
-            f.ShowDialog();
+                //// Lấy TKKhachHang từ dòng đầu tiên
+                //string tkKhachHang = noiDungButton.Length > 0 ? noiDungButton.Trim() : string.Empty;
+
+                if (string.IsNullOrEmpty(tKKhachHang))
+                {
+                    MessageBox.Show("Không tìm thấy tài khoản khách hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Mở form đổi mật khẩu và truyền TKKhachHang
+                frmDoiMatKhauKhachHang f = new frmDoiMatKhauKhachHang(tKKhachHang);
+                f.ShowDialog();
+            }
+            
         }
 
     }

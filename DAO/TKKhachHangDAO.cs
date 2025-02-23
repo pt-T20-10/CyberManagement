@@ -90,5 +90,13 @@ namespace CyberManagementProject.DAO
         }
 
 
+        public bool NapTien(string tkKhachHang, float soTien)
+        {
+            string query = "UPDATE TKKhachHang SET TienNap = TienNap + @SoTien WHERE TKKhachHang = @TKKhachHang ";
+            int result = DataProvider.Instance.ExcuteNonQuery(query, new object[] { soTien, tkKhachHang });
+            return result > 0;
+        }
+
+
     }
 }

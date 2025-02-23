@@ -89,9 +89,9 @@ namespace QuanLyQuanNet.KhachHang
 
         private void lblHome_Click(object sender, EventArgs e)
         {
-            frmMain f = new frmMain();
-            this.Close();
-            f.Show();
+           //frmMain f = new frmMain();
+           // this.Close();
+           // f.Show();
         }
     }
 }

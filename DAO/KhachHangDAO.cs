@@ -139,5 +139,13 @@ namespace CyberManagementProject.DAO
             return Convert.ToInt32(result) > 0; // Trả về true nếu tài khoản đã tồn tại
         }
 
+        public string GetNhomKhach(string tkKhachHang)
+        {
+            string query = "SELECT NhomKhach FROM KhachHang WHERE TKKhachHang = @tkKhachHang";
+            object result = DataProvider.Instance.ExcuteScalar(query, new object[] { tkKhachHang });
+            return result?.ToString() ?? "Thường";
+        }
+
+
     }
 }

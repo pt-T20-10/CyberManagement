@@ -37,6 +37,9 @@
     <Compile Update="KhachHang\frmDoiMatKhauKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="KhachHang\frmNapTienTKKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="KhachHang\frmThemKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
