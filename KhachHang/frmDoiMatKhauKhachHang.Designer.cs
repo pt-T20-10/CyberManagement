@@ -95,6 +95,7 @@
             btnDong.TabIndex = 14;
             btnDong.Text = "Đóng";
             btnDong.UseVisualStyleBackColor = true;
+            btnDong.Click += btnDong_Click;
             // 
             // frmDoiMatKhauKhachHang
             // 

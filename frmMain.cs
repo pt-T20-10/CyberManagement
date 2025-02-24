@@ -402,6 +402,11 @@ namespace CyberManagementProject
 
         #region Trung Nghĩa
         //Thêm Food
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            tblMain.SelectedTab = tbpComputer;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             fAddFood f = new fAddFood();
@@ -1605,7 +1610,6 @@ namespace CyberManagementProject
 
         #endregion
 
-
         #region Trọng Thoại
         #region Events
         private void btnToggleMenu_Click(object sender, EventArgs e)
@@ -2107,6 +2111,8 @@ namespace CyberManagementProject
                 e.Cancel = true; // Hủy sự kiện đóng form
             }
         }
+
+      
     }
     #endregion
 

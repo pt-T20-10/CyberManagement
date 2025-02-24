@@ -84,11 +84,7 @@ namespace CyberManagementProject
             btnManageAllCom = new Button();
             flpComputer = new FlowLayoutPanel();
             tbpAccount = new TabPage();
-            pnButtonAccount = new Panel();
             btnThemKhachHang = new Button();
-            btnNhap = new Button();
-            button2 = new Button();
-            btn_TroChuyen = new Button();
             pnDuongDanAccount = new Panel();
             lbCurrentAccountPage = new Label();
             lbHomeAccountPage = new Label();
@@ -205,8 +201,6 @@ namespace CyberManagementProject
             tbTKThucAn = new TabPage();
             pnTKDoAnTheoTG = new Panel();
             btnTongSLDADaBan = new Button();
-            btnDoanhThuTungMonAn = new Button();
-            btnTKDoAnBanChayNhat = new Button();
             pnKhungTKDoAnTheoTG = new Panel();
             lbTKDoANNgayKT = new Label();
             lbTKDoAnNgayBD = new Label();
@@ -279,7 +273,6 @@ namespace CyberManagementProject
             pnUserNameCom.SuspendLayout();
             pnComputerButton.SuspendLayout();
             tbpAccount.SuspendLayout();
-            pnButtonAccount.SuspendLayout();
             pnDuongDanAccount.SuspendLayout();
             grbKhachHang.SuspendLayout();
             pnTimKimAccount.SuspendLayout();
@@ -570,7 +563,7 @@ namespace CyberManagementProject
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Tahoma", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(584, 0);
+            label1.Location = new Point(584, -2);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(182, 39);
@@ -904,7 +897,6 @@ namespace CyberManagementProject
             // 
             // tbpAccount
             // 
-            tbpAccount.Controls.Add(pnButtonAccount);
             tbpAccount.Controls.Add(pnDuongDanAccount);
             tbpAccount.Controls.Add(grbKhachHang);
             tbpAccount.Location = new Point(0, 0);
@@ -915,65 +907,18 @@ namespace CyberManagementProject
             tbpAccount.Text = "tabPage1";
             tbpAccount.UseVisualStyleBackColor = true;
             // 
-            // pnButtonAccount
-            // 
-            pnButtonAccount.Controls.Add(btnThemKhachHang);
-            pnButtonAccount.Controls.Add(btnNhap);
-            pnButtonAccount.Controls.Add(button2);
-            pnButtonAccount.Controls.Add(btn_TroChuyen);
-            pnButtonAccount.Location = new Point(384, 7);
-            pnButtonAccount.Name = "pnButtonAccount";
-            pnButtonAccount.Size = new Size(740, 52);
-            pnButtonAccount.TabIndex = 10;
-            // 
             // btnThemKhachHang
             // 
             btnThemKhachHang.BackColor = Color.White;
             btnThemKhachHang.FlatStyle = FlatStyle.Flat;
             btnThemKhachHang.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnThemKhachHang.Location = new Point(192, 15);
+            btnThemKhachHang.Location = new Point(584, 8);
             btnThemKhachHang.Name = "btnThemKhachHang";
             btnThemKhachHang.Size = new Size(127, 29);
             btnThemKhachHang.TabIndex = 3;
             btnThemKhachHang.Text = "➕ Thêm Mới";
             btnThemKhachHang.UseVisualStyleBackColor = false;
             btnThemKhachHang.Click += btnThemKhachHang_Click;
-            // 
-            // btnNhap
-            // 
-            btnNhap.BackColor = Color.White;
-            btnNhap.FlatStyle = FlatStyle.Flat;
-            btnNhap.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnNhap.Location = new Point(340, 15);
-            btnNhap.Name = "btnNhap";
-            btnNhap.Size = new Size(112, 29);
-            btnNhap.TabIndex = 3;
-            btnNhap.Text = "Nhập File";
-            btnNhap.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.White;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(473, 15);
-            button2.Name = "button2";
-            button2.Size = new Size(112, 29);
-            button2.TabIndex = 3;
-            button2.Text = "Xuất File";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // btn_TroChuyen
-            // 
-            btn_TroChuyen.BackColor = Color.White;
-            btn_TroChuyen.FlatStyle = FlatStyle.Flat;
-            btn_TroChuyen.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_TroChuyen.Location = new Point(606, 15);
-            btn_TroChuyen.Name = "btn_TroChuyen";
-            btn_TroChuyen.Size = new Size(112, 29);
-            btn_TroChuyen.TabIndex = 3;
-            btn_TroChuyen.Text = "Trò Chuyện";
-            btn_TroChuyen.UseVisualStyleBackColor = false;
             // 
             // pnDuongDanAccount
             // 
@@ -1017,6 +962,7 @@ namespace CyberManagementProject
             // 
             // pnTimKimAccount
             // 
+            pnTimKimAccount.Controls.Add(btnThemKhachHang);
             pnTimKimAccount.Controls.Add(cbxNhomKhach);
             pnTimKimAccount.Controls.Add(txtTimKiemKhachHang);
             pnTimKimAccount.Location = new Point(8, 37);
@@ -1086,11 +1032,11 @@ namespace CyberManagementProject
             groupBox1.Controls.Add(txbSearch);
             groupBox1.FlatStyle = FlatStyle.System;
             groupBox1.Font = new Font("Tahoma", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(0, 40);
+            groupBox1.Location = new Point(0, 48);
             groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(2);
-            groupBox1.Size = new Size(1128, 587);
+            groupBox1.Size = new Size(1128, 579);
             groupBox1.TabIndex = 12;
             groupBox1.TabStop = false;
             groupBox1.Text = "Quản Lý Dịch Vụ";
@@ -1193,10 +1139,10 @@ namespace CyberManagementProject
             // 
             panel3.Controls.Add(button1);
             panel3.Controls.Add(button4);
-            panel3.Location = new Point(656, 8);
+            panel3.Location = new Point(656, 0);
             panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(470, 35);
+            panel3.Size = new Size(470, 48);
             panel3.TabIndex = 11;
             // 
             // button1
@@ -1204,7 +1150,7 @@ namespace CyberManagementProject
             button1.BackColor = Color.White;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
-            button1.Location = new Point(128, 0);
+            button1.Location = new Point(120, 8);
             button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(120, 33);
@@ -1218,7 +1164,7 @@ namespace CyberManagementProject
             button4.BackColor = Color.White;
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
-            button4.Location = new Point(280, 0);
+            button4.Location = new Point(272, 8);
             button4.Margin = new Padding(2);
             button4.Name = "button4";
             button4.Size = new Size(104, 33);
@@ -1234,16 +1180,16 @@ namespace CyberManagementProject
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(232, 40);
+            panel1.Size = new Size(256, 40);
             panel1.TabIndex = 10;
             // 
             // label2
             // 
             label2.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(78, 12);
+            label2.Location = new Point(96, 8);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(146, 28);
+            label2.Size = new Size(146, 20);
             label2.TabIndex = 6;
             label2.Text = "Quản lý Dịch Vụ ";
             // 
@@ -1253,9 +1199,10 @@ namespace CyberManagementProject
             label3.Location = new Point(6, 12);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(71, 18);
+            label3.Size = new Size(98, 20);
             label3.TabIndex = 6;
             label3.Text = "⟲ Home >";
+            label3.Click += label3_Click;
             // 
             // tbpStaff
             // 
@@ -1565,6 +1512,7 @@ namespace CyberManagementProject
             // dgvAllThongKe
             // 
             dgvAllThongKe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAllThongKe.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvAllThongKe.BorderStyle = BorderStyle.Fixed3D;
             dgvAllThongKe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvAllThongKe.Location = new Point(0, 0);
@@ -2263,20 +2211,18 @@ namespace CyberManagementProject
             // 
             pnTKDoAnTheoTG.BorderStyle = BorderStyle.FixedSingle;
             pnTKDoAnTheoTG.Controls.Add(btnTongSLDADaBan);
-            pnTKDoAnTheoTG.Controls.Add(btnDoanhThuTungMonAn);
-            pnTKDoAnTheoTG.Controls.Add(btnTKDoAnBanChayNhat);
             pnTKDoAnTheoTG.Controls.Add(pnKhungTKDoAnTheoTG);
             pnTKDoAnTheoTG.Controls.Add(lbTKDoAnTheoTG);
             pnTKDoAnTheoTG.Location = new Point(11, 11);
             pnTKDoAnTheoTG.Margin = new Padding(2);
             pnTKDoAnTheoTG.Name = "pnTKDoAnTheoTG";
-            pnTKDoAnTheoTG.Size = new Size(311, 317);
+            pnTKDoAnTheoTG.Size = new Size(311, 213);
             pnTKDoAnTheoTG.TabIndex = 5;
             // 
             // btnTongSLDADaBan
             // 
             btnTongSLDADaBan.Font = new Font("Tahoma", 11F);
-            btnTongSLDADaBan.Location = new Point(8, 264);
+            btnTongSLDADaBan.Location = new Point(8, 160);
             btnTongSLDADaBan.Margin = new Padding(2);
             btnTongSLDADaBan.Name = "btnTongSLDADaBan";
             btnTongSLDADaBan.Size = new Size(292, 37);
@@ -2284,28 +2230,6 @@ namespace CyberManagementProject
             btnTongSLDADaBan.Text = "Tổng số lượng bán và tổng doanh thu";
             btnTongSLDADaBan.UseVisualStyleBackColor = true;
             btnTongSLDADaBan.Click += btnTongSLDADaBan_Click_1;
-            // 
-            // btnDoanhThuTungMonAn
-            // 
-            btnDoanhThuTungMonAn.Font = new Font("Tahoma", 11F);
-            btnDoanhThuTungMonAn.Location = new Point(8, 208);
-            btnDoanhThuTungMonAn.Margin = new Padding(2);
-            btnDoanhThuTungMonAn.Name = "btnDoanhThuTungMonAn";
-            btnDoanhThuTungMonAn.Size = new Size(292, 34);
-            btnDoanhThuTungMonAn.TabIndex = 2;
-            btnDoanhThuTungMonAn.Text = "Doanh thu của từng món ăn";
-            btnDoanhThuTungMonAn.UseVisualStyleBackColor = true;
-            // 
-            // btnTKDoAnBanChayNhat
-            // 
-            btnTKDoAnBanChayNhat.Font = new Font("Tahoma", 11F);
-            btnTKDoAnBanChayNhat.Location = new Point(8, 152);
-            btnTKDoAnBanChayNhat.Margin = new Padding(2);
-            btnTKDoAnBanChayNhat.Name = "btnTKDoAnBanChayNhat";
-            btnTKDoAnBanChayNhat.Size = new Size(292, 36);
-            btnTKDoAnBanChayNhat.TabIndex = 2;
-            btnTKDoAnBanChayNhat.Text = "Món ăn bán chạy nhất";
-            btnTKDoAnBanChayNhat.UseVisualStyleBackColor = true;
             // 
             // pnKhungTKDoAnTheoTG
             // 
@@ -2894,7 +2818,6 @@ namespace CyberManagementProject
             pnUserNameCom.PerformLayout();
             pnComputerButton.ResumeLayout(false);
             tbpAccount.ResumeLayout(false);
-            pnButtonAccount.ResumeLayout(false);
             pnDuongDanAccount.ResumeLayout(false);
             grbKhachHang.ResumeLayout(false);
             pnTimKimAccount.ResumeLayout(false);
@@ -3040,11 +2963,7 @@ namespace CyberManagementProject
         private GroupBox grbQuanLyNhanVien;
         private Panel pnDisplayStaff;
         private Button btnThemMoi;
-        private Panel pnButtonAccount;
         private Button btnThemKhachHang;
-        private Button btnNhap;
-        private Button button2;
-        private Button btn_TroChuyen;
         private Panel pnDuongDanAccount;
         private Label lbCurrentAccountPage;
         private Label lbHomeAccountPage;
@@ -3162,8 +3081,6 @@ namespace CyberManagementProject
         private TabPage tbTKThucAn;
         private Panel pnTKDoAnTheoTG;
         private Button btnTongSLDADaBan;
-        private Button btnDoanhThuTungMonAn;
-        private Button btnTKDoAnBanChayNhat;
         private Panel pnKhungTKDoAnTheoTG;
         private Label lbTKDoANNgayKT;
         private Label lbTKDoAnNgayBD;

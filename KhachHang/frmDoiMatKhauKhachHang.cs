@@ -17,7 +17,7 @@ namespace CyberManagementProject.KhachHang
         public frmDoiMatKhauKhachHang(string tkKhachHang)
         {
             InitializeComponent();
-            
+
             this.tkKhachHang = tkKhachHang;
             txtTKKhachHang.Text = tkKhachHang; // Hiển thị tài khoản khách hàng
             txtTKKhachHang.Enabled = false; // Không cho chỉnh sửa
@@ -46,6 +46,11 @@ namespace CyberManagementProject.KhachHang
 
             MessageBox.Show(string.Format("Mật khẩu của {0} sau khi đổi là {1} ", tkKhachHang, matKhauMoi));
 
+        }
+
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

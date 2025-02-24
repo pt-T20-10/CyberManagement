@@ -416,7 +416,12 @@ namespace CyberManagementProject.DAO
 
         }
 
-
+        public bool FoodExists(string tenMonAn)
+        {
+            string query = "SELECT COUNT(*) FROM DoAn WHERE TenDoAn = @tenMonAn";
+            int result = (int)DataProvider.Instance.ExcuteScalar(query, new object[] { tenMonAn });
+            return result > 0;
+        }
     }
 
  }

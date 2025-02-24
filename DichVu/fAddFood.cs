@@ -86,6 +86,11 @@ namespace QuanLyQuanNet
                 return;
             }
 
+            if (FoodDAO.Instance.FoodExists(tenMonAn))
+            {
+                MessageBox.Show("Món ăn này đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             // Lưu hình ảnh nếu có chọn
             string hinhAnh = "default.png"; // Hình ảnh mặc định nếu không chọn
             if (ptFood.Image != null)
@@ -155,6 +160,11 @@ namespace QuanLyQuanNet
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnExt_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -70,6 +70,7 @@
             btnExt.TabIndex = 6;
             btnExt.Text = "Thoát";
             btnExt.UseVisualStyleBackColor = true;
+            btnExt.Click += btnExt_Click;
             // 
             // btnLuu
             // 
