@@ -23,6 +23,7 @@ using OfficeOpenXml;
 using System.IO;
 using QLQuanNET;
 using static CyberManagementProject.DAO.FoodDAO;
+using CyberManagementProject.KhachHang;
 
 
 namespace CyberManagementProject
@@ -30,9 +31,14 @@ namespace CyberManagementProject
     public partial class frmMain : Form
     {
         BindingSource computuberStatus = new BindingSource();
-        public frmMain()
+
+        private string currentUser; // Biến lưu tài khoản nhân viên đăng nhập
+        public frmMain(string tkNhanVien)
         {
             InitializeComponent();
+
+            currentUser = tkNhanVien; // Lưu tài khoản nhân viên đang đăng nhập
+
             LoadHoangNghia();
             LoadTrongThoai();
             LoadFoodList();
@@ -44,11 +50,29 @@ namespace CyberManagementProject
 
         }
 
+
         #region Hoàng Nghĩa
 
         #region Method
+
+        public string GetCurrentUser()
+        {
+            return currentUser; // Hàm lấy tài khoản nhân viên đang đăng nhập
+        }
+
+        //phương thức phân quyền
+        private void ApplyPermissions()
+        {
+            if (currentUser.ToLower() != "admin1") // Nếu không phải admin thì ẩn tab
+            {
+                pnStaff.Visible = false;  // Ẩn tab "Nhân viên"
+                pnStatictical.Visible = false; // Ẩn tab "Thống kê"
+            }
+        }
         void LoadHoangNghia()
         {
+            ApplyPermissions(); //gọi phương thức phân quyền
+
             LoadKhachHang(); //Load danh sách khách hàng khi frmMain load
 
             LoadNhanVien(); //Load danh sách nhân viên khi frmMain load
@@ -89,7 +113,7 @@ namespace CyberManagementProject
                 }
 
                 flpKhachHang.Controls.Add(btn);
-                btn.Click += btnKhachHang_Click;
+                btn.MouseDown += btnKhachHang_MouseDown;
 
             }
         }
@@ -220,24 +244,56 @@ namespace CyberManagementProject
         //button Show Khach Hang
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
+            //// Lấy thông tin khách hàng từ button đã click
+            //Button btn = sender as Button;
+            //// Tách TKKhachHang và NhomKhach từ button text
+            //string[] buttonText = btn.Text.Split('\n');
+            //string tkKhachHang = buttonText[0]; // TKKhachHang là dòng đầu tiên trên button
+
+            //// Tạo một đối tượng DTO từ TKKhachHang
+            //KhachHangDTO khachHang = KhachHangDAO.Instance.GetKhachHangDetailsByUser(tkKhachHang);
+
+            //// Nếu lấy được khách hàng, mở form chi tiết và truyền thông tin khách hàng vào
+            //if (khachHang != null)
+            //{
+            //    frmThongTinKhachHang frm = new frmThongTinKhachHang(khachHang);
+            //    frm.ShowDialog();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Không tìm thấy khách hàng!");
+            //}
+        }
+
+        private void btnKhachHang_MouseDown(object sender, MouseEventArgs e)
+        {
             // Lấy thông tin khách hàng từ button đã click
             Button btn = sender as Button;
-            // Tách TKKhachHang và NhomKhach từ button text
             string[] buttonText = btn.Text.Split('\n');
             string tkKhachHang = buttonText[0]; // TKKhachHang là dòng đầu tiên trên button
 
-            // Tạo một đối tượng DTO từ TKKhachHang
-            KhachHangDTO khachHang = KhachHangDAO.Instance.GetKhachHangDetailsByUser(tkKhachHang);
 
-            // Nếu lấy được khách hàng, mở form chi tiết và truyền thông tin khách hàng vào
-            if (khachHang != null)
+            // Nếu click chuột trái → Mở thông tin khách hàng
+            if (e.Button == MouseButtons.Left)
             {
-                frmThongTinKhachHang frm = new frmThongTinKhachHang(khachHang);
-                frm.ShowDialog();
+                KhachHangDTO khachHang = KhachHangDAO.Instance.GetKhachHangDetailsByUser(tkKhachHang);
+
+                if (khachHang != null)
+                {
+                    frmThongTinKhachHang frm = new frmThongTinKhachHang(khachHang);
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy khách hàng!");
+                }
             }
-            else
+
+            // Nếu click chuột phải → Mở form Nạp Tiền
+            else if (e.Button == MouseButtons.Right)
             {
-                MessageBox.Show("Không tìm thấy khách hàng!");
+                frmNapTienTKKhachHang frm = new frmNapTienTKKhachHang(tkKhachHang); // Truyền TKKhachHang vào form nạp tiền
+                frm.ShowDialog();
             }
         }
 
