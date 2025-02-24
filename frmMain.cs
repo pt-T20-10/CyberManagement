@@ -60,18 +60,11 @@ namespace CyberManagementProject
             return currentUser; // Hàm lấy tài khoản nhân viên đang đăng nhập
         }
 
-        //phương thức phân quyền
-        private void ApplyPermissions()
-        {
-            if (currentUser.ToLower() != "admin1") // Nếu không phải admin thì ẩn tab
-            {
-                pnStaff.Visible = false;  // Ẩn tab "Nhân viên"
-                pnStatictical.Visible = false; // Ẩn tab "Thống kê"
-            }
-        }
+
+
         void LoadHoangNghia()
         {
-            ApplyPermissions(); //gọi phương thức phân quyền
+
 
             LoadKhachHang(); //Load danh sách khách hàng khi frmMain load
 
@@ -1668,10 +1661,7 @@ namespace CyberManagementProject
 
         #region Trọng Thoại
         #region Events
-        private void btnToggleMenu_Click(object sender, EventArgs e)
-        {
-            timerToggle.Start();
-        }
+
         private void pnComputer_Click(object sender, EventArgs e)
         {
             tblMain.SelectedTab = tbpComputer;
@@ -1679,7 +1669,13 @@ namespace CyberManagementProject
 
         private void pnStaff_Click(object sender, EventArgs e)
         {
-            tblMain.SelectedTab = tbpStaff;
+            if (currentUser.ToLower() != "admin1")
+            {
+                MessageBox.Show("Bạn không có quyền truy cập!");
+                return;
+            }
+            else
+                tblMain.SelectedTab = tbpStaff;
         }
         private void pnAccount_Click(object sender, EventArgs e)
         {
@@ -1693,7 +1689,13 @@ namespace CyberManagementProject
 
         private void pnStatictical_Click(object sender, EventArgs e)
         {
-            tblMain.SelectedTab = tbpStatictical;
+            if (currentUser.ToLower() != "admin1")
+            {
+                MessageBox.Show("Bạn không có quyền truy cập!");
+                return;
+            }
+            else
+                tblMain.SelectedTab = tbpStatictical;
         }
         private void label27_Click(object sender, EventArgs e)
         {
@@ -1724,21 +1726,45 @@ namespace CyberManagementProject
         }
         private void lblNhanVien_Click(object sender, EventArgs e)
         {
-            tblMain.SelectedTab = tbpStaff;
+            if (currentUser.ToLower() != "admin1")
+            {
+                MessageBox.Show("Bạn không có quyền truy cập!");
+                return;
+            }
+            else
+                tblMain.SelectedTab = tbpStaff;
         }
 
         private void pictureBox11_Click(object sender, EventArgs e)
         {
-            tblMain.SelectedTab = tbpStaff;
+            if (currentUser.ToLower() != "admin1")
+            {
+                MessageBox.Show("Bạn không có quyền truy cập!");
+                return;
+            }
+            else
+                tblMain.SelectedTab = tbpStaff;
         }
         private void label31_Click(object sender, EventArgs e)
         {
-            tblMain.SelectedTab = tbpStatictical;
+            if (currentUser.ToLower() != "admin1")
+            {
+                MessageBox.Show("Bạn không có quyền truy cập!");
+                return;
+            }
+            else
+                tblMain.SelectedTab = tbpStatictical;
         }
 
         private void pictureBox12_Click(object sender, EventArgs e)
         {
-            tblMain.SelectedTab = tbpStatictical;
+            if (currentUser.ToLower() != "admin1")
+            {
+                MessageBox.Show("Bạn không có quyền truy cập!");
+                return;
+            }
+            else
+                tblMain.SelectedTab = tbpStatictical;
         }
         private void btnExtraMoney_Click(object sender, EventArgs e)
         {
@@ -2167,8 +2193,6 @@ namespace CyberManagementProject
                 e.Cancel = true; // Hủy sự kiện đóng form
             }
         }
-
-      
     }
     #endregion
 

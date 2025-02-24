@@ -85,12 +85,12 @@ namespace CyberManagementProject
             btnManageAllCom = new Button();
             flpComputer = new FlowLayoutPanel();
             tbpAccount = new TabPage();
-            btnThemKhachHang = new Button();
             pnDuongDanAccount = new Panel();
             lbCurrentAccountPage = new Label();
             lbHomeAccountPage = new Label();
             grbKhachHang = new GroupBox();
             pnTimKimAccount = new Panel();
+            btnThemKhachHang = new Button();
             cbxNhomKhach = new ComboBox();
             txtTimKiemKhachHang = new TextBox();
             pnDisplayAccount = new Panel();
@@ -917,19 +917,6 @@ namespace CyberManagementProject
             tbpAccount.Text = "tabPage1";
             tbpAccount.UseVisualStyleBackColor = true;
             // 
-            // btnThemKhachHang
-            // 
-            btnThemKhachHang.BackColor = Color.White;
-            btnThemKhachHang.FlatStyle = FlatStyle.Flat;
-            btnThemKhachHang.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnThemKhachHang.Location = new Point(584, 8);
-            btnThemKhachHang.Name = "btnThemKhachHang";
-            btnThemKhachHang.Size = new Size(127, 29);
-            btnThemKhachHang.TabIndex = 3;
-            btnThemKhachHang.Text = "➕ Thêm Mới";
-            btnThemKhachHang.UseVisualStyleBackColor = false;
-            btnThemKhachHang.Click += btnThemKhachHang_Click;
-            // 
             // pnDuongDanAccount
             // 
             pnDuongDanAccount.Controls.Add(lbCurrentAccountPage);
@@ -979,6 +966,19 @@ namespace CyberManagementProject
             pnTimKimAccount.Name = "pnTimKimAccount";
             pnTimKimAccount.Size = new Size(1096, 45);
             pnTimKimAccount.TabIndex = 8;
+            // 
+            // btnThemKhachHang
+            // 
+            btnThemKhachHang.BackColor = Color.White;
+            btnThemKhachHang.FlatStyle = FlatStyle.Flat;
+            btnThemKhachHang.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThemKhachHang.Location = new Point(584, 8);
+            btnThemKhachHang.Name = "btnThemKhachHang";
+            btnThemKhachHang.Size = new Size(127, 29);
+            btnThemKhachHang.TabIndex = 3;
+            btnThemKhachHang.Text = "➕ Thêm Mới";
+            btnThemKhachHang.UseVisualStyleBackColor = false;
+            btnThemKhachHang.Click += btnThemKhachHang_Click;
             // 
             // cbxNhomKhach
             // 
@@ -2719,13 +2719,13 @@ namespace CyberManagementProject
             cmsKhachHang.ImageScalingSize = new Size(20, 20);
             cmsKhachHang.Items.AddRange(new ToolStripItem[] { cmsKhachHang_Them, cmsKhachHang_Nhac, cmsKhachHang_TrangChu });
             cmsKhachHang.Name = "cmsKhachHang";
-            cmsKhachHang.Size = new Size(213, 70);
+            cmsKhachHang.Size = new Size(214, 70);
             // 
             // cmsKhachHang_Them
             // 
             cmsKhachHang_Them.Name = "cmsKhachHang_Them";
             cmsKhachHang_Them.ShortcutKeys = Keys.Control | Keys.N;
-            cmsKhachHang_Them.Size = new Size(212, 22);
+            cmsKhachHang_Them.Size = new Size(213, 22);
             cmsKhachHang_Them.Text = "Thêm khách hàng";
             cmsKhachHang_Them.Click += cmsKhachHang_Them_Click;
             // 
@@ -2733,7 +2733,7 @@ namespace CyberManagementProject
             // 
             cmsKhachHang_Nhac.Name = "cmsKhachHang_Nhac";
             cmsKhachHang_Nhac.ShortcutKeys = Keys.Control | Keys.M;
-            cmsKhachHang_Nhac.Size = new Size(212, 22);
+            cmsKhachHang_Nhac.Size = new Size(213, 22);
             cmsKhachHang_Nhac.Text = "Nhạc";
             cmsKhachHang_Nhac.Click += cmsKhachHang_Nhac_Click;
             // 
@@ -2741,7 +2741,7 @@ namespace CyberManagementProject
             // 
             cmsKhachHang_TrangChu.Name = "cmsKhachHang_TrangChu";
             cmsKhachHang_TrangChu.ShortcutKeys = Keys.Control | Keys.H;
-            cmsKhachHang_TrangChu.Size = new Size(212, 22);
+            cmsKhachHang_TrangChu.Size = new Size(213, 22);
             cmsKhachHang_TrangChu.Text = "Trang chủ";
             cmsKhachHang_TrangChu.Click += cmsKhachHang_TrangChu_Click;
             // 
@@ -2750,13 +2750,13 @@ namespace CyberManagementProject
             cmsNhanVien.ImageScalingSize = new Size(20, 20);
             cmsNhanVien.Items.AddRange(new ToolStripItem[] { cmsNhanVien_Them, cmsNhanVien_Nhac, cmsNhanVien_TrangChu });
             cmsNhanVien.Name = "cmsNhanVien";
-            cmsNhanVien.Size = new Size(199, 70);
+            cmsNhanVien.Size = new Size(200, 70);
             // 
             // cmsNhanVien_Them
             // 
             cmsNhanVien_Them.Name = "cmsNhanVien_Them";
             cmsNhanVien_Them.ShortcutKeys = Keys.Alt | Keys.N;
-            cmsNhanVien_Them.Size = new Size(198, 22);
+            cmsNhanVien_Them.Size = new Size(199, 22);
             cmsNhanVien_Them.Text = "Thêm nhân viên";
             cmsNhanVien_Them.Click += cmsNhanVien_Them_Click;
             // 
@@ -2764,7 +2764,7 @@ namespace CyberManagementProject
             // 
             cmsNhanVien_Nhac.Name = "cmsNhanVien_Nhac";
             cmsNhanVien_Nhac.ShortcutKeys = Keys.Control | Keys.M;
-            cmsNhanVien_Nhac.Size = new Size(198, 22);
+            cmsNhanVien_Nhac.Size = new Size(199, 22);
             cmsNhanVien_Nhac.Text = "Nhạc";
             cmsNhanVien_Nhac.Click += cmsNhanVien_Nhac_Click;
             // 
@@ -2772,7 +2772,7 @@ namespace CyberManagementProject
             // 
             cmsNhanVien_TrangChu.Name = "cmsNhanVien_TrangChu";
             cmsNhanVien_TrangChu.ShortcutKeys = Keys.Control | Keys.H;
-            cmsNhanVien_TrangChu.Size = new Size(198, 22);
+            cmsNhanVien_TrangChu.Size = new Size(199, 22);
             cmsNhanVien_TrangChu.Text = "Trang chủ";
             cmsNhanVien_TrangChu.Click += cmsNhanVien_TrangChu_Click;
             // 

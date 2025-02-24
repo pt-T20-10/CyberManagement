@@ -155,13 +155,18 @@
             // 
             // button1
             // 
-            button1.Location = new Point(656, 0);
+            button1.BackColor = Color.Transparent;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 128, 128);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(709, 0);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(25, 25);
             button1.TabIndex = 1;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Visible = false;
+            button1.Text = "X";
+            button1.TextAlign = ContentAlignment.TopCenter;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // frmLogin
