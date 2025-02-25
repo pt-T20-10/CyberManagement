@@ -468,7 +468,11 @@ namespace CyberManagementProject
             fViewFood f = new fViewFood();
             f.ShowDialog();
         }
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            fEditCategory f = new fEditCategory();
+            f.ShowDialog();
+        }
         //Tạo Danh Sách Thức Ăn
         private void LoadFoodList()
         {
@@ -2193,6 +2197,8 @@ namespace CyberManagementProject
                 e.Cancel = true; // Hủy sự kiện đóng form
             }
         }
+
+        
     }
     #endregion
 

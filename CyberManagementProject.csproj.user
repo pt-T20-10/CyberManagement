@@ -16,6 +16,12 @@
     <Compile Update="DichVu\DichVu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="DichVu\fAddCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DichVu\fEditCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="DichVu\fEditFood.cs">
       <SubType>Form</SubType>
     </Compile>

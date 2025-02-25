@@ -40,38 +40,34 @@
             // panel1
             // 
             panel1.Controls.Add(dtgvFood);
-            panel1.Location = new Point(0, 42);
-            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Location = new Point(0, 56);
             panel1.Name = "panel1";
-            panel1.Size = new Size(693, 294);
+            panel1.Size = new Size(792, 392);
             panel1.TabIndex = 0;
             // 
             // dtgvFood
             // 
             dtgvFood.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvFood.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvFood.Location = new Point(8, 0);
-            dtgvFood.Margin = new Padding(3, 2, 3, 2);
+            dtgvFood.Location = new Point(9, 0);
             dtgvFood.Name = "dtgvFood";
             dtgvFood.RowHeadersWidth = 51;
-            dtgvFood.Size = new Size(680, 288);
+            dtgvFood.Size = new Size(777, 384);
             dtgvFood.TabIndex = 0;
             // 
             // panel2
             // 
             panel2.Controls.Add(btnAddFood);
-            panel2.Location = new Point(8, 0);
-            panel2.Margin = new Padding(3, 2, 3, 2);
+            panel2.Location = new Point(9, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(680, 42);
+            panel2.Size = new Size(777, 56);
             panel2.TabIndex = 1;
             // 
             // btnAddFood
             // 
-            btnAddFood.Location = new Point(14, 0);
-            btnAddFood.Margin = new Padding(3, 2, 3, 2);
+            btnAddFood.Location = new Point(16, 0);
             btnAddFood.Name = "btnAddFood";
-            btnAddFood.Size = new Size(82, 42);
+            btnAddFood.Size = new Size(94, 56);
             btnAddFood.TabIndex = 0;
             btnAddFood.Text = "Thêm";
             btnAddFood.UseVisualStyleBackColor = true;
@@ -79,12 +75,11 @@
             // 
             // fViewFood
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(800, 451);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "fViewFood";
             Text = "Thực ăn";
             panel1.ResumeLayout(false);
