@@ -94,6 +94,17 @@ namespace CyberManagementProject.DAO
             int result = DataProvider.Instance.ExcuteNonQuery(query, new object[] { tkKhachHang, phutSuDung });
             return result > 0;
         }
+        //thực hiện thao tác hiển thị thông tin Khách hàng khi click vào button
+        public TKKhachHangDTO TKKhachHangDetailsByUserName(string TKKhachHang)
+        {
+            DataTable data = DataProvider.Instance.ExcuteQuery(@" EXEC USP_TKKhachHangByTKKhachHang @TKKhachHang  ", new object[] { TKKhachHang });
 
+            // Kiểm tra nếu có dữ liệu trả về
+            if (data.Rows.Count > 0)
+            {
+                return new TKKhachHangDTO(data.Rows[0]);
+            }
+            return null;
+        }
     }
 }

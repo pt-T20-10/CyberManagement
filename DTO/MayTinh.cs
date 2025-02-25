@@ -49,7 +49,7 @@ namespace CyberManagementProject.DTO
         public string? TKKhachHang { get; set; }
         public decimal? TienNap { get; set; }
         public decimal? TienConLai { get; set; }
-        public decimal? BangGia { get; set; } // Thay decimal? bằng double?
+        public decimal? BangGia { get; set; } 
 
         public MayTinhView(DataRow row)
         {

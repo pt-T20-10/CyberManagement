@@ -2093,11 +2093,11 @@ namespace CyberManagementProject
                 decimal tienConLai = com.TienConLai ?? 0; // Mặc định nếu null thì là 0
 
                 // Tính thời gian còn lại (phút)
-                double thoiGianConLai = bangGia > 0 ? (double)(tienConLai / bangGia * 60) : 0;
+                decimal thoiGianConLai = bangGia > 0 ? (decimal)(tienConLai / bangGia * 60) : 0;
 
                 Label lbTimeUsed = new Label
                 {
-                    Text = thoiGianConLai > 0 ? TimeSpan.FromMinutes(thoiGianConLai).ToString(@"hh\:mm\:ss") : "00:00:00",
+                    Text = thoiGianConLai > 0 ? TimeSpan.FromMinutes((double)thoiGianConLai).ToString(@"hh\:mm\:ss") : "00:00:00",
                     Width = pnCom.Width - 10,
                     Height = 25,
                     Location = new Point(5, lbComputerName.Bottom + 5),
@@ -2212,7 +2212,10 @@ namespace CyberManagementProject
             }
         }
 
-        
+        private void btnTrackComputer_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Tính năng đang trong quá trình phát triển!");
+        }
     }
     #endregion
 

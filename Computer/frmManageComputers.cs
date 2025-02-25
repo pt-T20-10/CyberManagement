@@ -50,30 +50,29 @@ namespace CyberManagementProject.Computer
         }
         private void btnDeleteComputer_Click(object sender, EventArgs e)
         {
-            if (!MayTinhDAO.Instance.isInUseComputer())
+            if (MayTinhDAO.Instance.isInUseComputer())
             {
                 MessageBox.Show("Còn máy đang hoạt động không thể thực hiện xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            else
+
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa máy này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
             {
                 int iDMay = int.Parse(tbxIDComputer.Text);
                 if (MayTinhDAO.Instance.DeleteComputer(iDMay))
                 {
                     MessageBox.Show("Xóa máy thành công");
                     this.Close();
-
                 }
                 else
                 {
                     MessageBox.Show("Có lỗi xảy ra khi xóa máy", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
                 }
-
-            }    
-                
-
+            }
         }
+
 
         private void btnAddComputer_Click(object sender, EventArgs e)
         {
@@ -84,7 +83,7 @@ namespace CyberManagementProject.Computer
                     : Convert.ToDouble(tbxPriceComputer.Text);
 
             string note = tbxNoteComputer.Text;
-            if (MayTinhDAO.Instance.ísTenMayTonTai(tenMay))
+            if (MayTinhDAO.Instance.isTenMayTonTai(tenMay))
             {
                 MessageBox.Show("Tên máy đã tồn tại vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -109,22 +108,33 @@ namespace CyberManagementProject.Computer
 
         private void btnUpdateComputer_Click(object sender, EventArgs e)
         {
-            int iDMay = int.Parse(tbxIDComputer.Text);
-            string tenMay = tbxNameComputer.Text;
-            double totalPrice = Convert.ToDouble(tbxPriceComputer.Text.Split(' ')[0].Replace(".", ""));
-            string note = tbxNoteComputer.Text;
-            if (MayTinhDAO.Instance.UpdateComputer(iDMay, tenMay , (float)totalPrice , note))
+            if (!MayTinhDAO.Instance.isInUseComputer())
             {
-                MessageBox.Show("Cập nhật máy thành công");
-                LoadInfoComputer(mayTinh);
-
-            }
-            else
-            {
-                MessageBox.Show("Có lỗi xảy ra khi cập nhật máy", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Còn máy đang hoạt động không thể thực hiện cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn cập nhật thông tin máy không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                int iDMay = int.Parse(tbxIDComputer.Text);
+                string tenMay = tbxNameComputer.Text;
+                double totalPrice = Convert.ToDouble(tbxPriceComputer.Text.Split(' ')[0].Replace(".", ""));
+                string note = tbxNoteComputer.Text;
+
+                if (MayTinhDAO.Instance.UpdateComputer(iDMay, tenMay, (float)totalPrice, note))
+                {
+                    MessageBox.Show("Cập nhật máy thành công");
+                    LoadInfoComputer(mayTinh);
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi xảy ra khi cập nhật máy", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
+
 
         private void btnCancelfrm_Click(object sender, EventArgs e)
         {

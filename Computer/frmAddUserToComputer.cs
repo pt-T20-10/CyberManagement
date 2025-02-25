@@ -34,20 +34,41 @@ namespace CyberManagementProject.Computer
 
         private void btnMoMay_Click(object sender, EventArgs e)
         {
-           
-            string UserName = cbxAccountUser.SelectedValue.ToString();
-            int idMay = Convert.ToInt32(MayTinh.IDMayTinh);
-            if (MayTinhDAO.Instance.isKhachHangNotAvailable(UserName))
+            string UserName = cbxAccountUser.SelectedValue?.ToString();
+            if (string.IsNullOrEmpty(UserName))
             {
-                MessageBox.Show("Tài khoản đã được đăng nhập");
-            }
-            else 
-            {
-                MessageBox.Show("Thêm người dùng vào máy thành công");
-                MayTinhDAO.Instance.InsertUser_Phien(idMay, UserName);
-                this.Close();
+                MessageBox.Show("Vui lòng chọn tài khoản.");
+                return;
             }
 
+            int idMay = MayTinh.IDMayTinh;
+            var userDetails = TKKhachHangDAO.Instance.TKKhachHangDetailsByUserName(UserName);
+
+            if (userDetails == null)
+            {
+                MessageBox.Show("Tài khoản không tồn tại.");
+                return;
+            }
+
+            if (MayTinhDAO.Instance.isKhachHangNotAvailable(UserName))
+            {
+                MessageBox.Show("Tài khoản đã được đăng nhập.");
+                return;
+            }
+
+            if (userDetails.TienConLai > 0)
+            {
+                MessageBox.Show("Thêm người dùng vào máy thành công.");
+                MayTinhDAO.Instance.InsertUser_Phien(idMay, UserName);
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Tài khoản {0} không còn đủ tiền.", UserName));
+            }
         }
+
     }
+
 }
+    
+

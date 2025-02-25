@@ -122,7 +122,7 @@ namespace CyberManagementProject.DAO
                     int result = DataProvider.Instance.ExcuteNonQuery(query);
                     return result > 0;
              }
-        public bool ísTenMayTonTai(string name)
+        public bool isTenMayTonTai(string name)
         {
            int result = (int)DataProvider.Instance.ExcuteScalar("SELECT COUNT(*) FROM MayTinh WHERE TenMay = N'" + name + "'" );
             return result > 0;
@@ -130,7 +130,7 @@ namespace CyberManagementProject.DAO
         public bool isInUseComputer()
         {
             DataTable result = DataProvider.Instance.ExcuteQuery("SELECT * FROM MayTinh WHERE TrangThai = N'Đang được sử dụng'");
-            return result.Columns.Count > 0;
+            return result.Rows.Count > 0;
         }
     }
 }

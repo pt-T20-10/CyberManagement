@@ -859,6 +859,7 @@ namespace CyberManagementProject
             btnTrackComputer.TabIndex = 4;
             btnTrackComputer.Text = "Theo dõi";
             btnTrackComputer.UseVisualStyleBackColor = true;
+            btnTrackComputer.Click += btnTrackComputer_Click;
             // 
             // btnShutDownComputer
             // 
