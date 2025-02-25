@@ -31,7 +31,7 @@ namespace CyberManagementProject.KhachHang
             }
 
             // Gọi DAO để cập nhật số tiền trong tài khoản khách hàng
-            bool result = TKKhachHangDAO.Instance.NapTien(tkKhachHang, soTien);
+            bool result = TKKhachHangDAO.Instance.NapTien( soTien,tkKhachHang);
 
             if (result)
             {

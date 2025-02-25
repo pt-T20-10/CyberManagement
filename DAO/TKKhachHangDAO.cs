@@ -4,11 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Security.Cryptography;
-using Microsoft.Data.SqlClient;
 
 namespace CyberManagementProject.DAO
 {
@@ -21,7 +19,7 @@ namespace CyberManagementProject.DAO
             get { if (instance == null) instance = new TKKhachHangDAO(); return TKKhachHangDAO.instance; }
             private set { TKKhachHangDAO.instance = value; }
         }
-       private TKKhachHangDAO() { }
+        private TKKhachHangDAO() { }
 
 
         public List<TKKhachHangDTO> GetListCategory()
@@ -38,13 +36,13 @@ namespace CyberManagementProject.DAO
             }
             return listAccount;
         }
-        public bool NapTien(float tiennap , string userName)
+        public bool NapTien(float tiennap, string userName)
         {
             string query = string.Format("EXEC USP_NapTien @TienNap  , @tkKhachHang  ");
-            int result = DataProvider.Instance.ExcuteNonQuery(query, new object[] {tiennap, userName});
+            int result = DataProvider.Instance.ExcuteNonQuery(query, new object[] { tiennap, userName });
             return result > 0;
 
-            
+
         }
 
         //đổi mật khẩu khách hàng
@@ -90,13 +88,12 @@ namespace CyberManagementProject.DAO
         }
 
 
-        public bool NapTien(string tkKhachHang, float soTien)
+        public bool CapNhatThoiGianSuDung(string tkKhachHang, int phutSuDung)
         {
-            string query = "UPDATE TKKhachHang SET TienNap = TienNap + @SoTien WHERE TKKhachHang = @TKKhachHang ";
-            int result = DataProvider.Instance.ExcuteNonQuery(query, new object[] { soTien, tkKhachHang });
+            string query = "EXEC USP_CapNhatThoiGianSuDung @TKKhachHang , @PhutSuDung";
+            int result = DataProvider.Instance.ExcuteNonQuery(query, new object[] { tkKhachHang, phutSuDung });
             return result > 0;
         }
-
 
     }
 }

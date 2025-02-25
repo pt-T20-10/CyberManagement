@@ -75,9 +75,14 @@ namespace CyberManagementProject.DAO
             string query = "EXEC USP_LoadListKhachHangAvilable";
             return DataProvider.Instance.ExcuteQuery(query);    
         }
-        public void InsertUser_Phien(int idMayTinh , string userName)
+        public int InsertUser_Phien(int idMayTinh, string userName)
         {
-            DataProvider.Instance.ExcuteQuery("EXEC USP_InsertPhienSuDung @iDMayTinh , @UserName ", new object[] {idMayTinh, userName} ); 
+            DataTable result = DataProvider.Instance.ExcuteQuery("EXEC USP_InsertPhienSuDung @iDMayTinh , @UserName", new object[] { idMayTinh, userName });
+            if (result.Rows.Count > 0)
+            {
+                return Convert.ToInt32(result.Rows[0]["IDPhien"]);
+            }
+            return -1; // Trả về -1 nếu không tìm thấy IDPhien
         }
         public bool isKhachHangNotAvailable(string userName)
         {

@@ -37,5 +37,18 @@ namespace CyberManagementProject.DAO
 
             return danhSach;
         }
+        
+            public PhienSuDung LayThongTinPhien(int idPhien)
+            {
+                string query = "EXEC USP_LayThongTinPhien @IDPhien";
+                DataTable data = DataProvider.Instance.ExcuteQuery(query, new object[] { idPhien });
+                if (data.Rows.Count > 0)
+                {
+                    return new PhienSuDung(data.Rows[0]);
+                }
+                return null;
+            }
+        
     }
+
 }

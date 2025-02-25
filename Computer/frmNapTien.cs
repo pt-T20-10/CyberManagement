@@ -35,17 +35,6 @@ namespace CyberManagementProject.Computer
             cbxAddMoneyUserName.DataSource = listAccount;
             cbxAddMoneyUserName.DisplayMember = "TKKhachHang"; // Hiển thị tên khách hàng trên ComboBox
             cbxAddMoneyUserName.ValueMember = "UserName"; // Giá trị thực tế là UserName
-            if (account?.ThoiGianConLai.HasValue == true)
-            {
-                TimeSpan timeLeft = TimeSpan.FromMinutes(account.ThoiGianConLai.Value);
-                tbxTimeLeft.Text = timeLeft.ToString(@"hh\:mm\:ss");
-            }
-            else
-            {
-                tbxTimeLeft.Text = "00:00:00"; // Hiển thị mặc định nếu không có giá trị
-            }
-            // Nếu account có giá trị thì SelectedValue = UserName, nếu không thì không chọn gì
-            cbxAddMoneyUserName.SelectedValue = account != null ? account.TKKhachHang : DBNull.Value;
         }
 
         private void btnAcceptAddMoney_Click(object sender, EventArgs e)

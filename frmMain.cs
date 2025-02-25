@@ -2085,15 +2085,22 @@ namespace CyberManagementProject
                     TextAlign = ContentAlignment.MiddleCenter
                 };
                 lbComputerName.Click += LbComputerName_Click;
-                // Tạo Label hiển thị thời gian còn lại
-                Label lbTimeUsed = new Label()
+                decimal bangGia = com.BangGia ?? 10000; // Mặc định nếu null thì lấy 10.000đ/h
+                decimal tienConLai = com.TienConLai ?? 0; // Mặc định nếu null thì là 0
+
+                // Tính thời gian còn lại (phút)
+                double thoiGianConLai = bangGia > 0 ? (double)(tienConLai / bangGia * 60) : 0;
+
+                Label lbTimeUsed = new Label
                 {
-                    Text = com.ThoiGianConLai.HasValue ? TimeSpan.FromMinutes(com.ThoiGianConLai.Value).ToString(@"hh\:mm\:ss") : "00:00:00",
+                    Text = thoiGianConLai > 0 ? TimeSpan.FromMinutes(thoiGianConLai).ToString(@"hh\:mm\:ss") : "00:00:00",
                     Width = pnCom.Width - 10,
                     Height = 25,
                     Location = new Point(5, lbComputerName.Bottom + 5),
-                    TextAlign = ContentAlignment.MiddleCenter
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Name = $"lbTimeUsed{com.IDPhien ?? 0}" // Đặt tên động
                 };
+
                 lbTimeUsed.Click += LbTimeUsed_Click;
                 // Tạo Label hiển thị tên khách hàng
                 Label lbUserName = new Label()
@@ -2139,24 +2146,31 @@ namespace CyberManagementProject
             {
                 tbxUserAccount.DataBindings.Add(new Binding("Text", computuberStatus, "TKKhachHang"));
 
-                Binding timeBinding = new Binding("Text", computuberStatus, "ThoiGianConLai", true, DataSourceUpdateMode.OnPropertyChanged);
+                // Tính thời gian còn lại dựa trên TienConLai và BangGia
+                Binding timeBinding = new Binding("Text", computuberStatus, "TienConLai", true, DataSourceUpdateMode.OnPropertyChanged);
                 timeBinding.Format += (s, e) =>
                 {
-                    if (e.Value != null && int.TryParse(e.Value.ToString(), out int totalMinutes))
+                    if (e.Value != null && decimal.TryParse(e.Value.ToString(), out decimal tienConLai))
                     {
-                        TimeSpan timeLeft = TimeSpan.FromMinutes(totalMinutes);
-                        e.Value = timeLeft.ToString(@"hh\:mm\:ss");
+                        decimal bangGia = data.BangGia ?? 10000; // Mặc định 10.000đ/h nếu null
+                        double thoiGianConLai = bangGia > 0 ? (double)(tienConLai / bangGia * 60) : 0;
+                        e.Value = TimeSpan.FromMinutes(thoiGianConLai).ToString(@"hh\:mm\:ss");
+                    }
+                    else
+                    {
+                        e.Value = "00:00:00";
                     }
                 };
                 tbxTimeLeft.DataBindings.Add(timeBinding);
 
                 // Lấy ID phiên của khách hàng trong máy tính hiện tại
-                int idPhien = (int)data.IDPhien;
+                int idPhien = data.IDPhien ?? 0;
                 tbxMoneyAdd.Text = idPhien > 0
                     ? $"{CyberManager.GetTongTienNap(idPhien):N0} đ"
                     : "0 đ";
             }
         }
+
 
         void ShowOrderedFood(int id)
         {

@@ -35,7 +35,14 @@ namespace CyberManagementProject.Computer
             CultureInfo culture = new CultureInfo("vi-VN");
             tbxIDComputer.Text = com != null ? com.IDMayTinh.ToString() : string.Empty;
             tbxNameComputer.Text = com != null ? com.TenMay.ToString() : string.Empty;
-            tbxPriceComputer.Text = com != null ? com.BangGia.ToString("c", culture) : string.Empty;
+            if (com != null && com.BangGia.HasValue)
+            {
+                tbxPriceComputer.Text = com.BangGia.Value.ToString("c", culture); // "c" là định dạng tiền tệ
+            }
+            else
+            {
+                tbxPriceComputer.Text = string.Empty;
+            }
             tbxNoteComputer.Text = com != null ? com.GhiChuMay.ToString() : string.Empty;
             btnDeleteComputer.Enabled = com != null ? true : false;
             btnUpdateComputer.Enabled = com != null ? true : false;
