@@ -206,5 +206,42 @@ namespace CyberManagementProject.DAO
             // Trả về DataTable chứa dữ liệu thống kê
             return thongKeData;
         }
+
+        //--------------------TIEN NAP-----------------//
+        // Thống kê tổng tiền nạp trong ngày
+        public DataTable ThongKeTienNap_TrongNgay(DateTime ngay)
+        {
+            string query = "EXEC ThongKeTienNap_TrongNgay @Ngay";
+            return DataProvider.Instance.ExcuteQuery(query, new object[] { ngay });
+        }
+
+
+        // Thống kê khách hàng nạp nhiều nhất trong tháng
+        public DataTable ThongKeKhachNapNhieuNhat_TrongThang(int thang, int nam)
+        {
+            string query = "EXEC ThongKeKhachNapNhieuNhat_TrongThang @Thang , @Nam";
+            return DataProvider.Instance.ExcuteQuery(query, new object[] { thang, nam });
+        }
+
+        // Thống kê tổng doanh thu từ tiền nạp theo từng tháng trong năm
+        public DataTable ThongKeTienNap_TheoThang(int nam)
+        {
+            string query = "EXEC ThongKeTienNap_TheoThang @Nam";
+            return DataProvider.Instance.ExcuteQuery(query, new object[] { nam });
+        }
+
+        // Thống kê tổng tiền nạp theo từng khách hàng
+        public DataTable ThongKeTongTienNap_TheoKhachHang()
+        {
+            string query = "EXEC ThongKeTongTienNap_TheoKhachHang";
+            return DataProvider.Instance.ExcuteQuery(query);
+        }
+
+        // Lấy danh sách 10 khách hàng có số tiền nạp cao nhất
+        public DataTable ThongKeTop10KhachNapNhieu()
+        {
+            string query = "EXEC ThongKeTop10KhachNapNhieu";
+            return DataProvider.Instance.ExcuteQuery(query);
+        }
     }
 }
