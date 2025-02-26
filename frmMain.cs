@@ -1240,7 +1240,7 @@ namespace CyberManagementProject
             if (dt.Rows.Count > 0)
             {
                 // Hiển thị tổng doanh thu lên TextBox
-                txtTKNgayDT.Text = dt.Rows[0]["TongDoanhThu"].ToString();
+                txtTKNgayDT.Text = dt.Rows[0]["Tổng Doanh Thu"].ToString();
             }
             else
             {
@@ -1266,7 +1266,7 @@ namespace CyberManagementProject
             if (dt.Rows.Count > 0)
             {
                 // Hiển thị tổng doanh thu lên TextBox
-                txtTKThangDT.Text = dt.Rows[0]["TongDoanhThu"].ToString();
+                txtTKThangDT.Text = dt.Rows[0]["Tổng Doanh Thu"].ToString();
             }
             else
             {
@@ -1291,7 +1291,7 @@ namespace CyberManagementProject
             if (dt.Rows.Count > 0)
             {
                 // Hiển thị tổng doanh thu lên TextBox
-                txtTKNamDT.Text = dt.Rows[0]["TongDoanhThu"].ToString();
+                txtTKNamDT.Text = dt.Rows[0]["Tổng Doanh Thu"].ToString();
             }
             else
             {
@@ -1459,6 +1459,18 @@ namespace CyberManagementProject
             pnTKNamDT.ForeColor = Color.Gray;
 
             LoadTenKhachHang();
+
+            // Xóa danh sách cũ nếu có
+            cbxTNChonThangKHNapNhieu.Items.Clear();
+
+            // Thêm 12 tháng vào ComboBox
+            for (int i = 1; i <= 12; i++)
+            {
+                cbxTNChonThangKHNapNhieu.Items.Add(i);
+            }
+
+            // Chọn mặc định tháng hiện tại
+            cbxTNChonThangKHNapNhieu.SelectedItem = DateTime.Now.Month;
         }
 
         //Khách hàng thường xuyên sử dụng dịch vụ nhất
@@ -1659,6 +1671,142 @@ namespace CyberManagementProject
             }
         }
 
+        //-------------------------------TIEN NAP--------------------------//
+        // Thống kê tổng tiền nạp trong ngày của tất cả khách hàng
+        private void LoadThongKeTienNap_TrongNgay()
+        {
+            DateTime ngay = dtpTKTNTrongNgay.Value; // Lấy giá trị từ DateTimePicker
+            DataTable data = DAOThongKe.Instance.ThongKeTienNap_TrongNgay(ngay);
+
+            if (data.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu nạp tiền trong ngày này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                dgvAllThongKe.DataSource = data;
+            }
+        }
+
+        private void btnTKTNTrongNgay_Click(object sender, EventArgs e)
+        {
+            LoadThongKeTienNap_TrongNgay();
+        }
+
+
+        // Tìm khách hàng nạp tiền nhiều nhất trong tháng
+        private void LoadThongKeKhachNapNhieuNhat_TrongThang()
+        {
+            // Kiểm tra ComboBox có giá trị không
+            if (cbxTNChonThangKHNapNhieu.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn tháng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Lấy giá trị tháng từ ComboBox
+            int thang = Convert.ToInt32(cbxTNChonThangKHNapNhieu.SelectedItem);
+
+            // Kiểm tra giá trị năm hợp lệ
+            int nam;
+            if (!int.TryParse(txtTNChonNamKHNapNhieu.Text, out nam))
+            {
+                MessageBox.Show("Vui lòng nhập năm hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Gọi DAO để lấy dữ liệu
+            DataTable data = DAOThongKe.Instance.ThongKeKhachNapNhieuNhat_TrongThang(thang, nam);
+
+            if (data.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu khách hàng nạp nhiều nhất trong tháng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Xóa dữ liệu trong TextBox nếu không có dữ liệu
+                txtTNTenKHNapNhieu.Text = "";
+                txtTongKHNapNhieu.Text = "";
+            }
+            else
+            {
+                dgvAllThongKe.DataSource = data;
+
+                // Hiển thị khách hàng nạp nhiều nhất lên TextBox
+                txtTNTenKHNapNhieu.Text = data.Rows[0]["TKKhachHang"].ToString();
+
+                // Hiển thị tổng doanh thu lên TextBox
+                txtTongKHNapNhieu.Text = data.Rows[0]["TongTienNap"].ToString();
+            }
+        }
+
+        private void btnTNKHNapNhieu_Click(object sender, EventArgs e)
+        {
+            LoadThongKeKhachNapNhieuNhat_TrongThang();
+        }
+
+        // Thống kê tổng doanh thu từ tiền nạp theo từng tháng trong năm
+        private void LoadThongKeTienNap_TheoThang()
+        {
+            // Kiểm tra nếu người dùng chưa nhập hoặc nhập sai định dạng năm
+            int nam;
+            if (!int.TryParse(txtTNNhapNam.Text, out nam))
+            {
+                MessageBox.Show("Vui lòng nhập năm hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Gọi DAO để lấy dữ liệu thống kê
+            DataTable data = DAOThongKe.Instance.ThongKeTienNap_TheoThang(nam);
+
+            if (data.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu tổng tiền nạp trong năm này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                dgvAllThongKe.DataSource = data;
+            }
+        }
+
+        private void btbTNTungThang_Click(object sender, EventArgs e)
+        {
+            LoadThongKeTienNap_TheoThang();
+        }
+
+        // Thống kê tổng tiền nạp theo từng khách hàng và Thống kê 10 khách hàng nạp tiền nhiều nhất
+        private void LoadThongKe()
+        {
+            if (cbxChonLoaiTNTK.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn một chức năng thống kê!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string selectedOption = cbxChonLoaiTNTK.SelectedItem.ToString();
+            DataTable data = new DataTable();
+
+            if (selectedOption == "Tổng tiền nạp của tất cả khách hàng")
+            {
+                data = DAOThongKe.Instance.ThongKeTongTienNap_TheoKhachHang();
+            }
+            else if (selectedOption == "TOP khách hàng nạp tiền nhiều nhất")
+            {
+                data = DAOThongKe.Instance.ThongKeTop10KhachNapNhieu();
+            }
+
+            if (data.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu thống kê!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                dgvAllThongKe.DataSource = data;
+            }
+        }
+
+        private void btnTNTKKhac_Click(object sender, EventArgs e)
+        {
+            LoadThongKe();
+        }
 
 
         #endregion
@@ -2216,6 +2364,8 @@ namespace CyberManagementProject
         {
             MessageBox.Show("Tính năng đang trong quá trình phát triển!");
         }
+
+        
     }
     #endregion
 
