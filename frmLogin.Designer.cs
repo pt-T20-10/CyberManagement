@@ -39,7 +39,7 @@
             btnLogin = new Button();
             lbTitle = new Label();
             pnLogin = new Panel();
-            button1 = new Button();
+            btnExit = new Button();
             pnUserName.SuspendLayout();
             pnPassWord.SuspendLayout();
             pnLogin.SuspendLayout();
@@ -153,21 +153,21 @@
             pnLogin.Size = new Size(604, 362);
             pnLogin.TabIndex = 3;
             // 
-            // button1
+            // btnExit
             // 
-            button1.BackColor = Color.Transparent;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 128, 128);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(709, 0);
-            button1.Name = "button1";
-            button1.Size = new Size(25, 25);
-            button1.TabIndex = 1;
-            button1.Text = "X";
-            button1.TextAlign = ContentAlignment.TopCenter;
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnExit.BackColor = Color.Transparent;
+            btnExit.FlatAppearance.BorderSize = 0;
+            btnExit.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 128, 128);
+            btnExit.FlatStyle = FlatStyle.Flat;
+            btnExit.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExit.Location = new Point(709, 0);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(25, 25);
+            btnExit.TabIndex = 1;
+            btnExit.Text = "X";
+            btnExit.TextAlign = ContentAlignment.TopCenter;
+            btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += button1_Click;
             // 
             // frmLogin
             // 
@@ -175,9 +175,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            CancelButton = button1;
+            CancelButton = btnExit;
             ClientSize = new Size(734, 400);
-            Controls.Add(button1);
+            Controls.Add(btnExit);
             Controls.Add(pnLogin);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmLogin";
@@ -206,6 +206,6 @@
         private Button btnLogin;
         private Label lbTitle;
         private Panel pnLogin;
-        private Button button1;
+        private Button btnExit;
     }
 }

@@ -63,6 +63,7 @@
             txtMKKhachHang.Location = new Point(120, 72);
             txtMKKhachHang.Multiline = true;
             txtMKKhachHang.Name = "txtMKKhachHang";
+            txtMKKhachHang.PasswordChar = '*';
             txtMKKhachHang.Size = new Size(272, 40);
             txtMKKhachHang.TabIndex = 11;
             // 
