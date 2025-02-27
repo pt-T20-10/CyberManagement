@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddDichVuToCom));
             btnAcceptAddDVtoCom = new Button();
             btnCancelAddDVtoCom = new Button();
             cbxAddToComLoaiMon = new ComboBox();
@@ -131,6 +132,7 @@
             Controls.Add(cbxAddToComLoaiMon);
             Controls.Add(btnCancelAddDVtoCom);
             Controls.Add(btnAcceptAddDVtoCom);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmAddDichVuToCom";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Thêm dịch vụ";

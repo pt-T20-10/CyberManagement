@@ -83,6 +83,16 @@ namespace CyberManagementProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap App_icon {
+            get {
+                object obj = ResourceManager.GetObject("App_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap background {
             get {
                 object obj = ResourceManager.GetObject("background", resourceCulture);
@@ -246,6 +256,16 @@ namespace CyberManagementProject.Properties {
         internal static System.Drawing.Bitmap monitor_white1 {
             get {
                 object obj = ResourceManager.GetObject("monitor_white1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nen_HN {
+            get {
+                object obj = ResourceManager.GetObject("nen_HN", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

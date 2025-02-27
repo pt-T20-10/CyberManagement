@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNapTienTKKhachHang));
             groupBox1 = new GroupBox();
             cbxAddMoneyUserName = new ComboBox();
             btnAcceptAddMoney = new Button();
@@ -105,6 +106,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(264, 257);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmNapTienTKKhachHang";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Nạp Tiền";

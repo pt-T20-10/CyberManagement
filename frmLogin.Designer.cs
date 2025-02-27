@@ -62,7 +62,7 @@
             txbUserName.Name = "txbUserName";
             txbUserName.Size = new Size(358, 30);
             txbUserName.TabIndex = 2;
-            txbUserName.Text = "admin1";
+            txbUserName.Text = "admin";
             // 
             // lbUserName
             // 
@@ -174,12 +174,13 @@
             AcceptButton = btnLogin;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImage = Properties.Resources.nen_HN;
             CancelButton = button1;
             ClientSize = new Size(734, 400);
             Controls.Add(button1);
             Controls.Add(pnLogin);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cyber Management";

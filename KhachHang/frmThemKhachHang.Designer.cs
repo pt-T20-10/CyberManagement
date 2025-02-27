@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemKhachHang));
             gbxThemKhachHang = new GroupBox();
             btnHuyBo = new Button();
             btnDongY = new Button();
@@ -117,6 +118,7 @@
             CancelButton = btnHuyBo;
             ClientSize = new Size(446, 309);
             Controls.Add(gbxThemKhachHang);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmThemKhachHang";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Thêm tài khoản khách hàng";

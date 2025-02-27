@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQLyUngDung));
             pnKhungQLyUngDung = new Panel();
             gbxQLyUngDung = new GroupBox();
             pnThongTinUngDung = new Panel();
@@ -61,7 +62,7 @@
             pnKhungQLyUngDung.Controls.Add(gbxQLyUngDung);
             pnKhungQLyUngDung.Dock = DockStyle.Fill;
             pnKhungQLyUngDung.Location = new Point(0, 0);
-            pnKhungQLyUngDung.Margin = new Padding(2, 2, 2, 2);
+            pnKhungQLyUngDung.Margin = new Padding(2);
             pnKhungQLyUngDung.Name = "pnKhungQLyUngDung";
             pnKhungQLyUngDung.Size = new Size(833, 397);
             pnKhungQLyUngDung.TabIndex = 0;
@@ -76,9 +77,9 @@
             gbxQLyUngDung.Controls.Add(pnViewUngDung);
             gbxQLyUngDung.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbxQLyUngDung.Location = new Point(8, 7);
-            gbxQLyUngDung.Margin = new Padding(2, 2, 2, 2);
+            gbxQLyUngDung.Margin = new Padding(2);
             gbxQLyUngDung.Name = "gbxQLyUngDung";
-            gbxQLyUngDung.Padding = new Padding(2, 2, 2, 2);
+            gbxQLyUngDung.Padding = new Padding(2);
             gbxQLyUngDung.Size = new Size(816, 383);
             gbxQLyUngDung.TabIndex = 0;
             gbxQLyUngDung.TabStop = false;
@@ -89,7 +90,7 @@
             pnThongTinUngDung.BorderStyle = BorderStyle.FixedSingle;
             pnThongTinUngDung.Controls.Add(gbxCapNhatUD);
             pnThongTinUngDung.Location = new Point(540, 64);
-            pnThongTinUngDung.Margin = new Padding(2, 2, 2, 2);
+            pnThongTinUngDung.Margin = new Padding(2);
             pnThongTinUngDung.Name = "pnThongTinUngDung";
             pnThongTinUngDung.Size = new Size(273, 319);
             pnThongTinUngDung.TabIndex = 5;
@@ -108,9 +109,9 @@
             gbxCapNhatUD.Controls.Add(txtCapNhatIDUngDung);
             gbxCapNhatUD.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbxCapNhatUD.Location = new Point(2, 2);
-            gbxCapNhatUD.Margin = new Padding(2, 2, 2, 2);
+            gbxCapNhatUD.Margin = new Padding(2);
             gbxCapNhatUD.Name = "gbxCapNhatUD";
-            gbxCapNhatUD.Padding = new Padding(2, 2, 2, 2);
+            gbxCapNhatUD.Padding = new Padding(2);
             gbxCapNhatUD.Size = new Size(267, 313);
             gbxCapNhatUD.TabIndex = 1;
             gbxCapNhatUD.TabStop = false;
@@ -121,7 +122,7 @@
             cbxLoaiUngDung.Font = new Font("Segoe UI", 9F);
             cbxLoaiUngDung.FormattingEnabled = true;
             cbxLoaiUngDung.Location = new Point(121, 131);
-            cbxLoaiUngDung.Margin = new Padding(2, 2, 2, 2);
+            cbxLoaiUngDung.Margin = new Padding(2);
             cbxLoaiUngDung.Name = "cbxLoaiUngDung";
             cbxLoaiUngDung.Size = new Size(129, 23);
             cbxLoaiUngDung.TabIndex = 5;
@@ -275,7 +276,7 @@
             pnViewUngDung.BorderStyle = BorderStyle.FixedSingle;
             pnViewUngDung.Controls.Add(dgvViewUngDung);
             pnViewUngDung.Location = new Point(4, 64);
-            pnViewUngDung.Margin = new Padding(2, 2, 2, 2);
+            pnViewUngDung.Margin = new Padding(2);
             pnViewUngDung.Name = "pnViewUngDung";
             pnViewUngDung.Size = new Size(532, 320);
             pnViewUngDung.TabIndex = 0;
@@ -285,7 +286,7 @@
             dgvViewUngDung.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvViewUngDung.Dock = DockStyle.Fill;
             dgvViewUngDung.Location = new Point(0, 0);
-            dgvViewUngDung.Margin = new Padding(2, 2, 2, 2);
+            dgvViewUngDung.Margin = new Padding(2);
             dgvViewUngDung.MultiSelect = false;
             dgvViewUngDung.Name = "dgvViewUngDung";
             dgvViewUngDung.RowHeadersWidth = 62;
@@ -301,7 +302,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(833, 397);
             Controls.Add(pnKhungQLyUngDung);
-            Margin = new Padding(2, 2, 2, 2);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(2);
             Name = "frmQLyUngDung";
             Text = "Quản Lý Ứng Dụng";
             Load += frmQLyUngDung_Load;

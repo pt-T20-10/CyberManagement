@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAddFood));
             panel1 = new Panel();
             btnExt = new Button();
             btnLuu = new Button();
@@ -163,6 +164,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(650, 148);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "fAddFood";
             StartPosition = FormStartPosition.CenterScreen;

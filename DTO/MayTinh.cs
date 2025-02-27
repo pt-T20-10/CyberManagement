@@ -60,7 +60,7 @@ namespace CyberManagementProject.DTO
             TKKhachHang = row["TKKhachHang"]?.ToString();
             TienNap = row["TienNap"] as decimal?;
             TienConLai = row["TienConLai"] as decimal?;
-            BangGia = row["BangGia"] != DBNull.Value ? Convert.ToDecimal(row["BangGia"]) : (decimal?)null; // Chuyển từ decimal sang double
+            BangGia = row["BangGia"] != DBNull.Value ? Convert.ToDecimal(row["BangGia"]) : (decimal?)null;
         }
     }
 }

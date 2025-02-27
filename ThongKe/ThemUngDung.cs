@@ -57,25 +57,38 @@ namespace QLQuanNET
 
         private void btnCapNhatUngDung_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(txtCapNhatIDUngDung.Text);
-            string tenUngDung = txtCapNhatTenUngDung.Text;
-            int loaiUngDungID = Convert.ToInt32(cbxLoaiUngDung.SelectedValue);
-            string moTa = txtCapNhatMoTaUngDung.Text;
-            string duongDan = txtCapNhatDuongDanUD.Text;
-
-            if (QLUngDungDAO.Instance.CapNhatUngDung(id, tenUngDung, loaiUngDungID, moTa, duongDan))
+            if (dgvViewUngDung.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Cập nhật ứng dụng thành công!");
-                LoadUngDung();
+                MessageBox.Show("Vui lòng chọn một ứng dụng để cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             else
             {
-                MessageBox.Show("Cập nhật ứng dụng thất bại!");
+                int id = Convert.ToInt32(txtCapNhatIDUngDung.Text);
+                string tenUngDung = txtCapNhatTenUngDung.Text;
+                int loaiUngDungID = Convert.ToInt32(cbxLoaiUngDung.SelectedValue);
+                string moTa = txtCapNhatMoTaUngDung.Text;
+                string duongDan = txtCapNhatDuongDanUD.Text;
+
+                if (QLUngDungDAO.Instance.CapNhatUngDung(id, tenUngDung, loaiUngDungID, moTa, duongDan))
+                {
+                    MessageBox.Show("Cập nhật ứng dụng thành công!");
+                    LoadUngDung();
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật ứng dụng thất bại!");
+                }
             }
         }
 
         private void btnXoaUngDung_Click(object sender, EventArgs e)
         {
+            if (dgvViewUngDung.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một ứng dụng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             int id = Convert.ToInt32(txtCapNhatIDUngDung.Text);
 
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa ứng dụng này?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)

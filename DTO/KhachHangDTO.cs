@@ -9,7 +9,7 @@ namespace CyberManagementProject.DTO
 {
     public class KhachHangDTO
     {
-        public KhachHangDTO(int ID, string TKKhachHang, string NhomKhach, string Ten, string DiaChi, string SoDT, string Email)
+        public KhachHangDTO(int ID, string TKKhachHang, string NhomKhach, string Ten, string DiaChi, string SoDT, string Email, decimal soDuTk)
         {
             this.ID = ID;
             this.TKKhachHang = TKKhachHang;
@@ -18,6 +18,7 @@ namespace CyberManagementProject.DTO
             this.DiaChi = DiaChi;
             this.SoDT = SoDT;
             this.Email = Email;
+            this.SoDuTk = soDuTk;
         }
 
         public KhachHangDTO() { }
@@ -32,9 +33,10 @@ namespace CyberManagementProject.DTO
             this.DiaChi = row["DiaChi"].ToString(); 
             this.SoDT = row["SoDT"].ToString(); 
             this.Email = row["Email"].ToString(); 
+            this.SoDuTk = Convert.ToDecimal(row["TienConLai"]);
         }
 
-
+        private decimal soDuTk;
         private string tKKhachHang;
 
         public string TKKhachHang
@@ -84,5 +86,7 @@ namespace CyberManagementProject.DTO
             get { return email; }
             set { email = value; }
         }
+
+        public decimal SoDuTk { get => soDuTk; set => soDuTk = value; }
     }
 }

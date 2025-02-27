@@ -31,6 +31,7 @@ namespace CyberManagementProject
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             pnlLeft = new Panel();
             pnStatictical = new Panel();
             pictureBox12 = new PictureBox();
@@ -50,6 +51,8 @@ namespace CyberManagementProject
             panel2 = new Panel();
             timerToggle = new System.Windows.Forms.Timer(components);
             pnlTitleBar = new Panel();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
             pbxMinimize = new PictureBox();
             lblTKNhanVien = new Label();
             pbxClose = new PictureBox();
@@ -295,6 +298,8 @@ namespace CyberManagementProject
             pnComputer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             pnlTitleBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxMinimize).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxClose).BeginInit();
             tblMain.SuspendLayout();
@@ -569,6 +574,8 @@ namespace CyberManagementProject
             // 
             pnlTitleBar.BackColor = Color.DarkGray;
             pnlTitleBar.BackgroundImage = Properties.Resources.titlebar;
+            pnlTitleBar.Controls.Add(pictureBox2);
+            pnlTitleBar.Controls.Add(pictureBox1);
             pnlTitleBar.Controls.Add(pbxMinimize);
             pnlTitleBar.Controls.Add(lblTKNhanVien);
             pnlTitleBar.Controls.Add(pbxClose);
@@ -578,6 +585,28 @@ namespace CyberManagementProject
             pnlTitleBar.Name = "pnlTitleBar";
             pnlTitleBar.Size = new Size(1352, 37);
             pnlTitleBar.TabIndex = 1;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.BackgroundImage = Properties.Resources.App_icon;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox2.Location = new Point(760, 0);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(41, 37);
+            pictureBox2.TabIndex = 6;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackgroundImage = Properties.Resources.App_icon;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(544, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(41, 37);
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
             // 
             // pbxMinimize
             // 
@@ -633,7 +662,7 @@ namespace CyberManagementProject
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Tahoma", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(584, -2);
+            label1.Location = new Point(584, -3);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(182, 39);
@@ -961,7 +990,7 @@ namespace CyberManagementProject
             flpComputer.BorderStyle = BorderStyle.FixedSingle;
             flpComputer.Location = new Point(8, 8);
             flpComputer.Name = "flpComputer";
-            flpComputer.Size = new Size(784, 616);
+            flpComputer.Size = new Size(792, 616);
             flpComputer.TabIndex = 0;
             flpComputer.Click += flpComputer_Click;
             // 
@@ -3165,6 +3194,7 @@ namespace CyberManagementProject
             Controls.Add(pnlLeft);
             Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             KeyPreview = true;
             MaximumSize = new Size(1345, 667);
             MinimumSize = new Size(1345, 667);
@@ -3192,6 +3222,8 @@ namespace CyberManagementProject
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             pnlTitleBar.ResumeLayout(false);
             pnlTitleBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxMinimize).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxClose).EndInit();
             tblMain.ResumeLayout(false);
@@ -3322,8 +3354,6 @@ namespace CyberManagementProject
         private Panel pnComputerControl;
         private Panel pblCart;
         private Label label9;
-        private Label label10;
-        private PictureBox pictureBox3;
         private GroupBox gbxComputerInfor;
         private Panel pnTimeCom;
         private Label lbTimeConLai;
@@ -3568,5 +3598,7 @@ namespace CyberManagementProject
         private Label lbTNChonThangKHNapNhieu;
         private Label lbTittleTNKHNapNhieu;
         private PictureBox pbxMinimize;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }

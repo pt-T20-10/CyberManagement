@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddUserToComputer));
             gbxComputerManager = new GroupBox();
             btnMoMay = new Button();
             cbxAccountUser = new ComboBox();
@@ -81,6 +82,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(214, 174);
             Controls.Add(gbxComputerManager);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmAddUserToComputer";
             StartPosition = FormStartPosition.CenterParent;
             gbxComputerManager.ResumeLayout(false);

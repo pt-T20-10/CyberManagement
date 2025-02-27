@@ -29,7 +29,7 @@ namespace QuanLyQuanNet.Customer
             if (khachHang != null)
             {
                 tkkh = khachHang.TKKhachHang;  // Lưu TKKhachHang
-
+                System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VN");
                 // Cập nhật thông tin vào form
                 txtIDKhachHang.Text = tkkh; //khachHang.ID.ToString();
                 txtTenKhachHang.Text = khachHang.Ten;
@@ -37,6 +37,7 @@ namespace QuanLyQuanNet.Customer
                 txtEmailKhachHang.Text = khachHang.Email;
                 txtDiaChiKhachHang.Text = khachHang.DiaChi;
                 cbxLoaiKhachHang.Text = khachHang.NhomKhach;
+                tbxMoneyTK.Text = khachHang.SoDuTk.ToString("c", culture);
                 // Cập nhật các control khác nếu cần
             }
             else

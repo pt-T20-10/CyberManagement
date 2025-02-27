@@ -1444,8 +1444,7 @@ namespace CyberManagementProject
             }
             else
             {
-                // Nếu không có khách hàng, thông báo
-                MessageBox.Show("Không có dữ liệu khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
             }
         }
 
@@ -1824,7 +1823,7 @@ namespace CyberManagementProject
 
         private void pnStaff_Click(object sender, EventArgs e)
         {
-            if (currentUser.ToLower() != "admin1")
+            if (currentUser.ToLower() != "admin")
             {
                 MessageBox.Show("Bạn không có quyền truy cập!");
                 return;
@@ -1844,7 +1843,7 @@ namespace CyberManagementProject
 
         private void pnStatictical_Click(object sender, EventArgs e)
         {
-            if (currentUser.ToLower() != "admin1")
+            if (currentUser.ToLower() != "admin")
             {
                 MessageBox.Show("Bạn không có quyền truy cập!");
                 return;
@@ -1881,7 +1880,7 @@ namespace CyberManagementProject
         }
         private void lblNhanVien_Click(object sender, EventArgs e)
         {
-            if (currentUser.ToLower() != "admin1")
+            if (currentUser.ToLower() != "admin")
             {
                 MessageBox.Show("Bạn không có quyền truy cập!");
                 return;
@@ -1892,7 +1891,7 @@ namespace CyberManagementProject
 
         private void pictureBox11_Click(object sender, EventArgs e)
         {
-            if (currentUser.ToLower() != "admin1")
+            if (currentUser.ToLower() != "admin")
             {
                 MessageBox.Show("Bạn không có quyền truy cập!");
                 return;
@@ -1902,7 +1901,7 @@ namespace CyberManagementProject
         }
         private void label31_Click(object sender, EventArgs e)
         {
-            if (currentUser.ToLower() != "admin1")
+            if (currentUser.ToLower() != "admin")
             {
                 MessageBox.Show("Bạn không có quyền truy cập!");
                 return;
@@ -1913,7 +1912,7 @@ namespace CyberManagementProject
 
         private void pictureBox12_Click(object sender, EventArgs e)
         {
-            if (currentUser.ToLower() != "admin1")
+            if (currentUser.ToLower() != "admin")
             {
                 MessageBox.Show("Bạn không có quyền truy cập!");
                 return;
@@ -1938,8 +1937,8 @@ namespace CyberManagementProject
             {
                 using (frmNapTien f = new frmNapTien())
                 {
-                    f.ShowDialog();   
-                    RefreshSingleComputer(computer.IDMayTinh);
+                    f.ShowDialog();
+                    LoadComputerList();
                     LoadComputerBindingByComputer(computer);
                  
                 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManageComputers));
             btnAddComputer = new Button();
             btnUpdateComputer = new Button();
             btnDeleteComputer = new Button();
@@ -185,6 +186,7 @@
             Controls.Add(btnDeleteComputer);
             Controls.Add(btnUpdateComputer);
             Controls.Add(btnAddComputer);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmManageComputers";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Quản lý máy";

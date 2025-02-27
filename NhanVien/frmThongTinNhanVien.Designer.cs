@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongTinNhanVien));
             panel1 = new Panel();
             btnChonAnh = new Button();
             pbxAnhNhanVien = new PictureBox();
@@ -512,6 +513,7 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmThongTinNhanVien";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "THÔNG TIN NHÂN VIÊN";

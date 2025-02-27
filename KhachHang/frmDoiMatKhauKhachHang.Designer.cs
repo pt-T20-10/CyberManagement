@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDoiMatKhauKhachHang));
             lblTKKhachHang = new Label();
             txtTKKhachHang = new TextBox();
             txtMKKhachHang = new TextBox();
@@ -108,6 +109,7 @@
             Controls.Add(lblTKKhachHang);
             Controls.Add(txtMKKhachHang);
             Controls.Add(txtTKKhachHang);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmDoiMatKhauKhachHang";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đổi mật khẩu khách hàng";

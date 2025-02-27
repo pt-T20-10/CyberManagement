@@ -14,8 +14,8 @@ namespace CyberManagementProject.DAO
     {
         private static MayTinhDAO instance;
 
-        public static int TableWidth = 150;
-        public static int TableHeight = 215;
+        public static int TableWidth = 140;
+        public static int TableHeight = 210;
         public static int PicWidth = 120;
         public static int PicHeight = 120;
 
