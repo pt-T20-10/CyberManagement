@@ -50,6 +50,7 @@ namespace CyberManagementProject
             panel2 = new Panel();
             timerToggle = new System.Windows.Forms.Timer(components);
             pnlTitleBar = new Panel();
+            pbxMinimize = new PictureBox();
             lblTKNhanVien = new Label();
             pbxClose = new PictureBox();
             flpListComputer = new FlowLayoutPanel();
@@ -294,6 +295,7 @@ namespace CyberManagementProject
             pnComputer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             pnlTitleBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbxMinimize).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxClose).BeginInit();
             tblMain.SuspendLayout();
             tbpComputer.SuspendLayout();
@@ -380,9 +382,9 @@ namespace CyberManagementProject
             pnlLeft.Controls.Add(pnAccount);
             pnlLeft.Controls.Add(pnComputer);
             pnlLeft.Controls.Add(panel2);
-            pnlLeft.Location = new Point(0, 37);
+            pnlLeft.Location = new Point(-4, 37);
             pnlLeft.Name = "pnlLeft";
-            pnlLeft.Size = new Size(216, 635);
+            pnlLeft.Size = new Size(220, 630);
             pnlLeft.TabIndex = 0;
             // 
             // pnStatictical
@@ -414,7 +416,7 @@ namespace CyberManagementProject
             label31.Location = new Point(64, 22);
             label31.Margin = new Padding(2, 0, 2, 0);
             label31.Name = "label31";
-            label31.Size = new Size(186, 43);
+            label31.Size = new Size(123, 29);
             label31.TabIndex = 4;
             label31.Text = "Thống kê";
             label31.Click += label31_Click;
@@ -449,7 +451,7 @@ namespace CyberManagementProject
             lblNhanVien.Location = new Point(64, 22);
             lblNhanVien.Margin = new Padding(2, 0, 2, 0);
             lblNhanVien.Name = "lblNhanVien";
-            lblNhanVien.Size = new Size(202, 43);
+            lblNhanVien.Size = new Size(133, 29);
             lblNhanVien.TabIndex = 4;
             lblNhanVien.Text = "Nhân viên";
             lblNhanVien.Click += lblNhanVien_Click;
@@ -483,7 +485,7 @@ namespace CyberManagementProject
             label29.Location = new Point(64, 22);
             label29.Margin = new Padding(2, 0, 2, 0);
             label29.Name = "label29";
-            label29.Size = new Size(154, 43);
+            label29.Size = new Size(102, 29);
             label29.TabIndex = 4;
             label29.Text = "Dịch vụ";
             label29.Click += label29_Click;
@@ -517,7 +519,7 @@ namespace CyberManagementProject
             label28.Location = new Point(56, 22);
             label28.Margin = new Padding(2, 0, 2, 0);
             label28.Name = "label28";
-            label28.Size = new Size(197, 43);
+            label28.Size = new Size(129, 29);
             label28.TabIndex = 4;
             label28.Text = "Tài khoản";
             label28.Click += label28_Click;
@@ -551,7 +553,7 @@ namespace CyberManagementProject
             label27.Location = new Point(64, 22);
             label27.Margin = new Padding(2, 0, 2, 0);
             label27.Name = "label27";
-            label27.Size = new Size(177, 43);
+            label27.Size = new Size(116, 29);
             label27.TabIndex = 4;
             label27.Text = "Máy tính";
             label27.Click += label27_Click;
@@ -567,6 +569,7 @@ namespace CyberManagementProject
             // 
             pnlTitleBar.BackColor = Color.DarkGray;
             pnlTitleBar.BackgroundImage = Properties.Resources.titlebar;
+            pnlTitleBar.Controls.Add(pbxMinimize);
             pnlTitleBar.Controls.Add(lblTKNhanVien);
             pnlTitleBar.Controls.Add(pbxClose);
             pnlTitleBar.Controls.Add(flpListComputer);
@@ -576,12 +579,28 @@ namespace CyberManagementProject
             pnlTitleBar.Size = new Size(1352, 37);
             pnlTitleBar.TabIndex = 1;
             // 
+            // pbxMinimize
+            // 
+            pbxMinimize.BackColor = Color.Transparent;
+            pbxMinimize.BackgroundImage = Properties.Resources.minimize;
+            pbxMinimize.BackgroundImageLayout = ImageLayout.Zoom;
+            pbxMinimize.Location = new Point(1264, 0);
+            pbxMinimize.Name = "pbxMinimize";
+            pbxMinimize.Size = new Size(41, 37);
+            pbxMinimize.TabIndex = 5;
+            pbxMinimize.TabStop = false;
+            pbxMinimize.Click += pbxMinimize_Click;
+            pbxMinimize.MouseDown += pbxMinimize_MouseDown;
+            pbxMinimize.MouseEnter += pbxMinimize_MouseEnter;
+            pbxMinimize.MouseLeave += pbxMinimize_MouseLeave;
+            pbxMinimize.MouseUp += pbxMinimize_MouseUp;
+            // 
             // lblTKNhanVien
             // 
             lblTKNhanVien.AutoSize = true;
             lblTKNhanVien.Location = new Point(72, 8);
             lblTKNhanVien.Name = "lblTKNhanVien";
-            lblTKNhanVien.Size = new Size(0, 22);
+            lblTKNhanVien.Size = new Size(0, 14);
             lblTKNhanVien.TabIndex = 4;
             lblTKNhanVien.Visible = false;
             // 
@@ -617,7 +636,7 @@ namespace CyberManagementProject
             label1.Location = new Point(584, -2);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(277, 58);
+            label1.Size = new Size(182, 39);
             label1.TabIndex = 1;
             label1.Text = "Cyber Hub";
             // 
@@ -653,10 +672,10 @@ namespace CyberManagementProject
             pnComputerControl.BorderStyle = BorderStyle.FixedSingle;
             pnComputerControl.Controls.Add(gbxComputerInfor);
             pnComputerControl.Controls.Add(pnComputerButton);
-            pnComputerControl.Location = new Point(800, 0);
+            pnComputerControl.Location = new Point(800, 8);
             pnComputerControl.Margin = new Padding(2);
             pnComputerControl.Name = "pnComputerControl";
-            pnComputerControl.Size = new Size(328, 642);
+            pnComputerControl.Size = new Size(328, 616);
             pnComputerControl.TabIndex = 1;
             // 
             // gbxComputerInfor
@@ -671,7 +690,7 @@ namespace CyberManagementProject
             gbxComputerInfor.Margin = new Padding(2);
             gbxComputerInfor.Name = "gbxComputerInfor";
             gbxComputerInfor.Padding = new Padding(2);
-            gbxComputerInfor.Size = new Size(328, 421);
+            gbxComputerInfor.Size = new Size(318, 421);
             gbxComputerInfor.TabIndex = 0;
             gbxComputerInfor.TabStop = false;
             gbxComputerInfor.Text = "Thông tin máy";
@@ -683,7 +702,7 @@ namespace CyberManagementProject
             lvServices.Location = new Point(0, 187);
             lvServices.Margin = new Padding(2);
             lvServices.Name = "lvServices";
-            lvServices.Size = new Size(320, 172);
+            lvServices.Size = new Size(314, 172);
             lvServices.TabIndex = 4;
             lvServices.UseCompatibleStateImageBehavior = false;
             lvServices.View = View.Details;
@@ -719,7 +738,7 @@ namespace CyberManagementProject
             lbStatusCom.Location = new Point(0, 10);
             lbStatusCom.Margin = new Padding(2, 0, 2, 0);
             lbStatusCom.Name = "lbStatusCom";
-            lbStatusCom.Size = new Size(140, 28);
+            lbStatusCom.Size = new Size(89, 18);
             lbStatusCom.TabIndex = 2;
             lbStatusCom.Text = "Trạng thái:";
             // 
@@ -730,7 +749,7 @@ namespace CyberManagementProject
             tbxComputerStatus.Name = "tbxComputerStatus";
             tbxComputerStatus.ReadOnly = true;
             tbxComputerStatus.RightToLeft = RightToLeft.No;
-            tbxComputerStatus.Size = new Size(192, 31);
+            tbxComputerStatus.Size = new Size(192, 23);
             tbxComputerStatus.TabIndex = 1;
             // 
             // pnTimeCom
@@ -749,7 +768,7 @@ namespace CyberManagementProject
             lbTimeConLai.Location = new Point(0, 10);
             lbTimeConLai.Margin = new Padding(2, 0, 2, 0);
             lbTimeConLai.Name = "lbTimeConLai";
-            lbTimeConLai.Size = new Size(127, 28);
+            lbTimeConLai.Size = new Size(81, 18);
             lbTimeConLai.TabIndex = 2;
             lbTimeConLai.Text = "Thời gian:";
             // 
@@ -759,7 +778,7 @@ namespace CyberManagementProject
             tbxTimeLeft.Location = new Point(104, 7);
             tbxTimeLeft.Name = "tbxTimeLeft";
             tbxTimeLeft.ReadOnly = true;
-            tbxTimeLeft.Size = new Size(192, 31);
+            tbxTimeLeft.Size = new Size(192, 23);
             tbxTimeLeft.TabIndex = 1;
             tbxTimeLeft.Text = "00:00:00";
             // 
@@ -782,7 +801,7 @@ namespace CyberManagementProject
             label6.Location = new Point(176, 7);
             label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(112, 28);
+            label6.Size = new Size(71, 18);
             label6.TabIndex = 3;
             label6.Text = "Tiền nạp";
             // 
@@ -793,7 +812,7 @@ namespace CyberManagementProject
             lbTotalPriceDichVu.Location = new Point(6, 5);
             lbTotalPriceDichVu.Margin = new Padding(2, 0, 2, 0);
             lbTotalPriceDichVu.Name = "lbTotalPriceDichVu";
-            lbTotalPriceDichVu.Size = new Size(130, 28);
+            lbTotalPriceDichVu.Size = new Size(82, 18);
             lbTotalPriceDichVu.TabIndex = 2;
             lbTotalPriceDichVu.Text = "Tổng tiền:";
             // 
@@ -804,7 +823,7 @@ namespace CyberManagementProject
             tbxMoneyAdd.Name = "tbxMoneyAdd";
             tbxMoneyAdd.ReadOnly = true;
             tbxMoneyAdd.RightToLeft = RightToLeft.No;
-            tbxMoneyAdd.Size = new Size(128, 31);
+            tbxMoneyAdd.Size = new Size(128, 23);
             tbxMoneyAdd.TabIndex = 1;
             tbxMoneyAdd.Text = "0.00";
             tbxMoneyAdd.TextAlign = HorizontalAlignment.Right;
@@ -816,7 +835,7 @@ namespace CyberManagementProject
             tbxMoneyCost.Name = "tbxMoneyCost";
             tbxMoneyCost.ReadOnly = true;
             tbxMoneyCost.RightToLeft = RightToLeft.No;
-            tbxMoneyCost.Size = new Size(128, 31);
+            tbxMoneyCost.Size = new Size(128, 23);
             tbxMoneyCost.TabIndex = 1;
             tbxMoneyCost.Text = "0.00";
             tbxMoneyCost.TextAlign = HorizontalAlignment.Right;
@@ -837,7 +856,7 @@ namespace CyberManagementProject
             lbUserNameCom.Location = new Point(0, 12);
             lbUserNameCom.Margin = new Padding(2, 0, 2, 0);
             lbUserNameCom.Name = "lbUserNameCom";
-            lbUserNameCom.Size = new Size(155, 28);
+            lbUserNameCom.Size = new Size(98, 18);
             lbUserNameCom.TabIndex = 2;
             lbUserNameCom.Text = "Người dùng:";
             // 
@@ -848,7 +867,7 @@ namespace CyberManagementProject
             tbxUserAccount.Margin = new Padding(2);
             tbxUserAccount.Name = "tbxUserAccount";
             tbxUserAccount.ReadOnly = true;
-            tbxUserAccount.Size = new Size(192, 36);
+            tbxUserAccount.Size = new Size(192, 27);
             tbxUserAccount.TabIndex = 1;
             // 
             // pnComputerButton
@@ -862,7 +881,7 @@ namespace CyberManagementProject
             pnComputerButton.Location = new Point(8, 430);
             pnComputerButton.Margin = new Padding(2);
             pnComputerButton.Name = "pnComputerButton";
-            pnComputerButton.Size = new Size(312, 189);
+            pnComputerButton.Size = new Size(312, 178);
             pnComputerButton.TabIndex = 7;
             // 
             // btnExtraMoney
@@ -940,9 +959,9 @@ namespace CyberManagementProject
             // 
             flpComputer.AutoScroll = true;
             flpComputer.BorderStyle = BorderStyle.FixedSingle;
-            flpComputer.Location = new Point(0, 0);
+            flpComputer.Location = new Point(8, 8);
             flpComputer.Name = "flpComputer";
-            flpComputer.Size = new Size(800, 627);
+            flpComputer.Size = new Size(784, 616);
             flpComputer.TabIndex = 0;
             flpComputer.Click += flpComputer_Click;
             // 
@@ -1026,7 +1045,7 @@ namespace CyberManagementProject
             cbxNhomKhach.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxNhomKhach.Location = new Point(440, 7);
             cbxNhomKhach.Name = "cbxNhomKhach";
-            cbxNhomKhach.Size = new Size(122, 43);
+            cbxNhomKhach.Size = new Size(122, 31);
             cbxNhomKhach.TabIndex = 5;
             cbxNhomKhach.SelectedIndexChanged += cbxNhomKhach_SelectedIndexChanged;
             // 
@@ -1154,7 +1173,7 @@ namespace CyberManagementProject
             txbTongTien.Location = new Point(976, 470);
             txbTongTien.Margin = new Padding(2);
             txbTongTien.Name = "txbTongTien";
-            txbTongTien.Size = new Size(136, 42);
+            txbTongTien.Size = new Size(136, 30);
             txbTongTien.TabIndex = 7;
             // 
             // pblCart
@@ -1291,9 +1310,9 @@ namespace CyberManagementProject
             grbQuanLyNhanVien.Controls.Add(txtTimKiem);
             grbQuanLyNhanVien.FlatStyle = FlatStyle.System;
             grbQuanLyNhanVien.Font = new Font("Tahoma", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            grbQuanLyNhanVien.Location = new Point(0, 60);
+            grbQuanLyNhanVien.Location = new Point(0, 48);
             grbQuanLyNhanVien.Name = "grbQuanLyNhanVien";
-            grbQuanLyNhanVien.Size = new Size(1128, 568);
+            grbQuanLyNhanVien.Size = new Size(1128, 580);
             grbQuanLyNhanVien.TabIndex = 6;
             grbQuanLyNhanVien.TabStop = false;
             grbQuanLyNhanVien.Text = "Quản Lý Nhân Viên";
@@ -1316,7 +1335,7 @@ namespace CyberManagementProject
             cbxChucVu.Font = new Font("Tahoma", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxChucVu.Location = new Point(545, 40);
             cbxChucVu.Name = "cbxChucVu";
-            cbxChucVu.Size = new Size(136, 44);
+            cbxChucVu.Size = new Size(136, 32);
             cbxChucVu.TabIndex = 2;
             cbxChucVu.SelectedIndexChanged += cbxChucVu_SelectedIndexChanged_1;
             // 
@@ -1325,14 +1344,14 @@ namespace CyberManagementProject
             pnDisplayStaff.Controls.Add(flpNhanVien);
             pnDisplayStaff.Location = new Point(6, 75);
             pnDisplayStaff.Name = "pnDisplayStaff";
-            pnDisplayStaff.Size = new Size(1114, 485);
+            pnDisplayStaff.Size = new Size(1114, 501);
             pnDisplayStaff.TabIndex = 5;
             // 
             // flpNhanVien
             // 
             flpNhanVien.Location = new Point(8, 7);
             flpNhanVien.Name = "flpNhanVien";
-            flpNhanVien.Size = new Size(1096, 470);
+            flpNhanVien.Size = new Size(1096, 489);
             flpNhanVien.TabIndex = 4;
             flpNhanVien.MouseDown += flpNhanVien_MouseDown;
             // 
@@ -1342,7 +1361,7 @@ namespace CyberManagementProject
             cbxTrangThai.FormattingEnabled = true;
             cbxTrangThai.Location = new Point(696, 40);
             cbxTrangThai.Name = "cbxTrangThai";
-            cbxTrangThai.Size = new Size(136, 44);
+            cbxTrangThai.Size = new Size(136, 32);
             cbxTrangThai.TabIndex = 0;
             // 
             // txtTimKiem
@@ -1425,11 +1444,11 @@ namespace CyberManagementProject
             gbxThongKe.Controls.Add(pnTKView);
             gbxThongKe.Controls.Add(pnTKThongKe);
             gbxThongKe.Font = new Font("Tahoma", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            gbxThongKe.Location = new Point(8, 63);
+            gbxThongKe.Location = new Point(8, 56);
             gbxThongKe.Margin = new Padding(2);
             gbxThongKe.Name = "gbxThongKe";
             gbxThongKe.Padding = new Padding(2);
-            gbxThongKe.Size = new Size(1112, 553);
+            gbxThongKe.Size = new Size(1112, 560);
             gbxThongKe.TabIndex = 12;
             gbxThongKe.TabStop = false;
             gbxThongKe.Text = "THỐNG KÊ";
@@ -1441,7 +1460,7 @@ namespace CyberManagementProject
             pnTKNut.Location = new Point(4, 360);
             pnTKNut.Margin = new Padding(2);
             pnTKNut.Name = "pnTKNut";
-            pnTKNut.Size = new Size(734, 192);
+            pnTKNut.Size = new Size(756, 192);
             pnTKNut.TabIndex = 3;
             // 
             // gbxThongKeTongQuan
@@ -1456,21 +1475,22 @@ namespace CyberManagementProject
             gbxThongKeTongQuan.Controls.Add(lbTKTongTienMay);
             gbxThongKeTongQuan.Controls.Add(lbTongDichVu);
             gbxThongKeTongQuan.Controls.Add(lbTongDoanhThu);
-            gbxThongKeTongQuan.Location = new Point(0, 0);
+            gbxThongKeTongQuan.Location = new Point(0, 8);
             gbxThongKeTongQuan.Margin = new Padding(2);
             gbxThongKeTongQuan.Name = "gbxThongKeTongQuan";
             gbxThongKeTongQuan.Padding = new Padding(2);
-            gbxThongKeTongQuan.Size = new Size(728, 190);
+            gbxThongKeTongQuan.Size = new Size(752, 184);
             gbxThongKeTongQuan.TabIndex = 0;
             gbxThongKeTongQuan.TabStop = false;
             gbxThongKeTongQuan.Text = "Tổng Quan";
             // 
             // btnCapNhatThongKe
             // 
-            btnCapNhatThongKe.Location = new Point(272, 115);
+            btnCapNhatThongKe.Font = new Font("Tahoma", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCapNhatThongKe.Location = new Point(297, 120);
             btnCapNhatThongKe.Margin = new Padding(2);
             btnCapNhatThongKe.Name = "btnCapNhatThongKe";
-            btnCapNhatThongKe.Size = new Size(158, 45);
+            btnCapNhatThongKe.Size = new Size(158, 32);
             btnCapNhatThongKe.TabIndex = 6;
             btnCapNhatThongKe.Text = "Tổng kết";
             btnCapNhatThongKe.UseVisualStyleBackColor = true;
@@ -1478,7 +1498,7 @@ namespace CyberManagementProject
             // 
             // pbHieuSuat
             // 
-            pbHieuSuat.Location = new Point(16, 168);
+            pbHieuSuat.Location = new Point(32, 160);
             pbHieuSuat.Margin = new Padding(2);
             pbHieuSuat.Name = "pbHieuSuat";
             pbHieuSuat.Size = new Size(695, 19);
@@ -1488,47 +1508,47 @@ namespace CyberManagementProject
             // txtTongDichVu
             // 
             txtTongDichVu.Font = new Font("Tahoma", 11F);
-            txtTongDichVu.Location = new Point(149, 75);
+            txtTongDichVu.Location = new Point(152, 77);
             txtTongDichVu.Margin = new Padding(2);
             txtTongDichVu.Name = "txtTongDichVu";
-            txtTongDichVu.Size = new Size(168, 34);
+            txtTongDichVu.Size = new Size(168, 25);
             txtTongDichVu.TabIndex = 5;
             // 
             // txtTKTongTienMay
             // 
             txtTKTongTienMay.Font = new Font("Tahoma", 11F);
-            txtTKTongTienMay.Location = new Point(551, 75);
+            txtTKTongTienMay.Location = new Point(568, 85);
             txtTKTongTienMay.Margin = new Padding(2);
             txtTKTongTienMay.Name = "txtTKTongTienMay";
-            txtTKTongTienMay.Size = new Size(168, 34);
+            txtTKTongTienMay.Size = new Size(168, 25);
             txtTKTongTienMay.TabIndex = 4;
             // 
             // txtTongGioSuDung
             // 
             txtTongGioSuDung.Font = new Font("Tahoma", 11F);
-            txtTongGioSuDung.Location = new Point(551, 38);
+            txtTongGioSuDung.Location = new Point(568, 48);
             txtTongGioSuDung.Margin = new Padding(2);
             txtTongGioSuDung.Name = "txtTongGioSuDung";
-            txtTongGioSuDung.Size = new Size(168, 34);
+            txtTongGioSuDung.Size = new Size(168, 25);
             txtTongGioSuDung.TabIndex = 4;
             // 
             // txtTongDoanhThu
             // 
             txtTongDoanhThu.Font = new Font("Tahoma", 11F);
-            txtTongDoanhThu.Location = new Point(149, 38);
+            txtTongDoanhThu.Location = new Point(152, 40);
             txtTongDoanhThu.Margin = new Padding(2);
             txtTongDoanhThu.Name = "txtTongDoanhThu";
-            txtTongDoanhThu.Size = new Size(168, 34);
+            txtTongDoanhThu.Size = new Size(168, 25);
             txtTongDoanhThu.TabIndex = 3;
             // 
             // lbTongGioSuDung
             // 
             lbTongGioSuDung.AutoSize = true;
             lbTongGioSuDung.Font = new Font("Tahoma", 12F);
-            lbTongGioSuDung.Location = new Point(352, 38);
+            lbTongGioSuDung.Location = new Point(369, 48);
             lbTongGioSuDung.Margin = new Padding(2, 0, 2, 0);
             lbTongGioSuDung.Name = "lbTongGioSuDung";
-            lbTongGioSuDung.Size = new Size(261, 29);
+            lbTongGioSuDung.Size = new Size(177, 19);
             lbTongGioSuDung.TabIndex = 0;
             lbTongGioSuDung.Text = "Tổng giờ sử dụng máy:";
             // 
@@ -1536,10 +1556,10 @@ namespace CyberManagementProject
             // 
             lbTKTongTienMay.AutoSize = true;
             lbTKTongTienMay.Font = new Font("Tahoma", 12F);
-            lbTKTongTienMay.Location = new Point(352, 75);
+            lbTKTongTienMay.Location = new Point(369, 85);
             lbTKTongTienMay.Margin = new Padding(2, 0, 2, 0);
             lbTKTongTienMay.Name = "lbTKTongTienMay";
-            lbTKTongTienMay.Size = new Size(174, 29);
+            lbTKTongTienMay.Size = new Size(118, 19);
             lbTKTongTienMay.TabIndex = 0;
             lbTKTongTienMay.Text = "Tổng tiền máy:";
             // 
@@ -1547,10 +1567,10 @@ namespace CyberManagementProject
             // 
             lbTongDichVu.AutoSize = true;
             lbTongDichVu.Font = new Font("Tahoma", 12F);
-            lbTongDichVu.Location = new Point(10, 75);
+            lbTongDichVu.Location = new Point(13, 77);
             lbTongDichVu.Margin = new Padding(2, 0, 2, 0);
             lbTongDichVu.Name = "lbTongDichVu";
-            lbTongDichVu.Size = new Size(157, 29);
+            lbTongDichVu.Size = new Size(108, 19);
             lbTongDichVu.TabIndex = 0;
             lbTongDichVu.Text = "Tổng dịch vụ:";
             // 
@@ -1558,10 +1578,10 @@ namespace CyberManagementProject
             // 
             lbTongDoanhThu.AutoSize = true;
             lbTongDoanhThu.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbTongDoanhThu.Location = new Point(10, 38);
+            lbTongDoanhThu.Location = new Point(13, 40);
             lbTongDoanhThu.Margin = new Padding(2, 0, 2, 0);
             lbTongDoanhThu.Name = "lbTongDoanhThu";
-            lbTongDoanhThu.Size = new Size(189, 29);
+            lbTongDoanhThu.Size = new Size(129, 19);
             lbTongDoanhThu.TabIndex = 0;
             lbTongDoanhThu.Text = "Tổng doanh thu:";
             // 
@@ -1572,7 +1592,7 @@ namespace CyberManagementProject
             pnTKView.Location = new Point(4, 29);
             pnTKView.Margin = new Padding(2);
             pnTKView.Name = "pnTKView";
-            pnTKView.Size = new Size(734, 331);
+            pnTKView.Size = new Size(756, 331);
             pnTKView.TabIndex = 2;
             // 
             // dgvAllThongKe
@@ -1586,17 +1606,17 @@ namespace CyberManagementProject
             dgvAllThongKe.Name = "dgvAllThongKe";
             dgvAllThongKe.RightToLeft = RightToLeft.No;
             dgvAllThongKe.RowHeadersWidth = 62;
-            dgvAllThongKe.Size = new Size(732, 328);
+            dgvAllThongKe.Size = new Size(752, 328);
             dgvAllThongKe.TabIndex = 0;
             // 
             // pnTKThongKe
             // 
             pnTKThongKe.Controls.Add(tbTKMayTram);
             pnTKThongKe.Dock = DockStyle.Right;
-            pnTKThongKe.Location = new Point(768, 46);
+            pnTKThongKe.Location = new Point(768, 31);
             pnTKThongKe.Margin = new Padding(2);
             pnTKThongKe.Name = "pnTKThongKe";
-            pnTKThongKe.Size = new Size(342, 505);
+            pnTKThongKe.Size = new Size(342, 527);
             pnTKThongKe.TabIndex = 0;
             // 
             // tbTKMayTram
@@ -1612,17 +1632,17 @@ namespace CyberManagementProject
             tbTKMayTram.Margin = new Padding(2);
             tbTKMayTram.Name = "tbTKMayTram";
             tbTKMayTram.SelectedIndex = 0;
-            tbTKMayTram.Size = new Size(342, 505);
+            tbTKMayTram.Size = new Size(342, 527);
             tbTKMayTram.TabIndex = 0;
             // 
             // tbTKDoanhThu
             // 
             tbTKDoanhThu.Controls.Add(pnTKCongViec);
-            tbTKDoanhThu.Location = new Point(4, 31);
+            tbTKDoanhThu.Location = new Point(4, 23);
             tbTKDoanhThu.Margin = new Padding(2);
             tbTKDoanhThu.Name = "tbTKDoanhThu";
             tbTKDoanhThu.Padding = new Padding(2);
-            tbTKDoanhThu.Size = new Size(334, 470);
+            tbTKDoanhThu.Size = new Size(334, 500);
             tbTKDoanhThu.TabIndex = 0;
             tbTKDoanhThu.Text = "Doanh Thu";
             tbTKDoanhThu.UseVisualStyleBackColor = true;
@@ -1685,7 +1705,7 @@ namespace CyberManagementProject
             txtTKThangDT.Location = new Point(126, 52);
             txtTKThangDT.Margin = new Padding(2);
             txtTKThangDT.Name = "txtTKThangDT";
-            txtTKThangDT.Size = new Size(164, 34);
+            txtTKThangDT.Size = new Size(164, 25);
             txtTKThangDT.TabIndex = 2;
             // 
             // lbTKThangDT
@@ -1695,7 +1715,7 @@ namespace CyberManagementProject
             lbTKThangDT.Location = new Point(15, 57);
             lbTKThangDT.Margin = new Padding(2, 0, 2, 0);
             lbTKThangDT.Name = "lbTKThangDT";
-            lbTKThangDT.Size = new Size(133, 27);
+            lbTKThangDT.Size = new Size(87, 18);
             lbTKThangDT.TabIndex = 1;
             lbTKThangDT.Text = "DoanhThu:";
             // 
@@ -1706,7 +1726,7 @@ namespace CyberManagementProject
             lbTittleThangDT.Location = new Point(14, 18);
             lbTittleThangDT.Margin = new Padding(2, 0, 2, 0);
             lbTittleThangDT.Name = "lbTittleThangDT";
-            lbTittleThangDT.Size = new Size(88, 27);
+            lbTittleThangDT.Size = new Size(58, 18);
             lbTittleThangDT.TabIndex = 1;
             lbTittleThangDT.Text = "Tháng:";
             // 
@@ -1719,7 +1739,7 @@ namespace CyberManagementProject
             dtpTKThangDT.Margin = new Padding(2);
             dtpTKThangDT.Name = "dtpTKThangDT";
             dtpTKThangDT.ShowUpDown = true;
-            dtpTKThangDT.Size = new Size(164, 34);
+            dtpTKThangDT.Size = new Size(164, 25);
             dtpTKThangDT.TabIndex = 0;
             // 
             // rbtTittleNamDT
@@ -1730,7 +1750,7 @@ namespace CyberManagementProject
             rbtTittleNamDT.Location = new Point(11, 301);
             rbtTittleNamDT.Margin = new Padding(2);
             rbtTittleNamDT.Name = "rbtTittleNamDT";
-            rbtTittleNamDT.Size = new Size(160, 32);
+            rbtTittleNamDT.Size = new Size(102, 22);
             rbtTittleNamDT.TabIndex = 4;
             rbtTittleNamDT.TabStop = true;
             rbtTittleNamDT.Text = "Theo năm:";
@@ -1745,7 +1765,7 @@ namespace CyberManagementProject
             rbtTittleThangDT.Location = new Point(11, 156);
             rbtTittleThangDT.Margin = new Padding(2);
             rbtTittleThangDT.Name = "rbtTittleThangDT";
-            rbtTittleThangDT.Size = new Size(177, 32);
+            rbtTittleThangDT.Size = new Size(113, 22);
             rbtTittleThangDT.TabIndex = 4;
             rbtTittleThangDT.TabStop = true;
             rbtTittleThangDT.Text = "Theo tháng:";
@@ -1760,7 +1780,7 @@ namespace CyberManagementProject
             rbtTittleNgayDT.Location = new Point(11, 2);
             rbtTittleNgayDT.Margin = new Padding(2);
             rbtTittleNgayDT.Name = "rbtTittleNgayDT";
-            rbtTittleNgayDT.Size = new Size(165, 32);
+            rbtTittleNgayDT.Size = new Size(107, 22);
             rbtTittleNgayDT.TabIndex = 4;
             rbtTittleNgayDT.TabStop = true;
             rbtTittleNgayDT.Text = "Theo ngày:";
@@ -1810,7 +1830,7 @@ namespace CyberManagementProject
             txtTKNamDT.Location = new Point(126, 52);
             txtTKNamDT.Margin = new Padding(2);
             txtTKNamDT.Name = "txtTKNamDT";
-            txtTKNamDT.Size = new Size(164, 34);
+            txtTKNamDT.Size = new Size(164, 25);
             txtTKNamDT.TabIndex = 2;
             // 
             // lbTKNamDT
@@ -1820,7 +1840,7 @@ namespace CyberManagementProject
             lbTKNamDT.Location = new Point(15, 52);
             lbTKNamDT.Margin = new Padding(2, 0, 2, 0);
             lbTKNamDT.Name = "lbTKNamDT";
-            lbTKNamDT.Size = new Size(125, 27);
+            lbTKNamDT.Size = new Size(82, 18);
             lbTKNamDT.TabIndex = 1;
             lbTKNamDT.Text = "DoanhThu";
             // 
@@ -1831,7 +1851,7 @@ namespace CyberManagementProject
             lbTittleNamDT.Location = new Point(14, 16);
             lbTittleNamDT.Margin = new Padding(2, 0, 2, 0);
             lbTittleNamDT.Name = "lbTittleNamDT";
-            lbTittleNamDT.Size = new Size(71, 27);
+            lbTittleNamDT.Size = new Size(47, 18);
             lbTittleNamDT.TabIndex = 1;
             lbTittleNamDT.Text = "Năm:";
             // 
@@ -1844,7 +1864,7 @@ namespace CyberManagementProject
             dtpTKNamDT.Margin = new Padding(2);
             dtpTKNamDT.Name = "dtpTKNamDT";
             dtpTKNamDT.ShowUpDown = true;
-            dtpTKNamDT.Size = new Size(164, 34);
+            dtpTKNamDT.Size = new Size(164, 25);
             dtpTKNamDT.TabIndex = 0;
             // 
             // pnTKNgayDT
@@ -1890,7 +1910,7 @@ namespace CyberManagementProject
             txtTKNgayDT.Location = new Point(126, 55);
             txtTKNgayDT.Margin = new Padding(2);
             txtTKNgayDT.Name = "txtTKNgayDT";
-            txtTKNgayDT.Size = new Size(164, 34);
+            txtTKNgayDT.Size = new Size(164, 25);
             txtTKNgayDT.TabIndex = 2;
             // 
             // lbTKNgayDT
@@ -1900,7 +1920,7 @@ namespace CyberManagementProject
             lbTKNgayDT.Location = new Point(14, 57);
             lbTKNgayDT.Margin = new Padding(2, 0, 2, 0);
             lbTKNgayDT.Name = "lbTKNgayDT";
-            lbTKNgayDT.Size = new Size(139, 27);
+            lbTKNgayDT.Size = new Size(91, 18);
             lbTKNgayDT.TabIndex = 1;
             lbTKNgayDT.Text = "Doanh Thu:";
             // 
@@ -1911,7 +1931,7 @@ namespace CyberManagementProject
             lbTittleNgayDT.Location = new Point(15, 21);
             lbTittleNgayDT.Margin = new Padding(2, 0, 2, 0);
             lbTittleNgayDT.Name = "lbTittleNgayDT";
-            lbTittleNgayDT.Size = new Size(77, 27);
+            lbTittleNgayDT.Size = new Size(52, 18);
             lbTittleNgayDT.TabIndex = 1;
             lbTittleNgayDT.Text = "Ngày:";
             // 
@@ -1923,17 +1943,17 @@ namespace CyberManagementProject
             dtpTKNgayDT.Location = new Point(126, 21);
             dtpTKNgayDT.Margin = new Padding(2);
             dtpTKNgayDT.Name = "dtpTKNgayDT";
-            dtpTKNgayDT.Size = new Size(164, 34);
+            dtpTKNgayDT.Size = new Size(164, 25);
             dtpTKNgayDT.TabIndex = 0;
             // 
             // tabPage2
             // 
             tabPage2.Controls.Add(pnTKTGMayTram);
-            tabPage2.Location = new Point(4, 31);
+            tabPage2.Location = new Point(4, 23);
             tabPage2.Margin = new Padding(2);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(2);
-            tabPage2.Size = new Size(334, 470);
+            tabPage2.Size = new Size(334, 500);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Máy Trạm";
             tabPage2.UseVisualStyleBackColor = true;
@@ -1991,7 +2011,7 @@ namespace CyberManagementProject
             label4.Location = new Point(15, 9);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(88, 27);
+            label4.Size = new Size(58, 18);
             label4.TabIndex = 1;
             label4.Text = "Tháng:";
             // 
@@ -2003,7 +2023,7 @@ namespace CyberManagementProject
             dateTimePicker1.Location = new Point(98, 9);
             dateTimePicker1.Margin = new Padding(2);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(164, 34);
+            dateTimePicker1.Size = new Size(164, 25);
             dateTimePicker1.TabIndex = 0;
             // 
             // btnDTTungMT
@@ -2024,7 +2044,7 @@ namespace CyberManagementProject
             lbThangDTTungMT.Location = new Point(15, 11);
             lbThangDTTungMT.Margin = new Padding(2, 0, 2, 0);
             lbThangDTTungMT.Name = "lbThangDTTungMT";
-            lbThangDTTungMT.Size = new Size(88, 27);
+            lbThangDTTungMT.Size = new Size(58, 18);
             lbThangDTTungMT.TabIndex = 1;
             lbThangDTTungMT.Text = "Tháng:";
             // 
@@ -2036,7 +2056,7 @@ namespace CyberManagementProject
             dtpDTTungMT.Location = new Point(97, 11);
             dtpDTTungMT.Margin = new Padding(2);
             dtpDTTungMT.Name = "dtpDTTungMT";
-            dtpDTTungMT.Size = new Size(169, 34);
+            dtpDTTungMT.Size = new Size(169, 25);
             dtpDTTungMT.TabIndex = 0;
             // 
             // lbDTTungMT
@@ -2047,7 +2067,7 @@ namespace CyberManagementProject
             lbDTTungMT.Location = new Point(9, 8);
             lbDTTungMT.Margin = new Padding(2, 0, 2, 0);
             lbDTTungMT.Name = "lbDTTungMT";
-            lbDTTungMT.Size = new Size(424, 27);
+            lbDTTungMT.Size = new Size(278, 18);
             lbDTTungMT.TabIndex = 1;
             lbDTTungMT.Text = "Doanh thu tháng theo từng máy trạm";
             // 
@@ -2083,7 +2103,7 @@ namespace CyberManagementProject
             txtTGNhieuMT.Location = new Point(16, 96);
             txtTGNhieuMT.Margin = new Padding(2);
             txtTGNhieuMT.Name = "txtTGNhieuMT";
-            txtTGNhieuMT.Size = new Size(123, 29);
+            txtTGNhieuMT.Size = new Size(123, 22);
             txtTGNhieuMT.TabIndex = 5;
             // 
             // txtTGItMT
@@ -2091,7 +2111,7 @@ namespace CyberManagementProject
             txtTGItMT.Location = new Point(144, 96);
             txtTGItMT.Margin = new Padding(2);
             txtTGItMT.Name = "txtTGItMT";
-            txtTGItMT.Size = new Size(126, 29);
+            txtTGItMT.Size = new Size(126, 22);
             txtTGItMT.TabIndex = 4;
             // 
             // lbTGItMT
@@ -2101,7 +2121,7 @@ namespace CyberManagementProject
             lbTGItMT.Location = new Point(144, 72);
             lbTGItMT.Margin = new Padding(2, 0, 2, 0);
             lbTGItMT.Name = "lbTGItMT";
-            lbTGItMT.Size = new Size(96, 27);
+            lbTGItMT.Size = new Size(63, 18);
             lbTGItMT.TabIndex = 1;
             lbTGItMT.Text = "Ít nhất:";
             // 
@@ -2112,7 +2132,7 @@ namespace CyberManagementProject
             lbTGNhieuMT.Location = new Point(16, 72);
             lbTGNhieuMT.Margin = new Padding(2, 0, 2, 0);
             lbTGNhieuMT.Name = "lbTGNhieuMT";
-            lbTGNhieuMT.Size = new Size(133, 27);
+            lbTGNhieuMT.Size = new Size(89, 18);
             lbTGNhieuMT.TabIndex = 1;
             lbTGNhieuMT.Text = "Nhiều nhất";
             // 
@@ -2123,7 +2143,7 @@ namespace CyberManagementProject
             lbThangTGNhieuItMT.Location = new Point(15, 9);
             lbThangTGNhieuItMT.Margin = new Padding(2, 0, 2, 0);
             lbThangTGNhieuItMT.Name = "lbThangTGNhieuItMT";
-            lbThangTGNhieuItMT.Size = new Size(88, 27);
+            lbThangTGNhieuItMT.Size = new Size(58, 18);
             lbThangTGNhieuItMT.TabIndex = 1;
             lbThangTGNhieuItMT.Text = "Tháng:";
             // 
@@ -2146,7 +2166,7 @@ namespace CyberManagementProject
             dtpThangTGNhieuItMT.Location = new Point(98, 9);
             dtpThangTGNhieuItMT.Margin = new Padding(2);
             dtpThangTGNhieuItMT.Name = "dtpThangTGNhieuItMT";
-            dtpThangTGNhieuItMT.Size = new Size(169, 34);
+            dtpThangTGNhieuItMT.Size = new Size(169, 25);
             dtpThangTGNhieuItMT.TabIndex = 0;
             // 
             // lbTittleTGNhieuItMT
@@ -2157,7 +2177,7 @@ namespace CyberManagementProject
             lbTittleTGNhieuItMT.Location = new Point(9, 7);
             lbTittleTGNhieuItMT.Margin = new Padding(2, 0, 2, 0);
             lbTittleTGNhieuItMT.Name = "lbTittleTGNhieuItMT";
-            lbTittleTGNhieuItMT.Size = new Size(400, 27);
+            lbTittleTGNhieuItMT.Size = new Size(264, 18);
             lbTittleTGNhieuItMT.TabIndex = 1;
             lbTittleTGNhieuItMT.Text = "Số giờ sử dụng theo tháng của máy";
             // 
@@ -2202,7 +2222,7 @@ namespace CyberManagementProject
             label5.Location = new Point(15, 9);
             label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(88, 27);
+            label5.Size = new Size(58, 18);
             label5.TabIndex = 1;
             label5.Text = "Tháng:";
             // 
@@ -2214,7 +2234,7 @@ namespace CyberManagementProject
             dateTimePicker2.Location = new Point(98, 9);
             dateTimePicker2.Margin = new Padding(2);
             dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(164, 34);
+            dateTimePicker2.Size = new Size(164, 25);
             dateTimePicker2.TabIndex = 0;
             // 
             // btnGioTheoThangMT
@@ -2235,7 +2255,7 @@ namespace CyberManagementProject
             lbTittleGioTheoThangMT.Location = new Point(15, 11);
             lbTittleGioTheoThangMT.Margin = new Padding(2, 0, 2, 0);
             lbTittleGioTheoThangMT.Name = "lbTittleGioTheoThangMT";
-            lbTittleGioTheoThangMT.Size = new Size(88, 27);
+            lbTittleGioTheoThangMT.Size = new Size(58, 18);
             lbTittleGioTheoThangMT.TabIndex = 1;
             lbTittleGioTheoThangMT.Text = "Tháng:";
             // 
@@ -2247,7 +2267,7 @@ namespace CyberManagementProject
             dtpGioTheoThangMT.Location = new Point(97, 11);
             dtpGioTheoThangMT.Margin = new Padding(2);
             dtpGioTheoThangMT.Name = "dtpGioTheoThangMT";
-            dtpGioTheoThangMT.Size = new Size(169, 34);
+            dtpGioTheoThangMT.Size = new Size(169, 25);
             dtpGioTheoThangMT.TabIndex = 0;
             // 
             // lbGioTheoThangMT
@@ -2258,18 +2278,18 @@ namespace CyberManagementProject
             lbGioTheoThangMT.Location = new Point(9, 8);
             lbGioTheoThangMT.Margin = new Padding(2, 0, 2, 0);
             lbGioTheoThangMT.Name = "lbGioTheoThangMT";
-            lbGioTheoThangMT.Size = new Size(426, 27);
+            lbGioTheoThangMT.Size = new Size(280, 18);
             lbGioTheoThangMT.TabIndex = 1;
             lbGioTheoThangMT.Text = "Số giờ hoạt động tháng của từng máy";
             // 
             // tbTKThucAn
             // 
             tbTKThucAn.Controls.Add(pnTKDoAnTheoTG);
-            tbTKThucAn.Location = new Point(4, 31);
+            tbTKThucAn.Location = new Point(4, 23);
             tbTKThucAn.Margin = new Padding(2);
             tbTKThucAn.Name = "tbTKThucAn";
             tbTKThucAn.Padding = new Padding(2);
-            tbTKThucAn.Size = new Size(334, 470);
+            tbTKThucAn.Size = new Size(334, 500);
             tbTKThucAn.TabIndex = 2;
             tbTKThucAn.Text = "Thức Ăn";
             tbTKThucAn.UseVisualStyleBackColor = true;
@@ -2318,7 +2338,7 @@ namespace CyberManagementProject
             lbTKDoANNgayKT.Location = new Point(8, 56);
             lbTKDoANNgayKT.Margin = new Padding(2, 0, 2, 0);
             lbTKDoANNgayKT.Name = "lbTKDoANNgayKT";
-            lbTKDoANNgayKT.Size = new Size(120, 26);
+            lbTKDoANNgayKT.Size = new Size(83, 18);
             lbTKDoANNgayKT.TabIndex = 1;
             lbTKDoANNgayKT.Text = "Đến ngày:";
             // 
@@ -2329,7 +2349,7 @@ namespace CyberManagementProject
             lbTKDoAnNgayBD.Location = new Point(10, 9);
             lbTKDoAnNgayBD.Margin = new Padding(2, 0, 2, 0);
             lbTKDoAnNgayBD.Name = "lbTKDoAnNgayBD";
-            lbTKDoAnNgayBD.Size = new Size(103, 26);
+            lbTKDoAnNgayBD.Size = new Size(72, 18);
             lbTKDoAnNgayBD.TabIndex = 1;
             lbTKDoAnNgayBD.Text = "Từ ngày:";
             // 
@@ -2340,7 +2360,7 @@ namespace CyberManagementProject
             dtpTKDoAnNgayKT.Location = new Point(104, 56);
             dtpTKDoAnNgayKT.Margin = new Padding(2);
             dtpTKDoAnNgayKT.Name = "dtpTKDoAnNgayKT";
-            dtpTKDoAnNgayKT.Size = new Size(178, 34);
+            dtpTKDoAnNgayKT.Size = new Size(178, 25);
             dtpTKDoAnNgayKT.TabIndex = 0;
             // 
             // dtpTKDoAnNgayBD
@@ -2350,7 +2370,7 @@ namespace CyberManagementProject
             dtpTKDoAnNgayBD.Location = new Point(104, 9);
             dtpTKDoAnNgayBD.Margin = new Padding(2);
             dtpTKDoAnNgayBD.Name = "dtpTKDoAnNgayBD";
-            dtpTKDoAnNgayBD.Size = new Size(178, 34);
+            dtpTKDoAnNgayBD.Size = new Size(178, 25);
             dtpTKDoAnNgayBD.TabIndex = 0;
             // 
             // lbTKDoAnTheoTG
@@ -2361,7 +2381,7 @@ namespace CyberManagementProject
             lbTKDoAnTheoTG.Location = new Point(9, 7);
             lbTKDoAnTheoTG.Margin = new Padding(2, 0, 2, 0);
             lbTKDoAnTheoTG.Name = "lbTKDoAnTheoTG";
-            lbTKDoAnTheoTG.Size = new Size(281, 27);
+            lbTKDoAnTheoTG.Size = new Size(186, 18);
             lbTKDoAnTheoTG.TabIndex = 2;
             lbTKDoAnTheoTG.Text = "Thống kê theo thời gian:";
             // 
@@ -2371,11 +2391,11 @@ namespace CyberManagementProject
             tnTKKhachHang.Controls.Add(pnSLKhachMoiKH);
             tnTKKhachHang.Controls.Add(pnTKKHVip);
             tnTKKhachHang.Controls.Add(pnTKLenhKH);
-            tnTKKhachHang.Location = new Point(4, 31);
+            tnTKKhachHang.Location = new Point(4, 23);
             tnTKKhachHang.Margin = new Padding(2);
             tnTKKhachHang.Name = "tnTKKhachHang";
             tnTKKhachHang.Padding = new Padding(2);
-            tnTKKhachHang.Size = new Size(334, 470);
+            tnTKKhachHang.Size = new Size(334, 500);
             tnTKKhachHang.TabIndex = 3;
             tnTKKhachHang.Text = "Khách Hàng";
             tnTKKhachHang.UseVisualStyleBackColor = true;
@@ -2409,7 +2429,7 @@ namespace CyberManagementProject
             cbxTenKhachHang.Location = new Point(16, 24);
             cbxTenKhachHang.Margin = new Padding(2);
             cbxTenKhachHang.Name = "cbxTenKhachHang";
-            cbxTenKhachHang.Size = new Size(271, 30);
+            cbxTenKhachHang.Size = new Size(271, 22);
             cbxTenKhachHang.TabIndex = 5;
             // 
             // btnTKTongTieuKH
@@ -2430,7 +2450,7 @@ namespace CyberManagementProject
             lbTenKHTongTieu.Location = new Point(10, 5);
             lbTenKHTongTieu.Margin = new Padding(2, 0, 2, 0);
             lbTenKHTongTieu.Name = "lbTenKHTongTieu";
-            lbTenKHTongTieu.Size = new Size(187, 26);
+            lbTenKHTongTieu.Size = new Size(132, 18);
             lbTenKHTongTieu.TabIndex = 1;
             lbTenKHTongTieu.Text = "Tên khách hàng:";
             // 
@@ -2442,7 +2462,7 @@ namespace CyberManagementProject
             lbTKTittleTongTieuKH.Location = new Point(9, 3);
             lbTKTittleTongTieuKH.Margin = new Padding(2, 0, 2, 0);
             lbTKTittleTongTieuKH.Name = "lbTKTittleTongTieuKH";
-            lbTKTittleTongTieuKH.Size = new Size(401, 27);
+            lbTKTittleTongTieuKH.Size = new Size(267, 18);
             lbTKTittleTongTieuKH.TabIndex = 2;
             lbTKTittleTongTieuKH.Text = "Tổng số tiền khách hàng đã chi tiêu";
             // 
@@ -2477,7 +2497,7 @@ namespace CyberManagementProject
             txtKQThangKhachMoi.Location = new Point(104, 40);
             txtKQThangKhachMoi.Margin = new Padding(2);
             txtKQThangKhachMoi.Name = "txtKQThangKhachMoi";
-            txtKQThangKhachMoi.Size = new Size(178, 29);
+            txtKQThangKhachMoi.Size = new Size(178, 22);
             txtKQThangKhachMoi.TabIndex = 5;
             // 
             // btnChiTietSLKhachMoi
@@ -2511,7 +2531,7 @@ namespace CyberManagementProject
             dtpThangKhachMoi.Margin = new Padding(2);
             dtpThangKhachMoi.Name = "dtpThangKhachMoi";
             dtpThangKhachMoi.ShowUpDown = true;
-            dtpThangKhachMoi.Size = new Size(178, 34);
+            dtpThangKhachMoi.Size = new Size(178, 25);
             dtpThangKhachMoi.TabIndex = 0;
             // 
             // lbKQThangKhachMoi
@@ -2521,7 +2541,7 @@ namespace CyberManagementProject
             lbKQThangKhachMoi.Location = new Point(10, 35);
             lbKQThangKhachMoi.Margin = new Padding(2, 0, 2, 0);
             lbKQThangKhachMoi.Name = "lbKQThangKhachMoi";
-            lbKQThangKhachMoi.Size = new Size(101, 26);
+            lbKQThangKhachMoi.Size = new Size(70, 18);
             lbKQThangKhachMoi.TabIndex = 1;
             lbKQThangKhachMoi.Text = "Kết quả:";
             // 
@@ -2532,7 +2552,7 @@ namespace CyberManagementProject
             lbThangSLKhachMoi.Location = new Point(10, 10);
             lbThangSLKhachMoi.Margin = new Padding(2, 0, 2, 0);
             lbThangSLKhachMoi.Name = "lbThangSLKhachMoi";
-            lbThangSLKhachMoi.Size = new Size(84, 26);
+            lbThangSLKhachMoi.Size = new Size(59, 18);
             lbThangSLKhachMoi.TabIndex = 1;
             lbThangSLKhachMoi.Text = "Tháng:";
             // 
@@ -2544,7 +2564,7 @@ namespace CyberManagementProject
             lbTKTittleSLKhachMoi.Location = new Point(9, 7);
             lbTKTittleSLKhachMoi.Margin = new Padding(2, 0, 2, 0);
             lbTKTittleSLKhachMoi.Name = "lbTKTittleSLKhachMoi";
-            lbTKTittleSLKhachMoi.Size = new Size(231, 27);
+            lbTKTittleSLKhachMoi.Size = new Size(152, 18);
             lbTKTittleSLKhachMoi.TabIndex = 2;
             lbTKTittleSLKhachMoi.Text = "Số lượng khách mới";
             // 
@@ -2589,7 +2609,7 @@ namespace CyberManagementProject
             label7.Location = new Point(10, 13);
             label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
-            label7.Size = new Size(240, 27);
+            label7.Size = new Size(162, 18);
             label7.TabIndex = 2;
             label7.Text = "TOP 5 KHÁCH HÀNG:";
             // 
@@ -2601,7 +2621,7 @@ namespace CyberManagementProject
             lbTKTittleSDnhieuKH.Location = new Point(9, 7);
             lbTKTittleSDnhieuKH.Margin = new Padding(2, 0, 2, 0);
             lbTKTittleSDnhieuKH.Name = "lbTKTittleSDnhieuKH";
-            lbTKTittleSDnhieuKH.Size = new Size(314, 27);
+            lbTKTittleSDnhieuKH.Size = new Size(207, 18);
             lbTKTittleSDnhieuKH.TabIndex = 2;
             lbTKTittleSDnhieuKH.Text = "Sử dụng dịch vụ nhiều nhất";
             // 
@@ -2649,7 +2669,7 @@ namespace CyberManagementProject
             StTKEndKH.Location = new Point(10, 38);
             StTKEndKH.Margin = new Padding(2, 0, 2, 0);
             StTKEndKH.Name = "StTKEndKH";
-            StTKEndKH.Size = new Size(120, 26);
+            StTKEndKH.Size = new Size(83, 18);
             StTKEndKH.TabIndex = 1;
             StTKEndKH.Text = "Đến ngày:";
             // 
@@ -2660,7 +2680,7 @@ namespace CyberManagementProject
             lbTKStartKH.Location = new Point(10, 9);
             lbTKStartKH.Margin = new Padding(2, 0, 2, 0);
             lbTKStartKH.Name = "lbTKStartKH";
-            lbTKStartKH.Size = new Size(103, 26);
+            lbTKStartKH.Size = new Size(72, 18);
             lbTKStartKH.TabIndex = 1;
             lbTKStartKH.Text = "Từ ngày:";
             // 
@@ -2671,7 +2691,7 @@ namespace CyberManagementProject
             dtpTKEndKH.Location = new Point(104, 35);
             dtpTKEndKH.Margin = new Padding(2);
             dtpTKEndKH.Name = "dtpTKEndKH";
-            dtpTKEndKH.Size = new Size(178, 34);
+            dtpTKEndKH.Size = new Size(178, 25);
             dtpTKEndKH.TabIndex = 0;
             // 
             // dtpTKStartKH
@@ -2681,7 +2701,7 @@ namespace CyberManagementProject
             dtpTKStartKH.Location = new Point(104, 9);
             dtpTKStartKH.Margin = new Padding(2);
             dtpTKStartKH.Name = "dtpTKStartKH";
-            dtpTKStartKH.Size = new Size(178, 34);
+            dtpTKStartKH.Size = new Size(178, 25);
             dtpTKStartKH.TabIndex = 0;
             // 
             // lbTKTittleThangKH
@@ -2692,17 +2712,17 @@ namespace CyberManagementProject
             lbTKTittleThangKH.Location = new Point(9, 5);
             lbTKTittleThangKH.Margin = new Padding(2, 0, 2, 0);
             lbTKTittleThangKH.Name = "lbTKTittleThangKH";
-            lbTKTittleThangKH.Size = new Size(281, 27);
+            lbTKTittleThangKH.Size = new Size(186, 18);
             lbTKTittleThangKH.TabIndex = 2;
             lbTKTittleThangKH.Text = "Thống kê theo thời gian:";
             // 
             // tbTKTienNap
             // 
             tbTKTienNap.Controls.Add(pnTKTN);
-            tbTKTienNap.Location = new Point(4, 31);
+            tbTKTienNap.Location = new Point(4, 23);
             tbTKTienNap.Name = "tbTKTienNap";
             tbTKTienNap.Padding = new Padding(3);
-            tbTKTienNap.Size = new Size(334, 470);
+            tbTKTienNap.Size = new Size(334, 500);
             tbTKTienNap.TabIndex = 4;
             tbTKTienNap.Text = "Tiền Nạp";
             tbTKTienNap.UseVisualStyleBackColor = true;
@@ -2744,18 +2764,18 @@ namespace CyberManagementProject
             // 
             cbxChonLoaiTNTK.FormattingEnabled = true;
             cbxChonLoaiTNTK.Items.AddRange(new object[] { "Tổng tiền nạp của tất cả khách hàng", "TOP khách hàng nạp tiền nhiều nhất" });
-            cbxChonLoaiTNTK.Location = new Point(132, 10);
+            cbxChonLoaiTNTK.Location = new Point(136, 8);
             cbxChonLoaiTNTK.Name = "cbxChonLoaiTNTK";
-            cbxChonLoaiTNTK.Size = new Size(178, 30);
+            cbxChonLoaiTNTK.Size = new Size(162, 22);
             cbxChonLoaiTNTK.TabIndex = 4;
             // 
             // lbTittleTNTKKhac
             // 
             lbTittleTNTKKhac.AutoSize = true;
             lbTittleTNTKKhac.Font = new Font("Tahoma", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbTittleTNTKKhac.Location = new Point(-1, 9);
+            lbTittleTNTKKhac.Location = new Point(16, 8);
             lbTittleTNTKKhac.Name = "lbTittleTNTKKhac";
-            lbTittleTNTKKhac.Size = new Size(179, 27);
+            lbTittleTNTKKhac.Size = new Size(119, 18);
             lbTittleTNTKKhac.TabIndex = 2;
             lbTittleTNTKKhac.Text = "Thống kê khác:";
             // 
@@ -2766,7 +2786,7 @@ namespace CyberManagementProject
             pnTKTNTrongNgay.Controls.Add(lbTittleTKTNTrongNgay);
             pnTKTNTrongNgay.Location = new Point(8, 5);
             pnTKTNTrongNgay.Name = "pnTKTNTrongNgay";
-            pnTKTNTrongNgay.Size = new Size(319, 134);
+            pnTKTNTrongNgay.Size = new Size(319, 123);
             pnTKTNTrongNgay.TabIndex = 7;
             // 
             // pnKhungTKTNTrongNgay
@@ -2777,12 +2797,12 @@ namespace CyberManagementProject
             pnKhungTKTNTrongNgay.Controls.Add(dtpTKTNTrongNgay);
             pnKhungTKTNTrongNgay.Location = new Point(15, 28);
             pnKhungTKTNTrongNgay.Name = "pnKhungTKTNTrongNgay";
-            pnKhungTKTNTrongNgay.Size = new Size(292, 93);
+            pnKhungTKTNTrongNgay.Size = new Size(297, 84);
             pnKhungTKTNTrongNgay.TabIndex = 2;
             // 
             // btnTKTNTrongNgay
             // 
-            btnTKTNTrongNgay.Location = new Point(104, 59);
+            btnTKTNTrongNgay.Location = new Point(104, 48);
             btnTKTNTrongNgay.Name = "btnTKTNTrongNgay";
             btnTKTNTrongNgay.Size = new Size(102, 28);
             btnTKTNTrongNgay.TabIndex = 3;
@@ -2796,7 +2816,7 @@ namespace CyberManagementProject
             lbTKTNTheoNgay.Font = new Font("Tahoma", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbTKTNTheoNgay.Location = new Point(3, 16);
             lbTKTNTheoNgay.Name = "lbTKTNTheoNgay";
-            lbTKTNTheoNgay.Size = new Size(124, 27);
+            lbTKTNTheoNgay.Size = new Size(83, 18);
             lbTKTNTheoNgay.TabIndex = 1;
             lbTKTNTheoNgay.Text = "Ngày nạp:";
             // 
@@ -2807,7 +2827,7 @@ namespace CyberManagementProject
             dtpTKTNTrongNgay.Format = DateTimePickerFormat.Custom;
             dtpTKTNTrongNgay.Location = new Point(104, 16);
             dtpTKTNTrongNgay.Name = "dtpTKTNTrongNgay";
-            dtpTKTNTrongNgay.Size = new Size(178, 37);
+            dtpTKTNTrongNgay.Size = new Size(178, 27);
             dtpTKTNTrongNgay.TabIndex = 0;
             // 
             // lbTittleTKTNTrongNgay
@@ -2817,7 +2837,7 @@ namespace CyberManagementProject
             lbTittleTKTNTrongNgay.ForeColor = Color.DarkGreen;
             lbTittleTKTNTrongNgay.Location = new Point(4, 0);
             lbTittleTKTNTrongNgay.Name = "lbTittleTKTNTrongNgay";
-            lbTittleTKTNTrongNgay.Size = new Size(344, 27);
+            lbTittleTKTNTrongNgay.Size = new Size(228, 18);
             lbTittleTKTNTrongNgay.TabIndex = 2;
             lbTittleTKTNTrongNgay.Text = "Thống kê tiền nạp trong ngày:";
             // 
@@ -2839,14 +2859,14 @@ namespace CyberManagementProject
             pnKhungTNTungThang.Controls.Add(lbTNNhapNam);
             pnKhungTNTungThang.Location = new Point(13, 18);
             pnKhungTNTungThang.Name = "pnKhungTNTungThang";
-            pnKhungTNTungThang.Size = new Size(292, 68);
+            pnKhungTNTungThang.Size = new Size(299, 68);
             pnKhungTNTungThang.TabIndex = 2;
             // 
             // txtTNNhapNam
             // 
             txtTNNhapNam.Location = new Point(109, 9);
             txtTNNhapNam.Name = "txtTNNhapNam";
-            txtTNNhapNam.Size = new Size(178, 29);
+            txtTNNhapNam.Size = new Size(178, 22);
             txtTNNhapNam.TabIndex = 4;
             // 
             // btbTNTungThang
@@ -2865,7 +2885,7 @@ namespace CyberManagementProject
             lbTNNhapNam.Font = new Font("Tahoma", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbTNNhapNam.Location = new Point(3, 11);
             lbTNNhapNam.Name = "lbTNNhapNam";
-            lbTNNhapNam.Size = new Size(132, 27);
+            lbTNNhapNam.Size = new Size(87, 18);
             lbTNNhapNam.TabIndex = 1;
             lbTNNhapNam.Text = "Nhập năm:";
             // 
@@ -2876,7 +2896,7 @@ namespace CyberManagementProject
             lbTittleTNTungThang.ForeColor = Color.DarkGreen;
             lbTittleTNTungThang.Location = new Point(8, 0);
             lbTittleTNTungThang.Name = "lbTittleTNTungThang";
-            lbTittleTNTungThang.Size = new Size(435, 27);
+            lbTittleTNTungThang.Size = new Size(284, 18);
             lbTittleTNTungThang.TabIndex = 2;
             lbTittleTNTungThang.Text = "Tổng doanh thu từng tháng trong năm";
             // 
@@ -2885,9 +2905,9 @@ namespace CyberManagementProject
             pnTNKhachHangNapNhieu.BorderStyle = BorderStyle.FixedSingle;
             pnTNKhachHangNapNhieu.Controls.Add(pnKhungTNKHNapNhieu);
             pnTNKhachHangNapNhieu.Controls.Add(lbTittleTNKHNapNhieu);
-            pnTNKhachHangNapNhieu.Location = new Point(8, 141);
+            pnTNKhachHangNapNhieu.Location = new Point(8, 136);
             pnTNKhachHangNapNhieu.Name = "pnTNKhachHangNapNhieu";
-            pnTNKhachHangNapNhieu.Size = new Size(319, 176);
+            pnTNKhachHangNapNhieu.Size = new Size(319, 181);
             pnTNKhachHangNapNhieu.TabIndex = 6;
             // 
             // pnKhungTNKHNapNhieu
@@ -2904,29 +2924,29 @@ namespace CyberManagementProject
             pnKhungTNKHNapNhieu.Controls.Add(lbTNChonThangKHNapNhieu);
             pnKhungTNKHNapNhieu.Location = new Point(17, 23);
             pnKhungTNKHNapNhieu.Name = "pnKhungTNKHNapNhieu";
-            pnKhungTNKHNapNhieu.Size = new Size(292, 146);
+            pnKhungTNKHNapNhieu.Size = new Size(295, 146);
             pnKhungTNKHNapNhieu.TabIndex = 2;
             // 
             // txtTongKHNapNhieu
             // 
-            txtTongKHNapNhieu.Location = new Point(109, 117);
+            txtTongKHNapNhieu.Location = new Point(104, 72);
             txtTongKHNapNhieu.Name = "txtTongKHNapNhieu";
-            txtTongKHNapNhieu.Size = new Size(178, 29);
+            txtTongKHNapNhieu.Size = new Size(178, 22);
             txtTongKHNapNhieu.TabIndex = 5;
             // 
             // txtTNTenKHNapNhieu
             // 
-            txtTNTenKHNapNhieu.Location = new Point(109, 82);
+            txtTNTenKHNapNhieu.Location = new Point(104, 40);
             txtTNTenKHNapNhieu.Name = "txtTNTenKHNapNhieu";
-            txtTNTenKHNapNhieu.Size = new Size(178, 29);
+            txtTNTenKHNapNhieu.Size = new Size(178, 22);
             txtTNTenKHNapNhieu.TabIndex = 4;
             // 
             // btnTNKHNapNhieu
             // 
             btnTNKHNapNhieu.Font = new Font("Tahoma", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnTNKHNapNhieu.Location = new Point(19, 60);
+            btnTNKHNapNhieu.Location = new Point(96, 104);
             btnTNKHNapNhieu.Name = "btnTNKHNapNhieu";
-            btnTNKHNapNhieu.Size = new Size(268, 30);
+            btnTNKHNapNhieu.Size = new Size(102, 28);
             btnTNKHNapNhieu.TabIndex = 2;
             btnTNKHNapNhieu.Text = "Thống kê";
             btnTNKHNapNhieu.UseVisualStyleBackColor = true;
@@ -2934,26 +2954,26 @@ namespace CyberManagementProject
             // 
             // txtTNChonNamKHNapNhieu
             // 
-            txtTNChonNamKHNapNhieu.Location = new Point(109, 40);
+            txtTNChonNamKHNapNhieu.Location = new Point(208, 8);
             txtTNChonNamKHNapNhieu.Name = "txtTNChonNamKHNapNhieu";
-            txtTNChonNamKHNapNhieu.Size = new Size(178, 29);
+            txtTNChonNamKHNapNhieu.Size = new Size(75, 22);
             txtTNChonNamKHNapNhieu.TabIndex = 3;
             // 
             // cbxTNChonThangKHNapNhieu
             // 
             cbxTNChonThangKHNapNhieu.FormattingEnabled = true;
-            cbxTNChonThangKHNapNhieu.Location = new Point(109, 4);
+            cbxTNChonThangKHNapNhieu.Location = new Point(72, 8);
             cbxTNChonThangKHNapNhieu.Name = "cbxTNChonThangKHNapNhieu";
-            cbxTNChonThangKHNapNhieu.Size = new Size(178, 30);
+            cbxTNChonThangKHNapNhieu.Size = new Size(75, 22);
             cbxTNChonThangKHNapNhieu.TabIndex = 2;
             // 
             // lbTNChonNamKHNapNhieu
             // 
             lbTNChonNamKHNapNhieu.AutoSize = true;
             lbTNChonNamKHNapNhieu.Font = new Font("Tahoma", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbTNChonNamKHNapNhieu.Location = new Point(14, 37);
+            lbTNChonNamKHNapNhieu.Location = new Point(160, 8);
             lbTNChonNamKHNapNhieu.Name = "lbTNChonNamKHNapNhieu";
-            lbTNChonNamKHNapNhieu.Size = new Size(71, 27);
+            lbTNChonNamKHNapNhieu.Size = new Size(47, 18);
             lbTNChonNamKHNapNhieu.TabIndex = 1;
             lbTNChonNamKHNapNhieu.Text = "Năm:";
             // 
@@ -2961,9 +2981,9 @@ namespace CyberManagementProject
             // 
             lbTNTenKHNapNhieu.AutoSize = true;
             lbTNTenKHNapNhieu.Font = new Font("Tahoma", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbTNTenKHNapNhieu.Location = new Point(19, 82);
+            lbTNTenKHNapNhieu.Location = new Point(8, 40);
             lbTNTenKHNapNhieu.Name = "lbTNTenKHNapNhieu";
-            lbTNTenKHNapNhieu.Size = new Size(60, 27);
+            lbTNTenKHNapNhieu.Size = new Size(40, 18);
             lbTNTenKHNapNhieu.TabIndex = 1;
             lbTNTenKHNapNhieu.Text = "Tên:";
             // 
@@ -2971,9 +2991,9 @@ namespace CyberManagementProject
             // 
             lbTongKHNapNhieu.AutoSize = true;
             lbTongKHNapNhieu.Font = new Font("Tahoma", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbTongKHNapNhieu.Location = new Point(14, 111);
+            lbTongKHNapNhieu.Location = new Point(8, 72);
             lbTongKHNapNhieu.Name = "lbTongKHNapNhieu";
-            lbTongKHNapNhieu.Size = new Size(124, 27);
+            lbTongKHNapNhieu.Size = new Size(82, 18);
             lbTongKHNapNhieu.TabIndex = 1;
             lbTongKHNapNhieu.Text = "Tổng tiền:";
             // 
@@ -2981,11 +3001,11 @@ namespace CyberManagementProject
             // 
             lbTNChonThangKHNapNhieu.AutoSize = true;
             lbTNChonThangKHNapNhieu.Font = new Font("Tahoma", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbTNChonThangKHNapNhieu.Location = new Point(14, 7);
+            lbTNChonThangKHNapNhieu.Location = new Point(8, 8);
             lbTNChonThangKHNapNhieu.Name = "lbTNChonThangKHNapNhieu";
-            lbTNChonThangKHNapNhieu.Size = new Size(147, 27);
+            lbTNChonThangKHNapNhieu.Size = new Size(58, 18);
             lbTNChonThangKHNapNhieu.TabIndex = 1;
-            lbTNChonThangKHNapNhieu.Text = "Chọn tháng:";
+            lbTNChonThangKHNapNhieu.Text = "Tháng:";
             // 
             // lbTittleTNKHNapNhieu
             // 
@@ -2994,7 +3014,7 @@ namespace CyberManagementProject
             lbTittleTNKHNapNhieu.ForeColor = Color.DarkGreen;
             lbTittleTNKHNapNhieu.Location = new Point(13, 0);
             lbTittleTNKHNapNhieu.Name = "lbTittleTNKHNapNhieu";
-            lbTittleTNKHNapNhieu.Size = new Size(431, 27);
+            lbTittleTNKHNapNhieu.Size = new Size(285, 18);
             lbTittleTNKHNapNhieu.TabIndex = 2;
             lbTittleTNKHNapNhieu.Text = "Khách hàng nạp tiền nhiều nhất tháng";
             // 
@@ -3019,7 +3039,7 @@ namespace CyberManagementProject
             label11.Location = new Point(114, 15);
             label11.Margin = new Padding(2, 0, 2, 0);
             label11.Name = "label11";
-            label11.Size = new Size(140, 29);
+            label11.Size = new Size(94, 19);
             label11.TabIndex = 6;
             label11.Text = "THỐNG KÊ";
             // 
@@ -3030,7 +3050,7 @@ namespace CyberManagementProject
             label12.Location = new Point(20, 15);
             label12.Margin = new Padding(2, 0, 2, 0);
             label12.Name = "label12";
-            label12.Size = new Size(126, 29);
+            label12.Size = new Size(85, 19);
             label12.TabIndex = 5;
             label12.Text = "⟲ Home >";
             label12.Click += label12_Click;
@@ -3078,13 +3098,13 @@ namespace CyberManagementProject
             cmsKhachHang.ImageScalingSize = new Size(20, 20);
             cmsKhachHang.Items.AddRange(new ToolStripItem[] { cmsKhachHang_Them, cmsKhachHang_Nhac, cmsKhachHang_TrangChu });
             cmsKhachHang.Name = "cmsKhachHang";
-            cmsKhachHang.Size = new Size(289, 100);
+            cmsKhachHang.Size = new Size(214, 70);
             // 
             // cmsKhachHang_Them
             // 
             cmsKhachHang_Them.Name = "cmsKhachHang_Them";
             cmsKhachHang_Them.ShortcutKeys = Keys.Control | Keys.N;
-            cmsKhachHang_Them.Size = new Size(288, 32);
+            cmsKhachHang_Them.Size = new Size(213, 22);
             cmsKhachHang_Them.Text = "Thêm khách hàng";
             cmsKhachHang_Them.Click += cmsKhachHang_Them_Click;
             // 
@@ -3092,7 +3112,7 @@ namespace CyberManagementProject
             // 
             cmsKhachHang_Nhac.Name = "cmsKhachHang_Nhac";
             cmsKhachHang_Nhac.ShortcutKeys = Keys.Control | Keys.M;
-            cmsKhachHang_Nhac.Size = new Size(288, 32);
+            cmsKhachHang_Nhac.Size = new Size(213, 22);
             cmsKhachHang_Nhac.Text = "Nhạc";
             cmsKhachHang_Nhac.Click += cmsKhachHang_Nhac_Click;
             // 
@@ -3100,7 +3120,7 @@ namespace CyberManagementProject
             // 
             cmsKhachHang_TrangChu.Name = "cmsKhachHang_TrangChu";
             cmsKhachHang_TrangChu.ShortcutKeys = Keys.Control | Keys.H;
-            cmsKhachHang_TrangChu.Size = new Size(288, 32);
+            cmsKhachHang_TrangChu.Size = new Size(213, 22);
             cmsKhachHang_TrangChu.Text = "Trang chủ";
             cmsKhachHang_TrangChu.Click += cmsKhachHang_TrangChu_Click;
             // 
@@ -3109,13 +3129,13 @@ namespace CyberManagementProject
             cmsNhanVien.ImageScalingSize = new Size(20, 20);
             cmsNhanVien.Items.AddRange(new ToolStripItem[] { cmsNhanVien_Them, cmsNhanVien_Nhac, cmsNhanVien_TrangChu });
             cmsNhanVien.Name = "cmsNhanVien";
-            cmsNhanVien.Size = new Size(269, 100);
+            cmsNhanVien.Size = new Size(200, 70);
             // 
             // cmsNhanVien_Them
             // 
             cmsNhanVien_Them.Name = "cmsNhanVien_Them";
             cmsNhanVien_Them.ShortcutKeys = Keys.Alt | Keys.N;
-            cmsNhanVien_Them.Size = new Size(268, 32);
+            cmsNhanVien_Them.Size = new Size(199, 22);
             cmsNhanVien_Them.Text = "Thêm nhân viên";
             cmsNhanVien_Them.Click += cmsNhanVien_Them_Click;
             // 
@@ -3123,7 +3143,7 @@ namespace CyberManagementProject
             // 
             cmsNhanVien_Nhac.Name = "cmsNhanVien_Nhac";
             cmsNhanVien_Nhac.ShortcutKeys = Keys.Control | Keys.M;
-            cmsNhanVien_Nhac.Size = new Size(268, 32);
+            cmsNhanVien_Nhac.Size = new Size(199, 22);
             cmsNhanVien_Nhac.Text = "Nhạc";
             cmsNhanVien_Nhac.Click += cmsNhanVien_Nhac_Click;
             // 
@@ -3131,13 +3151,13 @@ namespace CyberManagementProject
             // 
             cmsNhanVien_TrangChu.Name = "cmsNhanVien_TrangChu";
             cmsNhanVien_TrangChu.ShortcutKeys = Keys.Control | Keys.H;
-            cmsNhanVien_TrangChu.Size = new Size(268, 32);
+            cmsNhanVien_TrangChu.Size = new Size(199, 22);
             cmsNhanVien_TrangChu.Text = "Trang chủ";
             cmsNhanVien_TrangChu.Click += cmsNhanVien_TrangChu_Click;
             // 
             // frmMain
             // 
-            AutoScaleDimensions = new SizeF(10F, 22F);
+            AutoScaleDimensions = new SizeF(7F, 14F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1345, 667);
             Controls.Add(tblMain);
@@ -3172,6 +3192,7 @@ namespace CyberManagementProject
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             pnlTitleBar.ResumeLayout(false);
             pnlTitleBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbxMinimize).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxClose).EndInit();
             tblMain.ResumeLayout(false);
             tbpComputer.ResumeLayout(false);
@@ -3546,5 +3567,6 @@ namespace CyberManagementProject
         private Label lbTongKHNapNhieu;
         private Label lbTNChonThangKHNapNhieu;
         private Label lbTittleTNKHNapNhieu;
+        private PictureBox pbxMinimize;
     }
 }

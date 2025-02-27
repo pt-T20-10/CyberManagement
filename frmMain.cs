@@ -28,6 +28,7 @@ using CyberManagementProject.KhachHang;
 
 namespace CyberManagementProject
 {
+
     public partial class frmMain : Form
     {
         BindingSource computuberStatus = new BindingSource();
@@ -2075,6 +2076,39 @@ namespace CyberManagementProject
             this.Close();
         }
         #endregion
+        #region MinimizeButton
+        private void pbxMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pbxMinimize_MouseDown(object sender, MouseEventArgs e)
+        {
+            pbxMinimize.BackColor = Color.FromArgb(189, 193, 198); // #BDC1C6
+        }
+
+        private void pbxMinimize_MouseEnter(object sender, EventArgs e)
+        {
+            pbxMinimize.BackColor = Color.FromArgb(210, 214, 220); // #D2D6DC
+        }
+
+        private void pbxMinimize_MouseHover(object sender, EventArgs e)
+        {
+            pbxMinimize.BackColor = Color.FromArgb(189, 193, 198); // #BDC1C6
+        }
+
+        private void pbxMinimize_MouseUp(object sender, MouseEventArgs e)
+        {
+            pbxMinimize.BackColor = Color.FromArgb(210, 214, 220); // #D2D6DC
+        }
+
+        private void pbxMinimize_MouseLeave(object sender, EventArgs e)
+        {
+            pbxMinimize.BackColor = Color.Transparent; // Đúng đối tượng
+        }
+
+        #endregion
+
         #region Binding Click
         private void LbUserName_Click(object? sender, EventArgs e)
         {
@@ -2365,7 +2399,7 @@ namespace CyberManagementProject
             MessageBox.Show("Tính năng đang trong quá trình phát triển!");
         }
 
-        
+       
     }
     #endregion
 
