@@ -39,7 +39,9 @@ namespace CyberManagementProject
             InitializeComponent();
 
             currentUser = tkNhanVien; // Lưu tài khoản nhân viên đang đăng nhập
-
+           
+            flpComputer.ContextMenuStrip = CreateFlpContextMenu();
+         
             LoadHoangNghia();
             LoadTrongThoai();
             LoadFoodList();
@@ -1921,24 +1923,27 @@ namespace CyberManagementProject
         }
         private void btnExtraMoney_Click(object sender, EventArgs e)
         {
-            MayTinhView computer = flpComputer.Tag as MayTinhView;
+            MayTinhView computer = GetSelectedComputerFromContext(sender);
             if (computer != null)
             {
-                frmNapTien f = new frmNapTien(computer);
-                f.ShowDialog();
-                LoadComputerBindingByComputer(computer);
-                LoadComputerList();
+                using (frmNapTien f = new frmNapTien(computer))
+                {
+                    f.ShowDialog(); 
+                    RefreshSingleComputer(computer.IDMayTinh);
+                    LoadComputerBindingByComputer(computer);
+                   
+                }   
             }
             else
             {
-                frmNapTien f = new frmNapTien();
-                f.ShowDialog();
-
-                LoadComputerBindingByComputer(computer);
-                LoadComputerList();
+                using (frmNapTien f = new frmNapTien())
+                {
+                    f.ShowDialog();   
+                    RefreshSingleComputer(computer.IDMayTinh);
+                    LoadComputerBindingByComputer(computer);
+                 
+                }
             }
-
-
         }
         private void btnManageAllCom_Click(object sender, EventArgs e)
         {
@@ -1946,83 +1951,120 @@ namespace CyberManagementProject
             if (computer != null)
             {
                 MayTinh com = MayTinhDAO.Instance.LoadComputerById(computer.IDMayTinh);
-                frmManageComputers frm = new frmManageComputers(com);
-                frm.ShowDialog();
-                LoadComputerList();
+                using (frmManageComputers frm = new frmManageComputers(com))
+                {
+                    frm.ShowDialog();
+                    RefreshSingleComputer(computer.IDMayTinh);
+                }
             }
             else
             {
-                frmManageComputers frm = new frmManageComputers();
-                frm.ShowDialog();
-                LoadComputerList();
+                using (frmManageComputers frm = new frmManageComputers())
+                {
+                    frm.ShowDialog();
+
+                    LoadComputerList();
+                }
             }
         }
+
         private void btnManageComputer_Click(object sender, EventArgs e)
         {
-            MayTinhView computer = flpComputer.Tag as MayTinhView;
+            MayTinhView computer = GetSelectedComputerFromContext(sender);
+            if (computer == null)
+            {
+                MessageBox.Show("Vui lòng chọn máy!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            frmAddUserToComputer f = new frmAddUserToComputer(computer);
-            f.ShowDialog();
-            LoadComputerList();
-
+            using (frmAddUserToComputer f = new frmAddUserToComputer(computer))
+            {
+                f.ShowDialog();
+                RefreshSingleComputer(computer.IDMayTinh);
+            }
         }
         private void btnShutDownComputer_Click(object sender, EventArgs e)
         {
             CyberManager.KhoiPhucPhienDangChay();
-            MayTinhView com = flpComputer.Tag as MayTinhView;
-
-            if (com == null)
+            MayTinhView computer = GetSelectedComputerFromContext(sender);
+            if (computer == null)
             {
-                MessageBox.Show("Vui lòng chọn máy!");
+                MessageBox.Show("Vui lòng chọn máy!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (com.TrangThai == "Trống")
+            if (computer.TrangThai == "Trống")
             {
-                MessageBox.Show("Máy hiện chưa mở!");
+                MessageBox.Show("Máy hiện chưa mở!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string tenMay = com.TenMay;
-            int idPhien = com.IDPhien ?? -1;
+            string tenMay = computer.TenMay ?? "Máy không xác định";
+            int idPhien = computer.IDPhien ?? -1;
             DateTime timeKetThuc = DateTime.Now;
-            double tongTienDoAn = Double.Parse(tbxMoneyCost.Text.Split(' ')[0].Replace(".", ""));
-            double tongTienNap = (double)CyberManager.GetTongTienNap(idPhien); // Đồng bộ với CyberManager
-
-            if (MessageBox.Show($"Bạn có thực sự muốn tắt máy {tenMay}?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            decimal tongTienDoAn = 0M;
+            if (!string.IsNullOrEmpty(tbxMoneyCost.Text))
             {
-                CyberManager.KetThucPhien(idPhien, timeKetThuc, (float)tongTienNap, (float)tongTienDoAn);
-                MessageBox.Show($"Đã tắt máy {tenMay}");
+                tongTienDoAn = decimal.Parse(tbxMoneyCost.Text.Split(' ')[0].Replace(".", ""));
+            }
+            decimal tongTienNap = CyberManager.GetTongTienNap(idPhien);
 
-                // Cập nhật giao diện
-                LoadComputerBindingByComputer(com);
-                LoadComputerList();
+            if (MessageBox.Show($"Bạn có thực sự muốn tắt máy {tenMay}?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                try
+                {
+                    CyberManager.KetThucPhien(idPhien, timeKetThuc, (float)tongTienNap, (float)tongTienDoAn);
+                    MessageBox.Show($"Đã tắt máy {tenMay}", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                tbxMoneyAdd.Text = "0 VNĐ"; // Reset tiền nạp về 0
+                    // Tải lại MayTinhView từ database để lấy trạng thái mới
+                    MayTinhView updatedComputer = MayTinhDAO.Instance.LoadComputerStatus()
+                        .FirstOrDefault(c => c.IDMayTinh == computer.IDMayTinh);
+
+                    if (updatedComputer != null)
+                    { 
+                        RefreshSingleComputer(computer.IDMayTinh); 
+                        LoadComputerBindingByComputer(updatedComputer); // Cập nhật binding với dữ liệu mới
+                       
+                    }
+                    else
+                    {
+                        // Nếu không tìm thấy, reset UI
+                        flpComputer.Tag = null;
+                        RefreshSingleComputer(computer.IDMayTinh); 
+                        LoadComputerBindingByComputer(null);
+                       
+                    }
+
+                    tbxMoneyAdd.Text = "0 VNĐ"; // Reset tiền nạp về 0
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi tắt máy: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         private void btnAddServices_Click(object sender, EventArgs e)
         {
-            MayTinhView com = flpComputer.Tag as MayTinhView;
-            if (com != null)
+            MayTinhView computer = GetSelectedComputerFromContext(sender);
+            if (computer == null)
             {
-                if (com.TrangThai == "Trống")
-                {
-                    MessageBox.Show("Máy chưa được mở!");
-                    return;
-                }
-
-                frmAddDichVuToCom f = new frmAddDichVuToCom(com);
-                f.ShowDialog();
-                LoadComputerBindingByComputer(com);
-                LoadComputerList();
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn máy!");
+                MessageBox.Show("Vui lòng chọn máy!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            if (computer.TrangThai == "Trống")
+            {
+                MessageBox.Show("Máy chưa được mở!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (frmAddDichVuToCom f = new frmAddDichVuToCom(computer))
+            {
+                f.ShowDialog();
+                RefreshSingleComputer(computer.IDMayTinh);
+                LoadComputerBindingByComputer(computer);
+               
+            }
         }
         private void flpComputer_Click(object sender, EventArgs e)
         {
@@ -2200,6 +2242,7 @@ namespace CyberManagementProject
         void LoadTrongThoai()
         {
             LoadComputerList();
+
             LoadButton();
             CyberManager.KhoiPhucPhienDangChay();
 
@@ -2214,67 +2257,76 @@ namespace CyberManagementProject
 
 
         }
-        public void LoadComputerList()
+        private void LoadComputerList()
         {
             flpComputer.Controls.Clear();
             List<MayTinhView> computers = MayTinhDAO.Instance.LoadComputerStatus();
 
             foreach (MayTinhView com in computers)
             {
-                Panel pnCom = new Panel()
+                Panel pnCom = new Panel
                 {
                     Width = MayTinhDAO.TableWidth,
                     Height = MayTinhDAO.TableHeight,
                     BorderStyle = BorderStyle.FixedSingle,
                     BackColor = Color.WhiteSmoke,
                     Padding = new Padding(5),
-
+                    Tag = com // Gán MayTinhView vào Tag của Panel
                 };
 
-                // Thêm sự kiện Click vào Panel chính (click ở đâu cũng được)
+                // Thêm ContextMenuStrip cho Panel
+                ContextMenuStrip contextMenu = CreateContextMenu(com);
+                pnCom.ContextMenuStrip = contextMenu;
+
+                // Thêm sự kiện Click vào Panel chính
                 pnCom.Click += PnCom_Click;
 
                 // Tạo một Panel chứa toàn bộ các control
-                Panel containerPanel = new Panel()
+                Panel containerPanel = new Panel
                 {
                     Dock = DockStyle.Fill,
                     BackColor = Color.Transparent,
-                    Tag = com
+                    Tag = com // Gán MayTinhView vào Tag của ContainerPanel
                 };
 
-                // Gọi sự kiện Click của pnCom khi click vào containerPanel
+                // Thêm ContextMenuStrip cho ContainerPanel
+                containerPanel.ContextMenuStrip = contextMenu;
                 containerPanel.Click += ContainerPanel_Click;
 
                 // Đường dẫn ảnh
                 string projectPath = AppDomain.CurrentDomain.BaseDirectory;
-                string imageOfflinePath = Path.Combine(projectPath, @"..\..\..\Resources\Monitor\Offline.png");
-                string imageOnlinePath = Path.Combine(projectPath, @"..\..\..\Resources\Monitor\Online.png");
+                string imageOfflinePath = System.IO.Path.Combine(projectPath, @"..\..\..\Resources\Monitor\Offline.png");
+                string imageOnlinePath = System.IO.Path.Combine(projectPath, @"..\..\..\Resources\Monitor\Online.png");
 
                 // Tạo PictureBox để hiển thị trạng thái máy tính
-                PictureBox pbComputer = new PictureBox()
+                PictureBox pbComputer = new PictureBox
                 {
                     Width = MayTinhDAO.PicWidth,
                     Height = MayTinhDAO.PicHeight,
                     SizeMode = PictureBoxSizeMode.Zoom,
                     Image = com.TrangThai == "Trống" ? Image.FromFile(imageOfflinePath) : Image.FromFile(imageOnlinePath),
                     Location = new Point((pnCom.Width - MayTinhDAO.PicWidth) / 2, 0),
-                    Tag = com
+                    Tag = com // Gán MayTinhView vào Tag của PictureBox
                 };
+                pbComputer.ContextMenuStrip = contextMenu; // Thêm ContextMenuStrip cho PictureBox
                 pbComputer.Click += PbComputer_Click;
+
                 // Tạo Label hiển thị tên máy tính
-                Label lbComputerName = new Label()
+                Label lbComputerName = new Label
                 {
                     AutoSize = true,
                     Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold),
                     Text = com.TenMay,
                     Location = new Point(30, pbComputer.Bottom + 5),
-                    TextAlign = ContentAlignment.MiddleCenter
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Tag = com // Gán MayTinhView vào Tag của Label
                 };
+                lbComputerName.ContextMenuStrip = contextMenu; // Thêm ContextMenuStrip cho Label
                 lbComputerName.Click += LbComputerName_Click;
-                decimal bangGia = com.BangGia ?? 10000; // Mặc định nếu null thì lấy 10.000đ/h
-                decimal tienConLai = com.TienConLai ?? 0; // Mặc định nếu null thì là 0
 
-                // Tính thời gian còn lại (phút)
+                decimal bangGia = com.BangGia ?? 10000M; // Mặc định nếu null thì lấy 10.000đ/h
+                decimal? tienConLai = com.TienConLai ?? 0M; // Mặc định nếu null thì là 0
+
                 decimal thoiGianConLai = bangGia > 0 ? (decimal)(tienConLai / bangGia * 60) : 0;
 
                 Label lbTimeUsed = new Label
@@ -2284,40 +2336,207 @@ namespace CyberManagementProject
                     Height = 25,
                     Location = new Point(5, lbComputerName.Bottom + 5),
                     TextAlign = ContentAlignment.MiddleCenter,
-                    Name = $"lbTimeUsed{com.IDPhien ?? 0}" // Đặt tên động
+                    Name = $"lbTimeUsed{com.IDPhien ?? 0}", // Đặt tên động
+                    Tag = com // Gán MayTinhView vào Tag của Label
                 };
-
+                lbTimeUsed.ContextMenuStrip = contextMenu; // Thêm ContextMenuStrip cho Label
                 lbTimeUsed.Click += LbTimeUsed_Click;
-                // Tạo Label hiển thị tên khách hàng
-                Label lbUserName = new Label()
+
+                Label lbUserName = new Label
                 {
                     Text = string.IsNullOrEmpty(com.TKKhachHang) ? "Trống" : com.TKKhachHang,
                     Width = pnCom.Width - 10,
                     Height = 25,
                     Location = new Point(5, lbTimeUsed.Bottom + 5),
-                    TextAlign = ContentAlignment.MiddleCenter
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Tag = com // Gán MayTinhView vào Tag của Label
                 };
+                lbUserName.ContextMenuStrip = contextMenu; // Thêm ContextMenuStrip cho Label
                 lbUserName.Click += LbUserName_Click;
-                // Thêm các control vào Panel chứa
 
                 pnCom.Controls.Add(pbComputer);
                 pnCom.Controls.Add(lbComputerName);
                 pnCom.Controls.Add(lbTimeUsed);
                 pnCom.Controls.Add(lbUserName);
-
-                // Thêm Panel chứa vào Panel chính
-
                 pnCom.Controls.Add(containerPanel);
-                // Thêm Panel chính vào FlowLayoutPanel
+
                 flpComputer.Controls.Add(pnCom);
             }
         }
 
-        void LoadComputerBindingByComputer(MayTinhView data)
+        /// <summary>
+        /// Tạo ContextMenuStrip cho một máy tính dựa trên trạng thái, sử dụng Tag của control để lấy MayTinhView.
+        /// </summary>
+        /// <param name="computer">Đối tượng MayTinhView mặc định (cập nhật từ Tag).</param>
+        /// <returns>ContextMenuStrip được tạo.</returns>
+        /// 
+        private ContextMenuStrip CreateFlpContextMenu()
+        {
+            ContextMenuStrip contextMenu = new ContextMenuStrip();
+
+            // Thêm tùy chọn "Quản lý tất cả máy" (tương ứng btnManageAllCom_Click)
+            ToolStripMenuItem manageAllItem = new ToolStripMenuItem("Quản lý máy");
+            manageAllItem.Click += btnManageAllCom_Click; // Gọi trực tiếp sự kiện nút
+            contextMenu.Items.Add(manageAllItem);
+
+            return contextMenu;
+        }
+        private ContextMenuStrip CreateContextMenu(MayTinhView computer)
+        {
+            ContextMenuStrip contextMenu = new ContextMenuStrip();
+
+            // Lấy MayTinhView từ Tag của control nhấp chuột phải
+            contextMenu.Opening += (s, e) =>
+            {
+                if (contextMenu.SourceControl != null && contextMenu.SourceControl.Tag is MayTinhView currentComputer)
+                {
+                    computer = currentComputer; // Cập nhật computer từ Tag
+                }
+                else
+                {
+                    e.Cancel = true; // Hủy menu nếu không lấy được dữ liệu
+                }
+            };
+
+            // Thêm tùy chọn "Nạp tiền" (cmsCom_AddMoney) - tương ứng btnExtraMoney_Click
+            if (computer.TrangThai != "Trống" && computer.IDPhien.HasValue)
+            {
+                ToolStripMenuItem addMoneyItem = new ToolStripMenuItem("Nạp tiền");
+                addMoneyItem.Name = "cmsCom_AddMoney";
+                addMoneyItem.Click += (s, e) => btnExtraMoney_Click(s, e);
+                contextMenu.Items.Add(addMoneyItem);
+            }
+
+            // Thêm tùy chọn "Quản lý máy" (cmsCom_OpenCom) - Ẩn khi máy đang sử dụng
+            if (computer.TrangThai == "Trống" || !computer.IDPhien.HasValue) // Chỉ hiển thị khi máy trống
+            {
+                ToolStripMenuItem manageItem = new ToolStripMenuItem("Mở máy");
+                manageItem.Name = "cmsCom_OpenCom";
+                manageItem.Click += (s, e) => btnManageComputer_Click(s, e);
+                contextMenu.Items.Add(manageItem);
+            }
+
+            // Thêm tùy chọn "Tắt máy" (cmsCom_ShutDown) - tương ứng btnShutDownComputer_Click
+            if (computer.TrangThai != "Trống" && computer.IDPhien.HasValue)
+            {
+                ToolStripMenuItem shutDownItem = new ToolStripMenuItem("Tắt máy");
+                shutDownItem.Name = "cmsCom_ShutDown";
+                shutDownItem.Click += (s, e) => btnShutDownComputer_Click(s, e);
+                contextMenu.Items.Add(shutDownItem);
+            }
+
+            // Thêm tùy chọn "Thêm dịch vụ" (cmsCom_AddService) - tương ứng btnAddServices_Click
+            if (computer.TrangThai != "Trống" && computer.IDPhien.HasValue)
+            {
+                ToolStripMenuItem addServiceItem = new ToolStripMenuItem("Thêm dịch vụ");
+                addServiceItem.Name = "cmsCom_AddService";
+                addServiceItem.Click += (s, e) => btnAddServices_Click(s, e);
+                contextMenu.Items.Add(addServiceItem);
+            }
+            // Thêm tùy chọn "Quản lý máy" (luôn hiển thị)
+            ToolStripMenuItem manageComItem = new ToolStripMenuItem("Quản lý máy");
+            manageComItem.Click += (s, e) =>
+            {
+                if (computer != null)
+                {
+                    MayTinh mayTinh = MayTinhDAO.Instance.LoadComputerById(computer.IDMayTinh);
+                    using (frmManageComputers frm = new frmManageComputers(mayTinh))
+                    {
+                        frm.ShowDialog();
+                        LoadComputerList();
+                    }
+                }
+            };
+            contextMenu.Items.Add(manageComItem);
+            // Thêm tùy chọn "Làm mới" (luôn hiển thị)
+            ToolStripMenuItem refreshItem = new ToolStripMenuItem("Làm mới");
+            refreshItem.Click += (s, e) => LoadComputerList();
+            contextMenu.Items.Add(refreshItem);
+
+            return contextMenu;
+        }
+        private MayTinhView GetSelectedComputerFromContext(object sender)
+        {
+            if (sender is ToolStripMenuItem menuItem && menuItem.Owner is ContextMenuStrip contextMenu)
+            {
+                return contextMenu.SourceControl?.Tag as MayTinhView;
+            }
+            return flpComputer.Tag as MayTinhView; // Fallback to flpComputer.Tag nếu không từ ContextMenu
+        }
+       private void RefreshSingleComputer(int idMayTinh)
+{
+    // Lấy thông tin mới từ VW_MayTinhStatus
+    MayTinhView updatedComputer = MayTinhDAO.Instance.LoadComputerViewById(idMayTinh);
+    if (updatedComputer != null)
+    {
+        // Tìm Panel tương ứng trong flpComputer
+        foreach (Control control in flpComputer.Controls)
+        {
+            if (control is Panel pn && pn.Tag is MayTinhView currentComputer && currentComputer.IDMayTinh == idMayTinh)
+            {
+                // Cập nhật Tag của Panel
+                pn.Tag = updatedComputer;
+                
+                // Cập nhật các control bên trong Panel
+                foreach (Control innerControl in pn.Controls)
+                {
+                    // Cập nhật Tag cho tất cả các control
+                    innerControl.Tag = updatedComputer;
+                    
+                    // Cập nhật PictureBox
+                    if (innerControl is PictureBox pbComputer)
+                    {
+                        string projectPath = AppDomain.CurrentDomain.BaseDirectory;
+                        string imageOfflinePath = System.IO.Path.Combine(projectPath, @"..\..\..\Resources\Monitor\Offline.png");
+                        string imageOnlinePath = System.IO.Path.Combine(projectPath, @"..\..\..\Resources\Monitor\Online.png");
+                        pbComputer.Image = updatedComputer.TrangThai == "Trống" ? Image.FromFile(imageOfflinePath) : Image.FromFile(imageOnlinePath);
+                    }
+                    // Cập nhật Label tên máy
+                    else if (innerControl is Label lb && lb.Font.Bold && lb.AutoSize)
+                    {
+                        lb.Text = updatedComputer.TenMay;
+                    }
+                    // Cập nhật Label thời gian
+                    else if (innerControl is Label lbt && lbt.Name.StartsWith("lbTimeUsed"))
+                    {
+                        decimal bangGia = updatedComputer.BangGia ?? 10000M;
+                        decimal? tienConLai = updatedComputer.TienConLai ?? 0M;
+                        decimal thoiGianConLai = bangGia > 0 ? (decimal)(tienConLai / bangGia * 60) : 0;
+                        lbt.Text = thoiGianConLai > 0 ? TimeSpan.FromMinutes((double)thoiGianConLai).ToString(@"hh\:mm\:ss") : "00:00:00";
+                        lbt.Name = $"lbTimeUsed{updatedComputer.IDPhien ?? 0}"; // Cập nhật tên dựa trên IDPhien mới
+                    }
+                    // Cập nhật Label tên người dùng (thường là label cuối cùng)
+                    else if (innerControl is Label lbn && !lbn.Name.StartsWith("lbTimeUsed") && !lbn.AutoSize)
+                    {
+                        lbn.Text = string.IsNullOrEmpty(updatedComputer.TKKhachHang) ? "Trống" : updatedComputer.TKKhachHang;
+                    }
+                    // Cập nhật Panel con (nếu có)
+                    else if (innerControl is Panel containerPanel)
+                    {
+                        containerPanel.Tag = updatedComputer;
+                    }
+                }
+                
+                // Cập nhật binding nếu cần
+                if (flpComputer.Tag is MayTinhView taggedComputer && taggedComputer.IDMayTinh == idMayTinh)
+                {
+                    LoadComputerBindingByComputer(updatedComputer);
+                }
+                
+                break;
+            }
+        }
+    }
+    else
+    {
+        // Nếu không tìm thấy máy, làm mới toàn bộ để đảm bảo đồng bộ
+        LoadComputerList();
+    }
+}
+        private void LoadComputerBindingByComputer(MayTinhView data)
         {
             LoadButton();
             computuberStatus.DataSource = data;
-
             gbxComputerInfor.DataBindings.Clear();
             tbxUserAccount.DataBindings.Clear();
             tbxComputerStatus.DataBindings.Clear();
@@ -2331,14 +2550,12 @@ namespace CyberManagementProject
             if (data.TrangThai != "Trống")
             {
                 tbxUserAccount.DataBindings.Add(new Binding("Text", computuberStatus, "TKKhachHang"));
-
-                // Tính thời gian còn lại dựa trên TienConLai và BangGia
                 Binding timeBinding = new Binding("Text", computuberStatus, "TienConLai", true, DataSourceUpdateMode.OnPropertyChanged);
                 timeBinding.Format += (s, e) =>
                 {
                     if (e.Value != null && decimal.TryParse(e.Value.ToString(), out decimal tienConLai))
                     {
-                        decimal bangGia = data.BangGia ?? 10000; // Mặc định 10.000đ/h nếu null
+                        decimal bangGia = data.BangGia ?? 10000M;
                         double thoiGianConLai = bangGia > 0 ? (double)(tienConLai / bangGia * 60) : 0;
                         e.Value = TimeSpan.FromMinutes(thoiGianConLai).ToString(@"hh\:mm\:ss");
                     }
@@ -2348,20 +2565,15 @@ namespace CyberManagementProject
                     }
                 };
                 tbxTimeLeft.DataBindings.Add(timeBinding);
-
-                // Lấy ID phiên của khách hàng trong máy tính hiện tại
                 int idPhien = data.IDPhien ?? 0;
-                tbxMoneyAdd.Text = idPhien > 0
-                    ? $"{CyberManager.GetTongTienNap(idPhien):N0} đ"
-                    : "0 đ";
+                tbxMoneyAdd.Text = idPhien > 0 ? $"{CyberManager.GetTongTienNap(idPhien):N0} VNĐ" : "0 VNĐ";
             }
         }
 
-
-        void ShowOrderedFood(int id)
+        private void ShowOrderedFood(int id)
         {
             lvServices.Items.Clear();
-            CultureInfo culture = new CultureInfo("vi-VN");
+            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VN");
             List<OrderedFood> listOrderedFood = OrderedFoodDAO.Instance.GetListOrderedFoodByComputer(id);
             float totalPrice = 0;
             foreach (OrderedFood item in listOrderedFood)
@@ -2369,11 +2581,9 @@ namespace CyberManagementProject
                 ListViewItem lsvItem = new ListViewItem(item.FoodName.ToString());
                 lsvItem.SubItems.Add(item.Price.ToString("c", culture));
                 lsvItem.SubItems.Add(item.Count.ToString());
-
                 lvServices.Items.Add(lsvItem);
                 totalPrice += item.TotalPrice;
             }
-
             tbxMoneyCost.Text = totalPrice.ToString("c", culture);
         }
 

@@ -69,7 +69,17 @@ namespace CyberManagementProject.DAO
             }
             return computers;
         }
+        public MayTinhView LoadComputerViewById(int idMayTinh)
+        {
+            string query = "SELECT * FROM VW_MayTinhStatus WHERE IDMayTinh = @IDMayTinh";
+            DataTable data = DataProvider.Instance.ExcuteQuery(query, new object[] { idMayTinh });
 
+            if (data.Rows.Count > 0)
+            {
+                return new MayTinhView(data.Rows[0]);
+            }
+            return null;
+        }
         public DataTable LoadListKhachHang()
         {
             string query = "EXEC USP_LoadListKhachHangAvilable";
