@@ -2241,7 +2241,6 @@ namespace CyberManagementProject
         void LoadTrongThoai()
         {
             LoadComputerList();
-
             LoadButton();
             CyberManager.KhoiPhucPhienDangChay();
 
@@ -2307,7 +2306,7 @@ namespace CyberManagementProject
                     Location = new Point((pnCom.Width - MayTinhDAO.PicWidth) / 2, 0),
                     Tag = com // Gán MayTinhView vào Tag của PictureBox
                 };
-                pbComputer.ContextMenuStrip = contextMenu; // Thêm ContextMenuStrip cho PictureBox
+                pbComputer.ContextMenuStrip = contextMenu;
                 pbComputer.Click += PbComputer_Click;
 
                 // Tạo Label hiển thị tên máy tính
@@ -2320,17 +2319,26 @@ namespace CyberManagementProject
                     TextAlign = ContentAlignment.MiddleCenter,
                     Tag = com // Gán MayTinhView vào Tag của Label
                 };
-                lbComputerName.ContextMenuStrip = contextMenu; // Thêm ContextMenuStrip cho Label
+                lbComputerName.ContextMenuStrip = contextMenu;
                 lbComputerName.Click += LbComputerName_Click;
 
                 decimal bangGia = com.BangGia ?? 10000M; // Mặc định nếu null thì lấy 10.000đ/h
                 decimal? tienConLai = com.TienConLai ?? 0M; // Mặc định nếu null thì là 0
 
-                decimal thoiGianConLai = bangGia > 0 ? (decimal)(tienConLai / bangGia * 60) : 0;
+                double thoiGianConLai = 0;
+                if (bangGia > 0 && tienConLai > 0)
+                {
+                    thoiGianConLai = (double)(tienConLai / bangGia * 60); // Chuyển sang phút
+                    if (thoiGianConLai > 60000) // Giới hạn tối đa 1000 giờ
+                    {
+                        thoiGianConLai = 60000; // Cắt ở 1000 giờ
+                    }
+                }
 
+                // Tạo Label hiển thị thời gian còn lại
                 Label lbTimeUsed = new Label
                 {
-                    Text = thoiGianConLai > 0 ? TimeSpan.FromMinutes((double)thoiGianConLai).ToString(@"hh\:mm\:ss") : "00:00:00",
+                    Text = thoiGianConLai > 0 ? TimeSpan.FromMinutes(thoiGianConLai).ToString(@"d\.hh\:mm\:ss") : "0:00:00",
                     Width = pnCom.Width - 10,
                     Height = 25,
                     Location = new Point(5, lbComputerName.Bottom + 5),
@@ -2338,7 +2346,7 @@ namespace CyberManagementProject
                     Name = $"lbTimeUsed{com.IDPhien ?? 0}", // Đặt tên động
                     Tag = com // Gán MayTinhView vào Tag của Label
                 };
-                lbTimeUsed.ContextMenuStrip = contextMenu; // Thêm ContextMenuStrip cho Label
+                lbTimeUsed.ContextMenuStrip = contextMenu;
                 lbTimeUsed.Click += LbTimeUsed_Click;
 
                 Label lbUserName = new Label
@@ -2350,7 +2358,7 @@ namespace CyberManagementProject
                     TextAlign = ContentAlignment.MiddleCenter,
                     Tag = com // Gán MayTinhView vào Tag của Label
                 };
-                lbUserName.ContextMenuStrip = contextMenu; // Thêm ContextMenuStrip cho Label
+                lbUserName.ContextMenuStrip = contextMenu;
                 lbUserName.Click += LbUserName_Click;
 
                 pnCom.Controls.Add(pbComputer);
@@ -2362,7 +2370,6 @@ namespace CyberManagementProject
                 flpComputer.Controls.Add(pnCom);
             }
         }
-
         /// <summary>
         /// Tạo ContextMenuStrip cho một máy tính dựa trên trạng thái, sử dụng Tag của control để lấy MayTinhView.
         /// </summary>
@@ -2462,76 +2469,86 @@ namespace CyberManagementProject
             }
             return flpComputer.Tag as MayTinhView; // Fallback to flpComputer.Tag nếu không từ ContextMenu
         }
-       private void RefreshSingleComputer(int idMayTinh)
-{
-    // Lấy thông tin mới từ VW_MayTinhStatus
-    MayTinhView updatedComputer = MayTinhDAO.Instance.LoadComputerViewById(idMayTinh);
-    if (updatedComputer != null)
-    {
-        // Tìm Panel tương ứng trong flpComputer
-        foreach (Control control in flpComputer.Controls)
+        private void RefreshSingleComputer(int idMayTinh)
         {
-            if (control is Panel pn && pn.Tag is MayTinhView currentComputer && currentComputer.IDMayTinh == idMayTinh)
+            // Lấy thông tin mới từ VW_MayTinhStatus
+            MayTinhView updatedComputer = MayTinhDAO.Instance.LoadComputerViewById(idMayTinh);
+            if (updatedComputer != null)
             {
-                // Cập nhật Tag của Panel
-                pn.Tag = updatedComputer;
-                
-                // Cập nhật các control bên trong Panel
-                foreach (Control innerControl in pn.Controls)
+                // Tìm Panel tương ứng trong flpComputer
+                foreach (Control control in flpComputer.Controls)
                 {
-                    // Cập nhật Tag cho tất cả các control
-                    innerControl.Tag = updatedComputer;
-                    
-                    // Cập nhật PictureBox
-                    if (innerControl is PictureBox pbComputer)
+                    if (control is Panel pn && pn.Tag is MayTinhView currentComputer && currentComputer.IDMayTinh == idMayTinh)
                     {
-                        string projectPath = AppDomain.CurrentDomain.BaseDirectory;
-                        string imageOfflinePath = System.IO.Path.Combine(projectPath, @"..\..\..\Resources\Monitor\Offline.png");
-                        string imageOnlinePath = System.IO.Path.Combine(projectPath, @"..\..\..\Resources\Monitor\Online.png");
-                        pbComputer.Image = updatedComputer.TrangThai == "Trống" ? Image.FromFile(imageOfflinePath) : Image.FromFile(imageOnlinePath);
-                    }
-                    // Cập nhật Label tên máy
-                    else if (innerControl is Label lb && lb.Font.Bold && lb.AutoSize)
-                    {
-                        lb.Text = updatedComputer.TenMay;
-                    }
-                    // Cập nhật Label thời gian
-                    else if (innerControl is Label lbt && lbt.Name.StartsWith("lbTimeUsed"))
-                    {
-                        decimal bangGia = updatedComputer.BangGia ?? 10000M;
-                        decimal? tienConLai = updatedComputer.TienConLai ?? 0M;
-                        decimal thoiGianConLai = bangGia > 0 ? (decimal)(tienConLai / bangGia * 60) : 0;
-                        lbt.Text = thoiGianConLai > 0 ? TimeSpan.FromMinutes((double)thoiGianConLai).ToString(@"hh\:mm\:ss") : "00:00:00";
-                        lbt.Name = $"lbTimeUsed{updatedComputer.IDPhien ?? 0}"; // Cập nhật tên dựa trên IDPhien mới
-                    }
-                    // Cập nhật Label tên người dùng (thường là label cuối cùng)
-                    else if (innerControl is Label lbn && !lbn.Name.StartsWith("lbTimeUsed") && !lbn.AutoSize)
-                    {
-                        lbn.Text = string.IsNullOrEmpty(updatedComputer.TKKhachHang) ? "Trống" : updatedComputer.TKKhachHang;
-                    }
-                    // Cập nhật Panel con (nếu có)
-                    else if (innerControl is Panel containerPanel)
-                    {
-                        containerPanel.Tag = updatedComputer;
+                        // Cập nhật Tag của Panel
+                        pn.Tag = updatedComputer;
+
+                        // Cập nhật các control bên trong Panel
+                        foreach (Control innerControl in pn.Controls)
+                        {
+                            // Cập nhật Tag cho tất cả các control
+                            innerControl.Tag = updatedComputer;
+
+                            // Cập nhật PictureBox
+                            if (innerControl is PictureBox pbComputer)
+                            {
+                                string projectPath = AppDomain.CurrentDomain.BaseDirectory;
+                                string imageOfflinePath = System.IO.Path.Combine(projectPath, @"..\..\..\Resources\Monitor\Offline.png");
+                                string imageOnlinePath = System.IO.Path.Combine(projectPath, @"..\..\..\Resources\Monitor\Online.png");
+                                pbComputer.Image = updatedComputer.TrangThai == "Trống" ? Image.FromFile(imageOfflinePath) : Image.FromFile(imageOnlinePath);
+                            }
+                            // Cập nhật Label tên máy
+                            else if (innerControl is Label lb && lb.Font.Bold && lb.AutoSize)
+                            {
+                                lb.Text = updatedComputer.TenMay;
+                            }
+                            // Cập nhật Label thời gian
+                            else if (innerControl is Label lbt && lbt.Name.StartsWith("lbTimeUsed"))
+                            {
+                                decimal bangGia = updatedComputer.BangGia ?? 10000M;
+                                decimal? tienConLai = updatedComputer.TienConLai ?? 0M;
+                                double thoiGianConLai = 0;
+
+                                if (bangGia > 0 && tienConLai > 0)
+                                {
+                                    thoiGianConLai = (double)(tienConLai / bangGia * 60); // Chuyển sang phút
+                                    if (thoiGianConLai > 60000) // Giới hạn tối đa 1000 giờ
+                                    {
+                                        thoiGianConLai = 60000; // Cắt ở 1000 giờ
+                                    }
+                                }
+
+                                lbt.Text = thoiGianConLai > 0 ? TimeSpan.FromMinutes(thoiGianConLai).ToString(@"d\.hh\:mm\:ss") : "0:00:00";
+                                lbt.Name = $"lbTimeUsed{updatedComputer.IDPhien ?? 0}"; // Cập nhật tên dựa trên IDPhien mới
+                            }
+                            // Cập nhật Label tên người dùng (thường là label cuối cùng)
+                            else if (innerControl is Label lbn && !lbn.Name.StartsWith("lbTimeUsed") && !lbn.AutoSize)
+                            {
+                                lbn.Text = string.IsNullOrEmpty(updatedComputer.TKKhachHang) ? "Trống" : updatedComputer.TKKhachHang;
+                            }
+                            // Cập nhật Panel con (nếu có)
+                            else if (innerControl is Panel containerPanel)
+                            {
+                                containerPanel.Tag = updatedComputer;
+                            }
+                        }
+                        CreateContextMenu(updatedComputer);
+                        // Cập nhật binding nếu cần
+                        if (flpComputer.Tag is MayTinhView taggedComputer && taggedComputer.IDMayTinh == idMayTinh)
+                        {
+                            LoadComputerBindingByComputer(updatedComputer);
+                        }
+
+                        break;
                     }
                 }
-                
-                // Cập nhật binding nếu cần
-                if (flpComputer.Tag is MayTinhView taggedComputer && taggedComputer.IDMayTinh == idMayTinh)
-                {
-                    LoadComputerBindingByComputer(updatedComputer);
-                }
-                
-                break;
+            }
+            else
+            {
+                // Nếu không tìm thấy máy, làm mới toàn bộ để đảm bảo đồng bộ
+                LoadComputerList();
             }
         }
-    }
-    else
-    {
-        // Nếu không tìm thấy máy, làm mới toàn bộ để đảm bảo đồng bộ
-        LoadComputerList();
-    }
-}
         private void LoadComputerBindingByComputer(MayTinhView data)
         {
             LoadButton();
@@ -2555,12 +2572,25 @@ namespace CyberManagementProject
                     if (e.Value != null && decimal.TryParse(e.Value.ToString(), out decimal tienConLai))
                     {
                         decimal bangGia = data.BangGia ?? 10000M;
-                        double thoiGianConLai = bangGia > 0 ? (double)(tienConLai / bangGia * 60) : 0;
-                        e.Value = TimeSpan.FromMinutes(thoiGianConLai).ToString(@"hh\:mm\:ss");
+                        double thoiGianConLai = 0;
+
+                        if (bangGia > 0 && tienConLai > 0)
+                        {
+                            thoiGianConLai = (double)(tienConLai / bangGia * 60); // Chuyển sang phút
+                            if (thoiGianConLai > 60000) // Giới hạn tối đa 1000 giờ
+                            {
+                                thoiGianConLai = 60000; // Cắt ở 1000 giờ
+                            }
+                            e.Value = TimeSpan.FromMinutes(thoiGianConLai).ToString(@"d\.hh\:mm\:ss");
+                        }
+                        else
+                        {
+                            e.Value = "0:00:00";
+                        }
                     }
                     else
                     {
-                        e.Value = "00:00:00";
+                        e.Value = "0:00:00";
                     }
                 };
                 tbxTimeLeft.DataBindings.Add(timeBinding);
@@ -2568,7 +2598,6 @@ namespace CyberManagementProject
                 tbxMoneyAdd.Text = idPhien > 0 ? $"{CyberManager.GetTongTienNap(idPhien):N0} VNĐ" : "0 VNĐ";
             }
         }
-
         private void ShowOrderedFood(int id)
         {
             lvServices.Items.Clear();

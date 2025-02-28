@@ -108,7 +108,7 @@ namespace CyberManagementProject.Computer
 
         private void btnUpdateComputer_Click(object sender, EventArgs e)
         {
-            if (!MayTinhDAO.Instance.isInUseComputer())
+            if (MayTinhDAO.Instance.isInUseComputer())
             {
                 MessageBox.Show("Còn máy đang hoạt động không thể thực hiện cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
